@@ -3,6 +3,7 @@ import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, Touch
 import Icon from 'react-native-vector-icons/Ionicons';
 import Detail_main from './Detail_main';
 import CustomButton from './component/CustomButton';
+import Nft_simple_info from './component/Nft_simple_info';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -53,6 +54,16 @@ export default class MainScreen extends React.Component {
           <CustomButton
             button_title={'제안하기'}
             onPress={() => this.goSam_pleScreen()}/>
+        </View>
+        
+        <View style={{marginTop: 30, marginLeft: 30}}>
+          <Text style={styles.korbiBtn}>핫한 작품</Text>
+        </View>
+
+        <View style={{alignContent: 'center'}}>
+          <Nft_simple_info />
+          <Nft_simple_info />
+          <Nft_simple_info />
         </View>
 
       </ScrollView>

@@ -1,10 +1,8 @@
-//메인 상세정보 frame
-
-/*import React from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Timer_nft_info from './component/Timer_nft_info';
+import Timer_nft_info from './Timer_nft_info';
 
-const App = () => {
+const Nft_simple_info = () => {
     return(
       <View style={styles.container}>
         <View style={styles.cardContainer}>
@@ -25,10 +23,9 @@ const App = () => {
             
             <View style={styles.cost_colum}>
               <Text style={styles.nft_cost}>0.1ETH</Text>
-              <Timer_nft_info />
+                <Timer_nft_info />
             </View>
         
-          
           </View>
         </View>
       );
@@ -39,6 +36,8 @@ const styles = StyleSheet.create({
       flex:1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
       justifyContent: 'center', //수직에서 중앙으로 정렬
       alignItems:'center', //수평에서 중앙으로 정렬
+      marginTop: 20,
+      marginBottom: 20,
     },
     cardContainer:{
       backgroundColor: '#d3d3d3',
@@ -107,4 +106,4 @@ const styles = StyleSheet.create({
   
 })
   
-export default App;*/
+export default Nft_simple_info;
