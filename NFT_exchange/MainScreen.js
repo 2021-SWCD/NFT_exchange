@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -15,9 +15,7 @@ const images = [
 
 
 
-
-
-export default class App extends React.Component {
+export default class MainScreen extends React.Component {
 
   render() {
     return (
@@ -27,7 +25,7 @@ export default class App extends React.Component {
 
         <View style={styles.topView}>
           <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
-          <TouchableOpacity><Text style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+          <TouchableOpacity><Text onPress={() => this.goLoginScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
 
         </View>
 
@@ -64,6 +62,11 @@ export default class App extends React.Component {
 
 
     );
+  }
+
+  goLoginScreen(){
+    // LoginScreen으로 화면 이동
+    this.props.navigation.navigate('LOGIN');
   }
 }
 
@@ -131,4 +134,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
 
   }
-});*/
+});

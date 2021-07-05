@@ -1,11 +1,11 @@
-/*import React from 'react';
-import { Image,TextInput,StyleSheet, Text, View, ScrollView ,TouchableOpacity} from 'react-native';
+import React from 'react';
+import { Image,TextInput,StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
 
-export default class App extends React.Component {
+export default class LoginScreen extends React.Component {
 
   render() {
     return (
@@ -30,7 +30,7 @@ export default class App extends React.Component {
               placeholder="비밀번호"           
        />
 
-       <TouchableOpacity><Text style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+       <TouchableOpacity><Text onPress={() => this.goMainScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
       
           
                    
@@ -42,6 +42,11 @@ export default class App extends React.Component {
       
       
     );
+  }
+
+  goMainScreen(){
+    // MainScreen으로 화면 이동
+    this.props.navigation.navigate('MAIN');
   }
 }
 
@@ -125,4 +130,4 @@ const styles = StyleSheet.create({
   },
  
   
-});*/
+});
