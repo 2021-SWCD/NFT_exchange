@@ -1,5 +1,4 @@
 //메인 상세정보 frame component
-
 /*import React, { Component } from 'react'
 import {StyleSheet, View, Text, Button, TouchableOpacity, TouchableOpacityBase} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -49,7 +48,7 @@ function DetailsScreen() {
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const Main_detail_frame = () => {
     return (
         <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
@@ -110,5 +109,4 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
   },
 });
 
-export default App;*/
-
+export default Main_detail_frame;*/
