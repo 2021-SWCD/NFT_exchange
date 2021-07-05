@@ -43,7 +43,7 @@ const Timer_main_detail = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //marginLeft: 10,
+    marginLeft: 13,
   },
 });
 

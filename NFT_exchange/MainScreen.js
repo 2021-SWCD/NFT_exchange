@@ -23,7 +23,6 @@ export default class MainScreen extends React.Component {
 
       <ScrollView style={styles.container}>
 
-
         <View style={styles.topView}>
           <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
           <TouchableOpacity><Text onPress={() => this.goLoginScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
@@ -57,7 +56,7 @@ export default class MainScreen extends React.Component {
         </ScrollView>
         </View>
 
-        <View>
+        <View style={{marginTop: 10, marginLeft: 30}}>
           <Detail_main />
         </View>
 
