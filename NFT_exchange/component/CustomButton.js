@@ -30,6 +30,7 @@ export default class CustomButton extends Component{
 
 const styles = StyleSheet.create({
     button: {
+        marginTop: 15,
         marginLeft: 20,
         borderRadius: 40,
         width: 140,

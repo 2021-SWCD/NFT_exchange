@@ -2,9 +2,6 @@ import React from 'react';
 import { Image,TextInput,StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
-
-
 export default class LoginScreen extends React.Component {
 
   render() {
@@ -31,16 +28,9 @@ export default class LoginScreen extends React.Component {
        />
 
        <TouchableOpacity><Text onPress={() => this.goMainScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
-      
-          
-                   
-      
-        
+
       </View>
-      
-      
-      
-      
+
     );
   }
 

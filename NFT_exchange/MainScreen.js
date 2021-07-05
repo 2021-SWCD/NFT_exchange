@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Detail_main from './Detail_main';
+import CustomButton from './component/CustomButton';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -13,8 +14,6 @@ const images = [
   'http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg'
 
 ]
-
-
 
 export default class MainScreen extends React.Component {
 
@@ -58,19 +57,22 @@ export default class MainScreen extends React.Component {
 
         <View style={{marginTop: 10, marginLeft: 30}}>
           <Detail_main />
+          <CustomButton
+            button_title={'제안하기'}
+            onPress={() => this.goSam_pleScreen()}/>
         </View>
 
       </ScrollView>
-
-
-
-
     );
   }
 
   goLoginScreen(){
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
+  }
+  goSam_pleScreen(){
+    //SampleScreen으로 이동
+    this.props.navigation.navigate('SAMPLE');
   }
 }
 
