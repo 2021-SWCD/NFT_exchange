@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -131,4 +131,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
 
   }
-});
+});*/
