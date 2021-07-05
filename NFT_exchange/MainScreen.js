@@ -4,11 +4,11 @@ import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, Touch
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
-import Detail_main from './detail_main';
+import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info from './component/Nft_simple_info';
-
-
+import Profile from './component/Profile';
+import NFT_name from './component/NFT_name';
 
 
 const { width } = Dimensions.get("window");
@@ -47,8 +47,7 @@ export default class MainScreen extends React.Component {
 
           <TextInput
             style={styles.searchbar}      
-            placeholder="작품명 검색"
-         />
+            placeholder="작품명 검색"/>
 
           <Icon  style={styles.reset} name="close-outline" size={26} />
 
@@ -72,6 +71,9 @@ export default class MainScreen extends React.Component {
         </View>
 
         <View style={{marginTop: 10, marginLeft: 30}}>
+          <Profile 
+            onPress={() => this.goArtist_Screen()}/>
+          <NFT_name />
           <Detail_main />
           <CustomButton
             button_title={'제안하기'}
@@ -95,6 +97,12 @@ export default class MainScreen extends React.Component {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
   }
+
+  goArtist_Screen(){
+    // ARTIST_screen으로 화면 이동
+    this.props.navigation.navigate('ARTIST');
+}
+
   goSam_pleScreen(){
     //SampleScreen으로 이동
     this.props.navigation.navigate('SAMPLE');

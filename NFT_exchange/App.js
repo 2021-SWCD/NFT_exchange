@@ -6,6 +6,7 @@ import MainScreen from './MainScreen';
 import LoginScreen from './LoginScreen';
 import Sam_pleScreen from './Sam_pleScreen';
 import WrongSearch from './WrongSearch';
+import Artist_Screen from './Artist_Screen';
  
 const Stack = createStackNavigator();
 function App() {
@@ -17,9 +18,10 @@ function App() {
           />
         <Stack.Screen name="LOGIN" component={LoginScreen} 
           />
+        <Stack.Screen name="ARTIST" component={Artist_Screen}
+          />
         <Stack.Screen name="SAMPLE" component={Sam_pleScreen}
           />
-        
         <Stack.Screen name="WRONG" component={WrongSearch}
           />
       </Stack.Navigator>
