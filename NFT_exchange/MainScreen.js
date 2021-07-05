@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Detail_main from './Detail_main';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -54,7 +55,11 @@ export default class MainScreen extends React.Component {
           ))
           }
         </ScrollView>
-      </View>
+        </View>
+
+        <View>
+          <Detail_main />
+        </View>
 
       </ScrollView>
 

@@ -6,7 +6,7 @@ import 'react-native-gesture-handler';
 import Timer_main_detail from './component/Timer_main_detail';
 import CustomButton from './component/CustomButton';
 
-function HomeScreen({ navigation }) {
+const Detail_main = ({ navigation }) => {
     return (
         <View style={styles.container}>
         <View style={styles.elem}>
@@ -29,15 +29,14 @@ function HomeScreen({ navigation }) {
         </View>
         <View style={styles.elem}>
             <CustomButton
-              button_title={'제안하기'}
-              onPress={() => navigation.navigate('Details')}/>
+              button_title={'제안하기'}/>
         </View>
       </View>
     );
 }
 
 
-function DetailsScreen() {
+/*function DetailsScreen() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
@@ -56,7 +55,7 @@ const App = () => {
         </Stack.Navigator>
         </NavigationContainer>
     );
-};
+};*/
 
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
   container: {
@@ -108,4 +107,4 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
   },
 });
 
-export default App;
+export default Detail_main;
