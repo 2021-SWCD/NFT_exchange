@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     nft_cost: {
       fontSize: 20,
       paddingLeft: 20,
+      fontWeight: 'bold',
     },
   
     nft_time: {
