@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen';
 import LoginScreen from './LoginScreen';
 import Sam_pleScreen from './Sam_pleScreen';
+import WrongSearch from './WrongSearch';
  
 const Stack = createStackNavigator();
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <Stack.Screen name="LOGIN" component={LoginScreen} 
           />
         <Stack.Screen name="SAMPLE" component={Sam_pleScreen}
+          />
+        
+        <Stack.Screen name="WRONG" component={WrongSearch}
           />
       </Stack.Navigator>
       

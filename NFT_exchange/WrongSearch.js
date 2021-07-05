@@ -11,17 +11,6 @@ import Nft_simple_info from './component/Nft_simple_info';
 
 
 
-const { width } = Dimensions.get("window");
-const height = width * 0.5;
-const images = [
-  'https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg',
-  'https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg',
-  'http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg',
-  'http://www.economyf.com/pds_update/umg_20200528234240.jpg',
-  'http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg'
-
-]
-
 
 
 export default class MainScreen extends React.Component {
@@ -43,7 +32,7 @@ export default class MainScreen extends React.Component {
         <View style={styles.midView}>
 
         
-          <Icon onPress={() => this.goWrongSearch()} style={styles.search} name="ios-search-outline" size={27} />
+          <Icon style={styles.search} name="ios-search-outline" size={27} />
 
           <TextInput
             style={styles.searchbar}      
@@ -58,28 +47,16 @@ export default class MainScreen extends React.Component {
 
         </View>
 
-        <View style={{ marginTop: 30, width,height }}>
-          <ScrollView  pagingEnabled horizontal style={{width,height}}>
-
-            {images.map((image, index) => (
-              <Image
-                key={index}
-                source={{ uri: image }}
-                style={{ width, height, resizeMode: 'contain' }} />
-              ))
-            }
-          </ScrollView>
+        <View style={{marginTop: 90,alignItems : 'center' }}>
+        <Icon style={styles.sad} name="sad-outline" size={45} />
+          <Text style={styles.wrong_text}>검색 결과를 찾을 수 없어요.</Text>
+          <Text style={styles.wrong_text}>다른 검색어로 검색해주세요.</Text>
         </View>
-
-        <View style={{marginTop: 10, marginLeft: 30}}>
-          <Detail_main />
-          <CustomButton
-            button_title={'제안하기'}
-            onPress={() => this.goSam_pleScreen()}/>
-        </View>
-        
-        <View style={{marginTop: 30, marginLeft: 30}}>
-          <Text style={styles.korbiBtn}>핫한 작품</Text>
+       
+       
+        <View style={{marginTop: 120, marginLeft: 30, flexDirection: 'row',}}>
+        <Icon style={styles.fire} name="flame" size={31} />
+          <Text style={styles.hot_text}>핫한 작품</Text>
         </View>
 
         <View style={{alignContent: 'center'}}>
@@ -98,11 +75,6 @@ export default class MainScreen extends React.Component {
   goSam_pleScreen(){
     //SampleScreen으로 이동
     this.props.navigation.navigate('SAMPLE');
-  }
-
-  goWrongSearch(){
-    //WrongSearch으로 이동
-    this.props.navigation.navigate('WRONG');
   }
 }
 
@@ -157,6 +129,34 @@ const styles = StyleSheet.create({
   qrcode: {
     color: 'black',
     marginLeft : 10
+
+  },
+  sad: {
+    color: 'black',
+    marginBottom : 20,
+
+  },
+  
+  fire: {
+    color: 'red',
+    marginLeft : 10,
+
+
+  },
+  wrong_text: {
+    marginLeft : 10,
+    marginBottom : 5,
+    fontSize: 22,
+    fontWeight : 'bold'
+
+  },
+  
+  hot_text: {
+    marginLeft: 8,
+    marginRight: 20,
+  
+    fontSize: 25,
+    fontWeight: 'bold',
 
   },
   scrollView: {
