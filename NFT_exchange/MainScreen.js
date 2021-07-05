@@ -9,7 +9,7 @@ import CustomButton from './component/CustomButton';
 import Nft_simple_info from './component/Nft_simple_info';
 import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
-
+import Hot_text from './component/Hot_text';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -80,8 +80,8 @@ export default class MainScreen extends React.Component {
             onPress={() => this.goSam_pleScreen()}/>
         </View>
         
-        <View style={{marginTop: 30, marginLeft: 30}}>
-          <Text style={styles.korbiBtn}>핫한 작품</Text>
+        <View>
+          <Hot_text />
         </View>
 
         <View style={{alignContent: 'center'}}>

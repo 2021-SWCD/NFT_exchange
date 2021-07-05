@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info from './component/Nft_simple_info';
+import Hot_text from './component/Hot_text';
 
 
 
@@ -15,10 +16,10 @@ import Nft_simple_info from './component/Nft_simple_info';
 
 export default class MainScreen extends React.Component {
 
-  
+
   render() {
 
-   
+
 
     return (
 
@@ -31,35 +32,34 @@ export default class MainScreen extends React.Component {
 
         <View style={styles.midView}>
 
-        
+
           <Icon style={styles.search} name="ios-search-outline" size={27} />
 
           <TextInput
-            style={styles.searchbar}      
+            style={styles.searchbar}
             placeholder="작품명 검색"
-         />
+          />
 
-          <Icon  style={styles.reset} name="close-outline" size={26} />
+          <Icon style={styles.reset} name="close-outline" size={26} />
 
           <Icon style={styles.qrcode} name="qr-code-outline" size={26} />
 
-          
+
 
         </View>
 
-        <View style={{marginTop: 90,alignItems : 'center' }}>
-        <Icon style={styles.sad} name="sad-outline" size={45} />
+        <View style={{ marginTop: 90, alignItems: 'center' }}>
+          <Icon style={styles.sad} name="sad-outline" size={45} />
           <Text style={styles.wrong_text}>검색 결과를 찾을 수 없어요.</Text>
           <Text style={styles.wrong_text}>다른 검색어로 검색해주세요.</Text>
         </View>
-       
-       
-        <View style={{marginTop: 120, marginLeft: 30, flexDirection: 'row',}}>
-        <Icon style={styles.fire} name="flame" size={31} />
-          <Text style={styles.hot_text}>핫한 작품</Text>
+
+
+        <View >
+          <Hot_text />
         </View>
 
-        <View style={{alignContent: 'center'}}>
+        <View style={{ alignContent: 'center' }}>
           <Nft_simple_info />
           <Nft_simple_info />
           <Nft_simple_info />
@@ -68,11 +68,11 @@ export default class MainScreen extends React.Component {
       </ScrollView>
     );
   }
-  goLoginScreen(){
+  goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
   }
-  goSam_pleScreen(){
+  goSam_pleScreen() {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SAMPLE');
   }
@@ -123,38 +123,39 @@ const styles = StyleSheet.create({
   searchbar: {
     marginLeft: 12,
     width: 280,
-    fontSize : 16
+    fontSize: 16
 
   },
   qrcode: {
     color: 'black',
-    marginLeft : 10
+    marginLeft: 10
 
   },
   sad: {
     color: 'black',
-    marginBottom : 20,
+    marginBottom: 20,
 
   },
-  
+
+
+  wrong_text: {
+    marginLeft: 10,
+    marginBottom: 5,
+    fontSize: 22,
+    fontWeight: 'bold'
+
+  },
   fire: {
     color: 'red',
-    marginLeft : 10,
+    marginLeft: 10,
 
 
   },
-  wrong_text: {
-    marginLeft : 10,
-    marginBottom : 5,
-    fontSize: 22,
-    fontWeight : 'bold'
 
-  },
-  
   hot_text: {
     marginLeft: 8,
     marginRight: 20,
-  
+
     fontSize: 25,
     fontWeight: 'bold',
 
