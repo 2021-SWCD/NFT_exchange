@@ -19,6 +19,7 @@ function App() {
         <Stack.Screen name="SAMPLE" component={Sam_pleScreen}
           />
       </Stack.Navigator>
+      
     </NavigationContainer>
   );
 }

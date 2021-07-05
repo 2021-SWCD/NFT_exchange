@@ -16,7 +16,6 @@ const images = [
 ]
 
 export default class MainScreen extends React.Component {
-
   render() {
     return (
 
@@ -25,34 +24,28 @@ export default class MainScreen extends React.Component {
         <View style={styles.topView}>
           <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
           <TouchableOpacity><Text onPress={() => this.goLoginScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
-
         </View>
 
         <View style={styles.midView}>
           <Icon style={styles.search} name="ios-search-outline" size={27} />
-
           <TextInput
             style={styles.searchbar}      
             placeholder="작품명 검색"
           />
-
           <Icon style={styles.qrcode} name="qr-code-outline" size={26} />
-
         </View>
 
         <View style={{ marginTop: 30, width,height }}>
-        <ScrollView  pagingEnabled horizontal style={{width,height}}>
+          <ScrollView  pagingEnabled horizontal style={{width,height}}>
 
-          {images.map((image, index) => (
-            <Image
-              key={index}
-              source={{ uri: image }}
-              style={{ width, height, resizeMode: 'contain' }} />
-
-
-          ))
-          }
-        </ScrollView>
+            {images.map((image, index) => (
+              <Image
+                key={index}
+                source={{ uri: image }}
+                style={{ width, height, resizeMode: 'contain' }} />
+              ))
+            }
+          </ScrollView>
         </View>
 
         <View style={{marginTop: 10, marginLeft: 30}}>
@@ -65,7 +58,6 @@ export default class MainScreen extends React.Component {
       </ScrollView>
     );
   }
-
   goLoginScreen(){
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
@@ -77,7 +69,6 @@ export default class MainScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: 'white'
