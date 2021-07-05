@@ -30,14 +30,14 @@ export default class MainScreen extends React.Component {
         </View>
 
         <View style={styles.midView}>
-          <Icon style={styles.search} name="ios-search-outline" size={25} />
+          <Icon style={styles.search} name="ios-search-outline" size={27} />
 
           <TextInput
-            style={styles.searchbar}      //searchbar 설정은 안해둠
+            style={styles.searchbar}      
             placeholder="작품명 검색"
           />
 
-          <Icon style={styles.qrcode} name="qr-code-outline" size={25} />
+          <Icon style={styles.qrcode} name="qr-code-outline" size={26} />
 
         </View>
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
   topView: {
     flexDirection: 'row',
-    flex: 1.2,
+    height: 55,
     backgroundColor: 'white',
     justifyContent: 'space-between',
     alignItems: 'center'
@@ -103,22 +103,24 @@ const styles = StyleSheet.create({
   midView: {
 
     flexDirection: 'row',
-    flex: 1.2,
+    height: 60,
     backgroundColor: '#EEEEEE',
     alignItems: 'center',
 
   },
   search: {
     color: 'black',
-    marginLeft: 20
+    marginLeft: 22
   },
   searchbar: {
-    marginLeft: 10,
-    width: 250,
+    marginLeft: 12,
+    width: 280,
+    fontSize : 16
 
   },
   qrcode: {
     color: 'black',
+    marginLeft : 10
 
   },
   scrollView: {

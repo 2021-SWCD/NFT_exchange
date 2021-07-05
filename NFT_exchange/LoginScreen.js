@@ -12,7 +12,7 @@ export default class LoginScreen extends React.Component {
       
     <View style={styles.container}>  
 
-       <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
+       <TouchableOpacity><Text onPress={() => this.goMainScreen()} style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
        <Text style={styles.login}>로그인</Text>
        <Text style={styles.safe_txt}>안전한 거래소 이용을 위해 주소창을 확인해주세요.</Text>
        <Text style={styles.link_txt}>
@@ -54,33 +54,33 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+    backgroundColor : 'white'
   },
   korbiBtn:{
-   marginLeft:30,
-   marginRight:20,
-   marginTop:25,
+   marginLeft:50,
+   marginTop:30,
    marginBottom:10,
    fontSize: 25,
    fontWeight:'bold', 
   },
   login:{
-   marginLeft:30,
+   marginLeft:50,
    marginRight:20,
    marginTop:25,
    marginBottom:10,
-   fontSize: 25,
+   fontSize: 28,
    fontWeight:'bold', 
   },
   safe_txt:{
    marginTop : 10,
-   marginLeft:30,
+   marginLeft:50,
    marginRight:20,
    fontSize: 14,
   
   },
   link_txt:{
    marginTop : 8,
-   marginLeft:30,
+   marginLeft:50,
    marginRight:20,  
    marginBottom:20,  
    fontSize: 14,
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
   input:{
     height : 51,
     marginTop : 16,
-    marginLeft: 30,
+    marginLeft: 50,
     marginRight: 30,
-    width : 300, 
-    borderWidth : 0.2,
+    width : 310, 
+    borderWidth : 0.8,
     borderColor : '#AAAAAA',
     paddingLeft : 15,
     borderRadius : 3,
@@ -116,10 +116,10 @@ const styles = StyleSheet.create({
 
  loginBtn:{
    height : 51,
-   marginTop : 30,
-   marginLeft: 30,
+   marginTop : 40,
+   marginLeft: 50,
    marginRight: 30,
-   width : 300, 
+   width : 310, 
    backgroundColor : '#0064ff',
    fontSize: 15,
    fontWeight:'normal',    
