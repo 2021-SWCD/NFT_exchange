@@ -73,11 +73,11 @@ export default class MainScreen extends React.Component {
         <View style={{marginTop: 10, marginLeft: 30}}>
           <Profile 
             onPress={() => this.goArtist_Screen()}/>
-          <NFT_name />
+          <NFT_name 
+            onPress={() => this.goNFT_detailScreen()}/>
           <Detail_main />
           <CustomButton
-            button_title={'제안하기'}
-            onPress={() => this.goSam_pleScreen()}/>
+            onPress={() => this.goNFT_detailScreen()}/>
         </View>
         
         <View>
@@ -103,9 +103,9 @@ export default class MainScreen extends React.Component {
     this.props.navigation.navigate('ARTIST');
 }
 
-  goSam_pleScreen(){
+  goNFT_detailScreen(){
     //SampleScreen으로 이동
-    this.props.navigation.navigate('SAMPLE');
+    this.props.navigation.navigate('SUGESST');
   }
 
   goWrongSearch(){

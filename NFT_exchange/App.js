@@ -4,9 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
  
 import MainScreen from './MainScreen';
 import LoginScreen from './LoginScreen';
-import Sam_pleScreen from './Sam_pleScreen';
 import WrongSearch from './WrongSearch';
 import Artist_Screen from './Artist_Screen';
+import NFT_detailScreen from './NFT_detailScreen';
  
 const Stack = createStackNavigator();
 function App() {
@@ -20,7 +20,7 @@ function App() {
           />
         <Stack.Screen name="ARTIST" component={Artist_Screen}
           />
-        <Stack.Screen name="SAMPLE" component={Sam_pleScreen}
+        <Stack.Screen name="SUGESST" component={NFT_detailScreen}
           />
         <Stack.Screen name="WRONG" component={WrongSearch}
           />

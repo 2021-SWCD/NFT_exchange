@@ -1,4 +1,6 @@
 //버튼 커스텀을 위한 컴포넌트
+//제안하기 버튼
+
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
 
@@ -21,7 +23,7 @@ export default class CustomButton extends Component{
             onPress={this.props.onPress}>
                 <Text style={[
                     styles.button_title,
-                ]}>{this.props.button_title}</Text>
+                ]}>제안하기</Text>
             </TouchableOpacity>
         )
     }

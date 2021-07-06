@@ -1,13 +1,15 @@
 import React from 'react'
-import {StyleSheet, View, Text, Button, TouchableOpacity, TouchableOpacityBase} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity,} from 'react-native';
 import 'react-native-gesture-handler';
 
 export default class nft_name extends React.Component {
     render(){
         return (
-            <View style={styles.container}>
-              <Text style={styles.nft_name}>NATURE</Text>
-            </View>
+            <TouchableOpacity onPress={this.props.onPress}>
+                <View style={styles.container}>
+                        <Text style={styles.nft_name}>NATURE</Text>
+                </View>
+            </TouchableOpacity>
         );
     }
 }
