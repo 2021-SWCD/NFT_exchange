@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -28,6 +28,34 @@ const images = [
 
 ]
 
+const Input = () => {
+
+  const [text, setText] = useState('');
+  return (
+    <>
+      <View style = {styles.searchView} >
+        <TextInput
+          style={styles.searchbar}
+          placeholder="작품명 검색"
+          value={text}
+          onChangeText={text => setText(text)}
+
+        />
+
+        <TouchableOpacity>
+
+
+          <Icon onPress={() => setText('')} style={styles.reset} name="close-outline" size={30} />
+
+
+        </TouchableOpacity>
+      </View>
+
+    </>
+  );
+
+}
+
 
 
 export default class MainScreen extends React.Component {
@@ -55,9 +83,13 @@ export default class MainScreen extends React.Component {
             onPress={() => this.goWrongSearch()}
           />
 
-          <Search_input />
+          
 
-          <Icon style={styles.reset} name="close-outline" size={26} />
+
+          <Input />
+          
+
+
 
           <Qrcode />
 
@@ -81,8 +113,8 @@ export default class MainScreen extends React.Component {
           <Profile
             onPress={() => this.goArtist_Screen()} />
           <NFT_name
-            title = {'NATURE'}
-            marginLeft = {20}
+            title={'NATURE'}
+            marginLeft={20}
             onPress={() => this.goNFT_detailScreen()} />
           <Detail_main />
           <CustomButton
@@ -95,7 +127,7 @@ export default class MainScreen extends React.Component {
 
         <View style={{ alignContent: 'center' }}>
           <Nft_simple_info_cardContainer>
-            
+
           </Nft_simple_info_cardContainer>
         </View>
 
@@ -140,6 +172,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
+  searchView:{
+    flexDirection: 'row',
+    
+  },
   korbiBtn: {
     marginLeft: 20,
     marginRight: 20,
@@ -171,8 +207,13 @@ const styles = StyleSheet.create({
   },
   searchbar: {
     marginLeft: 12,
-    width: 280,
+    width: 260,
     fontSize: 16
+
+  },
+  reset: {
+    color: 'black',
+    marginTop : 9,
 
   },
   qrcode: {
