@@ -1,28 +1,31 @@
-import React from 'react'
-import {StyleSheet, View, Text, TouchableOpacity,} from 'react-native';
-import 'react-native-gesture-handler';
+import React, { Component } from 'react';
+import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
 
-export default class nft_name extends React.Component {
-    render(){
-        return (
-            <TouchableOpacity onPress={this.props.onPress}>
-                <View style={styles.container}>
-                        <Text style={styles.nft_name}>NATURE</Text>
-                </View>
-            </TouchableOpacity>
-        );
-    }
-}
-
-const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
-    container: {
-      flex:1,
-    },
-    
-    nft_name: {
+export default class NFT_name extends Component{
+    static defaultProps = {
+        title: 'untitled',
+        titleColor: 'black',
         fontSize: 40,
         fontWeight: 'bold',
         marginLeft: 20,
         marginTop: 10,
-    },
-});
+        onPress: () => null,
+    }
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return (
+            <TouchableOpacity onPress={this.props.onPress}>
+                <Text style={[
+                    {color: this.props.titleColor},
+                    {fontSize: this.props.fontSize},
+                    {fontWeight: this.props.fontWeight},
+                    {marginLeft: this.props.marginLeft},
+                    {marginTop: this.props.marginTop},
+                ]}>{this.props.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+}

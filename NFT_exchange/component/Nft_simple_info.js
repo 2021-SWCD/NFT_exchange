@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Timer_nft_info from './Timer_nft_info';
+import NFT_name from './NFT_name';
+import NFT_detailScreen from '../NFT_detailScreen';
 
-const Nft_simple_info = () => {
+
+export default class Nft_simple_info extends Component{
+  render(){
     return(
       <View style={styles.container}>
         <View style={styles.cardContainer}>
@@ -13,7 +17,10 @@ const Nft_simple_info = () => {
             </View>
 
             <View>
-              <Text style={styles.nft_Title}>NATURE</Text>
+              <NFT_name
+                title={'NATURE'}
+                fontSize={20}
+                onPress={() => this.goNFT_detailScreen()}/>
             </View>
             
             <View style={styles.elem_user}>
@@ -28,8 +35,13 @@ const Nft_simple_info = () => {
         
           </View>
         </View>
-      );
-};
+    )
+  }
+  goNFT_detailScreen() {
+    //SampleScreen으로 이동
+    this.props.navigation.navigate('SUGESST');
+  }
+}
   
 const styles = StyleSheet.create({
     container:{
@@ -105,5 +117,3 @@ const styles = StyleSheet.create({
     }
   
 })
-  
-export default Nft_simple_info;

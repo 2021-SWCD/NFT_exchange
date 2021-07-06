@@ -80,6 +80,8 @@ export default class MainScreen extends React.Component {
           <Profile
             onPress={() => this.goArtist_Screen()} />
           <NFT_name
+            title = {'NATURE'}
+            marginLeft = {20}
             onPress={() => this.goNFT_detailScreen()} />
           <Detail_main />
           <CustomButton
