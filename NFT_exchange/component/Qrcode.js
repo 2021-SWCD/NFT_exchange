@@ -20,7 +20,8 @@ export default class Qrcode extends React.Component {
 const styles = StyleSheet.create({
     qrcode: {
         color: 'black',
-        marginLeft: 10
+        marginLeft: 10,
+        marginTop : 10,
     
       },
       

@@ -20,7 +20,9 @@ export default class Search_icons extends React.Component {
 const styles = StyleSheet.create({
     search: {
         color: 'black',
-        marginLeft: 22
+        marginLeft: 22,
+        marginTop : 10,
+        
       },
 }
 )

@@ -44,6 +44,11 @@ const Input = () => {
   return (
     <>
       <View style={styles.searchView} >
+
+      <Search_icons
+         //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
+          />
+
         <TextInput
           style={styles.searchbar}
           placeholder="작품명 검색"
@@ -59,6 +64,8 @@ const Input = () => {
 
 
         </TouchableOpacity>
+
+        <Qrcode />
       </View>
 
     </>
@@ -77,7 +84,7 @@ export default class MainScreen extends React.Component {
 
     return (
 
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container}  stickyHeaderIndices={[1]} >
 
         <View style={styles.topView}>
           <Korbit_logo
@@ -89,20 +96,7 @@ export default class MainScreen extends React.Component {
         <View style={styles.midView}>
 
 
-          <Search_icons
-            onPress={() => this.goWrongSearch()}
-          />
-
-
-
-
           <Input />
-
-
-
-
-          <Qrcode />
-
 
         </View>
 
