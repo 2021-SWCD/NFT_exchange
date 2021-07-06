@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info from './component/Nft_simple_info';
+import Nft_simple_info_cardContainer from './component/Nft_simple_info_cardContainer';
 import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
@@ -93,9 +94,9 @@ export default class MainScreen extends React.Component {
         </View>
 
         <View style={{ alignContent: 'center' }}>
-          <Nft_simple_info />
-          <Nft_simple_info />
-          <Nft_simple_info />
+          <Nft_simple_info_cardContainer>
+            
+          </Nft_simple_info_cardContainer>
         </View>
 
       </ScrollView>

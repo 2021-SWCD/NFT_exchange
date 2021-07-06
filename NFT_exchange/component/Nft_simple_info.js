@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Timer_nft_info from './Timer_nft_info';
 import NFT_name from './NFT_name';
-import NFT_detailScreen from '../NFT_detailScreen';
-
 
 export default class Nft_simple_info extends Component{
   render(){
@@ -20,6 +18,7 @@ export default class Nft_simple_info extends Component{
               <NFT_name
                 title={'NATURE'}
                 fontSize={20}
+                fontWeight={null}
                 onPress={() => this.goNFT_detailScreen()}/>
             </View>
             
