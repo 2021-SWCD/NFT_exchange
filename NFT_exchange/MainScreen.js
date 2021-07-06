@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
-import Nft_simple_info from './component/Nft_simple_info';
-import Nft_simple_info_cardContainer from './component/Nft_simple_info_cardContainer';
+import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
+import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
 import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
@@ -109,8 +109,10 @@ export default class MainScreen extends React.Component {
           </ScrollView>
         </View>
 
+        {/*여기 부터가 detail_main입니다.*/}
         <View style={{ marginTop: 10, marginLeft: 30 }}>
           <Profile
+            title={'hyunji'}
             onPress={() => this.goArtist_Screen()} />
           <NFT_name
             title={'NATURE'}
@@ -125,10 +127,21 @@ export default class MainScreen extends React.Component {
           <Hot_text />
         </View>
 
-        <View style={{ alignContent: 'center' }}>
-          <Nft_simple_info_cardContainer>
-
-          </Nft_simple_info_cardContainer>
+        {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
+        <View style={{ marginTop: 10, marginLeft: 55 }}>
+            <Nft_simple_info_cardImage 
+              onPress={() => this.goNFT_detailScreen()}/>
+            <View style={styles.cardContainer}>
+              <NFT_name 
+                title={'NATURE'}
+                fontSize={20}
+                onPress={() => this.goNFT_detailScreen()}/>
+              <Profile 
+                title={'hyunji'}
+                onPress={() => this.goArtist_Screen()}/>
+              <Nft_simple_info_costtime 
+                nft_cost={'0.01ETH'}/>
+            </View>
         </View>
 
       </ScrollView>
@@ -233,5 +246,14 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
 
-  }
+  },
+  cardContainer:{
+    backgroundColor: '#d3d3d3',
+    borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
+    borderBottomRightRadius: 20,
+    marginBottom: 20,
+    width:300,
+    height: 150,
+  },
+
 });
