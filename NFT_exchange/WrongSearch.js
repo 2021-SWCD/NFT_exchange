@@ -8,6 +8,11 @@ import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info from './component/Nft_simple_info';
 import Hot_text from './component/Hot_text';
+import Login_btn from './component/Login_btn';
+import Korbit_logo from './component/Korbit_logo';
+import Search_icons from './component/Search_icons';
+import Search_input from './component/Search_input';
+import Qrcode from './component/Qrcode';
 
 
 
@@ -26,24 +31,23 @@ export default class MainScreen extends React.Component {
       <ScrollView style={styles.container}>
 
         <View style={styles.topView}>
-          <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
-          <TouchableOpacity><Text onPress={() => this.goLoginScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+          <Korbit_logo
+            onPress={() => this.goMainScreen()} />
+          <Login_btn
+            onPress={() => this.goLoginScreen()} />
         </View>
 
         <View style={styles.midView}>
 
 
-          <Icon style={styles.search} name="ios-search-outline" size={27} />
+          <Search_icons
+            />
 
-          <TextInput
-            style={styles.searchbar}
-            placeholder="작품명 검색"
-          />
+          <Search_input />
 
           <Icon style={styles.reset} name="close-outline" size={26} />
 
-          <Icon style={styles.qrcode} name="qr-code-outline" size={26} />
-
+          <Qrcode />
 
 
         </View>
@@ -76,6 +80,12 @@ export default class MainScreen extends React.Component {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SAMPLE');
   }
+  goMainScreen() {
+    //MainScreen으로 이동
+    this.props.navigation.navigate('MAIN');
+  }
+
+
 }
 
 const styles = StyleSheet.create({

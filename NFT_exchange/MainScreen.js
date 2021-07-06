@@ -10,6 +10,11 @@ import Nft_simple_info from './component/Nft_simple_info';
 import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
+import Login_btn from './component/Login_btn';
+import Korbit_logo from './component/Korbit_logo';
+import Search_icons from './component/Search_icons';
+import Search_input from './component/Search_input';
+import Qrcode from './component/Qrcode';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -26,65 +31,66 @@ const images = [
 
 export default class MainScreen extends React.Component {
 
-  
+
   render() {
 
-   
+
 
     return (
 
       <ScrollView style={styles.container}>
 
         <View style={styles.topView}>
-          <TouchableOpacity><Text style={styles.korbiBtn}>korbit</Text></TouchableOpacity>
-          <TouchableOpacity><Text onPress={() => this.goLoginScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+          <Korbit_logo
+            onPress={() => this.goMainScreen()} />
+          <Login_btn
+            onPress={() => this.goLoginScreen()} />
         </View>
 
         <View style={styles.midView}>
 
-        
-          <Icon onPress={() => this.goWrongSearch()} style={styles.search} name="ios-search-outline" size={27} />
 
-          <TextInput
-            style={styles.searchbar}      
-            placeholder="작품명 검색"/>
+          <Search_icons
+            onPress={() => this.goWrongSearch()}
+          />
 
-          <Icon  style={styles.reset} name="close-outline" size={26} />
+          <Search_input />
 
-          <Icon style={styles.qrcode} name="qr-code-outline" size={26} />
+          <Icon style={styles.reset} name="close-outline" size={26} />
 
-          
+          <Qrcode />
+
 
         </View>
 
-        <View style={{ marginTop: 30, width,height }}>
-          <ScrollView  pagingEnabled horizontal style={{width,height}}>
+        <View style={{ marginTop: 30, width, height }}>
+          <ScrollView pagingEnabled horizontal style={{ width, height }}>
 
             {images.map((image, index) => (
               <Image
                 key={index}
                 source={{ uri: image }}
                 style={{ width, height, resizeMode: 'contain' }} />
-              ))
+            ))
             }
           </ScrollView>
         </View>
 
-        <View style={{marginTop: 10, marginLeft: 30}}>
-          <Profile 
-            onPress={() => this.goArtist_Screen()}/>
-          <NFT_name 
-            onPress={() => this.goNFT_detailScreen()}/>
+        <View style={{ marginTop: 10, marginLeft: 30 }}>
+          <Profile
+            onPress={() => this.goArtist_Screen()} />
+          <NFT_name
+            onPress={() => this.goNFT_detailScreen()} />
           <Detail_main />
           <CustomButton
-            onPress={() => this.goNFT_detailScreen()}/>
+            onPress={() => this.goNFT_detailScreen()} />
         </View>
-        
+
         <View>
           <Hot_text />
         </View>
 
-        <View style={{alignContent: 'center'}}>
+        <View style={{ alignContent: 'center' }}>
           <Nft_simple_info />
           <Nft_simple_info />
           <Nft_simple_info />
@@ -93,24 +99,28 @@ export default class MainScreen extends React.Component {
       </ScrollView>
     );
   }
-  goLoginScreen(){
+  goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
   }
 
-  goArtist_Screen(){
+  goArtist_Screen() {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
-}
+  }
 
-  goNFT_detailScreen(){
+  goNFT_detailScreen() {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SUGESST');
   }
 
-  goWrongSearch(){
+  goWrongSearch() {
     //WrongSearch으로 이동
     this.props.navigation.navigate('WRONG');
+  }
+  goMainScreen() {
+    //MainScreen으로 이동
+    this.props.navigation.navigate('MAIN');
   }
 }
 
@@ -159,12 +169,12 @@ const styles = StyleSheet.create({
   searchbar: {
     marginLeft: 12,
     width: 280,
-    fontSize : 16
+    fontSize: 16
 
   },
   qrcode: {
     color: 'black',
-    marginLeft : 10
+    marginLeft: 10
 
   },
   scrollView: {
