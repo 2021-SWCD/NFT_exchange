@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -31,9 +31,19 @@ const images = [
 const Input = () => {
 
   const [text, setText] = useState('');
+
+  var opa_num; // 공백일 경우 0, 아닐경우 1로해서 바로 투명도 조절.
+
+  if (text == '') {
+    opa_num = 0
+  }
+  else {
+    opa_num = 1
+  }
+
   return (
     <>
-      <View style = {styles.searchView} >
+      <View style={styles.searchView} >
         <TextInput
           style={styles.searchbar}
           placeholder="작품명 검색"
@@ -42,10 +52,10 @@ const Input = () => {
 
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setText('')}>
 
 
-          <Icon onPress={() => setText('')} style={styles.reset} name="close-outline" size={30} />
+          <Icon  style={{opacity:opa_num, marginTop : 8}} name="close-outline" size={30} />
 
 
         </TouchableOpacity>
@@ -83,11 +93,11 @@ export default class MainScreen extends React.Component {
             onPress={() => this.goWrongSearch()}
           />
 
-          
+
 
 
           <Input />
-          
+
 
 
 
@@ -129,19 +139,19 @@ export default class MainScreen extends React.Component {
 
         {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
         <View style={{ marginTop: 10, marginLeft: 55 }}>
-            <Nft_simple_info_cardImage 
-              onPress={() => this.goNFT_detailScreen()}/>
-            <View style={styles.cardContainer}>
-              <NFT_name 
-                title={'NATURE'}
-                fontSize={20}
-                onPress={() => this.goNFT_detailScreen()}/>
-              <Profile 
-                title={'hyunji'}
-                onPress={() => this.goArtist_Screen()}/>
-              <Nft_simple_info_costtime 
-                nft_cost={'0.01ETH'}/>
-            </View>
+          <Nft_simple_info_cardImage
+            onPress={() => this.goNFT_detailScreen()} />
+          <View style={styles.cardContainer}>
+            <NFT_name
+              title={'NATURE'}
+              fontSize={20}
+              onPress={() => this.goNFT_detailScreen()} />
+            <Profile
+              title={'hyunji'}
+              onPress={() => this.goArtist_Screen()} />
+            <Nft_simple_info_costtime
+              nft_cost={'0.01ETH'} />
+          </View>
         </View>
 
       </ScrollView>
@@ -185,9 +195,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
-  searchView:{
+  searchView: {
     flexDirection: 'row',
-    
+
   },
   korbiBtn: {
     marginLeft: 20,
@@ -224,11 +234,7 @@ const styles = StyleSheet.create({
     fontSize: 16
 
   },
-  reset: {
-    color: 'black',
-    marginTop : 9,
-
-  },
+ 
   qrcode: {
     color: 'black',
     marginLeft: 10
@@ -247,12 +253,12 @@ const styles = StyleSheet.create({
     marginRight: 10,
 
   },
-  cardContainer:{
+  cardContainer: {
     backgroundColor: '#d3d3d3',
     borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     borderBottomRightRadius: 20,
     marginBottom: 20,
-    width:300,
+    width: 300,
     height: 150,
   },
 
