@@ -14,7 +14,6 @@ export default class NFT_name extends Component{
     constructor(props){
         super(props);
     }
-
     render(){
         return (
             <TouchableOpacity onPress={this.props.onPress}>

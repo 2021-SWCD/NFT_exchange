@@ -5,14 +5,11 @@ import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 export default class Korbit_logo extends React.Component {
     render() {
         return (
-            
-
             <View >
             <TouchableOpacity onPress={this.props.onPress}>
                 <Text style={styles.korbiBtn}>korbit</Text>
             </TouchableOpacity>
             </View>
-
         );
     }
 }
