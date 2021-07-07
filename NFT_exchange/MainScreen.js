@@ -132,10 +132,11 @@ export default class MainScreen extends React.Component {
         {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
         <View style={{ marginTop: 10, marginLeft: 55 }}>
           <Nft_simple_info_cardImage
+            source={{uri:'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg'}}
             onPress={() => this.goNFT_detailScreen()} />
           <View style={styles.cardContainer}>
             <NFT_name
-              title={'NATURE'}
+              title={'The hill'}
               fontSize={20}
               onPress={() => this.goNFT_detailScreen()} />
             <Nft_simple_info_Profile
