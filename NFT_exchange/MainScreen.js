@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
+import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
 import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
 import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
@@ -70,7 +71,6 @@ const Input = () => {
 
     </>
   );
-
 }
 
 
@@ -94,7 +94,6 @@ export default class MainScreen extends React.Component {
         </View>
 
         <View style={styles.midView}>
-
 
           <Input />
 
@@ -140,7 +139,7 @@ export default class MainScreen extends React.Component {
               title={'NATURE'}
               fontSize={20}
               onPress={() => this.goNFT_detailScreen()} />
-            <Profile
+            <Nft_simple_info_Profile
               title={'hyunji'}
               onPress={() => this.goArtist_Screen()} />
             <Nft_simple_info_costtime

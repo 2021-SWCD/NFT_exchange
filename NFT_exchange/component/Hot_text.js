@@ -19,10 +19,6 @@ export default class Hot_text extends React.Component {
 }
 
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
-    container: {
-        flex: 1,
-    },
-
 
     fire: {
         color: 'red',

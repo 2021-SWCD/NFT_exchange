@@ -1,9 +1,11 @@
 //Artist_Screen과 이어짐
+//핫한 작품 밑의 작품들의 작가 프로필, 정렬이 도저히 맞지 않아 그냥 따로 제작함
+
 import React from 'react'
 import {StyleSheet, View, Text, TouchableOpacity,} from 'react-native';
 import 'react-native-gesture-handler';
 
-export default class Profile extends React.Component {
+export default class Nft_simple_info_Profile extends React.Component {
     static defaultProps = {
       title: 'untitled',
       titleColor: 'black',
@@ -32,7 +34,7 @@ export default class Profile extends React.Component {
 
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
     elem: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
-      width: '30%',
+      width: '38%',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
