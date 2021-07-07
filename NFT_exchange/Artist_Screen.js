@@ -1,6 +1,6 @@
 //Profile 버튼을 누르면 이어지는 Artist_Screen
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, ScrollView, } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import Korbit_logo from './component/Korbit_logo';
 import Login_btn from './component/Login_btn';
 import Go_main from './component/go_main';
@@ -38,7 +38,7 @@ export default class NFT_detailScreen extends Component {
             marginLeft={240}
             marginTop={null} />
         </View>
-        <View style={{ height: 500 }}>
+        <View style={{ height: 570 }}>
 
           <Image style={{ width: '100%', height: 225, }} source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
           />
@@ -50,10 +50,22 @@ export default class NFT_detailScreen extends Component {
 
           />
 
-          <Profile_text
-            title={'132-333123-342524(비트코인계좌)'} />
+          <Profile_text title={'132-333123-342524(비트코인계좌)'} />
+          <Icon style={styles.copy} name="copy-outline" size={31} />
+
           <Profile_text
             title={'오늘도 멋진 작품을!'} />
+
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 160 }}>
+            <Icon style={styles.twit} name="logo-twitter" size={31} />
+            <Icon style={styles.insta} name="logo-instagram" size={31} />
+          </View>
+
+          <View style={{ alignItems: 'center' }}>
+
+            <Text style={styles.product}>작품</Text>
+
+          </View>
 
 
 
@@ -64,9 +76,9 @@ export default class NFT_detailScreen extends Component {
 
         </View>
 
-        <View style={{  marginLeft: 55 }}>
+        <View style={{ marginLeft: 55 }}>
           <Nft_simple_info_cardImage
-            source={{uri:'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg'}}
+            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
             onPress={() => this.goNFT_detailScreen()} />
           <View style={styles.cardContainer}>
             <NFT_name
@@ -152,6 +164,48 @@ const styles = StyleSheet.create({
 
 
   },
+  copy: {
+    color: 'black',
+    textAlign: 'right',
+    marginTop: -35,
+    marginRight: 45,
+
+
+
+  },
+  twit: {
+    color: 'black',
+    marginTop: 10,
+    marginLeft: 10,
+    alignItems: 'center',
+
+
+
+  },
+  insta: {
+    color: 'black',
+    alignItems: 'center',
+    marginTop: 10,
+    marginLeft: 10,
+
+
+  },
+
+  product: {
+
+    height: 35,
+    marginTop: 50,
+    width: 60,
+    backgroundColor: '#222222',
+    fontSize: 15,
+    paddingTop: 7,
+    paddingLeft: 15,
+    fontWeight: 'bold',
+    color: 'white',
+    borderRadius: 30,
+  },
+
+
 
 
 

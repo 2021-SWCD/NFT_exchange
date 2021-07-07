@@ -8,6 +8,7 @@ export default class Profile_text extends React.Component {
         titleColor: 'black',
         fontSize: 15,
         alignItems: "center",
+        marginBottom: 10,
         
         onPress: () => null,
     }
@@ -24,6 +25,7 @@ export default class Profile_text extends React.Component {
                         { marginTop: this.props.marginTop },
                         { alignItems: this.props.alignItems },
 
+                        { marginBottom: this.props.marginBottom },
                         { marginLeft: this.props.marginLeft },
                     ]}>{this.props.title}</Text>
 
