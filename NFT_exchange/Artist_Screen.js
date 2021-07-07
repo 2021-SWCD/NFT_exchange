@@ -22,7 +22,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class NFT_detailScreen extends Component {
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} >
 
         <View style={styles.topView}>
           <Korbit_logo
@@ -51,7 +51,7 @@ export default class NFT_detailScreen extends Component {
           />
 
           <Profile_text title={'132-333123-342524(비트코인계좌)'} />
-          <Icon style={styles.copy} name="copy-outline" size={31} />
+          <Icon style={styles.copy} name="copy-outline" size={25} />
 
           <Profile_text
             title={'오늘도 멋진 작품을!'} />
@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
   copy: {
     color: 'black',
     textAlign: 'right',
-    marginTop: -35,
-    marginRight: 45,
+    marginTop: -32,
+    marginRight: 55,
 
 
 
