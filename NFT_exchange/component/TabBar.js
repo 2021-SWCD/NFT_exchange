@@ -1,32 +1,31 @@
 import React from 'react'
-import {View} from 'react-native'
+import {View, Text,} from 'react-native'
 import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import First from '../First';
-import Second from '../Second';
-import Third from '../Third';
+import SuggestScreen from '../SuggestScreen';
+import Tab_infoScreen from '../Tab_infoScreen';
 
 const TabBar = createMaterialTopTabNavigator({
-  First: {
-    screen: First,
+    SuggestScreen: {
+    screen: SuggestScreen,
     navigationOptions: {
-      tabBarLabel: 'First',
+      tabBarLabel: 'SuggestScreen',
       tabBarIcon: ({tintColor}) => (
         <View>
           <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
         </View>
       ),
-      initialRouteName: 'Home',
+      initialRouteName: 'SuggestScreen',
       activeColor: '#C71585',
       inactiveColor: '#226557',
       barStyle: {backgroundColor: '#FFC0CB'},
     },
   },
-  Second: {
-    screen: Second,
+  Tab_infoScreen: {
+    screen: Tab_infoScreen,
     navigationOptions: {
-      tabBarLabel: 'Second',
+      tabBarLabel: 'Tab_infoScreen',
       tabBarIcon: ({tintColor}) => (
         <View>
           <Icon
@@ -39,24 +38,6 @@ const TabBar = createMaterialTopTabNavigator({
       activeColor: '#4B0082',
       inactiveColor: '#226557',
       barStyle: {backgroundColor: '#B0C4DE'},
-    },
-  },
-  Third: {
-    screen: Third,
-    navigationOptions: {
-      tabBarLabel: 'Third',
-      tabBarIcon: ({tintColor}) => (
-        <View>
-          <Icon
-            style={[{color: tintColor}]}
-            size={25}
-            name={'ios-settings'}
-          />
-        </View>
-      ),
-      activeColor: '#006400',
-      inactiveColor: '#226557',
-      barStyle: {backgroundColor: '#8FBC8F'},
     },
   },
 },

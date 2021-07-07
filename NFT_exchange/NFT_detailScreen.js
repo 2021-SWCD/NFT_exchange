@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Image, ScrollView, } from 'react-native';
 import Korbit_logo from './component/Korbit_logo';
 import Login_btn from './component/Login_btn';
+import Qrcode from './component/Qrcode';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
 import Profile from './component/Profile';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
-import Qrcode from './component/Qrcode';
+import TabBar from './component/TabBar';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
 export default class NFT_detailScreen extends Component{
@@ -46,8 +47,8 @@ export default class NFT_detailScreen extends Component{
               title = {"NATURE"}/>
             <Detail_main />
             <CustomButton />
+            <TabBar />
           </View>
-
         </ScrollView>
       )
     }
