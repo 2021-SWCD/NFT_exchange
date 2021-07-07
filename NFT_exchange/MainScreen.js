@@ -3,7 +3,6 @@ import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, Touch
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';

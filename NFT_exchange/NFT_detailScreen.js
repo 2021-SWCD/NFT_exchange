@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, ScrollView, } from 'react-native';
+import Korbit_logo from './component/Korbit_logo';
+import Login_btn from './component/Login_btn';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
 import Profile from './component/Profile';
@@ -10,22 +12,51 @@ import CustomButton from './component/CustomButton';
 export default class NFT_detailScreen extends Component{
     render(){
       return(
-        <View style={styles.container}>
-            <Nft_simple_info_cardImage 
-              source={{uri:'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg'}}
-              borderBottomLeftRadius = {20}
-              borderBottomRightRadius = {20}
-              height = {350}/>
-            <View style={styles.colum}>
-              <Profile 
-                title = {"hyunji"}/>
-              <NFT_name 
-                title = {"NATURE"}/>
-              <Detail_main />
-              <CustomButton />
-            </View>
-        </View>
+        <ScrollView style={styles.container}>
+          
+          <View style={styles.topView}>
+            <Korbit_logo
+              onPress={() => this.goMainScreen()} />
+            <Login_btn
+              onPress={() => this.goLoginScreen()} />
+          </View>
+
+          <View style={styles.midView}>
+
+          </View>
+
+          <Nft_simple_info_cardImage 
+            source={{uri:'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg'}}
+            borderBottomLeftRadius = {20}
+            borderBottomRightRadius = {20}
+            marginLeft = {50}
+            height = {450}/>
+
+          <View style={styles.colum}>
+            <Profile 
+              title = {"hyunji"}
+              onPress={() => this.goArtist_Screen()}/>
+            <NFT_name 
+              title = {"NATURE"}/>
+            <Detail_main />
+            <CustomButton />
+          </View>
+
+        </ScrollView>
       )
+    }
+
+    goMainScreen() {
+      //MainScreen으로 이동
+      this.props.navigation.navigate('MAIN');
+    }
+    goLoginScreen() {
+      // LoginScreen으로 화면 이동
+      this.props.navigation.navigate('LOGIN');
+    }
+    goArtist_Screen() {
+      // ARTIST_screen으로 화면 이동
+      this.props.navigation.navigate('ARTIST');
     }
 }
     
@@ -33,16 +64,32 @@ export default class NFT_detailScreen extends Component{
 const styles = StyleSheet.create({
     container:{
       flex:1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
-      justifyContent: 'center', //수직에서 중앙으로 정렬
-      alignItems:'center', //수평에서 중앙으로 정렬
-      marginTop: 20,
+      //justifyContent: 'center', //수직에서 중앙으로 정렬
+      //alignItems:'center', //수평에서 중앙으로 정렬
+      backgroundColor: 'white',
+    },
+
+    topView: {
+      flexDirection: 'row',
+      height: 55,
+      backgroundColor: 'white',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+
+    midView: {
+      flexDirection: 'row',
+      height: 60,
+      backgroundColor: '#EEEEEE',
+      alignItems: 'center',
     },
 
     colum: {
-      width: '90%',
-      height: '43%',
+      width: '80%',
+      height: '25%',
       flexDirection: 'column',
       marginTop: 10,
+      marginLeft: 40,
     },
   
 })
