@@ -8,9 +8,9 @@ export default class Profile extends React.Component {
       title: 'untitled',
       titleColor: 'black',
       fontSize: 20,
-      marginTop: 10,
+      marginTop: 26,
       marginLeft :20,
-      width : 30,
+      width : 150,
       height: 30,
       onPress: () => null,
     }
@@ -21,10 +21,9 @@ export default class Profile extends React.Component {
         return (
             <TouchableOpacity onPress={this.props.onPress}>
                 <View style={styles.elem}>
-                  <View style={[
-                    styles.user_profile,
-                    {marginTop: this.props.marginTop},
-                    ]}/>
+                  <View style={
+                    styles.user_profile
+                    }/>
                   <Text style={[
                     {fontSize: this.props.fontSize},
                     {marginTop: this.props.marginTop},
@@ -52,5 +51,6 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
       borderRadius: 25,
       backgroundColor: 'black',
       marginLeft: 20,
+      marginTop: 18,
     },
 });

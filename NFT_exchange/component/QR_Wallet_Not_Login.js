@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Profile from './component/Profile';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CustomButton from './component/CustomButton';
 
 //이미지 주소 복사를 해서 링크를 붙여넣는다.
-export default class QR_Wallet extends React.Component{
+export default class App extends React.Component{
   static defaultProps = {
     title: 'untitled',
     color: 'black',
@@ -22,28 +23,31 @@ export default class QR_Wallet extends React.Component{
             <View style={styles.Top_Container}>
               <View style={styles.elem}>
                 <Profile 
-                  title = {'minj-j'}
-                  marginTop = {20}>
+                  title = {'로그인이 필요합니다.'}
+                  fontSize = {15}>
                 </Profile>
-                <TouchableOpacity onPress={() => goArtist_Screen()}>
+                <TouchableOpacity onPress={() => goLoginScreen()}>
                   <Icon style={{marginTop: 20}}
                     name="chevron-forward-outline" size={30}></Icon>
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{alignItems: 'center', marginTop: 10}}>
-              <Text style={styles.wrong_text}>이더리움을 입금하려면</Text>
-              <Text style={styles.wrong_text}>아래 QR코드를 스캔하세요</Text>
-              <Image source={{uri: 'https://blog.kakaocdn.net/dn/bqqWTy/btqDQtYuJua/X1KNO1U3u3kzWQBunWOVCK/img.jpg'}}
-                style={{width: 200, height: 200}} />
+            <View style={{alignItems: 'center', marginTop: 55}}>
+              <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
+              <Text style={styles.wrong_text}>로그인이 필요한</Text>
+              <Text style={styles.wrong_text}>서비스 입니다.</Text>
+              <CustomButton 
+                title={'로그인 하기'}
+                marginLeft={22}
+                onPress={() => this.goLoginScreen()}/>
             </View>
           </View>
         </View>
       )
     }
-    goArtist_Screen() {
-        // ARTIST_screen으로 화면 이동
-        this.props.navigation.navigate('ARTIST');
+    goLoginScreen() {
+      // LoginScreen으로 화면 이동
+      this.props.navigation.navigate('LOGIN');
     }
 }
     
