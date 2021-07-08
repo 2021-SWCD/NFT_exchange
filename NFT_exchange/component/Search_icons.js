@@ -9,7 +9,9 @@ export default class Search_icons extends React.Component {
             
 
             <View >
-            <Icon onPress={this.props.onPress} style={styles.search} name="ios-search-outline" size={27} />
+                <TouchableOpacity onPress={this.props.onPress}>
+                    <Icon style={styles.search} name="ios-search-outline" size={27} />
+                </TouchableOpacity>
 
             </View>
 
