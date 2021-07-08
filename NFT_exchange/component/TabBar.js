@@ -49,9 +49,9 @@ const TabBar = createMaterialTopTabNavigator({
     style: {
       backgroundColor: '#000',
         marginTop: 30,
-        width: 200,
+        width: 180,
         borderRadius: 50,
-        marginLeft: 10,
+        marginLeft: 15,
         shadowColor: 'transparent',
     },
     indicatorStyle: {

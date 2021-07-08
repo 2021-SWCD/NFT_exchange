@@ -41,7 +41,7 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
   },
 
   cost_colum: {
-    width: '95%',
+    width: '110%',
     flexDirection: 'column',
     marginTop: 10,
   },

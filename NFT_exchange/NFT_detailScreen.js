@@ -7,7 +7,7 @@ import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
 import Profile from './component/Profile';
-import Detail_main from './component/detail_main';
+import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
 import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 
@@ -48,7 +48,7 @@ export default class NFT_detailScreen extends Component {
             onPress={() => this.goArtist_Screen()} />
           <NFT_name
             title={"NATURE"} />
-          <Detail_main />
+          <NFT_detailScreen_detail_main />
           <CustomButton />
           <TabBar />
         </View>
