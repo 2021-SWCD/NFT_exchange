@@ -3,12 +3,11 @@ import React from 'react'
 import {StyleSheet, View, Text, TouchableOpacity,} from 'react-native';
 import 'react-native-gesture-handler';
 
-export default class Profile extends React.Component {
+export default class NFT_detailScreen_Profile extends React.Component {
     static defaultProps = {
       title: 'untitled',
       titleColor: 'black',
       fontSize: 20,
-      marginTop: 10,
       marginRight: null,
       onPress: () => null,
     }
@@ -23,7 +22,7 @@ export default class Profile extends React.Component {
                   <Text style={[
                     {color: this.props.titleColor},
                     {fontSize: this.props.fontSize},
-                    {marginTop: this.props.marginTop},
+                    {marginTop: 20},
                     {marginRight: this.props.marginRight},
                   ]}>{this.props.title}</Text>
                 </View>
@@ -41,11 +40,10 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
     },
   
     user_profile: { //검정색 원의 프로필
-      width: 30,
-      height: 30,
+      width: 50,
+      height: 50,
       borderRadius: 25,
       backgroundColor: 'black',
-      marginLeft: 20,
-      marginTop: 10,
+      marginTop: 20,
     },
 });
