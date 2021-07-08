@@ -8,7 +8,6 @@ export default class NFT_detailScreen_Profile extends React.Component {
       title: 'untitled',
       titleColor: 'black',
       fontSize: 20,
-      marginRight: null,
       onPress: () => null,
     }
     constructor(props){
@@ -23,7 +22,6 @@ export default class NFT_detailScreen_Profile extends React.Component {
                     {color: this.props.titleColor},
                     {fontSize: this.props.fontSize},
                     {marginTop: 20},
-                    {marginRight: this.props.marginRight},
                   ]}>{this.props.title}</Text>
                 </View>
             </TouchableOpacity>

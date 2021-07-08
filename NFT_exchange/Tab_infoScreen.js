@@ -15,8 +15,7 @@ export default class Tab_infoScreen extends React.Component {
         <Text style={{fontSize : 25, fontWeight: 'bold',}}>소유자</Text>
         <View style={{marginTop: 20, borderTopWidth: 0.5, borderColor: '#DCDCDC',}}/>
         <NFT_detailScreen_Profile 
-        title = {'hyunji'}
-        marginRight = {10}/>
+        title = {'hyunji'}/>
         <View style={{marginTop: 20, borderTopWidth: 0.5, borderColor: '#DCDCDC',}}/>
       </View>
     );

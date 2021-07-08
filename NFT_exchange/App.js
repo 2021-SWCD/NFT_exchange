@@ -7,6 +7,7 @@ import LoginScreen from './LoginScreen';
 import WrongSearch from './WrongSearch';
 import Artist_Screen from './Artist_Screen';
 import NFT_detailScreen from './NFT_detailScreen';
+import Tab_infoScreen from './Tab_infoScreen';
  
 const Stack = createStackNavigator();
 function App() {
@@ -24,6 +25,8 @@ function App() {
           />
         <Stack.Screen name="WRONG" component={WrongSearch}
           />
+        <Stack.Screen name="INFO" component={Tab_infoScreen}
+          />  
       </Stack.Navigator>
       
     </NavigationContainer>
