@@ -49,7 +49,7 @@ export default class NFT_detailScreen extends Component {
           <NFT_name
             title={"NATURE"} />
           <NFT_detailScreen_detail_main />
-          <CustomButton />
+          <CustomButton onPress={() => this.goDetail_buy()} />
           <TabBar />
         </View>
       </ScrollView>
@@ -67,6 +67,10 @@ export default class NFT_detailScreen extends Component {
   goArtist_Screen() {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
+  }
+  goDetail_buy(){
+    // Detail_buy로 화면 이동
+    this.props.navigation.navigate('BUY');
   }
 }
 
