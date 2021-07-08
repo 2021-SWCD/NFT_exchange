@@ -79,7 +79,7 @@ export default class NFT_detailScreen extends Component {
                 <Warn_txt />
 
 
-                <View style={{ alignItems: 'center' }}>
+                <View style={{ alignItems: 'center', position:'absolute', justifyContent:'center',alignItems:'center',top:455 ,left:80}}>
                   <TouchableOpacity><Text onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
                 </View>
               </View>
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
   pop_btn: {
     height: 41,
-    marginTop: 20,
+    marginTop: 10,
     width: 260,
     backgroundColor: '#0064ff',
     fontSize: 15,
