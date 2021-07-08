@@ -66,7 +66,7 @@ export default class NFT_detailScreen extends Component {
 
           <CustomButton onPress={() => { this.setState({ show: true }) }} />
 
-          <View style={{ flex: 1, marginTop: 100 }}>
+          <View style={{ flex:1, marginTop: 100 }}>
             <Modal
               transparent={true}
               visible={this.state.show}
@@ -74,7 +74,7 @@ export default class NFT_detailScreen extends Component {
 
               <View style={{ backgroundColor: "grey", flex: 1 }}>
 
-                <View style={{ backgroundColor: '#ffffff', margin: 50, padding: 40, flex: 1 }}>
+                <View style={{ backgroundColor: '#ffffff', marginTop:100, marginRight:30,marginLeft:30, padding: 40, height: 430}}>
                   <Text style={styles.main_txt}> 제안/구매 유의사항</Text>
 
                   <View
@@ -85,12 +85,11 @@ export default class NFT_detailScreen extends Component {
                       borderBottomWidth: 1,
                     }}
                   />
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요1</Text>
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요2</Text>
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요3</Text>
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요4</Text>
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요5</Text>
-                  <Text style={styles.sub_txt}> •이러저러한 거에 대해 주의하세요6</Text>
+                  
+                  <Text style={styles.sub_txt}> •구매를 하기 위한 가격 제안 시, 네트워크 수수료가 발생합니다.</Text>
+                  <Text style={styles.sub_txt}> •회원은 구매를 완료한 작품은 환불할 수 없으며 그에 따른 비용 또는 손해에 대하여 코빗은 책임지지 않습니다.</Text>
+                  <Text style={styles.sub_txt}> •구매한 작품은 프로필의 구매에서 확인할 수 있습니다.</Text>
+                  <Text style={styles.sub_txt}> •기타 궁금하신 사항은 코빗 고객센터로 문의바랍니다.</Text>
 
 
                   <View style={{ alignItems: 'center' }}>
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
 
   pop_btn: {
     height: 41,
-    marginTop: 50,
+    marginTop: 20,
     width: 260,
     backgroundColor: '#0064ff',
     fontSize: 15,
