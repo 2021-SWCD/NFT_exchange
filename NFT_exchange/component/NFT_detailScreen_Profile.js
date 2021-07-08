@@ -8,14 +8,13 @@ export default class NFT_detailScreen_Profile extends React.Component {
       title: 'untitled',
       titleColor: 'black',
       fontSize: 20,
-      onPress: () => null,
     }
     constructor(props){
       super(props);
     }    
     render(){
         return (
-            <TouchableOpacity onPress={this.props.onPress}>
+
                 <View style={styles.elem}>
                   <View style={styles.user_profile}/>
                   <Text style={[
@@ -24,7 +23,6 @@ export default class NFT_detailScreen_Profile extends React.Component {
                     {marginTop: 20},
                   ]}>{this.props.title}</Text>
                 </View>
-            </TouchableOpacity>
         )
     }
 }
