@@ -10,7 +10,7 @@ const TabBar = createMaterialTopTabNavigator({
     SuggestScreen: {
     screen: SuggestScreen,
     navigationOptions: {
-      tabBarLabel: 'SuggestScreen',
+      tabBarLabel: '제안',
       tabBarIcon: ({tintColor}) => (
         <View>
           <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
@@ -25,7 +25,7 @@ const TabBar = createMaterialTopTabNavigator({
   Tab_infoScreen: {
     screen: Tab_infoScreen,
     navigationOptions: {
-      tabBarLabel: 'Tab_infoScreen',
+      tabBarLabel: '정보',
       tabBarIcon: ({tintColor}) => (
         <View>
           <Icon
@@ -45,18 +45,21 @@ const TabBar = createMaterialTopTabNavigator({
   animationEnabled: true,
   swipeEnabled: true,
   tabBarOptions: {
-    pressColor: 'black',
+    pressColor: 'transparent',
     style: {
-      backgroundColor: 'white',
+      backgroundColor: '#000',
+        marginTop: 30,
+        width: 200,
+        borderRadius: 50,
+        marginLeft: 10,
+        shadowColor: 'transparent',
     },
     indicatorStyle: {
-      backgroundColor: 'black',
+      backgroundColor: 'null',
     },
-    activeTintColor: '#000',
-    inactiveTintColor: '#d1cece',
-    showLabel: false,
-    showIcon: true,
+      activeTintColor: '#FFF',
+      inactiveTintColor: '#d1cece',
+    },
   },
-},
 );
 export default createAppContainer(TabBar);
