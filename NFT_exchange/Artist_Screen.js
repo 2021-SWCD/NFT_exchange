@@ -22,7 +22,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class NFT_detailScreen extends Component {
   render() {
     return (
-      <ScrollView style={styles.container} >
+      <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
 
         <View style={styles.topView}>
           <Korbit_logo
@@ -31,13 +31,22 @@ export default class NFT_detailScreen extends Component {
             onPress={() => this.goLoginScreen()} />
         </View>
 
+
+
         <View style={styles.midView}>
-          <Go_main
-            onPress={() => this.goMainScreen()} />
-          <Qrcode
-            marginLeft={240}
-            marginTop={null} />
+
+          <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>
+
+            <Go_main onPress={() => this.goMainScreen()} />
+
+            <Qrcode />
+
+          </View>
+
         </View>
+
+
+
         <View style={{ height: 570 }}>
 
           <Image style={{ width: '100%', height: 225, }} source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}

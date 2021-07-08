@@ -8,7 +8,7 @@ export default class Korbit_logo extends React.Component {
         return (
         <View> 
             <TouchableOpacity onPress={this.props.onPress}>
-                <View style={{ flexDirection: 'row', }}>
+                <View style={{ flexDirection: 'row', marginTop:5, marginRight:220 }}>
                     <Icon style={styles.arrowbakc} name="arrow-back-outline" size={26}/>
                     <Text style={styles.go_first}>처음으로</Text>
                 </View>
