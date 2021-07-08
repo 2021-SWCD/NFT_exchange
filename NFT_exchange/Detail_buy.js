@@ -53,7 +53,7 @@ export default class Detail_buy extends Component {
 
                     <View style={{ flexDirection: 'row', marginTop: 30, alignItems: 'center' }}>
 
-                        <Custom_cancel />
+                        <Custom_cancel onPress={() => this.goMainScreen()} />
                         <CustomButton />
 
 

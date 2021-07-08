@@ -29,7 +29,7 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
       width: 110,
       height: 110,
       borderRadius: 55,
-      backgroundColor: 'skyblue',
+      backgroundColor: 'black',
       
       marginLeft: 110,
       
