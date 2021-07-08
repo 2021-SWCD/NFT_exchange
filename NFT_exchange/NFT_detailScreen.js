@@ -9,7 +9,6 @@ import NFT_name from './component/NFT_name';
 import Profile from './component/Profile';
 import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
 import CustomButton from './component/CustomButton';
-import Custombtn_check from './component/Custombtn_check';
 import TabBar from './component/TabBar';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
