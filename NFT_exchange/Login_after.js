@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import {  Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -17,6 +17,8 @@ import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import ETH_BTN from './component/ETH_btn';
+import ThemedListItem from 'react-native-elements/dist/list/ListItem';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -77,8 +79,25 @@ const Input = () => {
 
 export default class MainScreen extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {result:20};
+      }
+
 
     render() {
+
+        AsyncStorage.setItem('ETH', '80', () => {
+            console.log('유저 닉네임 저장 완료')
+        });
+
+        // 유저 닉네임 불러오기
+        AsyncStorage.getItem('ETH', (err, result) => {
+            
+            console.log(result); // User1 출력
+            this.setState({result})
+            
+        });
 
 
 
@@ -91,7 +110,7 @@ export default class MainScreen extends React.Component {
                         onPress={() => this.goMainScreen()} />
 
                     <ETH_BTN
-                        title={'100ETH'}
+                        title={this.state.result}
                         onPress={() => this.goLoginScreen} />
 
 
