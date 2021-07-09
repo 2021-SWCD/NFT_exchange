@@ -66,7 +66,8 @@ const Input = () => {
 
                 </TouchableOpacity>
 
-                <Qrcode />
+                <Qrcode 
+                marginTop = {10}/>
             </View>
 
         </>

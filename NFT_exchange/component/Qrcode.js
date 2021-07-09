@@ -7,7 +7,7 @@ export default class Qrcode extends React.Component {
     static defaultProps = {
         color: 'black',
         marginLeft: 10,
-        marginTop: 10,
+        marginTop: null,
         onPress: () => null,
     }
     constructor(props){

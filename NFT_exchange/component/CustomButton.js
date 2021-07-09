@@ -7,8 +7,10 @@ export default class CustomButton extends Component{
         title: '제안하기',
         buttonColor: '#000',
         titleColor: '#fff',
+        button_marginLeft: 10,
         marginRight: 25,
         marginLeft: 30,
+        marginBottom: null,
         onPress: () => null,
     }
     constructor(props){
@@ -20,6 +22,7 @@ export default class CustomButton extends Component{
             <TouchableOpacity style={[
                 styles.button,
                 {marginRight: this.props.marginRight},
+                {marginLeft: this.props.button_marginLeft},
             ]}
             onPress={this.props.onPress}>
                 <Text style={[
