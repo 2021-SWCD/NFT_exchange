@@ -15,9 +15,25 @@ import Buy_text from './component/Buy_text';
 
 import Buy_screen from './component/Buy_screen';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
 export default class Detail_buy extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {result:20};
+    }
+
     render() {
+
+        AsyncStorage.getItem('ETH', (err, result) => {
+            
+            console.log(result); // User1 출력
+            this.setState({result})
+            
+        });
+
         return (
             <ScrollView style={styles.container} stickyHeaderIndices={[1]}
             >
@@ -45,8 +61,7 @@ export default class Detail_buy extends Component {
 
                     <Buy_text
                      //title={this.state.result} />
-                     //title={this.state.result+'ETH'} />
-                     title={'10000'+'ETH'} />
+                     title={this.state.result + 'ETH'} />
 
                     <Buy_screen />
 
