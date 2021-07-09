@@ -23,34 +23,35 @@ export default class Detail_buy extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {result:20};
+        this.state = {result:0};
     }
 
-    
-
     async componentDidMount () {
-    /*  let a = 100;
+        /*let a = 100;
 
         AsyncStorage.setItem('ETH', a.toString(), () => {
             console.log('ETH 초기화')
         }); */
 
         // ETH 초기값 할당
-        
-        
-
         AsyncStorage.getItem('ETH', (err, result) => {
-            
             console.log(result); // User1 출력
             this.setState({result})
+            const total = result - 10
+
+            AsyncStorage.setItem('ETH_after', total.toString(), () => {
+                console.log('유저 닉네임 저장 완료')
+            });
+             
         });
 
-        b = 80;
+        /* let b = 80;
         b -= 10;
+        */
 
-        AsyncStorage.setItem('ETH_after', b.toString(), () => {
+        /* AsyncStorage.setItem('ETH_after', total.toString(), () => {
             console.log('유저 닉네임 저장 완료')
-        });
+        }); */
     }
 
 

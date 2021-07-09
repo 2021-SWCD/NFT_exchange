@@ -100,14 +100,12 @@ export default class MainScreen extends React.Component {
             
         });
 
-        //a -= 10;
-
-        AsyncStorage.getItem('ETH_after', (err, result) => {
+        /* AsyncStorage.getItem('ETH_after', (err, result2) => {
             
-            console.log(result); // User1 출력
-            this.setState({result})
+            console.log(result2); // User1 출력
+            this.setState({result2})
             
-        });
+        }); */
 
     }
 
