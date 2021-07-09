@@ -142,13 +142,11 @@ export default class MainScreen extends React.Component {
               visible={this.state.show}
             >
 
-              <View style={{ backgroundColor: "grey", flex: 1 }}>
+              <View style={{ flex: 1, marginLeft: 100 }}>
                 <Qr_Wallet_Not_Login />
-                <View style={{ alignItems: 'center', position: 'absolute', justifyContent: 'center', alignItems: 'center', top: 400, left: 100 }}>
+                <View style={{ position: 'absolute', top: 360, left: 70 }}>
                   <CustomButton
                     title={'로그인 하기'}
-                    marginBottom={300}
-                    button_marginLeft={35}
                     marginLeft={20}
                     onPress={() => this.goLoginScreen()} />
                 </View>
@@ -163,51 +161,51 @@ export default class MainScreen extends React.Component {
           <ScrollView pagingEnabled horizontal style={{ width, height }}>
 
             {dataList.map((element, index) => (
-                <View key={index}>
-                  <Image
-                    key={index}
-                    source={{ uri: element.imageUrl }}
-                    style={{ width, height, resizeMode: 'contain' }} />
+              <View key={index}>
+                <Image
+                  key={index}
+                  source={{ uri: element.imageUrl }}
+                  style={{ width, height, resizeMode: 'contain' }} />
 
-                  <Slide_profile
-                    title={element.title}
-                    onPress={() => this.goArtist_Screen()}
-                     />
-
-
-                    <NFT_name
-                      title={element.content}
-                      marginLeft={50}
-                      fontSize={45}
-                      onPress={() => this.goNFT_detailScreen()} />
-                  
-
-                  <View style={{ marginTop: 5, marginLeft: 50 }}>
-
-                    <Slide_txt1 />
-
-                    <Slide_txt2 />
-
-                    
-                    <Text style={{ marginTop: 5 }}>10.000원</Text>
-
-                  </View>
+                <Slide_profile
+                  title={element.title}
+                  onPress={() => this.goArtist_Screen()}
+                />
 
 
+                <NFT_name
+                  title={element.content}
+                  marginLeft={50}
+                  fontSize={45}
+                  onPress={() => this.goNFT_detailScreen()} />
 
 
+                <View style={{ marginTop: 5, marginLeft: 50 }}>
+
+                  <Slide_txt1 />
+
+                  <Slide_txt2 />
 
 
-
-
-
-
-
-                  <CustomButton
-                    button_marginLeft={48}
-                    onPress={() => this.goNFT_detailScreen()} />
+                  <Text style={{ marginTop: 5 }}>10.000원</Text>
 
                 </View>
+
+
+
+
+
+
+
+
+
+
+
+                <CustomButton
+                  button_marginLeft={48}
+                  onPress={() => this.goNFT_detailScreen()} />
+
+              </View>
 
             ))
 
