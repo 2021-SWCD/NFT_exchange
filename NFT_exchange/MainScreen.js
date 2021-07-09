@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -16,6 +16,7 @@ import Korbit_logo from './component/Korbit_logo';
 import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
+import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -82,24 +83,29 @@ const Input = ({goWrongSearch}) => {
 
 
         </TouchableOpacity>
-
-        <Qrcode />
+        
       </View>
 
     </>
   );
 }
 
+
+
 export default class MainScreen extends React.Component {
 
+  constructor() //모달 팝업창
+  {
+    super();
+    this.state = {
+      show: false
+    }
+  }
 
   render() {
-
-
-
     return (
 
-      <ScrollView style={styles.container}  stickyHeaderIndices={[1]} >
+      <ScrollView style={styles.container}  >
 
         <View style={styles.topView}>
           <Korbit_logo
@@ -108,9 +114,35 @@ export default class MainScreen extends React.Component {
             onPress={() => this.goLoginScreen()} />
         </View>
 
+        
         <View style={styles.midView}>
 
           <Input goWrongSearch={this.goWrongSearch}/>
+
+          <Qrcode 
+            marginLeft = {30}
+            onPress={() => {this.setState({ show: true }) }}/>
+
+            <View>
+              <Modal
+              transparent={true}
+              visible={this.state.show}
+              >
+
+              <View style={{ backgroundColor: "grey", flex: 1 }}>
+                <Qr_Wallet_Not_Login />
+                <View style={{ alignItems: 'center', position:'absolute', justifyContent:'center',alignItems:'center',top:400 ,left:100}}>
+                <CustomButton 
+                  title={'로그인 하기'}
+                  marginBottom = {300}
+                  button_marginLeft = {35}
+                  marginLeft = {20}
+                  onPress={() => this.goLoginScreen()}/>
+                  </View>
+              </View>
+
+              </Modal>
+            </View>
 
         </View>
 
@@ -241,7 +273,7 @@ const styles = StyleSheet.create({
   },
   searchbar: {
     marginLeft: 12,
-    width: 260,
+    width: 240,
     fontSize: 16
 
   },

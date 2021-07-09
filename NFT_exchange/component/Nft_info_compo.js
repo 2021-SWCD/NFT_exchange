@@ -2,8 +2,9 @@
 import {StyleSheet, View, Text,} from 'react-native';
 import 'react-native-gesture-handler';
 import Timer_main_detail from './component/Timer_main_detail';
-import Profile from './component/Profile';
-import CustomButton from './component/CustomButton';
+import Profile from './Profile';
+import CustomButton from './CustomButton';
+import NFT_name from './NFT_name';
 
 export default class Nft_info_compo extends React.Component {
   render(){
@@ -11,7 +12,13 @@ export default class Nft_info_compo extends React.Component {
         <View style={styles.container}>
           <View style={styles.cost_colum}>
             <Profile 
-              title={'minj-j'}/>
+              title={'minj-j'}
+              onPress={() => this.goArtist_Screen()}/>
+          </View>
+          <View style={styles.cost_colum}>
+            <NFT_name 
+              title={'fffffff'}
+              onPress={() => this.goNFT_detailScreen()}/>
           </View>
           <View style={styles.elem}>
             <View style={styles.cost_colum}>
@@ -39,6 +46,12 @@ export default class Nft_info_compo extends React.Component {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SUGESST');
   }
+
+    goArtist_Screen() {
+    // ARTIST_screen으로 화면 이동
+    this.props.navigation.navigate('ARTIST');
+  }
+
 }
 
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
