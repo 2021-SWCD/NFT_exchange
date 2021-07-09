@@ -9,8 +9,8 @@ export default class Buy_screen extends Component {
                 alignItems: 'center', flexDirection: 'row', marginLeft: 10
             }}>
 
-                <Text style={styles.sug_txt}>0원</Text>
-                <Text style={styles.eth_txt}>0ETH</Text>
+                <Text style={styles.sug_txt}>10000원</Text>
+                <Text style={styles.eth_txt}>0.1ETH</Text>
 
             </View>
         )
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
             fontWeight: 'normal',
             color: 'black',
             paddingTop: 16,
-            paddingLeft: 100,
+            paddingLeft: 95,
             borderRadius: 10,
             position: 'absolute',
             top: 19,

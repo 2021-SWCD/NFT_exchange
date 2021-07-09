@@ -43,7 +43,10 @@ export default class Detail_buy extends Component {
 
                     <Detail_main />
 
-                    <Buy_text />
+                    <Buy_text
+                     //title={this.state.result} />
+                     //title={this.state.result+'ETH'} />
+                     title={'10000'+'ETH'} />
 
                     <Buy_screen />
 
