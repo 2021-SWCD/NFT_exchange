@@ -25,22 +25,10 @@ const images = [
   'http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg',
   'http://www.economyf.com/pds_update/umg_20200528234240.jpg',
   'http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg'
+
 ]
 
-const dataList = [
-  {
-    imageUrl : "https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg",
-    title : "test1",
-    content : "content1"
-  },
-  {
-    imageUrl : "https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg",
-    title : "test2",
-    content : "content2"
-  }
-]
-
-const Input = ({goWrongSearch}) => {
+const Input = () => {
 
   const [text, setText] = useState('');
 
@@ -53,18 +41,12 @@ const Input = ({goWrongSearch}) => {
     opa_num = 1
   }
 
-  console.log(goWrongSearch);
-
   return (
     <>
       <View style={styles.searchView} >
 
       <Search_icons
          //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
-           onPress={() => {
-             console.log('good?');
-             goWrongSearch()
-           }}
           />
 
         <TextInput
@@ -90,6 +72,8 @@ const Input = ({goWrongSearch}) => {
   );
 }
 
+
+
 export default class MainScreen extends React.Component {
 
 
@@ -110,7 +94,7 @@ export default class MainScreen extends React.Component {
 
         <View style={styles.midView}>
 
-          <Input goWrongSearch={this.goWrongSearch}/>
+          <Input />
 
         </View>
 
@@ -124,7 +108,6 @@ export default class MainScreen extends React.Component {
                 style={{ width, height, resizeMode: 'contain' }} />
             ))
             }
-
           </ScrollView>
         </View>
 
@@ -182,12 +165,11 @@ export default class MainScreen extends React.Component {
     this.props.navigation.navigate('SUGESST');
   }
 
-  goWrongSearch = () => {
-    // console.log(this.props);
+  goWrongSearch() {
     //WrongSearch으로 이동
     this.props.navigation.navigate('WRONG');
   }
-  goMainScreen(){
+  goMainScreen() {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
   }
