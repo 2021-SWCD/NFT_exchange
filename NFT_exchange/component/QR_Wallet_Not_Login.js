@@ -27,8 +27,9 @@ export default class App extends React.Component{
                   fontSize = {15}>
                 </Profile>
                 <TouchableOpacity onPress={() => goLoginScreen()}>
-                  <Icon style={{marginTop: 20}}
-                    name="chevron-forward-outline" size={30}></Icon>
+                  {/*<Icon style={{marginTop: 20}}
+                    name="chevron-forward-outline" size={30}></Icon>*/
+                  }
                 </TouchableOpacity>
               </View>
             </View>
@@ -36,18 +37,10 @@ export default class App extends React.Component{
               <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
               <Text style={styles.wrong_text}>로그인이 필요한</Text>
               <Text style={styles.wrong_text}>서비스 입니다.</Text>
-              <CustomButton 
-                title={'로그인 하기'}
-                marginLeft={22}
-                onPress={() => this.goLoginScreen()}/>
             </View>
           </View>
         </View>
       )
-    }
-    goLoginScreen() {
-      // LoginScreen으로 화면 이동
-      this.props.navigation.navigate('LOGIN');
     }
 }
     
