@@ -17,6 +17,8 @@ import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
+import Timer_main_detail from './component/Timer_main_detail';
+
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
@@ -161,7 +163,7 @@ export default class MainScreen extends React.Component {
 
         </View>
 
-        <View style={{ marginTop: 30, width: 30, height: 700 }}>
+        <View style={{ marginTop: 30, width: 30, height: 550 }}>
           <ScrollView pagingEnabled horizontal style={{ width, height }}>
 
             {dataList.map((element, index) => (
@@ -181,18 +183,46 @@ export default class MainScreen extends React.Component {
                       marginLeft={50}
                       fontSize={45}
                       onPress={() => this.goNFT_detailScreen()} />
-                      </View>
-                  
+                  </View>
 
 
 
 
-                  
+
+                  <View style={{ marginTop: 5, marginLeft: 50 }}>
+                    <View style={{ flexDirection: 'row' }}>
+
+                      <Text style={{ fontSize: 18 }}>현재 경매가</Text>
+                      <Text style={{ marginLeft: 80, fontSize: 18 }}>남은 시간</Text>
 
 
-                  
+                    </View>
+
+                    <View style={{flexDirection:'row'}}>
+                    <Text style={{
+                      marginTop:5,
+                      fontSize: 25,
+                      fontWeight: 'bold',
+                    }}>0.1 ETH</Text>
+
+                    <Timer_main_detail />
+                    </View>
+                    <Text style={{marginTop:5}}>10.000원</Text>
+
+                  </View>
+
+
+
+
+
+
+
+
+
+
+
                   <CustomButton
-                  button_marginLeft={48}
+                    button_marginLeft={48}
                     onPress={() => this.goNFT_detailScreen()} />
 
                 </View>
@@ -207,19 +237,7 @@ export default class MainScreen extends React.Component {
         </View>
 
 
-        <View style={{ marginTop: 10, marginLeft: 30 }}>
-          <Profile
-            title={'hyunji'}
-            onPress={() => this.goArtist_Screen()} />
-          <NFT_name
-            title={'NATURE'}
-            marginLeft={20}
-            onPress={() => this.goNFT_detailScreen()} />
-          <Detail_main />
-          <CustomButton
-            onPress={() => this.goNFT_detailScreen()} />
-        </View>
-
+     
         <View>
           <Hot_text />
         </View>
