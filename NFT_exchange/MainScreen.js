@@ -17,18 +17,14 @@ import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
-import Timer_main_detail from './component/Timer_main_detail';
+
+import Slide_txt1 from './component/Slide_txt1';
+import Slide_txt2 from './component/Slide_txt2';
+import Slide_profile from './component/Slide_profile';
 
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
-const images = [
-  'https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg',
-  'https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg',
-  'http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg',
-  'http://www.economyf.com/pds_update/umg_20200528234240.jpg',
-  'http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg'
-]
 
 const dataList = [
   {
@@ -173,41 +169,28 @@ export default class MainScreen extends React.Component {
                     key={index}
                     source={{ uri: element.imageUrl }}
                     style={{ width, height, resizeMode: 'contain' }} />
-                  <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
-                    <View style={styles.user_profile} />
-                    <Text style={{ marginLeft: 10, fontSize: 20, fontWeight: 'bold' }}>hyunji</Text>
-                  </View>
-                  <View style={{}}>
+
+                  <Slide_profile
+                    title={element.title}
+                    onPress={() => this.goArtist_Screen()}
+                     />
+
+
                     <NFT_name
                       title={element.content}
                       marginLeft={50}
                       fontSize={45}
                       onPress={() => this.goNFT_detailScreen()} />
-                  </View>
-
-
-
-
+                  
 
                   <View style={{ marginTop: 5, marginLeft: 50 }}>
-                    <View style={{ flexDirection: 'row' }}>
 
-                      <Text style={{ fontSize: 18 }}>현재 경매가</Text>
-                      <Text style={{ marginLeft: 80, fontSize: 18 }}>남은 시간</Text>
+                    <Slide_txt1 />
 
+                    <Slide_txt2 />
 
-                    </View>
-
-                    <View style={{flexDirection:'row'}}>
-                    <Text style={{
-                      marginTop:5,
-                      fontSize: 25,
-                      fontWeight: 'bold',
-                    }}>0.1 ETH</Text>
-
-                    <Timer_main_detail />
-                    </View>
-                    <Text style={{marginTop:5}}>10.000원</Text>
+                    
+                    <Text style={{ marginTop: 5 }}>10.000원</Text>
 
                   </View>
 
@@ -237,7 +220,7 @@ export default class MainScreen extends React.Component {
         </View>
 
 
-     
+
         <View>
           <Hot_text />
         </View>
@@ -368,12 +351,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 150,
   },
-  user_profile: { //검정색 원의 프로필
-    width: 40,
-    height: 40,
-    borderRadius: 25,
-    backgroundColor: 'black',
-    marginLeft: 50,
-  },
+
 
 });
