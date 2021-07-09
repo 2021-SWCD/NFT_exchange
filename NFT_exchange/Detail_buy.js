@@ -18,6 +18,7 @@ import Buy_screen from './component/Buy_screen';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
+
 export default class Detail_buy extends Component {
 
     constructor(props) {

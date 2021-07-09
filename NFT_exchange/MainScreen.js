@@ -163,8 +163,7 @@ export default class MainScreen extends React.Component {
           <ScrollView pagingEnabled horizontal style={{ width, height }}>
 
             {dataList.map((element, index) => (
-              <>
-                <View>
+                <View key={index}>
                   <Image
                     key={index}
                     source={{ uri: element.imageUrl }}
@@ -209,7 +208,6 @@ export default class MainScreen extends React.Component {
                     onPress={() => this.goNFT_detailScreen()} />
 
                 </View>
-              </>
 
             ))
 

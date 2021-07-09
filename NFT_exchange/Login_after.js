@@ -83,16 +83,16 @@ export default class MainScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {result:20};
+        
       }
 
-
-    render() {
-
+    
+      componentDidMount async () {
         AsyncStorage.setItem('ETH', '80', () => {
             console.log('유저 닉네임 저장 완료')
         });
 
-        // 유저 닉네임 불러오기
+        // ETH 초기값 할당
         AsyncStorage.getItem('ETH', (err, result) => {
             
             console.log(result); // User1 출력
@@ -100,6 +100,20 @@ export default class MainScreen extends React.Component {
             
         });
 
+
+        let a = 100;
+
+        a -= 10;
+
+        AsyncStorage.setItem('ETH', a.toString(), () => {
+            console.log('유저 닉네임 저장 완료')
+        });
+
+      }
+
+      
+
+    render() {
 
 
         return (
