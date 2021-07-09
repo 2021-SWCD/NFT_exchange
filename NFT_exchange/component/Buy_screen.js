@@ -2,6 +2,12 @@ import React, { TouchableOpacity, Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 
 export default class Buy_screen extends Component {
+
+    static defaultProps = {
+        title: '0.2',
+        onPress: () => null,
+    }
+
     render() {
         return (
 
@@ -10,7 +16,7 @@ export default class Buy_screen extends Component {
             }}>
 
                 <Text style={styles.sug_txt}>10000원</Text>
-                <Text style={styles.eth_txt}>0.1ETH</Text>
+                <Text style={styles.eth_txt}>{this.props.title + 'ETH'}</Text>
 
             </View>
         )
