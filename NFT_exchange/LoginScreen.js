@@ -27,7 +27,7 @@ export default class LoginScreen extends React.Component {
               placeholder="비밀번호"           
        />
 
-       <TouchableOpacity><Text onPress={() => this.goMainScreen()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+       <TouchableOpacity><Text onPress={() => this.Login_after()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
 
       </View>
 
@@ -37,6 +37,11 @@ export default class LoginScreen extends React.Component {
   goMainScreen(){
     // MainScreen으로 화면 이동
     this.props.navigation.navigate('MAIN');
+  }
+  
+  Login_after(){
+    // MainScreen으로 화면 이동
+    this.props.navigation.navigate('LOGIN_AFTER');
   }
 }
 
