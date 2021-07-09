@@ -30,18 +30,33 @@ const images = [
 
 const dataList = [
   {
-    imageUrl : "https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg",
-    title : "test1",
-    content : "content1"
+    imageUrl: "https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg",
+    title: "title1",
+    content: "content1"
   },
   {
-    imageUrl : "https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg",
-    title : "test2",
-    content : "content2"
-  }
+    imageUrl: "https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg",
+    title: "title2",
+    content: "content2"
+  },
+  {
+    imageUrl: "http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg",
+    title: "title3",
+    content: "content3"
+  },
+  {
+    imageUrl: "http://www.economyf.com/pds_update/umg_20200528234240.jpg",
+    title: "title4",
+    content: "content4"
+  },
+  {
+    imageUrl: "http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg",
+    title: "title5",
+    content: "content5"
+  },
 ]
 
-const Input = ({goWrongSearch}) => {
+const Input = ({ goWrongSearch }) => {
 
   const [text, setText] = useState('');
 
@@ -60,13 +75,13 @@ const Input = ({goWrongSearch}) => {
     <>
       <View style={styles.searchView} >
 
-      <Search_icons
-         //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
-           onPress={() => {
-             console.log('good?');
-             goWrongSearch()
-           }}
-          />
+        <Search_icons
+          //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
+          onPress={() => {
+            console.log('good?');
+            goWrongSearch()
+          }}
+        />
 
         <TextInput
           style={styles.searchbar}
@@ -79,11 +94,11 @@ const Input = ({goWrongSearch}) => {
         <TouchableOpacity onPress={() => setText('')}>
 
 
-          <Icon  style={{opacity:opa_num, marginTop : 8}} name="close-outline" size={30} />
+          <Icon style={{ opacity: opa_num, marginTop: 8 }} name="close-outline" size={30} />
 
 
         </TouchableOpacity>
-        
+
       </View>
 
     </>
@@ -114,53 +129,84 @@ export default class MainScreen extends React.Component {
             onPress={() => this.goLoginScreen()} />
         </View>
 
-        
+
         <View style={styles.midView}>
 
-          <Input goWrongSearch={this.goWrongSearch}/>
+          <Input goWrongSearch={this.goWrongSearch} />
 
-          <Qrcode 
-            marginLeft = {30}
-            onPress={() => {this.setState({ show: true }) }}/>
+          <Qrcode
+            marginLeft={30}
+            onPress={() => { this.setState({ show: true }) }} />
 
-            <View>
-              <Modal
+          <View>
+            <Modal
               transparent={true}
               visible={this.state.show}
-              >
+            >
 
               <View style={{ backgroundColor: "grey", flex: 1 }}>
                 <Qr_Wallet_Not_Login />
-                <View style={{ alignItems: 'center', position:'absolute', justifyContent:'center',alignItems:'center',top:400 ,left:100}}>
-                <CustomButton 
-                  title={'로그인 하기'}
-                  marginBottom = {300}
-                  button_marginLeft = {35}
-                  marginLeft = {20}
-                  onPress={() => this.goLoginScreen()}/>
-                  </View>
+                <View style={{ alignItems: 'center', position: 'absolute', justifyContent: 'center', alignItems: 'center', top: 400, left: 100 }}>
+                  <CustomButton
+                    title={'로그인 하기'}
+                    marginBottom={300}
+                    button_marginLeft={35}
+                    marginLeft={20}
+                    onPress={() => this.goLoginScreen()} />
+                </View>
               </View>
 
-              </Modal>
-            </View>
+            </Modal>
+          </View>
 
         </View>
 
-        <View style={{ marginTop: 30, width, height }}>
+        <View style={{ marginTop: 30, width: 30, height: 700 }}>
           <ScrollView pagingEnabled horizontal style={{ width, height }}>
 
-            {images.map((image, index) => (
-              <Image
-                key={index}
-                source={{ uri: image }}
-                style={{ width, height, resizeMode: 'contain' }} />
+            {dataList.map((element, index) => (
+              <>
+                <View>
+                  <Image
+                    key={index}
+                    source={{ uri: element.imageUrl }}
+                    style={{ width, height, resizeMode: 'contain' }} />
+                  <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
+                    <View style={styles.user_profile} />
+                    <Text style={{ marginLeft: 10, fontSize: 20, fontWeight: 'bold' }}>hyunji</Text>
+                  </View>
+                  <View style={{}}>
+                    <NFT_name
+                      title={element.content}
+                      marginLeft={50}
+                      fontSize={45}
+                      onPress={() => this.goNFT_detailScreen()} />
+                      </View>
+                  
+
+
+
+
+                  
+
+
+                  
+                  <CustomButton
+                  button_marginLeft={48}
+                    onPress={() => this.goNFT_detailScreen()} />
+
+                </View>
+              </>
+
             ))
+
+
             }
 
           </ScrollView>
         </View>
 
-        {/*여기 부터가 detail_main입니다.*/}
+
         <View style={{ marginTop: 10, marginLeft: 30 }}>
           <Profile
             title={'hyunji'}
@@ -181,7 +227,7 @@ export default class MainScreen extends React.Component {
         {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
         <View style={{ marginTop: 10, marginLeft: 55 }}>
           <Nft_simple_info_cardImage
-            source={{uri:'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg'}}
+            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
             onPress={() => this.goNFT_detailScreen()} />
           <View style={styles.cardContainer}>
             <NFT_name
@@ -219,7 +265,7 @@ export default class MainScreen extends React.Component {
     //WrongSearch으로 이동
     this.props.navigation.navigate('WRONG');
   }
-  goMainScreen(){
+  goMainScreen() {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
   }
@@ -277,7 +323,7 @@ const styles = StyleSheet.create({
     fontSize: 16
 
   },
- 
+
   qrcode: {
     color: 'black',
     marginLeft: 10
@@ -303,6 +349,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 300,
     height: 150,
+  },
+  user_profile: { //검정색 원의 프로필
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: 'black',
+    marginLeft: 50,
   },
 
 });
