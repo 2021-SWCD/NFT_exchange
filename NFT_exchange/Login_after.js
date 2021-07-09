@@ -82,14 +82,14 @@ export default class MainScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {result:20};
-        
-      }
+        this.state = {result: 0}   
+    }
 
-    
-      componentDidMount async () {
-        AsyncStorage.setItem('ETH', '80', () => {
-            console.log('유저 닉네임 저장 완료')
+    async componentDidMount () {
+        let a = 80;
+
+        AsyncStorage.setItem('ETH', a.toString(), () => {
+            console.log('ETH 초기화')
         });
 
         // ETH 초기값 할당
@@ -100,18 +100,16 @@ export default class MainScreen extends React.Component {
             
         });
 
+        //a -= 10;
 
-        let a = 100;
-
-        a -= 10;
-
-        AsyncStorage.setItem('ETH', a.toString(), () => {
-            console.log('유저 닉네임 저장 완료')
+        AsyncStorage.getItem('ETH_after', (err, result) => {
+            
+            console.log(result); // User1 출력
+            this.setState({result})
+            
         });
 
-      }
-
-      
+    }
 
     render() {
 
@@ -125,7 +123,7 @@ export default class MainScreen extends React.Component {
                         onPress={() => this.goMainScreen()} />
 
                     <ETH_BTN
-                        title={this.state.result}
+                        title={this.state.result + ' ETH'}
                         onPress={() => this.goLoginScreen} />
 
 

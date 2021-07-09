@@ -26,14 +26,35 @@ export default class Detail_buy extends Component {
         this.state = {result:20};
     }
 
-    render() {
+    
+
+    async componentDidMount () {
+    /*  let a = 100;
+
+        AsyncStorage.setItem('ETH', a.toString(), () => {
+            console.log('ETH 초기화')
+        }); */
+
+        // ETH 초기값 할당
+        
+        
 
         AsyncStorage.getItem('ETH', (err, result) => {
             
             console.log(result); // User1 출력
             this.setState({result})
-            
         });
+
+        b = 80;
+        b -= 10;
+
+        AsyncStorage.setItem('ETH_after', b.toString(), () => {
+            console.log('유저 닉네임 저장 완료')
+        });
+    }
+
+
+    render() {
 
         return (
             <ScrollView style={styles.container} stickyHeaderIndices={[1]}
@@ -73,9 +94,7 @@ export default class Detail_buy extends Component {
                     <View style={{ flexDirection: 'row', marginTop: 30, alignItems: 'center' }}>
 
                         <Custom_cancel onPress={() => this.goMainScreen()} />
-                        <CustomButton />
-
-
+                        <CustomButton onPress={() => this.Login_after()}/>
                     </View>
                 </View>
             </ScrollView>
@@ -93,6 +112,10 @@ export default class Detail_buy extends Component {
     goArtist_Screen() {
         // ARTIST_screen으로 화면 이동
         this.props.navigation.navigate('ARTIST');
+    }
+    Login_after(){
+        // MainScreen으로 화면 이동
+        this.props.navigation.navigate('LOGIN_AFTER');
     }
 }
 
