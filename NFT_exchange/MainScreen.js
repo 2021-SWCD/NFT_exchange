@@ -192,15 +192,6 @@ export default class MainScreen extends React.Component {
                 </View>
 
 
-
-
-
-
-
-
-
-
-
                 <CustomButton
                   button_marginLeft={48}
                   onPress={() => this.goNFT_detailScreen()} />
@@ -222,22 +213,40 @@ export default class MainScreen extends React.Component {
         </View>
 
         {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
-        <View style={{ marginTop: 10, marginLeft: 55 }}>
-          <Nft_simple_info_cardImage
-            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
-            onPress={() => this.goNFT_detailScreen()} />
-          <View style={styles.cardContainer}>
-            <NFT_name
-              title={'The hill'}
-              fontSize={20}
-              onPress={() => this.goNFT_detailScreen()} />
-            <Nft_simple_info_Profile
-              title={'hyunji'}
-              onPress={() => this.goArtist_Screen()} />
-            <Nft_simple_info_costtime
-              nft_cost={'0.01ETH'} />
+
+
+
+        {dataList.map((element, index) => (
+          <View key={index}>
+
+            <View style={{ marginTop: 10, marginLeft: 55}}>
+              <Nft_simple_info_cardImage
+                source={{ uri: element.imageUrl }}
+                onPress={() => this.goNFT_detailScreen()} />
+              <View style={styles.cardContainer}>
+                <NFT_name
+                  title={element.content }
+                  fontSize={20}
+                  onPress={() => this.goNFT_detailScreen()} />
+                <Nft_simple_info_Profile
+                  title={element.title}
+                  onPress={() => this.goArtist_Screen()} />
+                <Nft_simple_info_costtime
+                  nft_cost={'0.01ETH'} />
+              </View>
+            </View>
+
+
           </View>
-        </View>
+
+        ))
+
+
+        }
+
+
+
+
 
       </ScrollView>
     );
