@@ -24,11 +24,6 @@ import Slide_profile from './component/Slide_profile';
 import Slide_txt1 from './component/Slide_txt1';
 import Slide_txt2 from './component/Slide_txt2';
 
-import Slide_txt1 from './component/Slide_txt1';
-import Slide_txt2 from './component/Slide_txt2';
-import Slide_profile from './component/Slide_profile';
-
-
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
 
