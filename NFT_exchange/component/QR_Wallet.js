@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
-import Profile from './component/Profile';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import Profile from './Profile';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 //이미지 주소 복사를 해서 링크를 붙여넣는다.
@@ -25,10 +25,6 @@ export default class QR_Wallet extends React.Component{
                   title = {'minj-j'}
                   marginTop = {20}>
                 </Profile>
-                <TouchableOpacity onPress={() => goArtist_Screen()}>
-                  <Icon style={{marginTop: 20}}
-                    name="chevron-forward-outline" size={30}></Icon>
-                </TouchableOpacity>
               </View>
             </View>
             <View style={{alignItems: 'center', marginTop: 10}}>
@@ -41,10 +37,10 @@ export default class QR_Wallet extends React.Component{
         </View>
       )
     }
-    goArtist_Screen() {
-        // ARTIST_screen으로 화면 이동
-        this.props.navigation.navigate('ARTIST');
-    }
+  goArtist_Screen() {
+    // ARTIST_screen으로 화면 이동
+    this.props.navigation.navigate('ARTIST');
+  }
 }
     
 const styles = StyleSheet.create({
