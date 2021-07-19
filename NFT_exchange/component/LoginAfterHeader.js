@@ -16,10 +16,24 @@ export default class LoginAfterHeader extends React.Component {
     async componentDidMount() {
         let a = 80;
 
-        AsyncStorage.setItem('ETH', a.toString(), () => {
-            console.log('ETH 초기화')
+        AsyncStorage.getItem('ETH', (err, result) => {
+
+            if(result == ''){
+
+                AsyncStorage.setItem('ETH', a.toString(), () => {
+                    console.log('ETH 초기화')
+                });
+
+            }
+
         });
 
+        
+
+       /*  AsyncStorage.setItem('ETH', a.toString(), () => {
+            console.log('ETH 초기화')
+        });
+ */
         // ETH 초기값 할당
         AsyncStorage.getItem('ETH', (err, result) => {
 

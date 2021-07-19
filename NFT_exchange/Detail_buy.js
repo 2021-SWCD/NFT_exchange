@@ -39,9 +39,7 @@ export default class Detail_buy extends Component {
             this.setState({result})
             const total = result - 10
 
-            AsyncStorage.setItem('ETH_after', total.toString(), () => {
-                console.log('유저 닉네임 저장 완료')
-            });
+            
              
         });
 
@@ -95,11 +93,25 @@ export default class Detail_buy extends Component {
                     <View style={{ flexDirection: 'row', marginTop: 30, alignItems: 'center' }}>
 
                         <Custom_cancel onPress={() => this.goMainScreen()} />
-                        <CustomButton onPress={() => this.Login_after()}/>
+                        <CustomButton onPress={() => {this.Login_after();this.Count()}}/>
                     </View>
                 </View>
             </ScrollView>
         )
+    }
+
+    Count(){
+
+        let a = this.state.result-10
+
+        AsyncStorage.setItem('ETH', JSON.stringify(a), () => {
+            console.log('값 변경 완료 ')
+        });
+
+        AsyncStorage.getItem('ETH',(err,reset) => {
+            console.log(reset)
+        })
+
     }
 
     goMainScreen() {
