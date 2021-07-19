@@ -105,7 +105,7 @@ const Input = ({ goWrongSearch }) => {
 
 
 
-export default class MainScreen extends React.Component {
+export default class Login_after extends React.Component {
 
     constructor(props) {
         super(props);
@@ -117,7 +117,7 @@ export default class MainScreen extends React.Component {
 
     async componentDidMount () {
       AsyncStorage.getItem('isLoggedIn', (err, isLoggedIn) => {
-        console.log(isLoggedIn); // User1 출력
+        console.log('Login_after'); // User1 출력
         this.setState({ isLoggedIn })
       });
     }

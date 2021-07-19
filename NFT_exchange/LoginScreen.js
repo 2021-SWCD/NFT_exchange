@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image,TextInput,StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class LoginScreen extends React.Component {
 
@@ -29,7 +30,7 @@ export default class LoginScreen extends React.Component {
 
           <TouchableOpacity>
             <Text 
-              onPress={() => this.Login_after()} 
+              onPress={() => {this.Login_after();this.Login()}} 
               style={styles.loginBtn}>
                 로그인
             </Text>
@@ -38,6 +39,15 @@ export default class LoginScreen extends React.Component {
       </View>
 
     );
+  }
+  Login(){
+    AsyncStorage.setItem('isLoggedIn', JSON.stringify(true), () => {
+      console.log('로그인 완료')
+  });
+
+  AsyncStorage.getItem('isLoggedIn',(err,logComplete) => {
+      console.log(logComplete) //true값이 잘 나오는지 확인
+  })
   }
 
   goMainScreen(){

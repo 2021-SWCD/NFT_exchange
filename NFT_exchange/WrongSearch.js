@@ -13,26 +13,39 @@ import Korbit_logo from './component/Korbit_logo';
 import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
+import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 
 
 
-export default class MainScreen extends React.Component {
+export default class WrongSearch extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+        isLoggedIn: false,
+    }   
+}
+
+  async componentDidMount () {
+    AsyncStorage.getItem('isLoggedIn', (err, isLoggedIn) => {
+      console.log('로그인'); // User1 출력
+      this.setState({ isLoggedIn })
+    });
+  }
 
   render() {
-
-
-
+    const isLoggedIn = this.state.isLoggedIn;
+    console.log(isLoggedIn);
     return (
 
       <ScrollView style={styles.container}>
 
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <Login_btn
-            onPress={() => this.goLoginScreen()} />
-        </View>
+        {
+          isLoggedIn 
+          ? <LoginAfterHeader navigation={this.props.navigation}/>
+          : <LoginHeader navigation={this.props.navigation}/>
+        }
 
         <View style={styles.midView}>
 
