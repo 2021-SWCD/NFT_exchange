@@ -9,7 +9,7 @@ export default class App extends React.Component{
   static defaultProps = {
     title: 'untitled',
     color: 'black',
-    marginLeft: 40,
+    marginLeft: 100,
     marginTop: 10,
     onPress: () => null,
   }
@@ -47,9 +47,13 @@ export default class App extends React.Component{
     
 const styles = StyleSheet.create({
   container:{
+    position : 'absolute',
+    left : 100,
+    top : 5,
     flex:1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
     alignItems:'center', //수평에서 중앙으로 정렬
     marginTop:110
+    
     
   },
 
