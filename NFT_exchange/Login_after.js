@@ -16,6 +16,7 @@ import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
 import Qr_Wallet from './component/QR_Wallet';
 import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import Slide_profile from './component/Slide_profile';
@@ -110,15 +111,30 @@ export default class MainScreen extends React.Component {
         super(props);
         this.state = {
             show: false,
+            isLoggedIn: false,
         }   
     }
 
+    async componentDidMount () {
+      AsyncStorage.getItem('isLoggedIn', (err, isLoggedIn) => {
+        console.log(isLoggedIn); // User1 출력
+        this.setState({ isLoggedIn })
+      });
+    }
+
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    console.log(isLoggedIn);
     return (
 
       <ScrollView style={styles.container}  >
 
-        <LoginAfterHeader Header navigation={this.props.navigation}/>
+        {/* <LoginAfterHeader navigation={this.props.navigation}/> */}
+        {
+          isLoggedIn 
+          ? <LoginAfterHeader navigation={this.props.navigation}/>
+          : <LoginHeader navigation={this.props.navigation}/>
+        }
 
         <View style={styles.midView}>
 
@@ -132,7 +148,9 @@ export default class MainScreen extends React.Component {
           <Modal
               transparent={true}
               visible={this.state.show}>
-            <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
+                
+                <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
+              
               <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
                 <Qr_Wallet />
                 <View style={{ position: 'absolute', top: 110, left: 270 }}>
@@ -256,6 +274,9 @@ export default class MainScreen extends React.Component {
   goMainScreen() {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
+  }
+  close_modal = () => {
+    this.setState({show : false})
   }
 }
 
