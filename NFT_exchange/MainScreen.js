@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { TouchableWithoutFeedback, Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -135,17 +135,20 @@ export default class MainScreen extends React.Component {
             <Modal
               transparent={true}
               visible={this.state.show}
+             // animationType={"slide"}
             >
+               <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
 
-              <View style={{ flex: 1, marginLeft: 100 }}>
+              <View style={{ flex: 1,}}>
                 <Qr_Wallet_Not_Login />
-                <View style={{ position: 'absolute', top: 360, left: 70 }}>
+                <View style={{ position: 'absolute', top: 360, left: 167 }}>
                   <CustomButton
                     title={'로그인 하기'}
                     marginLeft={20}
                     onPress={() => this.goLoginScreen()} />
                 </View>
               </View>
+              </TouchableWithoutFeedback>
 
             </Modal>
           </View>
@@ -269,6 +272,9 @@ export default class MainScreen extends React.Component {
   goMainScreen() {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
+  }
+  close_modal = () => {
+    this.setState({show : false})
   }
 }
 
