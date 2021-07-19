@@ -37,8 +37,7 @@ export default class Detail_buy extends Component {
         AsyncStorage.getItem('ETH', (err, result) => {
             console.log(result); // User1 출력
             this.setState({result})
-            const total = result - 10
-
+            
             
              
         });
