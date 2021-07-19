@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView, ShadowPropTypesIOS, } from 'react-native';
-import Korbit_logo from './component/Korbit_logo';
-import Login_btn from './component/Login_btn';
 import Qrcode from './component/Qrcode';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
@@ -11,6 +9,9 @@ import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_ma
 import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
+import Login_After from './LoginScreen';
+import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
 export default class NFT_detailScreen extends Component {
@@ -25,15 +26,12 @@ export default class NFT_detailScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container} stickyHeaderIndices={[1]}
-      >
-
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <Login_btn
-            onPress={() => this.goLoginScreen()} />
-        </View>
+      <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
+        {
+          !!Login_After
+          ? <LoginAfterHeader Header navigation={this.props.navigation}/>
+          : <LoginHeader navigation={this.props.navigation}/>
+        }
 
         <View style={styles.midView}>
           <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>

@@ -27,7 +27,13 @@ export default class LoginScreen extends React.Component {
               placeholder="비밀번호"           
        />
 
-       <TouchableOpacity><Text onPress={() => this.Login_after()} style={styles.loginBtn}>로그인</Text></TouchableOpacity>
+          <TouchableOpacity>
+            <Text 
+              onPress={() => this.Login_after()} 
+              style={styles.loginBtn}>
+                로그인
+            </Text>
+          </TouchableOpacity>
 
       </View>
 

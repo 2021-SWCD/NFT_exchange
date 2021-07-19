@@ -17,6 +17,7 @@ import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
+import LoginHeader from './component/loginHeader';
 
 import Slide_txt1 from './component/Slide_txt1';
 import Slide_txt2 from './component/Slide_txt2';
@@ -120,14 +121,8 @@ export default class MainScreen extends React.Component {
 
       <ScrollView style={styles.container}  >
 
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <Login_btn
-            onPress={() => this.goLoginScreen()} />
-        </View>
-
-
+        <LoginHeader navigation={this.props.navigation}/>
+          
         <View style={styles.midView}>
 
           <Input goWrongSearch={this.goWrongSearch} />

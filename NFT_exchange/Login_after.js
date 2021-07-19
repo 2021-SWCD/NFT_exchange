@@ -8,17 +8,15 @@ import CustomButton from './component/CustomButton';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
 import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
-import Profile from './component/Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
-import Login_btn from './component/Login_btn';
-import Korbit_logo from './component/Korbit_logo';
 import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
 import Qr_Wallet from './component/QR_Wallet';
-import ETH_btn from './component/ETH_btn';
+import LoginAfterHeader from './component/LoginAfterHeader';
+
 import AsyncStorage from '@react-native-community/async-storage';
 import Slide_profile from './component/Slide_profile';
 import Slide_txt1 from './component/Slide_txt1';
@@ -111,33 +109,8 @@ export default class MainScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            result: 0, 
             show: false,
         }   
-    }
-
-    async componentDidMount() {
-        let a = 80;
-
-        AsyncStorage.setItem('ETH', a.toString(), () => {
-            console.log('ETH 초기화')
-        });
-
-        // ETH 초기값 할당
-        AsyncStorage.getItem('ETH', (err, result) => {
-
-            console.log(result); // User1 출력
-            this.setState({ result })
-
-        });
-
-        /* AsyncStorage.getItem('ETH_after', (err, result2) => {
-            
-            console.log(result2); // User1 출력
-            this.setState({result2})
-            
-        }); */
-
     }
 
   render() {
@@ -145,14 +118,7 @@ export default class MainScreen extends React.Component {
 
       <ScrollView style={styles.container}  >
 
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <ETH_btn
-            title={this.state.result + ' ETH'}
-            onPress={() => this.goLoginScreen} />
-        </View>
-
+        <LoginAfterHeader Header navigation={this.props.navigation}/>
 
         <View style={styles.midView}>
 

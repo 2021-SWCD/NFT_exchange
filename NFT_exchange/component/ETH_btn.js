@@ -11,7 +11,7 @@ export default class ETH_btn extends React.Component {
        
             marginLeft: 20,
             marginRight: 20,
-            marginTop: 10,
+            marginTop: 15,
             marginBottom: 10,
             fontSize: 15,
             fontWeight: 'normal',
