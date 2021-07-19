@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { TouchableWithoutFeedback, Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -132,7 +132,7 @@ export default class MainScreen extends React.Component {
           <Modal
               transparent={true}
               visible={this.state.show}>
-
+            <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
               <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
                 <Qr_Wallet />
                 <View style={{ position: 'absolute', top: 110, left: 270 }}>
@@ -142,7 +142,7 @@ export default class MainScreen extends React.Component {
                     </TouchableOpacity>
                 </View>
               </View>
-
+              </TouchableWithoutFeedback>
             </Modal>
           </View>
 
