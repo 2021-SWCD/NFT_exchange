@@ -276,17 +276,17 @@ export default class MainScreen extends React.Component {
 
 
         <TouchableOpacity
-          style={{ position: 'absolute', top: 330, left: 30, backgroundColor: 'blue' }}
+          style={{ position: 'absolute', top: 360, left: 5, }}
           onPress={() => this.leftPage()}
         >
-          <Text style={{ fontSize: 30 }}>L</Text>
+          <Icon style={{margin : 5}} name="chevron-back" size={35} />
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{ position: 'absolute', top: 330, right: 30, backgroundColor: 'blue' }}
+          style={{ position: 'absolute', top: 360, right: 5, }}
           onPress={() => this.rightPage()}
         >
-          <Text style={{ fontSize: 30 }}>R</Text>
+          <Icon style={{margin : 5}} name="chevron-forward" size={35} />
         </TouchableOpacity>
 
 
@@ -303,12 +303,10 @@ export default class MainScreen extends React.Component {
   leftPage = () => {
 
     start -= width
-    console.log(start)
     
     if(start < -2){
       start = 1645.7142857142858
     }
-       
     
     this.scrollView.scrollTo({
       x : start
@@ -319,7 +317,6 @@ export default class MainScreen extends React.Component {
   rightPage() {
 
     start += width
-    console.log(start)
     
     if(start >= 1646){
       start = 0
