@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { TouchableWithoutFeedback, Modal, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -28,6 +28,7 @@ import Slide_profile from './component/Slide_profile';
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
+var start = 0;
 
 const dataList = [
   {
@@ -70,6 +71,7 @@ const Input = ({ goWrongSearch }) => {
     opa_num = 1
   }
 
+
   console.log(goWrongSearch);
 
   return (
@@ -108,7 +110,11 @@ const Input = ({ goWrongSearch }) => {
 
 
 
+
 export default class MainScreen extends React.Component {
+
+
+
 
   constructor() //모달 팝업창
   {
@@ -127,19 +133,22 @@ export default class MainScreen extends React.Component {
   }
 
   render() {
+
+
     const logIn = this.state.isLoggedIn;
     console.log(logIn);
     return (
+
 
       <ScrollView style={styles.container}  >
 
         {/* <LoginHeader navigation={this.props.navigation}/> */}
         {
-         logIn
-          ? <LoginAfterHeader navigation={this.props.navigation}/>
-          : <LoginHeader navigation={this.props.navigation}/>
+          logIn
+            ? <LoginAfterHeader navigation={this.props.navigation} />
+            : <LoginHeader navigation={this.props.navigation} />
         }
-          
+
         <View style={styles.midView}>
 
           <Input goWrongSearch={this.goWrongSearch} />
@@ -152,19 +161,19 @@ export default class MainScreen extends React.Component {
             <Modal
               transparent={true}
               visible={this.state.show}
-             // animationType={"slide"}
+            // animationType={"slide"}
             >
-               <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
+              <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
 
-              <View style={{ flex: 1,}}>
-                <Qr_Wallet_Not_Login />
-                <View style={{ position: 'absolute', top: 360, left: 167 }}>
-                  <CustomButton
-                    title={'로그인 하기'}
-                    marginLeft={20}
-                    onPress={() => this.goLoginScreen()} />
+                <View style={{ flex: 1, }}>
+                  <Qr_Wallet_Not_Login />
+                  <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                    <CustomButton
+                      title={'로그인 하기'}
+                      marginLeft={20}
+                      onPress={() => this.goLoginScreen()} />
+                  </View>
                 </View>
-              </View>
               </TouchableWithoutFeedback>
             </Modal>
           </View>
@@ -172,7 +181,13 @@ export default class MainScreen extends React.Component {
         </View>
 
         <View style={{ marginTop: 30, width: 30, height: 550 }}>
-          <ScrollView pagingEnabled horizontal style={{ width, height }}>
+          <ScrollView
+            pagingEnabled
+            horizontal
+            style={{ width, height }}
+            ref={ref => (this.scrollView = ref)}>
+
+
 
             {dataList.map((element, index) => (
               <View key={index}>
@@ -217,6 +232,7 @@ export default class MainScreen extends React.Component {
 
             }
 
+
           </ScrollView>
         </View>
 
@@ -233,13 +249,13 @@ export default class MainScreen extends React.Component {
         {dataList.map((element, index) => (
           <View key={index}>
 
-            <View style={{ marginTop: 10, marginLeft: 55}}>
+            <View style={{ marginTop: 10, marginLeft: 55 }}>
               <Nft_simple_info_cardImage
                 source={{ uri: element.imageUrl }}
                 onPress={() => this.goNFT_detailScreen()} />
               <View style={styles.cardContainer}>
                 <NFT_name
-                  title={element.content }
+                  title={element.content}
                   fontSize={20}
                   onPress={() => this.goNFT_detailScreen()} />
                 <Nft_simple_info_Profile
@@ -259,11 +275,61 @@ export default class MainScreen extends React.Component {
         }
 
 
+        <TouchableOpacity
+          style={{ position: 'absolute', top: 330, left: 30, backgroundColor: 'blue' }}
+          onPress={() => this.leftPage()}
+        >
+          <Text style={{ fontSize: 30 }}>L</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{ position: 'absolute', top: 330, right: 30, backgroundColor: 'blue' }}
+          onPress={() => this.rightPage()}
+        >
+          <Text style={{ fontSize: 30 }}>R</Text>
+        </TouchableOpacity>
+
+
+
+
+
 
 
 
       </ScrollView>
     );
+  }
+
+  leftPage = () => {
+
+    start -= width
+    console.log(start)
+    
+    if(start < -2){
+      start = 1645.7142857142858
+    }
+       
+    
+    this.scrollView.scrollTo({
+      x : start
+    })
+
+
+  }
+  rightPage() {
+
+    start += width
+    console.log(start)
+    
+    if(start >= 1646){
+      start = 0
+    }
+    
+    this.scrollView.scrollTo({
+      x : start
+    })
+
+
   }
   goLoginScreen() {
     // LoginScreen으로 화면 이동
@@ -290,7 +356,7 @@ export default class MainScreen extends React.Component {
     this.props.navigation.navigate('MAIN');
   }
   close_modal = () => {
-    this.setState({show : false})
+    this.setState({ show: false })
   }
 }
 
