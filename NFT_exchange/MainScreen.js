@@ -140,7 +140,7 @@ export default class MainScreen extends React.Component {
     return (
 
 
-      <ScrollView style={styles.container}  >
+      <ScrollView style={styles.container}   stickyHeaderIndices={[1]}>
 
         {/* <LoginHeader navigation={this.props.navigation}/> */}
         {

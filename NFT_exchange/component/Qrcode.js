@@ -15,12 +15,14 @@ export default class Qrcode extends React.Component {
     }
     render() {
         return (
-            <TouchableOpacity onPress={this.props.onPress}>
-                <Icon style={[
-                    {color: this.props.color},
-                    {marginLeft: this.props.marginLeft},
-                    {marginTop: this.props.marginTop},
-                ]}name="qr-code-outline" size={26} />
+            <TouchableOpacity 
+                onPress={this.props.onPress}
+                style={{position : 'absolute', top : 10, left : 320}}>
+                        <Icon style={[
+                            {color: this.props.color},
+                            {marginLeft: this.props.marginLeft},
+                            {marginTop: this.props.marginTop},
+                        ]}name="qr-code-outline" size={26} />
             </TouchableOpacity>
 
         );
