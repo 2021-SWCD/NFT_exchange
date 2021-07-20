@@ -30,7 +30,7 @@ export default class LoginScreen extends React.Component {
 
           <TouchableOpacity>
             <Text 
-              onPress={() => {this.Login_after();this.Login()}} 
+              onPress={() => {this.goMainScreen();this.Login()}} 
               style={styles.loginBtn}>
                 로그인
             </Text>
@@ -41,11 +41,11 @@ export default class LoginScreen extends React.Component {
     );
   }
   Login(){
-    AsyncStorage.setItem('isLoggedIn', JSON.stringify(true), () => {
+    AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
       console.log('로그인 완료')
   });
 
-  AsyncStorage.getItem('isLoggedIn',(err,logComplete) => {
+  AsyncStorage.getItem('logIncom',(err,logComplete) => {
       console.log(logComplete) //true값이 잘 나오는지 확인
   })
   }

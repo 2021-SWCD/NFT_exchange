@@ -18,7 +18,9 @@ import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
 import LoginHeader from './component/loginHeader';
+import LoginAfterHeader from './component/LoginAfterHeader';
 
+import AsyncStorage from '@react-native-community/async-storage';
 import Slide_txt1 from './component/Slide_txt1';
 import Slide_txt2 from './component/Slide_txt2';
 import Slide_profile from './component/Slide_profile';
@@ -112,16 +114,31 @@ export default class MainScreen extends React.Component {
   {
     super();
     this.state = {
-      show: false
+      show: false,
+      isLoggedIn: false,
     }
   }
 
+  async componentDidMount () {
+    AsyncStorage.getItem('logIncom', (err, logIncom) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : logIncom })
+    });
+  }
+
   render() {
+    const logIn = this.state.isLoggedIn;
+    console.log(logIn);
     return (
 
       <ScrollView style={styles.container}  >
 
-        <LoginHeader navigation={this.props.navigation}/>
+        {/* <LoginHeader navigation={this.props.navigation}/> */}
+        {
+         logIn
+          ? <LoginAfterHeader navigation={this.props.navigation}/>
+          : <LoginHeader navigation={this.props.navigation}/>
+        }
           
         <View style={styles.midView}>
 
@@ -149,7 +166,6 @@ export default class MainScreen extends React.Component {
                 </View>
               </View>
               </TouchableWithoutFeedback>
-
             </Modal>
           </View>
 
