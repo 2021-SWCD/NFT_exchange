@@ -69,7 +69,14 @@ export default class NFT_detailScreen extends Component {
             title={"NATURE"} />
           <NFT_detailScreen_detail_main />
 
-          <CustomButton onPress={() => {this.setState({ show: true }) }} />
+
+          {
+          this.state.isLoggedIn
+            ? <CustomButton onPress={() => {this.setState({ show: true }) }} />
+            : <CustomButton onPress={() => this.goLoginScreen()} />
+          }
+
+
 
           <View style={{ flex: 1, marginTop: 100 }}>
             <Modal
