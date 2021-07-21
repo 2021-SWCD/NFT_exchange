@@ -14,7 +14,7 @@ export default class Logout extends React.Component {
             <Text 
               onPress={() => {this.goMainScreen();this.Login()}} 
               style={styles.loginBtn}>
-                로그인
+                로그아웃
             </Text>
           </TouchableOpacity>
 
@@ -25,7 +25,6 @@ export default class Logout extends React.Component {
   Login(){
     AsyncStorage.setItem('logIncom', JSON.stringify(false), () => {
       console.log('로그인 완료')
-    
   });
 
   let a = 80;
