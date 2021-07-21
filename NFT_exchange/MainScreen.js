@@ -121,30 +121,49 @@ export default class MainScreen extends React.Component {
     super();
     this.state = {
       show: false,
-      isLoggedIn: false,
+      //isLoggedIn: false,
     }
   }
 
-  async componentDidMount () {
+  /* async componentDidMount () {
     AsyncStorage.getItem('logIncom', (err, logIncom) => {
       console.log('Login_after'); // User1 출력
       this.setState({ isLoggedIn : logIncom })
     });
+  } */
+
+  state = {
+    isLoggedIn: false,
   }
 
+  componentDidMount() {
+    this.onLoad();
+    console.log('componentDidMount');
+  }
+
+  onLoad = () => {
+    this.props.navigation.addListener('focus', () => {
+      this.checkLoginStatus();
+      console.log('onLoad');
+    });
+  };
+
+  checkLoginStatus = () => {
+    AsyncStorage.getItem('logIncom', (err, result) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : JSON.parse(result) })
+    });
+  };
+
   render() {
-
-
-    const logIn = this.state.isLoggedIn;
-    console.log(logIn);
+    /* const logIn = this.state.isLoggedIn;
+    console.log('logIn');
+    console.log(logIn); */
     return (
-
-
       <ScrollView style={styles.container}   stickyHeaderIndices={[1]}>
-
         {/* <LoginHeader navigation={this.props.navigation}/> */}
         {
-          logIn
+          this.state.isLoggedIn
             ? <LoginAfterHeader navigation={this.props.navigation} />
             : <LoginHeader navigation={this.props.navigation} />
         }
