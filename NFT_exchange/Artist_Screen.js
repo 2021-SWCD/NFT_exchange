@@ -1,8 +1,5 @@
-//Profile 버튼을 누르면 이어지는 Artist_Screen
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
-import Korbit_logo from './component/Korbit_logo';
-import Login_btn from './component/Login_btn';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
@@ -11,25 +8,55 @@ import NFT_name from './component/NFT_name';
 import Profile_img from './component/Profile_img';
 import Profile_name from './component/Profile_name';
 import Profile_text from './component/Profile_text';
-import Icon from 'react-native-vector-icons/Ionicons';
+import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class NFT_detailScreen extends Component {
+  constructor() //모달 팝업창
+  {
+    super();
+    this.state = {
+      show: false,
+    }
+  }
+
+  state = {
+    isLoggedIn: false,
+  }
+
+  componentDidMount() {
+    this.onLoad();
+    console.log('componentDidMount');
+  }
+
+  onLoad = () => {
+    this.props.navigation.addListener('focus', () => {
+      this.checkLoginStatus();
+      console.log('onLoad');
+    });
+  };
+
+  checkLoginStatus = () => {
+    AsyncStorage.getItem('logIncom', (err, result) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : JSON.parse(result) })
+    });
+  };
+
+
   render() {
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
-
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <Login_btn
-            onPress={() => this.goLoginScreen()} />
-        </View>
+        {
+          this.state.isLoggedIn
+            ? <LoginAfterHeader navigation={this.props.navigation} />
+            : <LoginHeader navigation={this.props.navigation} />
+        }
 
         <Go_main navigation={this.props.navigation} />
-
-
-
 
         <View style={{ height: 570 }}>
 
@@ -203,3 +230,6 @@ const styles = StyleSheet.create({
 
 
 })
+
+
+
