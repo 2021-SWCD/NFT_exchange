@@ -21,35 +21,12 @@ export default class Detail_buy extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            result:0,
+            show_result: null,
             isLoggedIn: false,
         };
     }
 
-    async componentDidMount () {
-        /*let a = 100;
-
-        AsyncStorage.setItem('ETH', a.toString(), () => {
-            console.log('ETH 초기화')
-        }); */
-
-        // ETH 초기값 할당
-        AsyncStorage.getItem('ETH', (err, result) => {
-            console.log(result); // User1 출력
-            this.setState({result})
-            
-            
-             
-        });
-
-        /* let b = 80;
-        b -= 10;
-        */
-
-        /* AsyncStorage.setItem('ETH_after', total.toString(), () => {
-            console.log('유저 닉네임 저장 완료')
-        }); */
-    }
+  
 
     componentDidMount() {
         this.onLoad();
@@ -64,6 +41,16 @@ export default class Detail_buy extends Component {
       };
     
       checkLoginStatus = () => {
+
+         // ETH 초기값 할당
+         AsyncStorage.getItem('ETH', (err, result) => {
+            console.log(result); // User1 출력
+            this.setState({show_result : result})
+            
+            
+             
+        });
+
         AsyncStorage.getItem('logIncom', (err, result) => {
           console.log('Login_after'); // User1 출력
           this.setState({ isLoggedIn : JSON.parse(result) })
@@ -89,7 +76,7 @@ export default class Detail_buy extends Component {
 
                     <Buy_text
                      //title={this.state.result} />
-                     title={this.state.result + 'ETH'} />
+                     title={this.state.show_result + 'ETH'} />
 
                     <Buy_screen />
 
@@ -109,7 +96,7 @@ export default class Detail_buy extends Component {
 
     Count(){
 
-        let a = this.state.result-10
+        let a = this.state.show_result-10
 
         AsyncStorage.setItem('ETH', JSON.stringify(a), () => {
             console.log('값 변경 완료 ')
