@@ -14,8 +14,14 @@ export default class LoginAfterHeader extends React.Component {
         }   
     }
 
-    /* componentDidMount() {
+    componentDidMount() {
         this.onLoad();
+        AsyncStorage.getItem('ETH', (err, result) => {
+
+            console.log(result); // User1 출력
+            this.setState({ result })
+
+        });
         console.log('loginAfterHeader eth설정_componentdidmount');
     }
 
@@ -27,21 +33,6 @@ export default class LoginAfterHeader extends React.Component {
     }
 
     checkEthStatus = () => {
-        let a = 80;
-
-        AsyncStorage.getItem('ETH', (err, result) => {
-
-            if(result == ''){
-
-                AsyncStorage.setItem('ETH', a.toString(), () => {
-                    console.log('ETH 초기화')
-                });
-
-            }
-
-        });
-
-        
         // ETH 초기값 할당
         AsyncStorage.getItem('ETH', (err, result) => {
 
@@ -49,12 +40,9 @@ export default class LoginAfterHeader extends React.Component {
             this.setState({ result : result })
 
         });
+    }
 
-
-        
-    } */
-
-    async componentDidMount() {
+    /* async componentDidMount() {
         let a = 80;
 
         AsyncStorage.getItem('ETH', (err, result) => {
@@ -77,10 +65,8 @@ export default class LoginAfterHeader extends React.Component {
             this.setState({ result })
 
         });
-
-     
     }
-
+ */
     render(){
         return(
             <View style={styles.topView}>
