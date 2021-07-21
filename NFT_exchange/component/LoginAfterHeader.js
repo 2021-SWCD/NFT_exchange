@@ -3,15 +3,56 @@ import { View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Korbit_logo from './Korbit_logo';
 import ETH_btn from './ETH_btn';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 
 export default class LoginAfterHeader extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            result: 0,
+            result: 80,
         }   
     }
+
+    /* componentDidMount() {
+        this.onLoad();
+        console.log('loginAfterHeader eth설정_componentdidmount');
+    }
+
+    onLoad = () => {
+        this.props.navigation.addListener('focus', () => {
+            this.checkEthStatus();
+            console.log('loginAfterHeader eth설정_onload');
+        })
+    }
+
+    checkEthStatus = () => {
+        let a = 80;
+
+        AsyncStorage.getItem('ETH', (err, result) => {
+
+            if(result == ''){
+
+                AsyncStorage.setItem('ETH', a.toString(), () => {
+                    console.log('ETH 초기화')
+                });
+
+            }
+
+        });
+
+        
+        // ETH 초기값 할당
+        AsyncStorage.getItem('ETH', (err, result) => {
+
+            console.log(result); // User1 출력
+            this.setState({ result : result })
+
+        });
+
+
+        
+    } */
 
     async componentDidMount() {
         let a = 80;
@@ -29,11 +70,6 @@ export default class LoginAfterHeader extends React.Component {
         });
 
         
-
-       /*  AsyncStorage.setItem('ETH', a.toString(), () => {
-            console.log('ETH 초기화')
-        });
- */
         // ETH 초기값 할당
         AsyncStorage.getItem('ETH', (err, result) => {
 
@@ -42,28 +78,27 @@ export default class LoginAfterHeader extends React.Component {
 
         });
 
-        /* AsyncStorage.getItem('ETH_after', (err, result2) => {
-            
-            console.log(result2); // User1 출력
-            this.setState({result2})
-            
-        }); */
-
+     
     }
 
     render(){
         return(
             <View style={styles.topView}>
                 <Korbit_logo
-                    onPress={() => this.goLoginAfterScreen()} />
+                    onPress={() => this.goMainScreen()} />
                 <ETH_btn
-                    title={this.state.result + ' ETH'}/>
+                    title={this.state.result + ' ETH'}
+                    onPress={() => this.goLogoutScreen()}/>
             </View>
         )
     }
-    goLoginAfterScreen() {
+    goMainScreen() {
         //MainScreen으로 이동
-        this.props.navigation.navigate('LOGIN_AFTER');
+        this.props.navigation.navigate('MAIN');
+    }
+    goLogoutScreen() {
+        //MainScreen으로 이동
+        this.props.navigation.navigate('LOGOUT');
     }
 }
 

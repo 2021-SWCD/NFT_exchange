@@ -150,6 +150,8 @@ export default class MainScreen extends React.Component {
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
+     // if
+      console.log({result});
       console.log('Login_after'); // User1 출력
       this.setState({ isLoggedIn : JSON.parse(result) })
     });
