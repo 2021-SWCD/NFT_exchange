@@ -108,6 +108,8 @@ export default class Detail_buy extends Component {
 
     }
 
+    
+
     goMainScreen() {
         //MainScreen으로 이동
         this.props.navigation.navigate('MAIN');
