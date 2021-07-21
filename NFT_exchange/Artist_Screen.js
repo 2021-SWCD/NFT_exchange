@@ -14,17 +14,14 @@ import LoginHeader from './component/loginHeader';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class NFT_detailScreen extends Component {
+export default class Artist_Screen extends Component {
   constructor() //모달 팝업창
   {
     super();
     this.state = {
       show: false,
+      isLoggedIn: false,
     }
-  }
-
-  state = {
-    isLoggedIn: false,
   }
 
   componentDidMount() {

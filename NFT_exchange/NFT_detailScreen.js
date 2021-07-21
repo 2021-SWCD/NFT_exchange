@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
+import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
@@ -8,9 +8,9 @@ import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_ma
 import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
-import Login_After from './LoginScreen';
 import LoginAfterHeader from './component/LoginAfterHeader';
 import LoginHeader from './component/loginHeader';
+import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
 export default class NFT_detailScreen extends Component {
@@ -19,17 +19,37 @@ export default class NFT_detailScreen extends Component {
   {
     super();
     this.state = {
-      show: false
+      show: false,
+      isLoggedIn: false,
     }
   }
+
+  componentDidMount() {
+    this.onLoad();
+    console.log('componentDidMount');
+  }
+
+  onLoad = () => {
+    this.props.navigation.addListener('focus', () => {
+      this.checkLoginStatus();
+      console.log('onLoad');
+    });
+  };
+
+  checkLoginStatus = () => {
+    AsyncStorage.getItem('logIncom', (err, result) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : JSON.parse(result) })
+    });
+  };
 
   render() {
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {
-          !!Login_After
-          ? <LoginAfterHeader Header navigation={this.props.navigation}/>
-          : <LoginHeader navigation={this.props.navigation}/>
+          this.state.isLoggedIn
+            ? <LoginAfterHeader navigation={this.props.navigation} />
+            : <LoginHeader navigation={this.props.navigation} />
         }
 
         <Go_main navigation={this.props.navigation} />
@@ -56,7 +76,7 @@ export default class NFT_detailScreen extends Component {
               transparent={true}
               visible={this.state.show}
             >
-
+            <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
               <View style={{ backgroundColor: "grey", flex: 1 }}>
 
 
@@ -64,10 +84,12 @@ export default class NFT_detailScreen extends Component {
 
 
                 <View style={{ alignItems: 'center', position:'absolute', justifyContent:'center',alignItems:'center',top:455 ,left:80}}>
-                  <TouchableOpacity><Text onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
+                  <TouchableOpacity>
+                    <Text 
+                    onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
                 </View>
               </View>
-
+            </TouchableWithoutFeedback>
             </Modal>
           </View>
 
@@ -97,6 +119,9 @@ export default class NFT_detailScreen extends Component {
     // Detail_buy로 화면 이동
     this.props.navigation.navigate('BUY');
   }
+  close_modal = () => {
+    this.setState({ show: false })
+}
 }
 
 

@@ -1,8 +1,5 @@
 import React, { TouchableOpacity, Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
-import Korbit_logo from './component/Korbit_logo';
-import Login_btn from './component/Login_btn';
-import Qrcode from './component/Qrcode';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
@@ -12,9 +9,9 @@ import CustomButton from './component/CustomButton';
 import Custom_cancel from './component/Custom_cancel';
 import TabBar from './component/TabBar';
 import Buy_text from './component/Buy_text';
-
 import Buy_screen from './component/Buy_screen';
-
+import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
@@ -23,7 +20,10 @@ export default class Detail_buy extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {result:0};
+        this.state = {
+            result:0,
+            isLoggedIn: false,
+        };
     }
 
     async componentDidMount () {
@@ -51,29 +51,37 @@ export default class Detail_buy extends Component {
         }); */
     }
 
+    componentDidMount() {
+        this.onLoad();
+        console.log('componentDidMount');
+      }
+    
+      onLoad = () => {
+        this.props.navigation.addListener('focus', () => {
+          this.checkLoginStatus();
+          console.log('onLoad');
+        });
+      };
+    
+      checkLoginStatus = () => {
+        AsyncStorage.getItem('logIncom', (err, result) => {
+          console.log('Login_after'); // User1 출력
+          this.setState({ isLoggedIn : JSON.parse(result) })
+        });
+      };
+
 
     render() {
 
         return (
-            <ScrollView style={styles.container} stickyHeaderIndices={[1]}
-            >
+            <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
+                {
+                this.state.isLoggedIn
+                ? <LoginAfterHeader navigation={this.props.navigation} />
+                : <LoginHeader navigation={this.props.navigation} />
+                }
 
-                <View style={styles.topView}>
-                    <Korbit_logo
-                        onPress={() => this.goMainScreen()} />
-                    <Login_btn
-                        onPress={() => this.goLoginScreen()} />
-                </View>
-
-                <View style={styles.midView}>
-                    <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>
-
-                        <Go_main onPress={() => this.goMainScreen()} />
-
-                        <Qrcode />
-
-                    </View>
-                </View>
+                <Go_main navigation={this.props.navigation} />
 
                 <View style={styles.colum}>
 

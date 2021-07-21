@@ -27,11 +27,8 @@ export default class WrongSearch extends React.Component {
     super();
     this.state = {
       show: false,
+      isLoggedIn: false,
     }
-  }
-
-  state = {
-    isLoggedIn: false,
   }
 
   componentDidMount() {
