@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView, ShadowPropTypesIOS, } from 'react-native';
-import Qrcode from './component/Qrcode';
+import { TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
@@ -33,15 +32,7 @@ export default class NFT_detailScreen extends Component {
           : <LoginHeader navigation={this.props.navigation}/>
         }
 
-        <View style={styles.midView}>
-          <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>
-
-            <Go_main onPress={() => this.goMainScreen()} />
-
-            <Qrcode />
-
-          </View>
-        </View>
+        <Go_main navigation={this.props.navigation} />
 
         <Nft_simple_info_cardImage
           source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
