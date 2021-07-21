@@ -8,6 +8,7 @@ export default class Qrcode extends React.Component {
         color: 'black',
         marginLeft: 10,
         marginTop: null,
+        marginBottom: null,
         onPress: () => null,
     }
     constructor(props){
@@ -22,6 +23,7 @@ export default class Qrcode extends React.Component {
                             {color: this.props.color},
                             {marginLeft: this.props.marginLeft},
                             {marginTop: this.props.marginTop},
+                            {marginBottom: this.props.marginBottom},
                         ]}name="qr-code-outline" size={26} />
             </TouchableOpacity>
 

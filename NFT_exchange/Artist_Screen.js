@@ -16,36 +16,54 @@ import Profile_text from './component/Profile_text';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Qrcode from './component/Qrcode';
+import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/loginHeader';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class NFT_detailScreen extends Component {
+  constructor() //모달 팝업창
+  {
+    super();
+    this.state = {
+      show: false,
+    }
+  }
+
+  state = {
+    isLoggedIn: false,
+  }
+
+  componentDidMount() {
+    this.onLoad();
+    console.log('componentDidMount');
+  }
+
+  onLoad = () => {
+    this.props.navigation.addListener('focus', () => {
+      this.checkLoginStatus();
+      console.log('onLoad');
+    });
+  };
+
+  checkLoginStatus = () => {
+    AsyncStorage.getItem('logIncom', (err, result) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : JSON.parse(result) })
+    });
+  };
+
+
   render() {
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
+        {
+          this.state.isLoggedIn
+            ? <LoginAfterHeader navigation={this.props.navigation} />
+            : <LoginHeader navigation={this.props.navigation} />
+        }
 
-        <View style={styles.topView}>
-          <Korbit_logo
-            onPress={() => this.goMainScreen()} />
-          <Login_btn
-            onPress={() => this.goLoginScreen()} />
-        </View>
-
-
-
-        <View style={styles.midView}>
-
-          <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>
-
-            <Go_main onPress={() => this.goMainScreen()} />
-
-            <Qrcode />
-
-          </View>
-
-        </View>
-
-
+        <Go_main navigation={this.props.navigation} />
 
         <View style={{ height: 570 }}>
 

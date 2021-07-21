@@ -20,7 +20,7 @@ export default class Search_input extends React.Component {
 const styles = StyleSheet.create({
     searchbar: {
         marginLeft: 12,
-        width: 280,
+        width: 260,
         fontSize: 16
     
       },

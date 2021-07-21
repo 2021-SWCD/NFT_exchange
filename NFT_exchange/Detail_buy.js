@@ -70,7 +70,7 @@ export default class Detail_buy extends Component {
 
                         <Go_main onPress={() => this.goMainScreen()} />
 
-                        <Qrcode />
+                        <Qrcode style={{}}/>
 
                     </View>
                 </View>

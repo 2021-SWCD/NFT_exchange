@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { Modal, TouchableWithoutFeedback, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -13,26 +13,47 @@ import Korbit_logo from './component/Korbit_logo';
 import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
+import Qr_Wallet from './component/QR_Wallet';
+import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
+import CustomButton from './component/CustomButton';
 import LoginAfterHeader from './component/LoginAfterHeader';
 import LoginHeader from './component/loginHeader';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 
 export default class WrongSearch extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() //모달 팝업창
+  {
+    super();
     this.state = {
-        isLoggedIn: false,
-    }   
-}
-
-  async componentDidMount () {
-    AsyncStorage.getItem('isLoggedIn', (err, isLoggedIn) => {
-      console.log('로그인'); // User1 출력
-      this.setState({ isLoggedIn })
-    });
+      show: false,
+    }
   }
+
+  state = {
+    isLoggedIn: false,
+  }
+
+  componentDidMount() {
+    this.onLoad();
+    console.log('componentDidMount');
+  }
+
+  onLoad = () => {
+    this.props.navigation.addListener('focus', () => {
+      this.checkLoginStatus();
+      console.log('onLoad');
+    });
+  };
+
+  checkLoginStatus = () => {
+    AsyncStorage.getItem('logIncom', (err, result) => {
+      console.log('Login_after'); // User1 출력
+      this.setState({ isLoggedIn : JSON.parse(result) })
+    });
+  };
 
   render() {
     const isLoggedIn = this.state.isLoggedIn;
@@ -40,26 +61,64 @@ export default class WrongSearch extends React.Component {
     return (
 
       <ScrollView style={styles.container}>
-
         {
-          isLoggedIn 
-          ? <LoginAfterHeader navigation={this.props.navigation}/>
-          : <LoginHeader navigation={this.props.navigation}/>
+          isLoggedIn
+            ? <LoginAfterHeader navigation={this.props.navigation} />
+            : <LoginHeader navigation={this.props.navigation} />
         }
 
         <View style={styles.midView}>
 
 
-          <Search_icons
-            />
+          <Search_icons marginTop={null}/>
 
           <Search_input />
 
-          <Icon style={styles.reset} name="close-outline" size={26} />
+          <Icon 
+            style={styles.reset} 
+            name="close-outline" 
+            size={26} />
 
-          <Qrcode />
+          <Qrcode 
+            marginTop={5}
+            marginLeft={40}
+            onPress={() => { this.setState({ show: true }) }}/>
 
-
+          <View>
+            {
+              isLoggedIn
+              ? <Modal
+                  transparent={true}
+                  visible={this.state.show}>
+              <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
+                <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
+                  <Qr_Wallet />
+                    <View style={{ position: 'absolute', top: 110, left: 270 }}>
+                      <TouchableOpacity onPress={() => this.goArtist_Screen()}>
+                        <Icon style={{marginTop: 20}}
+                          name="chevron-forward-outline" size={30}></Icon>
+                      </TouchableOpacity>
+                      </View>
+                    </View>
+                  </TouchableWithoutFeedback>
+                </Modal>
+              : <Modal
+                  transparent={true}
+                  visible={this.state.show}>
+                <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+                  <View style={{ flex: 1, }}>
+                    <Qr_Wallet_Not_Login />
+                    <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                      <CustomButton
+                        title={'로그인 하기'}
+                        marginLeft={20}
+                        onPress={() => this.goLoginScreen()} />
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              </Modal>
+            }
+          </View>
         </View>
 
         <View style={{ marginTop: 90, alignItems: 'center' }}>
@@ -136,8 +195,9 @@ export default class WrongSearch extends React.Component {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
   }
-
-
+  close_modal = () => {
+    this.setState({ show: false })
+  }
 }
 
 const styles = StyleSheet.create({
@@ -242,6 +302,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 20,
     marginBottom: 20,
     width:300,
-    height: 150,
+    height: 170,
   },
 });

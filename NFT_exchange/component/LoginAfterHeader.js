@@ -33,7 +33,7 @@ export default class LoginAfterHeader extends React.Component {
        /*  AsyncStorage.setItem('ETH', a.toString(), () => {
             console.log('ETH 초기화')
         });
- */
+        */
         // ETH 초기값 할당
         AsyncStorage.getItem('ETH', (err, result) => {
 
@@ -55,11 +55,15 @@ export default class LoginAfterHeader extends React.Component {
         return(
             <View style={styles.topView}>
                 <Korbit_logo
-                    onPress={() => this.goLoginAfterScreen()} />
+                    onPress={() => this.goMainScreen()} />
                 <ETH_btn
                     title={this.state.result + ' ETH'}/>
             </View>
         )
+    }
+    goMainScreen() {
+        //MainScreen으로 이동
+        this.props.navigation.navigate('MAIN');
     }
     goLoginAfterScreen() {
         //MainScreen으로 이동

@@ -19,7 +19,7 @@ export default class loginHeader extends React.Component {
         //MainScreen으로 이동
         this.props.navigation.navigate('MAIN');
     }
-      goLoginScreen() {
+    goLoginScreen() {
         // LoginScreen으로 화면 이동
         this.props.navigation.navigate('LOGIN');
     }
