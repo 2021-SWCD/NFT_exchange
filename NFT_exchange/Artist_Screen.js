@@ -1,6 +1,6 @@
 //Profile 버튼을 누르면 이어지는 Artist_Screen
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, Image, ScrollView, } from 'react-native';
+import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import Korbit_logo from './component/Korbit_logo';
 import Login_btn from './component/Login_btn';
 import Go_main from './component/go_main';
@@ -10,12 +10,7 @@ import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
 import NFT_name from './component/NFT_name';
 import Profile_img from './component/Profile_img';
 import Profile_name from './component/Profile_name';
-
 import Profile_text from './component/Profile_text';
-
-import Detail_main from './component/detail_main';
-import CustomButton from './component/CustomButton';
-import Qrcode from './component/Qrcode';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -31,19 +26,8 @@ export default class NFT_detailScreen extends Component {
             onPress={() => this.goLoginScreen()} />
         </View>
 
+        <Go_main navigation={this.props.navigation} />
 
-
-        <View style={styles.midView}>
-
-          <View style={{ marginLeft: 3, marginBottom: 6, flexDirection: 'row', alignItems: 'flex-end' }}>
-
-            <Go_main onPress={() => this.goMainScreen()} />
-
-            <Qrcode />
-
-          </View>
-
-        </View>
 
 
 
