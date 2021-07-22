@@ -3,4 +3,5 @@
 <img src="https://img.shields.io/badge/-JavaScript-yellow?style=flat-square&logo=JavaScript">
 <img src="https://img.shields.io/badge/React--Native-0.64.2-blue?style=flat-square&logo=React">
 2021-07-12 얼레벌레 완성해 버린것 같습니다 ^_ㅠ  
+
 2021-07-22 진짜진짜 완성했습니다! ^o^ 취업때 포트폴리오로 내도 되나여
