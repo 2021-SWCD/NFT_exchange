@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
-import Profile from './component/Profile';
+import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
 import Search_icons from './component/Search_icons';
@@ -17,6 +17,34 @@ import CustomButton from './component/CustomButton';
 import LoginAfterHeader from './component/LoginAfterHeader';
 import LoginHeader from './component/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
+
+const dataList = [
+  {
+    imageUrl: "https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg",
+    title: "title1",
+    content: "content1"
+  },
+  {
+    imageUrl: "https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg",
+    title: "title2",
+    content: "content2"
+  },
+  {
+    imageUrl: "http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg",
+    title: "title3",
+    content: "content3"
+  },
+  {
+    imageUrl: "http://www.economyf.com/pds_update/umg_20200528234240.jpg",
+    title: "title4",
+    content: "content4"
+  },
+  {
+    imageUrl: "http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg",
+    title: "title5",
+    content: "content5"
+  },
+]
 
 
 
@@ -46,7 +74,7 @@ export default class WrongSearch extends React.Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after'); // User1 출력
-      this.setState({ isLoggedIn : JSON.parse(result) })
+      this.setState({ isLoggedIn: JSON.parse(result) })
     });
   };
 
@@ -65,53 +93,53 @@ export default class WrongSearch extends React.Component {
         <View style={styles.midView}>
 
 
-          <Search_icons marginTop={null}/>
+          <Search_icons marginTop={null} />
 
           <Search_input />
 
-          <Icon 
-            style={styles.reset} 
-            name="close-outline" 
+          <Icon
+            style={styles.reset}
+            name="close-outline"
             size={26} />
 
-          <Qrcode 
+          <Qrcode
             marginTop={5}
             marginLeft={40}
-            onPress={() => { this.setState({ show: true }) }}/>
+            onPress={() => { this.setState({ show: true }) }} />
 
           <View>
             {
               isLoggedIn
-              ? <Modal
+                ? <Modal
                   transparent={true}
                   visible={this.state.show}>
-              <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
-                <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
-                  <Qr_Wallet />
-                    <View style={{ position: 'absolute', top: 110, left: 270 }}>
-                      <TouchableOpacity onPress={() => this.goArtist_Screen()}>
-                        <Icon style={{marginTop: 20}}
-                          name="chevron-forward-outline" size={30}></Icon>
-                      </TouchableOpacity>
+                  <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+                    <View style={{ flex: 1, marginLeft: 100, marginBottom: 90 }}>
+                      <Qr_Wallet />
+                      <View style={{ position: 'absolute', top: 110, left: 270 }}>
+                        <TouchableOpacity onPress={() => this.goArtist_Screen()}>
+                          <Icon style={{ marginTop: 20 }}
+                            name="chevron-forward-outline" size={30}></Icon>
+                        </TouchableOpacity>
                       </View>
                     </View>
                   </TouchableWithoutFeedback>
                 </Modal>
-              : <Modal
+                : <Modal
                   transparent={true}
                   visible={this.state.show}>
-                <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                  <View style={{ flex: 1, }}>
-                    <Qr_Wallet_Not_Login />
-                    <View style={{ position: 'absolute', top: 360, left: 167 }}>
-                      <CustomButton
-                        title={'로그인 하기'}
-                        marginLeft={20}
-                        onPress={() => this.goLoginScreen()} />
+                  <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+                    <View style={{ flex: 1, }}>
+                      <Qr_Wallet_Not_Login />
+                      <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                        <CustomButton
+                          title={'로그인 하기'}
+                          marginLeft={20}
+                          onPress={() => this.goLoginScreen()} />
+                      </View>
                     </View>
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
+                  </TouchableWithoutFeedback>
+                </Modal>
             }
           </View>
         </View>
@@ -127,53 +155,35 @@ export default class WrongSearch extends React.Component {
           <Hot_text />
         </View>
 
-        <View style={{ alignContent: 'center' }}>
-          <View style={{ marginTop: 10, marginLeft: 55 }}>
-            <Nft_simple_info_cardImage 
-              onPress={() => this.goNFT_detailScreen()}/>
-            <View style={styles.cardContainer}>
-              <NFT_name 
-                title={'NATURE'}
-                fontSize={20}
-                onPress={() => this.goNFT_detailScreen()}/>
-              <Profile 
-                title={'hyunji'}
-                onPress={() => this.goArtist_Screen()}/>
-              <Nft_simple_info_costtime 
-                nft_cost={'0.01ETH'}/>
+        {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
+
+
+
+        {dataList.map((element, index) => (
+          <View key={index}>
+
+            <View style={{ marginTop: 10, marginLeft: 55 }}>
+              <Nft_simple_info_cardImage
+                source={{ uri: element.imageUrl }}
+                onPress={() => this.goNFT_detailScreen()} />
+              <View style={styles.cardContainer}>
+                <NFT_name
+                  title={element.content}
+                  fontSize={20}
+                  onPress={() => this.goNFT_detailScreen()} />
+                <Nft_simple_info_Profile
+                  title={element.title}
+                  onPress={() => this.goArtist_Screen()} />
+                <Nft_simple_info_costtime
+                  nft_cost={'0.01ETH'} />
+              </View>
             </View>
+
+
           </View>
-          <View style={{ marginTop: 10, marginLeft: 55 }}>
-            <Nft_simple_info_cardImage 
-              onPress={() => this.goNFT_detailScreen()}/>
-            <View style={styles.cardContainer}>
-              <NFT_name 
-                title={'NATURE'}
-                fontSize={20}
-                onPress={() => this.goNFT_detailScreen()}/>
-              <Profile 
-                title={'hyunji'}
-                onPress={() => this.goArtist_Screen()}/>
-              <Nft_simple_info_costtime 
-                nft_cost={'0.01ETH'}/>
-            </View>
-          </View>
-          <View style={{ marginTop: 10, marginLeft: 55 }}>
-            <Nft_simple_info_cardImage 
-              onPress={() => this.goNFT_detailScreen()}/>
-            <View style={styles.cardContainer}>
-              <NFT_name 
-                title={'NATURE'}
-                fontSize={20}
-                onPress={() => this.goNFT_detailScreen()}/>
-              <Profile 
-                title={'hyunji'}
-                onPress={() => this.goArtist_Screen()}/>
-              <Nft_simple_info_costtime 
-                nft_cost={'0.01ETH'}/>
-            </View>
-          </View>
-        </View>
+
+        ))
+        }
 
       </ScrollView>
     );
@@ -196,6 +206,10 @@ export default class WrongSearch extends React.Component {
   goNFT_detailScreen() {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SUGESST');
+  }
+  goArtist_Screen() {
+    // ARTIST_screen으로 화면 이동
+    this.props.navigation.navigate('ARTIST');
   }
 }
 
@@ -295,12 +309,12 @@ const styles = StyleSheet.create({
 
   },
 
-  cardContainer:{
+  cardContainer: {
     backgroundColor: '#d3d3d3',
     borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     borderBottomRightRadius: 20,
     marginBottom: 20,
-    width:300,
+    width: 300,
     height: 170,
   },
 });
