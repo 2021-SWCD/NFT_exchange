@@ -193,6 +193,10 @@ export default class WrongSearch extends React.Component {
   close_modal = () => {
     this.setState({ show: false })
   }
+  goNFT_detailScreen() {
+    //SampleScreen으로 이동
+    this.props.navigation.navigate('SUGESST');
+  }
 }
 
 const styles = StyleSheet.create({
