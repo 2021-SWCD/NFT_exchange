@@ -127,6 +127,10 @@ export default class Artist_Screen extends Component {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
   }
+  goNFT_detailScreen() {
+    //SampleScreen으로 이동
+    this.props.navigation.navigate('SUGESST');
+  }
 }
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, TouchableWithoutFeedback, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -46,6 +46,55 @@ const dataList = [
   },
 ]
 
+const Input = ({ goWrongSearch }) => {
+
+  const [text, setText] = useState('');
+
+  var opa_num; // 공백일 경우 0, 아닐경우 1로해서 바로 투명도 조절.
+
+  if (text == '') {
+    opa_num = 0
+  }
+  else {
+    opa_num = 1
+}
+
+
+  console.log(goWrongSearch);
+
+  return (
+    <>
+      <View style={styles.searchView} >
+
+      <Search_icons
+          //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
+          onPress={() => {
+            console.log('good?');
+            goWrongSearch()
+          }}
+        />
+
+        <TextInput
+          style={styles.searchbar}
+          placeholder="작품명 검색"
+          value={text}
+          onChangeText={text => setText(text)}
+
+        />
+
+        <TouchableOpacity onPress={() => setText('')}>
+
+
+          <Icon style={{ opacity: opa_num, marginTop: 8 }} name="close-outline" size={30} />
+
+
+        </TouchableOpacity>
+
+      </View>
+
+    </>
+  );
+}
 
 
 export default class WrongSearch extends React.Component {
@@ -93,18 +142,11 @@ export default class WrongSearch extends React.Component {
         <View style={styles.midView}>
 
 
-          <Search_icons marginTop={null} />
-
-          <Search_input />
-
-          <Icon
-            style={styles.reset}
-            name="close-outline"
-            size={26} />
+        <Input goWrongSearch={this.goWrongSearch} />
 
           <Qrcode
             marginTop={5}
-            marginLeft={40}
+            marginLeft={30}
             onPress={() => { this.setState({ show: true }) }} />
 
           <View>
@@ -211,6 +253,11 @@ export default class WrongSearch extends React.Component {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
   }
+  goWrongSearch = () => {
+    // console.log(this.props);
+    //WrongSearch으로 이동
+    this.props.navigation.navigate('WRONG');
+  }
 }
 
 const styles = StyleSheet.create({
@@ -243,6 +290,9 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
   },
 
+  searchView: {
+    flexDirection: 'row',
+  },
   midView: {
 
     flexDirection: 'row',
@@ -257,7 +307,7 @@ const styles = StyleSheet.create({
   },
   searchbar: {
     marginLeft: 12,
-    width: 280,
+    width: 240,
     fontSize: 16
 
   },

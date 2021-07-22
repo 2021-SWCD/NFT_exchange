@@ -68,7 +68,7 @@ const Input = ({ goWrongSearch }) => {
   }
   else {
     opa_num = 1
-  }
+}
 
 
   console.log(goWrongSearch);
