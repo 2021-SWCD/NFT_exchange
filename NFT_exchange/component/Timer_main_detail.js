@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import moment from 'moment';
+import { renderNode } from 'react-native-elements/dist/helpers';
 
 const Timer_main_detail = () => {
   const [totalDuration, setTotalDuration] = useState(0);
@@ -21,7 +22,7 @@ const Timer_main_detail = () => {
     setTotalDuration(d);
     //Settign up the duration of countdown in seconds to re-render
   }, []);
-
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -43,7 +44,7 @@ const Timer_main_detail = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //marginLeft: 10,
+    marginRight: 5,
   },
 });
 

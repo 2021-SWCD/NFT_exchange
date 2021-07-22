@@ -4,6 +4,19 @@ import 'react-native-gesture-handler';
 import Timer_main_detail from './Timer_main_detail';
 
 export default class Detail_main extends React.Component {
+  static defaultProps = {
+    title: 'untitled',
+    titleColor: 'black',
+    fontSize: 20,
+    marginTop: 26,
+    marginLeft :20,
+    width : 150,
+    height: 30,
+    onPress: () => null,
+  }
+  constructor(props){
+    super(props);
+  }
   render(){
     return (
         <View style={styles.container}>
@@ -33,7 +46,7 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
   },
   
   elem: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
-    width: '40%',
+    width: '50%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
