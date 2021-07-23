@@ -14,14 +14,7 @@ import Profile from './component/Profile';
 import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Hot_text from './component/Hot_text';
 import Search_input from './component/Search_input';
-<<<<<<< HEAD
-import LoginHeader from './component/common/loginHeader';
-import LoginAfterHeader from './component/common/LoginAfterHeader';
-=======
-import Qrcode from './component/Qrcode';
-import Qr_Wallet from './component/QR_Wallet';
-import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
->>>>>>> 723a78ea7f0d699c8043d30d87bf4fe76110194d
+
 
 import AsyncStorage from '@react-native-community/async-storage';
 import Slide_txt1 from './component/Slide_txt1';

@@ -10,14 +10,8 @@ import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElem
 import Hot_text from './component/Hot_text';
 import Search_input from './component/Search_input';
 import CustomButton from './component/CustomButton';
-<<<<<<< HEAD
-import LoginAfterHeader from './component/common/LoginAfterHeader';
-import LoginHeader from './component/common/loginHeader';
-import Search from './component/common/search/Search';
-=======
-
->>>>>>> 723a78ea7f0d699c8043d30d87bf4fe76110194d
 import AsyncStorage from '@react-native-community/async-storage';
+import Search from './component/common/search/Search';
 
 const dataList = [
   {
