@@ -120,10 +120,6 @@ export default class Detail_buy extends Component {
         // ARTIST_screen으로 화면 이동
         this.props.navigation.navigate('ARTIST');
     }
-    Login_after(){
-        // MainScreen으로 화면 이동
-        this.props.navigation.navigate('LOGIN_AFTER');
-    }
 }
 
 
