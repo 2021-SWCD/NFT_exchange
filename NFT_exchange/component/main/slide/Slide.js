@@ -4,9 +4,8 @@ import { TouchableOpacity, Dimensions, ScrollView, Text, StyleSheet, View, Image
 import Slide_profile from '../../Slide_profile';
 import Slide_txt1 from '../../Slide_txt1';
 import Slide_txt2 from '../../Slide_txt2';
+import Nft_name from '../../common/commonElement/Nft_name';
 import CustomButton from '../../CustomButton';
-import NFT_name from '../../common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -70,7 +69,7 @@ export default class slide extends React.Component {
                             />
 
 
-                            <NFT_name
+                            <Nft_name
                                 title={element.content}
                                 marginLeft={50}
                                 fontSize={45}

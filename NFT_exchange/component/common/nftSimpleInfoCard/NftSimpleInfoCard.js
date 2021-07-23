@@ -1,5 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import CardImage from '../commonElement/CardImage';
+import NFT_name from '../commonElement/Nft_name';
+import Profile from '../commonElement/Profile';
+import Nft_cost from '../commonElement/Nft_cost';
+import Timer_nft_info from '../../Timer_nft_info';
 
 const dataList = [
     {
@@ -30,34 +35,43 @@ const dataList = [
 ]
 
 export default class NftSimpleInfoCard extends React.Component {
-    render(){
-        return(
-            <View>
-                {dataList.map((element, index) => (
-                    <View key={index}>
-                        <View style={{ marginTop: 10, marginLeft: 55 }}>
-                        <Nft_simple_info_cardImage
-                            source={{ uri: element.imageUrl }}
-                            onPress={() => this.goNFT_detailScreen()} />
-                        <View style={styles.cardContainer}>
-                            <NFT_name
-                            title={element.content}
-                            fontSize={20}
-                        onPress={() => this.goNFT_detailScreen()} />
-                      <Nft_simple_info_Profile
-                        title={element.title}
-                        onPress={() => this.goArtist_Screen()} />
-                      <Nft_simple_info_costtime
-                        nft_cost={'0.01ETH'} />
-                    </View>
+  render(){
+    return(
+      <View>
+        {dataList.map((element, index) => (
+          <View key={index}>
+            <View style={{ marginTop: 20}}>
+              <CardImage
+                source={{ uri: element.imageUrl }}
+                navigation={this.props.navigation}/>
+                <View style={styles.cardContainer}>
+                  <View style={{marginLeft: 20}}>
+                    <NFT_name
+                      title={element.content}
+                      fontSize={20}
+                      navigation={this.props.navigation}/>
+                    <Profile
+                      title={element.title}
+                      navigation={this.props.navigation}/>
+                    <Nft_cost
+                      nft_cost={'0.01'} />
+                    <Timer_nft_info/>
                   </View>
                 </View>
-              ))}
+              </View>
             </View>
-        )
-    }
+        ))}
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    
+  cardContainer: {
+    backgroundColor: '#d3d3d3',
+    borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
+    borderBottomRightRadius: 20,
+    width: 300,
+    height: 150,
+  },
 })

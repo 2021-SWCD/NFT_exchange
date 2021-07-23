@@ -1,14 +1,13 @@
 //nft_simple_info_frame의 남은 경매시간을 보여주는 타이머
-
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import moment from 'moment';
 
-const Timer_nft_info = () => {
+export default function Timer () {
   const [totalDuration, setTotalDuration] = useState(0);
 
-  useEffect(() => {
+    useEffect(() => {
     var date = moment().utcOffset('+05:30').format('YYYY-MM-DD hh:mm:ss');
     //Getting the current date-time with required formate and UTC
     var expirydate = '2021-07-02 18:00:00';
@@ -22,8 +21,7 @@ const Timer_nft_info = () => {
     //Settign up the duration of countdown in seconds to re-render
   }, []);
 
-  return (
-    <SafeAreaView style={styles.container}>
+    return(
       <View style={styles.container}>
       <CountDown
         size={10}
@@ -36,9 +34,8 @@ const Timer_nft_info = () => {
         showSeparator
       />
       </View>
-    </SafeAreaView>
-  );
-};
+    )
+} 
 
 const styles = StyleSheet.create({
   container: {
@@ -47,5 +44,3 @@ const styles = StyleSheet.create({
     marginTop: 7,
   },
 });
-
-export default Timer_nft_info;

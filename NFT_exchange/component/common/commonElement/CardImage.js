@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default class Nft_simple_info_cardImage extends Component{
+export default class CardImage extends Component{
     static defaultProps = {
         borderBottomLeftRadius: null,
         borderBottomRightRadius: null,
         borderTopLeftRadius: 20, //왼쪽 위 테두리만 둥글게
         borderTopRightRadius: 20,
-        marginTop: 20,
-        marginLeft: null,
         width: 300,
         height: 250,
         source: {uri:'https://ichi.pro/assets/images/max/724/0*Tsd6bDqynxJN1daI'},
@@ -20,25 +18,22 @@ export default class Nft_simple_info_cardImage extends Component{
     render(){
       return(
         <TouchableOpacity
-            onPress={this.props.onPress}>
+            onPress={() => this.goNFT_detailScreen()}>
             <Image style={styles.defaultProps}
-                source ={this.props.source}
                 borderBottomLeftRadius = {this.props.borderBottomLeftRadius}
                 borderBottomRightRadius = {this.props.borderBottomRightRadius}
                 borderTopLeftRadius = {this.props.borderTopLeftRadius}
                 borderTopRightRadius = {this.props.borderTopRightRadius}
-                marginTop = {this.props.marginTop}
-                marginLeft = {this.props.marginLeft}
                 width = {this.props.width}
                 height = {this.props.height}
+                source ={this.props.source}
             />
         </TouchableOpacity>
       )
     }
+    goNFT_detailScreen() {
+        this.props.navigation.navigate('SUGESST');
+    }
 }
     
-const styles = StyleSheet.create({
-    cardImage: {
-        
-    },
-})
+const styles = StyleSheet.create({})

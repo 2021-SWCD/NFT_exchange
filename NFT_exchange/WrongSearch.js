@@ -3,10 +3,7 @@ import { Modal, TouchableWithoutFeedback, Image, TextInput,
   StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
-import Nft_simple_info_Profile from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_Profile';
-import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_costime';
-import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
+import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
 import Hot_text from './component/Hot_text';
 import Search_input from './component/Search_input';
 import CustomButton from './component/CustomButton';
@@ -95,39 +92,18 @@ export default class WrongSearch extends React.Component {
         </View>
 
 
-        <View >
+        <View>
           <Hot_text />
         </View>
 
-        {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
-
-
-
-        {dataList.map((element, index) => (
-          <View key={index}>
-
-            <View style={{ marginTop: 10, marginLeft: 55 }}>
-              <Nft_simple_info_cardImage
-                source={{ uri: element.imageUrl }}
-                onPress={() => this.goNFT_detailScreen()} />
-              <View style={styles.cardContainer}>
-                <NFT_name
-                  title={element.content}
-                  fontSize={20}
-                  onPress={() => this.goNFT_detailScreen()} />
-                <Nft_simple_info_Profile
-                  title={element.title}
-                  onPress={() => this.goArtist_Screen()} />
-                <Nft_simple_info_costtime
-                  nft_cost={'0.01ETH'} />
-              </View>
-            </View>
-
-
-          </View>
-
-        ))
-        }
+        {/*NftSimpleInfoCard*/}
+        <View style={{
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}>
+          <NftSimpleInfoCard navigation={this.props.navigation}/>
+        </View>
 
       </ScrollView>
     );
