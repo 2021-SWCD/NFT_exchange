@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Login_btn, Korbit_logo } from './logInElement';
 
-export default class loginHeader extends React.Component {
+export default class LoginHeader extends React.Component {
     
     render(){
         return(
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'stretch'
     },
-})
+});
