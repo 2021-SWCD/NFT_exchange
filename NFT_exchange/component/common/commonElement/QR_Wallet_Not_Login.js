@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Profile from '../../Profile';
+import Profile from './Profile';
 
 //이미지 주소 복사를 해서 링크를 붙여넣는다.
 export default class App extends React.Component{
