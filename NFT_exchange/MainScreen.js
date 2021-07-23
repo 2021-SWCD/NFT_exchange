@@ -15,6 +15,7 @@ import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSi
 import Profile from './component/Profile';
 import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Hot_text from './component/Hot_text';
+import Slide from './component/main/slide/Slide';
 
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -24,7 +25,7 @@ import Slide_profile from './component/Slide_profile';
 import Search from './component/common/search/Search';
 
 
-const { width } = Dimensions.get("window");
+/* const { width } = Dimensions.get("window");
 const height = width * 0.5;
 var start = 0;
 
@@ -55,7 +56,7 @@ const dataList = [
     content: "content5"
   },
 ]
-
+ */
 
 
 export default class MainScreen extends React.Component {
@@ -112,9 +113,10 @@ export default class MainScreen extends React.Component {
         <Search navigation={this.props.navigation} />
 
 
-        <View style={styles.scroll}>
+        
+          <Slide />
 
-          <ScrollView
+          {/* <ScrollView
             pagingEnabled
             horizontal
             style={{ width, height }}
@@ -166,8 +168,8 @@ export default class MainScreen extends React.Component {
             }
 
 
-          </ScrollView>
-        </View>
+          </ScrollView> */}
+        
 
 
 
@@ -179,7 +181,7 @@ export default class MainScreen extends React.Component {
 
 
 
-        {dataList.map((element, index) => (
+        {/* {dataList.map((element, index) => (
           <View key={index}>
             <View style={{ marginTop: 10, marginLeft: 55 }}>
               <Nft_simple_info_cardImage
@@ -198,9 +200,9 @@ export default class MainScreen extends React.Component {
               </View>
             </View>
           </View>
-        ))}
+        ))} */}
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{ position: 'absolute', top: 360, left: 5, }}
           onPress={() => this.leftPage()}
         >
@@ -212,13 +214,13 @@ export default class MainScreen extends React.Component {
           onPress={() => this.rightPage()}
         >
           <Icon style={{ margin: 5 }} name="chevron-forward" size={35} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </ScrollView>
     );
   }
 
-  leftPage = () => {
+  /* leftPage = () => {
 
     start -= width
 
@@ -245,7 +247,7 @@ export default class MainScreen extends React.Component {
     })
 
 
-  }
+  } */
   goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
@@ -289,9 +291,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   scroll: {
-    marginTop: 30,
-    width: 30,
-    height: 550
+    
   },
 
 
