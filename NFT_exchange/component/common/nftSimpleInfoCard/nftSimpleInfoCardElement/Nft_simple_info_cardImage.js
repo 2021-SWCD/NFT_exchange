@@ -31,7 +31,7 @@ export default class Nft_simple_info_cardImage extends Component{
                 marginLeft = {this.props.marginLeft}
                 width = {this.props.width}
                 height = {this.props.height}
-                />
+            />
         </TouchableOpacity>
       )
     }

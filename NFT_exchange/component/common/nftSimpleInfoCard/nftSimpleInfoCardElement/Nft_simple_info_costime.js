@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
-import Timer_nft_info from './Timer_nft_info';
+import Timer_nft_info from '../../../Timer_nft_info';
 
 export default class Nft_simple_info_costtime extends Component{
     static defaultProps = {
