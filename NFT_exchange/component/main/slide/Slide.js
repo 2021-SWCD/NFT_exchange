@@ -151,6 +151,10 @@ export default class slide extends React.Component {
 
 
     }
+    goNFT_detailScreen() {
+        //SampleScreen으로 이동
+        this.props.navigation.navigate('SUGESST');
+      }
 }
 
 const styles = StyleSheet.create({

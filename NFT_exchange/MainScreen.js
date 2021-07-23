@@ -113,10 +113,10 @@ export default class MainScreen extends React.Component {
         <Search navigation={this.props.navigation} />
 
 
-        
-          <Slide />
 
-          {/* <ScrollView
+        <Slide navigation={this.props.navigation} />
+
+        {/* <ScrollView
             pagingEnabled
             horizontal
             style={{ width, height }}
@@ -169,7 +169,7 @@ export default class MainScreen extends React.Component {
 
 
           </ScrollView> */}
-        
+
 
 
 
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
- 
+
 
   search: {
     color: 'black',
