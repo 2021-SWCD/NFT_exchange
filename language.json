@@ -1,0 +1,15 @@
+{
+    "ko" : {
+        "code1" : "안녕하세요.",
+        "code2" : "잘가",
+        "code3" : "작품명 검색"
+    },
+    "us" : {
+        "code1" : "Hello",
+        "code2" : "Bye",
+        "code3" : "Search Product name"
+    },
+    "jp" : {
+
+    }
+}
