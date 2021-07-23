@@ -2,21 +2,16 @@ import React, { useState, useRef } from 'react';
 import { TouchableWithoutFeedback, Modal, Image, TextInput, 
   StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
-
+import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
+import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
 
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
-import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
-import Nft_simple_info_Profile from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_Profile';
-import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_costime';
-import Profile from './component/Profile';
-import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
+
+import NFT_name from './component/common/commonElement/Nft_name';
 import Hot_text from './component/Hot_text';
 import Search_input from './component/Search_input';
-
-
-import AsyncStorage from '@react-native-community/async-storage';
 import Slide_txt1 from './component/Slide_txt1';
 import Slide_txt2 from './component/Slide_txt2';
 import Slide_profile from './component/Slide_profile';
@@ -173,30 +168,14 @@ export default class MainScreen extends React.Component {
           <Hot_text />
         </View>
 
-        {/*여기 부터가 Nft_simple_info 프레임입니다.*/}
-
-
-
-        {dataList.map((element, index) => (
-          <View key={index}>
-            <View style={{ marginTop: 10, marginLeft: 55 }}>
-              <Nft_simple_info_cardImage
-                source={{ uri: element.imageUrl }}
-                onPress={() => this.goNFT_detailScreen()} />
-              <View style={styles.cardContainer}>
-                <NFT_name
-                  title={element.content}
-                  fontSize={20}
-                  onPress={() => this.goNFT_detailScreen()} />
-                <Nft_simple_info_Profile
-                  title={element.title}
-                  onPress={() => this.goArtist_Screen()} />
-                <Nft_simple_info_costtime
-                  nft_cost={'0.01ETH'} />
-              </View>
-            </View>
-          </View>
-        ))}
+        {/*NftSimpleInfoCard*/}
+        <View style={{
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}>
+          <NftSimpleInfoCard navigation={this.props.navigation}/>
+        </View>
 
         <TouchableOpacity
           style={{ position: 'absolute', top: 360, left: 5, }}
@@ -276,7 +255,7 @@ export default class MainScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 
   topView: {
