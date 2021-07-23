@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Korbit_logo from './Korbit_logo';
-import Login_btn from './Login_btn';
+import Korbit_logo from './comElement/Korbit_logo';
+import Login_btn from './comElement/Login_btn';
 
 export default class loginHeader extends React.Component {
     

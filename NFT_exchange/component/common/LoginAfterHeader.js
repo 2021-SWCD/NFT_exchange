@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import Korbit_logo from './Korbit_logo';
-import ETH_btn from './ETH_btn';
-import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
+import Korbit_logo from './comElement/Korbit_logo';
+import ETH_btn from './comElement/ETH_btn';
 
 export default class LoginAfterHeader extends React.Component {
 
