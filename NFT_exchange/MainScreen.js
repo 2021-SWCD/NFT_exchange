@@ -7,11 +7,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
-import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
-import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
-import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
+import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
+import Nft_simple_info_Profile from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_Profile';
+import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_costime';
 import Profile from './component/Profile';
-import NFT_name from './component/NFT_name';
+import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Hot_text from './component/Hot_text';
 import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
