@@ -8,8 +8,8 @@ import NFT_name from './component/NFT_name';
 import Profile_img from './component/Profile_img';
 import Profile_name from './component/Profile_name';
 import Profile_text from './component/Profile_text';
-import LoginAfterHeader from './component/LoginAfterHeader';
-import LoginHeader from './component/loginHeader';
+import LoginAfterHeader from './component/common/LoginAfterHeader';
+import LoginHeader from './component/common/loginHeader';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';

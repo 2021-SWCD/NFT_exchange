@@ -10,8 +10,8 @@ import Custom_cancel from './component/Custom_cancel';
 import TabBar from './component/TabBar';
 import Buy_text from './component/Buy_text';
 import Buy_screen from './component/Buy_screen';
-import LoginAfterHeader from './component/LoginAfterHeader';
-import LoginHeader from './component/loginHeader';
+import LoginAfterHeader from './component/common/LoginAfterHeader';
+import LoginHeader from './component/common/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/

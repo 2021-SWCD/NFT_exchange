@@ -16,8 +16,8 @@ import Search_input from './component/Search_input';
 import Qrcode from './component/Qrcode';
 import Qr_Wallet from './component/QR_Wallet';
 import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
-import LoginHeader from './component/loginHeader';
-import LoginAfterHeader from './component/LoginAfterHeader';
+import LoginHeader from './component/common/loginHeader';
+import LoginAfterHeader from './component/common/LoginAfterHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import Slide_txt1 from './component/Slide_txt1';

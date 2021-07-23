@@ -8,8 +8,8 @@ import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_ma
 import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
-import LoginAfterHeader from './component/LoginAfterHeader';
-import LoginHeader from './component/loginHeader';
+import LoginAfterHeader from './component/common/LoginAfterHeader';
+import LoginHeader from './component/common/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
