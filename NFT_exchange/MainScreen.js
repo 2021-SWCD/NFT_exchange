@@ -272,7 +272,6 @@ export default class MainScreen extends React.Component {
 
         {dataList.map((element, index) => (
           <View key={index}>
-
             <View style={{ marginTop: 10, marginLeft: 55 }}>
               <Nft_simple_info_cardImage
                 source={{ uri: element.imageUrl }}
@@ -289,12 +288,8 @@ export default class MainScreen extends React.Component {
                   nft_cost={'0.01ETH'} />
               </View>
             </View>
-
-
           </View>
-
-        ))
-        }
+        ))}
 
         <TouchableOpacity
           style={{ position: 'absolute', top: 360, left: 5, }}

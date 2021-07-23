@@ -3,7 +3,7 @@ import { View,Text, } from 'react-native';
 import Timer_main_detail from './Timer_main_detail';
 
 
-export default class NFT_name extends Component {
+export default class Slide_txt2 extends Component {
 
 
     render() {

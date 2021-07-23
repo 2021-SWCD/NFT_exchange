@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View,Text, } from 'react-native';
 
-export default class NFT_name extends Component {
+export default class Slide_txt1 extends Component {
 
 
     render() {
