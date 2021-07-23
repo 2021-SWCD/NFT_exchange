@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import { ETH_btn, Korbit_logo } from './logInElement';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class LoginAfterHeader extends React.Component {
 
