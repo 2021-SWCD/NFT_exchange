@@ -4,7 +4,7 @@ import CardImage from '../commonElement/CardImage';
 import NFT_name from '../commonElement/Nft_name';
 import Profile from '../commonElement/Profile';
 import Nft_cost from '../commonElement/Nft_cost';
-import Timer_nft_info from '../../Timer_nft_info';
+import Timer from '../commonElement/Timer';
 
 const dataList = [
     {
@@ -55,7 +55,9 @@ export default class NftSimpleInfoCard extends React.Component {
                       navigation={this.props.navigation}/>
                     <Nft_cost
                       nft_cost={'0.01'} />
-                    <Timer_nft_info/>
+                    <Timer 
+                      backgroundColor={'#d3d3d3'}
+                    />
                   </View>
                 </View>
               </View>
