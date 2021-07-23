@@ -10,11 +10,7 @@ import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
 import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
-import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
-import Qrcode from './component/Qrcode';
-import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
-import Qr_Wallet from './component/QR_Wallet';
 import LoginAfterHeader from './component/common/LoginAfterHeader';
 import LoginHeader from './component/common/loginHeader';
 
@@ -152,7 +148,7 @@ export default class Login_after extends React.Component {
                 <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
               
               <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
-                <Qr_Wallet />
+              
                 <View style={{ position: 'absolute', top: 110, left: 270 }}>
                     <TouchableOpacity onPress={() => this.goArtist_Screen()}>
                         <Icon style={{marginTop: 20}}

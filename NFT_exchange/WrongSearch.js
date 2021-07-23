@@ -8,14 +8,11 @@ import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
 import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
 import NFT_name from './component/NFT_name';
 import Hot_text from './component/Hot_text';
-import Search_icons from './component/Search_icons';
 import Search_input from './component/Search_input';
-import Qrcode from './component/Qrcode';
-import Qr_Wallet from './component/QR_Wallet';
-import Qr_Wallet_Not_Login from './component/QR_Wallet_Not_Login';
 import CustomButton from './component/CustomButton';
 import LoginAfterHeader from './component/common/LoginAfterHeader';
 import LoginHeader from './component/common/loginHeader';
+import Search from './component/common/search/Search';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const dataList = [
@@ -46,55 +43,7 @@ const dataList = [
   },
 ]
 
-const Input = ({ goWrongSearch }) => {
 
-  const [text, setText] = useState('');
-
-  var opa_num; // 공백일 경우 0, 아닐경우 1로해서 바로 투명도 조절.
-
-  if (text == '') {
-    opa_num = 0
-  }
-  else {
-    opa_num = 1
-}
-
-
-  console.log(goWrongSearch);
-
-  return (
-    <>
-      <View style={styles.searchView} >
-
-      <Search_icons
-          //   onPress={() => this.goWrongSearch()} 왜인지 모르겠으나 정렬이 안됌...
-          onPress={() => {
-            console.log('good?');
-            goWrongSearch()
-          }}
-        />
-
-        <TextInput
-          style={styles.searchbar}
-          placeholder="작품명 검색"
-          value={text}
-          onChangeText={text => setText(text)}
-
-        />
-
-        <TouchableOpacity onPress={() => setText('')}>
-
-
-          <Icon style={{ opacity: opa_num, marginTop: 8 }} name="close-outline" size={30} />
-
-
-        </TouchableOpacity>
-
-      </View>
-
-    </>
-  );
-}
 
 
 export default class WrongSearch extends React.Component {
@@ -139,52 +88,7 @@ export default class WrongSearch extends React.Component {
             : <LoginHeader navigation={this.props.navigation} />
         }
 
-        <View style={styles.midView}>
-
-
-        <Input goWrongSearch={this.goWrongSearch} />
-
-          <Qrcode
-            marginTop={5}
-            marginLeft={30}
-            onPress={() => { this.setState({ show: true }) }} />
-
-          <View>
-            {
-              isLoggedIn
-                ? <Modal
-                  transparent={true}
-                  visible={this.state.show}>
-                  <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                    <View style={{ flex: 1, marginLeft: 100, marginBottom: 90 }}>
-                      <Qr_Wallet />
-                      <View style={{ position: 'absolute', top: 110, left: 270 }}>
-                        <TouchableOpacity onPress={() => this.goArtist_Screen()}>
-                          <Icon style={{ marginTop: 20 }}
-                            name="chevron-forward-outline" size={30}></Icon>
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  </TouchableWithoutFeedback>
-                </Modal>
-                : <Modal
-                  transparent={true}
-                  visible={this.state.show}>
-                  <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                    <View style={{ flex: 1, }}>
-                      <Qr_Wallet_Not_Login />
-                      <View style={{ position: 'absolute', top: 360, left: 167 }}>
-                        <CustomButton
-                          title={'로그인 하기'}
-                          marginLeft={20}
-                          onPress={() => this.goLoginScreen()} />
-                      </View>
-                    </View>
-                  </TouchableWithoutFeedback>
-                </Modal>
-            }
-          </View>
-        </View>
+        <Search navigation={this.props.navigation} />
 
         <View style={{ marginTop: 90, alignItems: 'center' }}>
           <Icon style={styles.sad} name="sad-outline" size={45} />
@@ -290,32 +194,9 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
   },
 
-  searchView: {
-    flexDirection: 'row',
-  },
-  midView: {
-
-    flexDirection: 'row',
-    height: 60,
-    backgroundColor: '#EEEEEE',
-    alignItems: 'center',
-
-  },
-  search: {
-    color: 'black',
-    marginLeft: 22
-  },
-  searchbar: {
-    marginLeft: 12,
-    width: 240,
-    fontSize: 16
-
-  },
-  qrcode: {
-    color: 'black',
-    marginLeft: 10
-
-  },
+  
+  
+  
   sad: {
     color: 'black',
     marginBottom: 20,
