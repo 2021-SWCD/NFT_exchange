@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { TouchableWithoutFeedback, Modal, Image, TextInput, 
-  StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import {
+  TouchableWithoutFeedback, Modal, Image, TextInput,
+  StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity
+} from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,7 +15,6 @@ import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSi
 import Profile from './component/Profile';
 import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Hot_text from './component/Hot_text';
-import Search_input from './component/Search_input';
 
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -110,8 +111,9 @@ export default class MainScreen extends React.Component {
 
         <Search navigation={this.props.navigation} />
 
-        
-        <View style={{ marginTop: 30, width: 30, height: 550 }}>
+
+        <View style={styles.scroll}>
+
           <ScrollView
             pagingEnabled
             horizontal
@@ -220,8 +222,8 @@ export default class MainScreen extends React.Component {
 
     start -= width
 
-    if (start < -2) {
-      start = 1645.7142857142858
+    if (start <= width * -1) {
+      start = width * 4
     }
 
     this.scrollView.scrollTo({
@@ -234,7 +236,7 @@ export default class MainScreen extends React.Component {
 
     start += width
 
-    if (start >= 1646) {
+    if (start >= width * 5) {
       start = 0
     }
 
@@ -286,43 +288,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
-  
-  korbiBtn: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    marginBottom: 10,
-    fontSize: 25,
-    fontWeight: 'bold',
-  },
-  loginBtn: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    marginBottom: 10,
-    fontSize: 15,
-    fontWeight: 'normal',
+  scroll: {
+    marginTop: 30,
+    width: 30,
+    height: 550
   },
 
-  midView: {
 
-    flexDirection: 'row',
-    height: 60,
-    backgroundColor: '#EEEEEE',
-    alignItems: 'center',
 
-  },
   search: {
     color: 'black',
     marginLeft: 22
   },
-  
 
-  qrcode: {
-    color: 'black',
-    marginLeft: 10
-
-  },
   scrollView: {
     flex: 10,
     backgroundColor: 'white',
