@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
+import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
 import Go_main from './component/go_main';
-import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
-import Nft_simple_info_Profile from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_Profile';
-import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_costime';
-import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Profile_img from './component/Profile_img';
 import Profile_name from './component/Profile_name';
 import Profile_text from './component/Profile_text';
@@ -92,21 +89,13 @@ export default class Artist_Screen extends Component {
 
         </View>
 
-        <View style={{ marginLeft: 55 }}>
-          <Nft_simple_info_cardImage
-            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
-            onPress={() => this.goNFT_detailScreen()} />
-          <View style={styles.cardContainer}>
-            <NFT_name
-              title={'The hill'}
-              fontSize={20}
-              onPress={() => this.goNFT_detailScreen()} />
-            <Nft_simple_info_Profile
-              title={'hyunji'}
-              onPress={() => this.goArtist_Screen()} />
-            <Nft_simple_info_costtime
-              nft_cost={'0.01ETH'} />
-          </View>
+        {/*NftSimpleInfoCard*/}
+        <View style={{
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}>
+          <NftSimpleInfoCard navigation={this.props.navigation}/>
         </View>
 
 
