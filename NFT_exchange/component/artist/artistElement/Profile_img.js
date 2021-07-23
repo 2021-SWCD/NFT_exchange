@@ -1,28 +1,18 @@
-//Artist_Screen과 이어짐
+//Artist폴더 만든후 아티스트 요소에 넣기
 import React from 'react'
 import {StyleSheet, View, Text, TouchableOpacity,} from 'react-native';
 import 'react-native-gesture-handler';
 
-export default class NFT_detailScreen_Profile extends React.Component {
-    static defaultProps = {
-      title: 'untitled',
-      titleColor: 'black',
-      fontSize: 20,
-    }
-    constructor(props){
-      super(props);
-    }    
+export default class Profile_img extends React.Component {
+      
     render(){
         return (
-
-                <View style={styles.elem}>
+            <TouchableOpacity onPress={this.props.onPress}>
+                
                   <View style={styles.user_profile}/>
-                  <Text style={[
-                    {color: this.props.titleColor},
-                    {fontSize: this.props.fontSize},
-                    {marginTop: 20},
-                  ]}>{this.props.title}</Text>
-                </View>
+                 
+                
+            </TouchableOpacity>
         )
     }
 }
@@ -36,10 +26,12 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
     },
   
     user_profile: { //검정색 원의 프로필
-      width: 50,
-      height: 50,
-      borderRadius: 25,
+      width: 110,
+      height: 110,
+      borderRadius: 55,
       backgroundColor: 'black',
-      marginTop: 20,
+      
+      marginLeft: 110,
+      
     },
 });

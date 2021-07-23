@@ -10,6 +10,7 @@ export default class Profile extends React.Component {
       fontSize: 20,
       marginTop: 26,
       name_marginLeft :8,
+      name_marginTop: null,
       name_width : 150,
       name_height: 30,
       profile_width: 30,
@@ -35,6 +36,7 @@ export default class Profile extends React.Component {
               {fontSize: this.props.fontSize},
               {color: this.props.titleColor},
               {marginLeft: this.props.name_marginLeft},
+              {marginTop: this.props.name_marginTop},
               {width: this.props.name_width},
               {height: this.props.name_height},
             ]}>
@@ -53,6 +55,7 @@ export default class Profile extends React.Component {
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
     row: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
       marginTop: 10,
+      marginBottom: 10,
       flexDirection: 'row',
     },
 });

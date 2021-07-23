@@ -1,7 +1,7 @@
 import React, { TouchableOpacity, Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
-import Go_main from './component/go_main';
+import Go_main from './component/common/goMain/go_main';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
 import Custom_cancel from './component/Custom_cancel';

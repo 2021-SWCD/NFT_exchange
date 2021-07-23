@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
-import Go_main from './component/go_main';
-import Profile_img from './component/Profile_img';
-import Profile_name from './component/Profile_name';
-import Profile_text from './component/Profile_text';
+import Go_main from './component/common/goMain/go_main';
+import Profile_img from './component/artist/artistElement/Profile_img';
+import Profile_name from './component/artist/artistElement/Profile_name';
+import Profile_text from './component/artist/artistElement/Profile_text';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
