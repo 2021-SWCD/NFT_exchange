@@ -1,8 +1,8 @@
 import React, { TouchableOpacity, Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
+import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Go_main from './component/go_main';
-import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
-import NFT_name from './component/NFT_name';
+import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
 import Profile from './component/Profile';
 import Detail_main from './component/detail_main';
 import CustomButton from './component/CustomButton';
@@ -10,8 +10,6 @@ import Custom_cancel from './component/Custom_cancel';
 import TabBar from './component/TabBar';
 import Buy_text from './component/Buy_text';
 import Buy_screen from './component/Buy_screen';
-import LoginAfterHeader from './component/common/LoginAfterHeader';
-import LoginHeader from './component/common/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
@@ -121,10 +119,6 @@ export default class Detail_buy extends Component {
     goArtist_Screen() {
         // ARTIST_screen으로 화면 이동
         this.props.navigation.navigate('ARTIST');
-    }
-    Login_after(){
-        // MainScreen으로 화면 이동
-        this.props.navigation.navigate('LOGIN_AFTER');
     }
 }
 

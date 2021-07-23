@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import { Modal, TouchableWithoutFeedback, Image, TextInput, StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
-
+import { Modal, TouchableWithoutFeedback, Image, TextInput, 
+  StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
-import Nft_simple_info_costtime from './component/Nft_simple_info_costime';
-import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
-import NFT_name from './component/NFT_name';
+import Nft_simple_info_cardImage from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_cardImage';
+import Nft_simple_info_Profile from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_Profile';
+import Nft_simple_info_costtime from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/Nft_simple_info_costime';
+import NFT_name from './component/common/nftSimpleInfoCard/nftSimpleInfoCardElement/NFT_name';
 import Hot_text from './component/Hot_text';
 import Search_input from './component/Search_input';
 import CustomButton from './component/CustomButton';
+<<<<<<< HEAD
 import LoginAfterHeader from './component/common/LoginAfterHeader';
 import LoginHeader from './component/common/loginHeader';
 import Search from './component/common/search/Search';
+=======
+
+>>>>>>> 723a78ea7f0d699c8043d30d87bf4fe76110194d
 import AsyncStorage from '@react-native-community/async-storage';
 
 const dataList = [

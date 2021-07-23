@@ -54,11 +54,6 @@ export default class LoginScreen extends React.Component {
     // MainScreen으로 화면 이동
     this.props.navigation.navigate('MAIN');
   }
-  
-  Login_after(){
-    // MainScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN_AFTER');
-  }
 }
 
 const styles = StyleSheet.create({
