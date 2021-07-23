@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
+import { TouchableWithoutFeedback, TouchableOpacity, Text, 
+  Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
+import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import NFT_name from './component/NFT_name';
@@ -8,8 +10,6 @@ import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_ma
 import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
-import LoginAfterHeader from './component/common/LoginAfterHeader';
-import LoginHeader from './component/common/loginHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/

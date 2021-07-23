@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
+import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Go_main from './component/go_main';
 import Nft_simple_info_cardImage from './component/Nft_simple_info_cardImage';
 import Nft_simple_info_Profile from './component/Nft_simple_info_Profile';
@@ -8,8 +9,6 @@ import NFT_name from './component/NFT_name';
 import Profile_img from './component/Profile_img';
 import Profile_name from './component/Profile_name';
 import Profile_text from './component/Profile_text';
-import LoginAfterHeader from './component/common/LoginAfterHeader';
-import LoginHeader from './component/common/loginHeader';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
