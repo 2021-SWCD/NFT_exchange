@@ -7,40 +7,12 @@ import Slide_txt2 from '../../Slide_txt2';
 import Nft_name from '../../common/commonElement/Nft_name';
 import CustomButton from '../../CustomButton';
 import Icon from 'react-native-vector-icons/Ionicons';
+import datalist from '../../../datalist.json'
 
 
 const { width } = Dimensions.get("window");
 const height = width * 0.5;
 var start = 0;
-
-const dataList = [
-    {
-        imageUrl: "https://img4.yna.co.kr/photo/etc/epa/2019/12/06/PEP20191206054201848_P4.jpg",
-        title: "title1",
-        content: "content1"
-    },
-    {
-        imageUrl: "https://ichef.bbci.co.uk/news/800/cpsprodpb/C173/production/_117832594_066549055.jpg",
-        title: "title2",
-        content: "content2"
-    },
-    {
-        imageUrl: "http://res.heraldm.com/content/image/2013/05/27/20130527000159_0.jpg",
-        title: "title3",
-        content: "content3"
-    },
-    {
-        imageUrl: "http://www.economyf.com/pds_update/umg_20200528234240.jpg",
-        title: "title4",
-        content: "content4"
-    },
-    {
-        imageUrl: "http://db.kookje.co.kr/news2000/photo/2018/1206/L20181206.22021001594i1.jpg",
-        title: "title5",
-        content: "content5"
-    },
-]
-
 
 export default class slide extends React.Component {
     render() {
@@ -56,7 +28,7 @@ export default class slide extends React.Component {
 
 
 
-                    {dataList.map((element, index) => (
+                    {datalist.map((element, index) => (
                         <View key={index}>
                             <Image
                                 key={index}
@@ -73,7 +45,7 @@ export default class slide extends React.Component {
                                 title={element.content}
                                 marginLeft={50}
                                 fontSize={45}
-                                onPress={() => this.goNFT_detailScreen()} />
+                                navigation={this.props.navigation} />
 
 
                             <View style={styles.slidetext}>
@@ -150,6 +122,10 @@ export default class slide extends React.Component {
 
 
     }
+    goArtist_Screen() {
+        // ARTIST_screen으로 화면 이동
+        this.props.navigation.navigate('ARTIST');
+      }
     goNFT_detailScreen() {
         //SampleScreen으로 이동
         this.props.navigation.navigate('SUGESST');
