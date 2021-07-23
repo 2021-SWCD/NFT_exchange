@@ -11,7 +11,6 @@ import Tab_infoScreen from './Tab_infoScreen';
 import Detail_buy from './Detail_buy';
 import Login_after from './Login_after';
 import Logout from './Logout';
-import LoginAfterHeader from './component/LoginAfterHeader';
 
 const Stack = createStackNavigator();
 function App() {
@@ -34,8 +33,6 @@ function App() {
         <Stack.Screen name="BUY" component={Detail_buy}
         />
         <Stack.Screen name="LOGIN_AFTER" component={Login_after}
-        />
-        <Stack.Screen name="LOGIN_AFTER_HEADER" component={LoginAfterHeader}
         />
         <Stack.Screen name="LOGOUT" component={Logout}
         />
