@@ -68,16 +68,17 @@ export default class Detail_buy extends Component {
                     <Detail_main />
 
                     <Buy_text
-                     //title={this.state.result} />
                      title={this.state.show_result + 'ETH'} />
 
                     <Buy_screen />
 
 
-                    <View><Text style={{ marginTop: 70, marginLeft: 20 }}>위 내용으로 가격을 제안합니다.</Text></View>
+                    <View>
+                        <Text style={styles.sug_txt}>위 내용으로 가격을 제안합니다.</Text>
+                    </View>
                     
 
-                    <View style={{ flexDirection: 'row', marginTop: 30, alignItems: 'center' }}>
+                    <View style={styles.btnContainer}>
 
                         <Custom_cancel onPress={() => this.goMainScreen()} />
                         <CustomButton 
@@ -128,21 +129,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
 
-    topView: {
-        flexDirection: 'row',
-        height: 55,
-        backgroundColor: 'white',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-
-    midView: {
-        flexDirection: 'row',
-        height: 60,
-        backgroundColor: '#EEEEEE',
-        alignItems: 'center',
-    },
-
     colum: {
         width: '80%',
         height: '25%',
@@ -152,32 +138,14 @@ const styles = StyleSheet.create({
     },
 
     sug_txt: {
-        height: 51,
-        marginTop: 20,
-        width: 310,
-        backgroundColor: '#CCC',
-        fontSize: 15,
-        fontWeight: 'normal',
-        color: 'black',
-        paddingTop: 16,
-        paddingLeft: 20,
-        borderRadius: 10,
+         
+        marginTop: 70, 
+        marginLeft: 20 
     },
-    eth_txt: {
-        marginLeft: 157,
-        borderColor: '#CCC',
-        borderWidth: 2,
-        height: 52,
-        width: 155,
-        backgroundColor: 'white',
-        fontSize: 15,
-        fontWeight: 'normal',
-        color: 'black',
-        paddingTop: 16,
-        paddingLeft: 100,
-        borderRadius: 10,
-        position: 'absolute',
-        top: 19,
-    },
+    btnContainer : { 
+        flexDirection: 'row', 
+        marginTop: 30, 
+        alignItems: 'center' 
+    }
 
 })
