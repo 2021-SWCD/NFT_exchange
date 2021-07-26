@@ -7,3 +7,5 @@ export {default as QR_Wallet} from './QR_Wallet';
 export {default as Qrcode} from './Qrcode';
 export {default as Timer} from './Timer';
 export {default as Hot_text} from './Hot_text'
+export {default as Custom_cancel} from './Custom_cancel'
+export {default as CustomButton} from './CustomButton'

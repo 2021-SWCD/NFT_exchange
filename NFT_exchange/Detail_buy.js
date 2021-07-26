@@ -3,11 +3,8 @@ import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Go_main from './component/common/goMain/go_main';
 import Detail_main from './component/detail_main';
-import CustomButton from './component/common/commonElement/CustomButton';
-import Custom_cancel from './component/common/commonElement/Custom_cancel';
-import TabBar from './component/TabBar';
-import Buy_text from './component/Buy_text';
-import Buy_screen from './component/Buy_screen';
+import { CustomButton, Custom_cancel} from './component/common/commonElement';
+import { Buy_text, Buy_screen } from './component/buy/buyElement';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/

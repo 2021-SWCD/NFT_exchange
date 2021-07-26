@@ -1,11 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions, ScrollView, Text, StyleSheet, View, Image, } from 'react-native';
 import { Slide_profile, Slide_txt1, Slide_txt2 } from './slideElement';
-/* import Slide_profile from './slideElement/Slide_profile';
-import Slide_txt1 from './slideElement/Slide_txt1';
-import Slide_txt2 from './slideElement/Slide_txt2'; */
-import Nft_name from '../../common/commonElement/Nft_name';
-import CustomButton from '../../common/commonElement/CustomButton';
+import { Nft_name, CustomButton } from '../../common/commonElement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
 
