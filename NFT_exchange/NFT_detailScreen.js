@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, TouchableOpacity, Text, 
-  Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
+import {
+  TouchableWithoutFeedback, TouchableOpacity, Text,
+  Modal, StyleSheet, View, Image, ScrollView
+} from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import { CardImage, Nft_name, Profile } from './component/common/commonElement'
 import CustomButton from './component/common/commonElement/CustomButton';
@@ -37,7 +39,7 @@ export default class NFT_detailScreen extends Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after'); // User1 출력
-      this.setState({ isLoggedIn : JSON.parse(result) })
+      this.setState({ isLoggedIn: JSON.parse(result) })
     });
   };
 
@@ -59,45 +61,60 @@ export default class NFT_detailScreen extends Component {
           borderBottomRightRadius={20}
           marginLeft={55}
           marginTop={20}
-          height={450} 
+          height={450}
         />
 
         <View style={styles.colum}>
           <Profile
             title={"hyunji"}
-            marginLeft={20} 
+            marginLeft={20}
             navigation={this.props.navigation} />
           <Nft_name
             title={"NATURE"}
-            marginLeft={20} 
-            navigation={this.props.navigation}/>
+            marginLeft={20}
+            navigation={this.props.navigation} />
 
           <NFT_detailScreen_detail_main />
 
-          <CustomButton 
-            titlemarginLeft={30}
-            button_marginLeft={10}
-            onPress = {() => this.setState({show : true})}/>
+          {
+            this.state.isLoggedIn
+
+              ? <CustomButton
+                titlemarginLeft={30}
+                button_marginLeft={10}
+
+                onPress={() => this.setState({ show: true })} />
+              
+              : <CustomButton
+                titlemarginLeft={30}
+                button_marginLeft={10}
+
+                onPress={()=>this.goLoginScreen()}/>
+  
+  
+              
+          }
+
 
           <View style={{ flex: 1, marginTop: 100 }}>
             <Modal
               transparent={true}
               visible={this.state.show}
             >
-            <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
-              <View style={{ backgroundColor: "grey", flex: 1 }}>
+              <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+                <View style={{ backgroundColor: "grey", flex: 1 }}>
 
 
-                <Warn_txt />
+                  <Warn_txt />
 
 
-                <View style={{ alignItems: 'center', position:'absolute', justifyContent:'center',alignItems:'center',top:455 ,left:80}}>
-                  <TouchableOpacity>
-                    <Text 
-                    onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
+                  <View style={{ alignItems: 'center', position: 'absolute', justifyContent: 'center', alignItems: 'center', top: 455, left: 80 }}>
+                    <TouchableOpacity>
+                      <Text
+                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
+                  </View>
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
+              </TouchableWithoutFeedback>
             </Modal>
           </View>
           <TabBar />
@@ -124,7 +141,7 @@ export default class NFT_detailScreen extends Component {
   }
   close_modal = () => {
     this.setState({ show: false })
-}
+  }
 }
 
 
