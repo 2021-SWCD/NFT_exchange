@@ -11,7 +11,7 @@ export default class Warn_txt extends Component {
                 <Text style={styles.main_txt}> 제안/구매 유의사항</Text>
 
                 <View
-                    style={textContainer}
+                    style={styles.textContainer}
                 />
 
                 <Text style={styles.sub_txt}> •구매를 하기 위한 가격 제안 시, 네트워크 수수료가 발생합니다.</Text>
