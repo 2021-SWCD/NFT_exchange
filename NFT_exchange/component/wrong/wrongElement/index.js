@@ -1,0 +1,1 @@
+export {default as Wrong_text} from './wrong_text';

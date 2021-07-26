@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Modal, TouchableWithoutFeedback, Image, TextInput, 
-  StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView,  } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
 import Hot_text from './component/common/commonElement/Hot_text';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from './component/common/search/Search';
+import { Wrong_text } from './component/wrong/wrongElement';
 
 
 
@@ -35,7 +35,7 @@ export default class WrongSearch extends React.Component {
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after'); // User1 출력
+      console.log('Login_after'); 
       this.setState({ isLoggedIn: JSON.parse(result) })
     });
   };
@@ -43,6 +43,8 @@ export default class WrongSearch extends React.Component {
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     console.log(isLoggedIn);
+
+
     return (
 
       <ScrollView style={styles.container}>
@@ -54,12 +56,13 @@ export default class WrongSearch extends React.Component {
 
         <Search navigation={this.props.navigation} />
 
-        <View style={{ marginTop: 90, alignItems: 'center' }}>
+        {/* <View style={{ marginTop: 90, alignItems: 'center' }}>
           <Icon style={styles.sad} name="sad-outline" size={45} />
           <Text style={styles.wrong_text}>검색 결과를 찾을 수 없어요.</Text>
           <Text style={styles.wrong_text}>다른 검색어로 검색해주세요.</Text>
-        </View>
+        </View> */}
 
+        <Wrong_text/>
 
         <View>
           <Hot_text />
@@ -140,20 +143,7 @@ const styles = StyleSheet.create({
   
   
   
-  sad: {
-    color: 'black',
-    marginBottom: 20,
-
-  },
-
-
-  wrong_text: {
-    marginLeft: 10,
-    marginBottom: 5,
-    fontSize: 22,
-    fontWeight: 'bold'
-
-  },
+  
   fire: {
     color: 'red',
     marginLeft: 10,
