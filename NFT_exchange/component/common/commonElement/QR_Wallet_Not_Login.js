@@ -41,7 +41,7 @@ export default class Qr_Wallet_Not_Login extends React.Component{
               <CustomButton
                 title={'로그인 하기'}
                 titlemarginLeft={20}
-                navigation={this.props.navigation} />
+                onPress={() => this.goLoginScreen()} />
             </View>
           </View>
         </View>

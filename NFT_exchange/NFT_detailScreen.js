@@ -75,6 +75,8 @@ export default class NFT_detailScreen extends Component {
           <NFT_detailScreen_detail_main />
 
           <CustomButton 
+            titlemarginLeft={30}
+            button_marginLeft={10}
             onPress = {() => this.setState({show : true})}/>
 
           <View style={{ flex: 1, marginTop: 100 }}>

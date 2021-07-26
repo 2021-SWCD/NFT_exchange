@@ -26,7 +26,7 @@ export default class CustomButton extends Component{
                 //{marginRight: this.props.marginRight},
                 {marginLeft: this.props.button_marginLeft},
             ]}
-            onPress={() => this.goLoginScreen()}>
+            onPress={this.props.onPress}>
                 <Text style={[
                     {color: this.props.titleColor},
                     {fontSize: this.props.titlefontSize},
@@ -36,10 +36,6 @@ export default class CustomButton extends Component{
                 ]}>{this.props.title}</Text>
             </TouchableOpacity>
         )
-    }
-    goLoginScreen() {
-        // LoginScreen으로 화면 이동
-        this.props.navigation.navigate('LOGIN');
     }
 }
 
