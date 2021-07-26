@@ -3,9 +3,9 @@ import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, Vi
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import { CardImage, Nft_name, Profile, CustomButton } from './component/common/commonElement'
 import Go_main from './component/common/goMain/go_main';
-import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
-import TabBar from './component/TabBar';
-import Warn_txt from './component/Warn_txt';
+import Detail_main from './component/common/commonElement/Detail_main';
+import TabBar from './component/nftDetail/TabBar';
+import Warn_txt from './component/nftDetail/Warn_txt';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
@@ -65,36 +65,22 @@ export default class NFT_detailScreen extends Component {
         <View style={styles.colum}>
           <Profile
             title={"hyunji"}
-            marginLeft={20}
+            marginTop={10}
+            marginLeft={20} 
             navigation={this.props.navigation} />
           <Nft_name
             title={"NATURE"}
-            marginLeft={20}
-            navigation={this.props.navigation} />
+            marginLeft={20} 
+            navigation={this.props.navigation}/>
+          <Detail_main 
+            cur_title={'0.01'}
+            cost_title={'10,000'}/>
+          <CustomButton 
+            titlemarginLeft={30}
+            button_marginLeft={10}
+            onPress = {() => this.setState({show : true})}/>
 
-          <NFT_detailScreen_detail_main />
-
-          {
-            this.state.isLoggedIn
-
-              ? <CustomButton
-                titlemarginLeft={30}
-                button_marginLeft={10}
-
-                onPress={() => this.setState({ show: true })} />
-
-              : <CustomButton
-                titlemarginLeft={30}
-                button_marginLeft={10}
-
-                onPress={() => this.goLoginScreen()} />
-
-
-
-          }
-
-
-          <View style={styles.modalContainer}>
+          <View style={{ flex: 1, marginTop: 30 }}>
             <Modal
               transparent={true}
               visible={this.state.show}

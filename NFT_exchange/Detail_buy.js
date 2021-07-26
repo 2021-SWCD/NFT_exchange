@@ -18,8 +18,6 @@ export default class Detail_buy extends Component {
         };
     }
 
-  
-
     componentDidMount() {
         this.onLoad();
         console.log('componentDidMount');
@@ -38,9 +36,6 @@ export default class Detail_buy extends Component {
          AsyncStorage.getItem('ETH', (err, result) => {
             console.log(result); 
             this.setState({show_result : result})
-            
-            
-             
         });
 
         AsyncStorage.getItem('logIncom', (err, result) => {
@@ -64,7 +59,9 @@ export default class Detail_buy extends Component {
 
                 <View style={styles.colum}>
 
-                    <Detail_main />
+                    <Detail_main 
+                        cur_title={'0.01'}
+                        cost_title={'10,000'}/>
 
                     <Buy_text
                      title={this.state.show_result + 'ETH'} />

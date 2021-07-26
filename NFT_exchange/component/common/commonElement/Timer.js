@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import moment from 'moment';
 
-export default function Timer ({size, until, backgroundColor, color, marginRight}) {
+export default function Timer ({size, until, backgroundColor, color, marginRight, marginLeft}) {
   const [totalDuration, setTotalDuration] = useState(0);
 
     useEffect(() => {
@@ -22,7 +22,9 @@ export default function Timer ({size, until, backgroundColor, color, marginRight
   }, []);
 
     return(
-      <View marginRight={marginRight}>
+      <View
+        marginLeft={marginLeft} 
+        marginRight={marginRight}>
       <CountDown
         size={size}
         until={until}
@@ -40,6 +42,7 @@ export default function Timer ({size, until, backgroundColor, color, marginRight
 Timer.defaultProps = {
   size: 10,
   until: 1500,
+  marginLeft: null,
   marginRight: 205,
   backgroundColor: '#FFF',
   color: '#000',

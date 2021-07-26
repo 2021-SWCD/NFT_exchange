@@ -75,33 +75,27 @@ export default class go_main extends React.Component {
               ? <Modal
                   transparent={true}
                   visible={this.state.show}>
-              <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
-                <View style={{ flex: 1, marginLeft: 100, marginBottom: 90}}>
-                  <Qr_Wallet />
-                    <View style={{ position: 'absolute', top: 110, left: 270 }}>
-                      <TouchableOpacity onPress={() => this.goArtist_Screen()}>
-                        <Icon style={{marginTop: 20}}
-                          name="chevron-forward-outline" size={30}></Icon>
-                      </TouchableOpacity>
-                      </View>
+                  <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
+                    <View style={{ flex: 1, marginBottom: 90}}>
+                      <Qr_Wallet navigation={this.props.navigation}/>
                     </View>
                   </TouchableWithoutFeedback>
                 </Modal>
               : <Modal
                   transparent={true}
                   visible={this.state.show}>
-                <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                  <View style={{ flex: 1, }}>
-                    <Qr_Wallet_Not_Login />
-                    {/* <View style={{ position: 'absolute', top: 360, left: 167 }}>
-                      <CustomButton
-                        title={'로그인 하기'}
-                        marginLeft={20}
-                        onPress={() => this.goLoginScreen()} />
-                    </View> */}
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
+                  <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+                    <View style={{ flex: 1, }}>
+                      <Qr_Wallet_Not_Login navigation={this.props.navigation}/>
+                      {/* <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                        <CustomButton
+                          title={'로그인 하기'}
+                          marginLeft={20}
+                          onPress={() => this.goLoginScreen()} />
+                      </View> */}
+                    </View>
+                  </TouchableWithoutFeedback>
+                </Modal>
             }
           </View>
         </View>

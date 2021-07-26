@@ -63,40 +63,8 @@ export default class MainScreen extends React.Component {
         <View style={styles.cardContainer}>
           <NftSimpleInfoCard navigation={this.props.navigation} />
         </View>
-
-        
-
       </ScrollView>
     );
-  }
-
-
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
-  }
-
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
-  }
-
-  goNFT_detailScreen() {
-    //SampleScreen으로 이동
-    this.props.navigation.navigate('SUGESST');
-  }
-
-  goWrongSearch = () => {
-    // console.log(this.props);
-    //WrongSearch으로 이동
-    this.props.navigation.navigate('WRONG');
-  }
-  goMainScreen() {
-    //MainScreen으로 이동
-    this.props.navigation.navigate('MAIN');
-  }
-  close_modal = () => {
-    this.setState({ show: false })
   }
 }
 

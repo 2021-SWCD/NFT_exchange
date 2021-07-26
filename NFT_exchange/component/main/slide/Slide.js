@@ -4,6 +4,7 @@ import { Slide_profile, Slide_txt1, Slide_txt2 } from './slideElement';
 import { Nft_name, CustomButton } from '../../common/commonElement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
+import Detail_main from '../../common/commonElement/Detail_main';
 
 
 const { width } = Dimensions.get("window");
@@ -43,8 +44,12 @@ export default class slide extends React.Component {
                                 fontSize={45}
                                 navigation={this.props.navigation} />
 
-
-                            <View style={styles.slidetext}>
+                            <Detail_main 
+                                width={170}
+                                marginLeft={30}
+                                cur_title={'0.01'}
+                                cost_title={'10,000'}/>
+                            {/* <View style={styles.slidetext}>
 
                                 <Slide_txt1 />
 
@@ -53,7 +58,7 @@ export default class slide extends React.Component {
 
                                 <Text style={{ marginTop: 5 }}>10.000원</Text>
 
-                            </View>
+                            </View> */}
 
 
                             <CustomButton
