@@ -7,7 +7,6 @@ import CardImage from './component/common/commonElement/CardImage';
 import NFT_name from './component/common/commonElement/Nft_name';
 import Profile from './component/common/commonElement/Profile';
 import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
-import CustomButton from './component/CustomButton';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
 import AsyncStorage from '@react-native-community/async-storage';

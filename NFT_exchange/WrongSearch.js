@@ -4,9 +4,7 @@ import { Modal, TouchableWithoutFeedback, Image, TextInput,
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
-import Hot_text from './component/Hot_text';
-import Search_input from './component/Search_input';
-import CustomButton from './component/CustomButton';
+import Hot_text from './component/common/commonElement/Hot_text';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from './component/common/search/Search';
 
