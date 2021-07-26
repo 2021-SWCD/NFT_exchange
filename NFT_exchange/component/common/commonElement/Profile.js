@@ -11,7 +11,7 @@ export default class Profile extends React.Component {
       marginTop: null,
       marginLeft: null,
       name_marginLeft :8,
-      name_marginTop: 4,
+      name_marginTop: null,
       name_width : 150,
       name_height: 30,
       profile_width: 30,
