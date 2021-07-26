@@ -5,11 +5,13 @@ import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
 export default class CustomButton extends Component{
     static defaultProps = { //아무런 설정을 안했을 시 버튼의 기본 설정
         title: '제안하기',
-        buttonColor: '#000',
         titleColor: '#fff',
-        button_marginLeft: 10,
-        marginRight: 25,
-        marginLeft: 30,
+        titlefontSize: 20,
+        titlefontWeight: 'bold',
+        titlemarginTop: 10,
+        titlemarginLeft: null,
+        buttonColor: '#000',
+        button_marginLeft: null,
         marginBottom: null,
         onPress: () => null,
     }
@@ -21,16 +23,23 @@ export default class CustomButton extends Component{
         return (
             <TouchableOpacity style={[
                 styles.button,
-                {marginRight: this.props.marginRight},
+                //{marginRight: this.props.marginRight},
                 {marginLeft: this.props.button_marginLeft},
             ]}
-            onPress={this.props.onPress}>
+            onPress={() => this.goLoginScreen()}>
                 <Text style={[
-                    styles.button_title,
-                    {marginLeft: this.props.marginLeft},
+                    {color: this.props.titleColor},
+                    {fontSize: this.props.titlefontSize},
+                    {fontWeight: this.props.titlefontWeight},
+                    {marginTop: this.props.titlemarginTop},
+                    {marginLeft: this.props.titlemarginLeft},
                 ]}>{this.props.title}</Text>
             </TouchableOpacity>
         )
+    }
+    goLoginScreen() {
+        // LoginScreen으로 화면 이동
+        this.props.navigation.navigate('LOGIN');
     }
 }
 
@@ -43,10 +52,4 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor:'#000000',
     },
-    button_title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
-        marginTop: 10,
-    }
 })
