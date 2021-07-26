@@ -34,7 +34,9 @@ export default class slide extends React.Component {
 
                             <Profile
                                 title={element.title}
-                                onPress={() => this.goArtist_Screen()}
+                                marginLeft={50}
+                                marginTop={20}
+                                navigation={this.props.navigation}
                             />
 
 
