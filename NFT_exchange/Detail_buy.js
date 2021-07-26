@@ -83,7 +83,9 @@ export default class Detail_buy extends Component {
                     <View style={{ flexDirection: 'row', marginTop: 30, alignItems: 'center' }}>
 
                         <Custom_cancel onPress={() => this.goMainScreen()} />
-                        <CustomButton onPress={() => {this.goMainScreen();this.Count()}}/>
+                        <CustomButton 
+                            titlemarginLeft={30}
+                            onPress={() => {this.goMainScreen();this.Count()}}/>
                     </View>
                 </View>
             </ScrollView>
