@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import CustomButton from '../../CustomButton';
+import CustomButton from '../commonElement/CustomButton';
 import Qrcode from '../commonElement/Qrcode';
 import Qr_Wallet from '../commonElement/QR_Wallet';
 import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';

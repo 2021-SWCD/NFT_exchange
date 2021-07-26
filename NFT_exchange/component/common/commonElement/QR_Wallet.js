@@ -22,8 +22,9 @@ export default class QR_Wallet extends React.Component{
               <View style={styles.elem}>
                 <Profile 
                   title = {'minj-j'}
-                  marginTop = {20}>
-                </Profile>
+                  //marginTop = {20}
+                  marginLeft = {20}
+                  navigation={this.props.navigation}/>
               </View>
             </View>
             <View style={{alignItems: 'center', marginTop: 10}}>
@@ -36,17 +37,16 @@ export default class QR_Wallet extends React.Component{
         </View>
       )
     }
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
-  }
 }
     
 const styles = StyleSheet.create({
     container:{
+      position : 'absolute',
+      left : 100,
+      top : 5,
       flex:1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
-      justifyContent: 'center', //수직에서 중앙으로 정렬
       alignItems:'center', //수평에서 중앙으로 정렬
+      marginTop:110
     },
 
     elem: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소

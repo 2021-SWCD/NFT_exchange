@@ -3,6 +3,7 @@ import { TouchableWithoutFeedback, TouchableOpacity, Text,
   Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import { CardImage, Nft_name, Profile } from './component/common/commonElement'
+import CustomButton from './component/common/commonElement/CustomButton';
 import Go_main from './component/common/goMain/go_main';
 import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
 import TabBar from './component/TabBar';
@@ -73,9 +74,10 @@ export default class NFT_detailScreen extends Component {
 
           <NFT_detailScreen_detail_main />
 
+          <CustomButton 
+            onPress = {() => this.setState({show : true})}/>
 
-
-          {/* <View style={{ flex: 1, marginTop: 100 }}>
+          <View style={{ flex: 1, marginTop: 100 }}>
             <Modal
               transparent={true}
               visible={this.state.show}
@@ -95,7 +97,7 @@ export default class NFT_detailScreen extends Component {
               </View>
             </TouchableWithoutFeedback>
             </Modal>
-          </View> */}
+          </View>
           <TabBar />
         </View>
       </ScrollView>
@@ -131,8 +133,6 @@ const styles = StyleSheet.create({
     //alignItems:'center', //수평에서 중앙으로 정렬
     backgroundColor: 'white',
   },
-
-
 
   pop_btn: {
     height: 41,
