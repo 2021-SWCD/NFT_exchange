@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions, ScrollView, Text, StyleSheet, View, Image, } from 'react-native';
 import { Slide_profile, Slide_txt1, Slide_txt2 } from './slideElement';
-import { Nft_name, CustomButton } from '../../common/commonElement';
+import { Nft_name, CustomButton, Profile } from '../../common/commonElement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
 import Detail_main from '../../common/commonElement/Detail_main';
@@ -32,7 +32,7 @@ export default class slide extends React.Component {
                                 source={{ uri: element.imageUrl }}
                                 style={{ width, height, resizeMode: 'contain' }} />
 
-                            <Slide_profile
+                            <Profile
                                 title={element.title}
                                 onPress={() => this.goArtist_Screen()}
                             />
