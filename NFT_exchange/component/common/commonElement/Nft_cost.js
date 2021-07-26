@@ -7,7 +7,7 @@ export default class Nft_cost extends Component{
       nft_cost_color: 'black',
       fontSize: 20,
       fontWeight: 'bold',
-      marginTop: 10,
+      marginTop: null,
     }
     constructor(props){
         super(props);

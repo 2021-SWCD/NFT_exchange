@@ -8,13 +8,15 @@ export default class Profile extends React.Component {
       title: 'untitled',
       titleColor: 'black',
       fontSize: 20,
-      marginTop: 26,
+      marginTop: null,
+      marginLeft: null,
       name_marginLeft :8,
-      name_marginTop: null,
+      name_marginTop: 4,
       name_width : 150,
       name_height: 30,
       profile_width: 30,
       profile_height: 30,
+      profile_marginTop: null,
       profile_borderRadius: 25,
       profile_backgroundColor: 'black',
       onPress: () => null,
@@ -25,10 +27,15 @@ export default class Profile extends React.Component {
     render(){
         return (
         <TouchableOpacity onPress={() => this.goArtist_Screen()} >
-          <View style={styles.row}>
+          <View style={[
+            styles.row,
+            {marginTop: this.props.marginTop},
+            {marginLeft: this.props.marginLeft},
+          ]}>
             <View style={[
               {width: this.props.profile_width},
               {height: this.props.profile_height},
+              {marginTop: this.props.profile_marginTop},
               {borderRadius: this.props.profile_borderRadius},
               {backgroundColor: this.props.profile_backgroundColor},
             ]}/>
@@ -54,8 +61,8 @@ export default class Profile extends React.Component {
 
 const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설정해줘야 한다.
     row: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
-      marginTop: 10,
-      marginBottom: 10,
+      //marginTop: 10,
+      //marginBottom: 10,
       flexDirection: 'row',
     },
 });

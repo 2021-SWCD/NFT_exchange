@@ -17,7 +17,7 @@ export default class NftSimpleInfoCard extends React.Component {
         
         {dataList.map((element, index) => (
           <View key={index}>
-            <View style={{ marginTop: 20}}>
+            <View style={{marginTop: 20}}>
               <CardImage
                 source={{ uri: element.imageUrl }}
                 navigation={this.props.navigation}/>
@@ -29,8 +29,10 @@ export default class NftSimpleInfoCard extends React.Component {
                       navigation={this.props.navigation}/>
                     <Profile
                       title={element.title}
+                      marginTop={10}
                       navigation={this.props.navigation}/>
                     <Nft_cost
+                      marginTop={5}
                       nft_cost={'0.01'} />
                     <Timer 
                       backgroundColor={'#d3d3d3'}

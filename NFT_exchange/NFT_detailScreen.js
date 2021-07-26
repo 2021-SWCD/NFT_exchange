@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { TouchableWithoutFeedback, TouchableOpacity, Text, 
   Modal, StyleSheet, View, Image, ScrollView} from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
+import { CardImage, Nft_name, Profile } from './component/common/commonElement'
 import Go_main from './component/common/goMain/go_main';
-import CardImage from './component/common/commonElement/CardImage';
-import NFT_name from './component/common/commonElement/Nft_name';
-import Profile from './component/common/commonElement/Profile';
 import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
@@ -54,25 +52,30 @@ export default class NFT_detailScreen extends Component {
         <Go_main navigation={this.props.navigation} />
 
         <CardImage
+          navigation={this.props.navigation}
           source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
           borderBottomLeftRadius={20}
           borderBottomRightRadius={20}
+          marginLeft={55}
+          marginTop={20}
           height={450} 
         />
 
         <View style={styles.colum}>
           <Profile
             title={"hyunji"}
+            marginLeft={20} 
             navigation={this.props.navigation} />
-          <NFT_name
-            title={"NATURE"} 
-            avigation={this.props.navigation}/>
+          <Nft_name
+            title={"NATURE"}
+            marginLeft={20} 
+            navigation={this.props.navigation}/>
 
           <NFT_detailScreen_detail_main />
 
 
 
-          <View style={{ flex: 1, marginTop: 100 }}>
+          {/* <View style={{ flex: 1, marginTop: 100 }}>
             <Modal
               transparent={true}
               visible={this.state.show}
@@ -92,12 +95,7 @@ export default class NFT_detailScreen extends Component {
               </View>
             </TouchableWithoutFeedback>
             </Modal>
-          </View>
-
-
-
-
-
+          </View> */}
           <TabBar />
         </View>
       </ScrollView>
