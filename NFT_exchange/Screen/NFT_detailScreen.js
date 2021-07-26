@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
-import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
-import { CardImage, Nft_name, Profile, CustomButton } from './component/common/commonElement'
-import Go_main from './component/common/goMain/go_main';
-import Detail_main from './component/common/commonElement/Detail_main';
-import TabBar from './component/nftDetail/TabBar';
-import Warn_txt from './component/nftDetail/Warn_txt';
+import { LoginHeader, LoginAfterHeader } from './../component/common/logIn';
+import { CardImage, Nft_name, Profile, CustomButton } from './../component/common/commonElement'
+import Go_main from './../component/common/goMain/go_main';
+import Detail_main from './../component/common/commonElement/Detail_main';
+import TabBar from './../component/nftDetail/TabBar';
+import Warn_txt from './../component/nftDetail/Warn_txt';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
@@ -75,10 +75,26 @@ export default class NFT_detailScreen extends Component {
           <Detail_main 
             cur_title={'0.01'}
             cost_title={'10,000'}/>
-          <CustomButton 
-            titlemarginLeft={30}
-            button_marginLeft={10}
-            onPress = {() => this.setState({show : true})}/>
+          
+
+          {
+            this.state.isLoggedIn
+
+              ? <CustomButton
+                titlemarginLeft={30}
+                button_marginLeft={10}
+
+                onPress={() => this.setState({ show: true })} />
+
+              : <CustomButton
+                titlemarginLeft={30}
+                button_marginLeft={10}
+
+                onPress={()=>this.goLoginScreen()}/>
+
+
+
+          }
 
           <View style={{ flex: 1, marginTop: 30 }}>
             <Modal
@@ -165,6 +181,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     top: 455,
     left: 80
+  },
+
+  pop_btn: {
+    height: 41,
+    marginTop: 10,
+    width: 260,
+    backgroundColor: '#0064ff',
+    fontSize: 15,
+    fontWeight: 'normal',
+    color: 'white',
+    paddingTop: 10,
+    paddingLeft: 120,
+    borderRadius: 3,
   },
 
 })
