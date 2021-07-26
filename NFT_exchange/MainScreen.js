@@ -1,23 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import {
-  TouchableWithoutFeedback, Modal, Image, TextInput,
-  StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity
+  StyleSheet, Text, View, ScrollView, TouchableOpacity
 } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import AsyncStorage from '@react-native-community/async-storage';
-import Icon from 'react-native-vector-icons/Ionicons';
 import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
-
-import Detail_main from './component/detail_main';
-import CustomButton from './component/CustomButton';
-
-import NFT_name from './component/common/commonElement/Nft_name';
 import Hot_text from './component/Hot_text';
 import Slide from './component/main/slide/Slide';
-
-import Slide_txt1 from './component/Slide_txt1';
-import Slide_txt2 from './component/Slide_txt2';
-import Slide_profile from './component/Slide_profile';
 import Search from './component/common/search/Search';
 
 
@@ -290,14 +279,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
 
   },
-  cardContainer: {
-    backgroundColor: '#d3d3d3',
-    borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
-    borderBottomRightRadius: 20,
-    marginBottom: 20,
-    width: 300,
-    height: 150,
-  },
-
-
 });

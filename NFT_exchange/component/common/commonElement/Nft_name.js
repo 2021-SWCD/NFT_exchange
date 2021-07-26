@@ -8,6 +8,7 @@ export default class Nft_name extends Component{
         fontSize: 40,
         fontWeight: 'bold',
         marginTop: 10,
+        marginLeft: null,
         onPress: () => null,
     }
     constructor(props){
@@ -21,6 +22,7 @@ export default class Nft_name extends Component{
                     {fontSize: this.props.fontSize},
                     {fontWeight: this.props.fontWeight},
                     {marginTop: this.props.marginTop},
+                    {marginLeft: this.props.marginLeft},
                 ]}>{this.props.title}</Text>
             </TouchableOpacity>
         )
