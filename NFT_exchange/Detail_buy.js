@@ -2,12 +2,12 @@ import React, { TouchableOpacity, Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import Go_main from './component/common/goMain/go_main';
-import Detail_main from './component/detail_main';
+import Detail_main from './component/common/commonElement/Detail_main';
 import CustomButton from './component/common/commonElement/CustomButton';
 import Custom_cancel from './component/common/commonElement/Custom_cancel';
 import TabBar from './component/TabBar';
-import Buy_text from './component/Buy_text';
-import Buy_screen from './component/Buy_screen';
+import Buy_text from './component/detailBuy/Buy_text';
+import Buy_screen from './component/detailBuy/Buy_screen';
 import AsyncStorage from '@react-native-community/async-storage';
 
 /*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
@@ -21,8 +21,6 @@ export default class Detail_buy extends Component {
             isLoggedIn: false,
         };
     }
-
-  
 
     componentDidMount() {
         this.onLoad();
@@ -42,9 +40,6 @@ export default class Detail_buy extends Component {
          AsyncStorage.getItem('ETH', (err, result) => {
             console.log(result); // User1 출력
             this.setState({show_result : result})
-            
-            
-             
         });
 
         AsyncStorage.getItem('logIncom', (err, result) => {
@@ -68,7 +63,9 @@ export default class Detail_buy extends Component {
 
                 <View style={styles.colum}>
 
-                    <Detail_main />
+                    <Detail_main 
+                        cur_title={'0.01'}
+                        cost_title={'10,000'}/>
 
                     <Buy_text
                      //title={this.state.result} />
