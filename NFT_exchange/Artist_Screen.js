@@ -34,15 +34,17 @@ export default class Artist_Screen extends Component {
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after'); // User1 출력
+      console.log('Login_after'); 
       this.setState({ isLoggedIn : JSON.parse(result) })
     });
   };
 
 
   render() {
+
     return (
-      <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
+    
+    <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {
           this.state.isLoggedIn
             ? <LoginAfterHeader navigation={this.props.navigation} />
@@ -51,9 +53,11 @@ export default class Artist_Screen extends Component {
 
         <Go_main navigation={this.props.navigation} />
 
-        <View style={{ height: 570 }}>
+        <View style={styles.informContainer}>
 
-          <Image style={{ width: '100%', height: 225, }} source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
+          <Image 
+            style={styles.mainImage} 
+            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
           />
 
           <Icon style={styles.share} name="share-social" size={31} />
@@ -69,17 +73,16 @@ export default class Artist_Screen extends Component {
           <Profile_text
             title={'오늘도 멋진 작품을!'} />
 
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 160 }}>
+          <View style={styles.iconContainer}>
             <Icon style={styles.twit} name="logo-twitter" size={31} />
             <Icon style={styles.insta} name="logo-instagram" size={31} />
           </View>
 
-          <View style={{ alignItems: 'center' }}>
+          <View style={styles.producContainer}>
 
             <Text style={styles.product}>작품</Text>
 
           </View>
-
 
 
         </View>
@@ -90,12 +93,9 @@ export default class Artist_Screen extends Component {
         </View>
 
         {/*NftSimpleInfoCard*/}
-        <View style={{
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 20,
-        }}>
-          <NftSimpleInfoCard navigation={this.props.navigation}/>
+
+        <View style={styles.cardContainer}>
+          <NftSimpleInfoCard navigation={this.props.navigation} />
         </View>
 
 
@@ -129,41 +129,21 @@ const styles = StyleSheet.create({
     //alignItems:'center', //수평에서 중앙으로 정렬
     backgroundColor: 'white',
   },
+
+  informContainer : { 
+    height: 570 
+  },
   cardContainer: {
-    backgroundColor: '#d3d3d3',
-    borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
-    borderBottomRightRadius: 20,
-    marginBottom: 20,
-    width: 300,
-    height: 150,
-  },
-
-
-  topView: {
-    flexDirection: 'row',
-    height: 55,
-    backgroundColor: 'white',
     justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-
-  midView: {
-    flexDirection: 'row',
-    height: 60,
-    backgroundColor: '#EEEEEE',
     alignItems: 'center',
+    marginBottom: 20,
   },
 
-  colum: {
-    width: '80%',
-    height: '25%',
-    flexDirection: 'column',
-    marginTop: 290,
-    marginLeft: 40,
-    position: 'absolute',
-
-
+  mainImage : { 
+    width: '100%', 
+    height: 225, 
   },
+
   share: {
     color: 'black',
     textAlign: 'right',
@@ -182,6 +162,11 @@ const styles = StyleSheet.create({
 
 
   },
+  iconContainer : { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    marginLeft: 160 
+  },
   twit: {
     color: 'black',
     marginTop: 10,
@@ -199,6 +184,20 @@ const styles = StyleSheet.create({
 
 
   },
+  producContainer : { 
+    alignItems: 'center' 
+  },
+
+  colum: {
+    width: '80%',
+    height: '25%',
+    flexDirection: 'column',
+    marginTop: 290,
+    marginLeft: 40,
+    position: 'absolute',
+
+
+  },
 
   product: {
 
@@ -213,8 +212,6 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 30,
   },
-
-
 
 
 
