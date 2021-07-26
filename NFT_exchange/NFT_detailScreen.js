@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import {
-  TouchableWithoutFeedback, TouchableOpacity, Text,
-  Modal, StyleSheet, View, Image, ScrollView
-} from 'react-native';
+import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
-import { CardImage, Nft_name, Profile } from './component/common/commonElement'
-import CustomButton from './component/common/commonElement/CustomButton';
+import { CardImage, Nft_name, Profile, CustomButton } from './component/common/commonElement'
 import Go_main from './component/common/goMain/go_main';
 import NFT_detailScreen_detail_main from './component/NFT_detailScreen_detail_main';
 import TabBar from './component/TabBar';
 import Warn_txt from './component/Warn_txt';
 import AsyncStorage from '@react-native-community/async-storage';
 
-/*이미지 주소 복사를 해서 링크를 붙여넣는다.*/
+
 export default class NFT_detailScreen extends Component {
 
   constructor() //모달 팝업창
@@ -44,7 +40,9 @@ export default class NFT_detailScreen extends Component {
   };
 
   render() {
+
     return (
+
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {
           this.state.isLoggedIn
@@ -84,34 +82,38 @@ export default class NFT_detailScreen extends Component {
                 button_marginLeft={10}
 
                 onPress={() => this.setState({ show: true })} />
-              
+
               : <CustomButton
                 titlemarginLeft={30}
                 button_marginLeft={10}
 
-                onPress={()=>this.goLoginScreen()}/>
-  
-  
-              
+                onPress={() => this.goLoginScreen()} />
+
+
+
           }
 
 
-          <View style={{ flex: 1, marginTop: 100 }}>
+          <View style={styles.modalContainer}>
             <Modal
               transparent={true}
               visible={this.state.show}
             >
               <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                <View style={{ backgroundColor: "grey", flex: 1 }}>
+                <View style={styles.warnContainer}>
 
 
                   <Warn_txt />
 
 
-                  <View style={{ alignItems: 'center', position: 'absolute', justifyContent: 'center', alignItems: 'center', top: 455, left: 80 }}>
+                  <View style={styles.btnContainer}>
+
                     <TouchableOpacity>
+
                       <Text
-                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인</Text></TouchableOpacity>
+                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인
+                      </Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </TouchableWithoutFeedback>
@@ -147,39 +149,10 @@ export default class NFT_detailScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
-    //justifyContent: 'center', //수직에서 중앙으로 정렬
-    //alignItems:'center', //수평에서 중앙으로 정렬
+    flex: 1, 
     backgroundColor: 'white',
   },
 
-  pop_btn: {
-    height: 41,
-    marginTop: 10,
-    width: 260,
-    backgroundColor: '#0064ff',
-    fontSize: 15,
-    fontWeight: 'normal',
-    color: 'white',
-    paddingTop: 10,
-    paddingLeft: 120,
-    borderRadius: 3,
-  },
-
-  topView: {
-    flexDirection: 'row',
-    height: 55,
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-
-  midView: {
-    flexDirection: 'row',
-    height: 60,
-    backgroundColor: '#EEEEEE',
-    alignItems: 'center',
-  },
 
   colum: {
     width: '80%',
@@ -187,6 +160,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginTop: 10,
     marginLeft: 40,
+  },
+
+  modalContainer: {
+    flex: 1,
+    marginTop: 100,
+  },
+
+  warnContainer: {
+    backgroundColor: "grey",
+    flex: 1
+  },
+
+  btnContainer: {
+    alignItems: 'center',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 455,
+    left: 80
   },
 
 })

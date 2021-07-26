@@ -121,9 +121,7 @@ export default class Artist_Screen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
-    //justifyContent: 'center', //수직에서 중앙으로 정렬
-    //alignItems:'center', //수평에서 중앙으로 정렬
+    flex: 1, 
     backgroundColor: 'white',
   },
 
