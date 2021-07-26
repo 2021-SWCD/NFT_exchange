@@ -1,22 +1,17 @@
 
 import React, { Component } from 'react';
-import { StyleSheet,View,TouchableOpacity, Text, } from 'react-native';
+import { StyleSheet,View,Text, } from 'react-native';
 
 export default class Warn_txt extends Component {
 
     render() {
         return (
 
-            <View style={{ backgroundColor: '#ffffff', marginTop: 100, marginRight: 30, marginLeft: 30, padding: 40, height: 430 }}>
+            <View style={styles.container}>
                 <Text style={styles.main_txt}> 제안/구매 유의사항</Text>
 
                 <View
-                    style={{
-                        marginTop: 20,
-                        marginBottom: 20,
-                        borderBottomColor: 'black',
-                        borderBottomWidth: 1,
-                    }}
+                    style={textContainer}
                 />
 
                 <Text style={styles.sub_txt}> •구매를 하기 위한 가격 제안 시, 네트워크 수수료가 발생합니다.</Text>
@@ -27,6 +22,22 @@ export default class Warn_txt extends Component {
 </View>)}}
 
 const styles = StyleSheet.create({
+
+  container : { 
+    backgroundColor: '#ffffff', 
+    marginTop: 100, 
+    marginRight: 30, 
+    marginLeft: 30, 
+    padding: 40, 
+    height: 430 
+  },
+
+  textContainer : {
+    marginTop: 20,
+    marginBottom: 20,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  },
     
   
     main_txt: {
