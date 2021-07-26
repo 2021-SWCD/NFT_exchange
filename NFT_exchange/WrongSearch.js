@@ -55,12 +55,6 @@ export default class WrongSearch extends React.Component {
 
         <Search navigation={this.props.navigation} />
 
-        {/* <View style={{ marginTop: 90, alignItems: 'center' }}>
-          <Icon style={styles.sad} name="sad-outline" size={45} />
-          <Text style={styles.wrong_text}>검색 결과를 찾을 수 없어요.</Text>
-          <Text style={styles.wrong_text}>다른 검색어로 검색해주세요.</Text>
-        </View> */}
-
         <Wrong_text />
 
         <Hot_text />
