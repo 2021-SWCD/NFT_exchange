@@ -5,7 +5,7 @@ import {
 import { LoginHeader, LoginAfterHeader } from './component/common/logIn';
 import AsyncStorage from '@react-native-community/async-storage';
 import NftSimpleInfoCard from './component/common/nftSimpleInfoCard/NftSimpleInfoCard';
-import Hot_text from './component/common/commonElement/Hot_text';
+import { Hot_text }from './component/common/commonElement';
 import Slide from './component/main/slide/Slide';
 import Search from './component/common/search/Search';
 

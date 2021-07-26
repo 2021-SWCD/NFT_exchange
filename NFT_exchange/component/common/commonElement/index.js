@@ -6,3 +6,4 @@ export {default as QR_Wallet_Not_Login} from './QR_Wallet_Not_Login';
 export {default as QR_Wallet} from './QR_Wallet';
 export {default as Qrcode} from './Qrcode';
 export {default as Timer} from './Timer';
+export {default as Hot_text} from './Hot_text'
