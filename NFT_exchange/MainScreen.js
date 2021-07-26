@@ -58,63 +58,21 @@ export default class MainScreen extends React.Component {
 
         <Slide navigation={this.props.navigation} />
 
-        <Hot_text />
+        <Hot_text /> 
 
         {/*NftSimpleInfoCard*/}
-        <View style={{
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 20,
-        }}>
+
+        <View style={styles.cardContainer}>
           <NftSimpleInfoCard navigation={this.props.navigation} />
         </View>
 
-        {/* <TouchableOpacity
-          style={{ position: 'absolute', top: 360, left: 5, }}
-          onPress={() => this.leftPage()}
-        >
-          <Icon style={{ margin: 5 }} name="chevron-back" size={35} />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{ position: 'absolute', top: 360, right: 5, }}
-          onPress={() => this.rightPage()}
-        >
-          <Icon style={{ margin: 5 }} name="chevron-forward" size={35} />
-        </TouchableOpacity> */}
+        
 
       </ScrollView>
     );
   }
 
-  /* leftPage = () => {
 
-    start -= width
-
-    if (start <= width * -1) {
-      start = width * 4
-    }
-
-    this.scrollView.scrollTo({
-      x: start
-    })
-
-
-  }
-  rightPage() {
-
-    start += width
-
-    if (start >= width * 5) {
-      start = 0
-    }
-
-    this.scrollView.scrollTo({
-      x: start
-    })
-
-
-  } */
   goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
@@ -150,31 +108,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 
-  topView: {
-    flexDirection: 'row',
-    height: 55,
-    backgroundColor: 'white',
+  cardContainer: {
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 20,
   },
 
-
-  search: {
-    color: 'black',
-    marginLeft: 22
-  },
-
-  scrollView: {
-    flex: 10,
-    backgroundColor: 'white',
-    flexDirection: 'row',
-  },
-  slide_img: {
-    height: 270,
-    width: 250,
-    marginTop: 25,
-    marginLeft: 10,
-    marginRight: 10,
-
-  },
 });

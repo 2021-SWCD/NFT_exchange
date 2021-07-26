@@ -5,14 +5,16 @@ import NFT_name from '../commonElement/Nft_name';
 import Profile from '../commonElement/Profile';
 import Nft_cost from '../commonElement/Nft_cost';
 import Timer from '../commonElement/Timer';
-import dataList from '..//../../datalist.json'
+import dataList from '../../../datalist.json'
 
 
 
 export default class NftSimpleInfoCard extends React.Component {
   render(){
     return(
-      <View>
+      <View >
+
+        
         {dataList.map((element, index) => (
           <View key={index}>
             <View style={{ marginTop: 20}}>
