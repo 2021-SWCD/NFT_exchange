@@ -4,13 +4,12 @@ import { Text, View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class SuggestScreen extends React.Component {
+  
   render(){
+  
     return (
-      <View style={{ 
-        flex: 1,
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: 300,}}>
+  
+      <View style={styles.container}>
         <Icon style={styles.sad} name="sad-outline" size={45} />
         <Text style={styles.wrong_text}>아직 제안한 사람이 없어요.</Text>
         <Text style={styles.wrong_text}>첫번째로 가격을 제안해보세요.</Text>
@@ -20,6 +19,13 @@ export default class SuggestScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container : { 
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: 300,
+  },
+  
   sad: {
     color: 'black',
     marginBottom: 20,
