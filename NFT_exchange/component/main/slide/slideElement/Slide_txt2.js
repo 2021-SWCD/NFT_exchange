@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { View,Text, } from 'react-native';
-import Timer_main_detail from '../../../Timer_main_detail';
+import { Timer } from '../../../common/commonElement';
 
 
 export default class Slide_txt2 extends Component {
-
-
+  static defaultProps = {
+    cur_title: '0',
+  }
+  constructor(props){
+    super(props);
+  }
     render() {
         return (
             <View style={{ flexDirection: 'row' }}>
@@ -13,9 +17,11 @@ export default class Slide_txt2 extends Component {
                         marginTop: 5,
                         fontSize: 25,
                         fontWeight: 'bold',
-                      }}>0.1 ETH</Text>
+                      }}>{this.props.cur_title} ETH</Text>
 
-                      <Timer_main_detail />
+                      <Timer 
+                        size={15}
+                        marginLeft={70}/>
                     </View>
                     
         )
