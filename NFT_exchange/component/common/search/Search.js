@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Qrcode from '../commonElement/Qrcode';
 import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
-import CustomButton from '../../CustomButton';
+import CustomButton from '../commonElement/CustomButton';
 import Search_icons from './searchElement/Search_icons';
 import Qr_Wallet from '../commonElement/QR_Wallet';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -114,14 +114,14 @@ export default class Korbit_logo extends React.Component {
                     transparent={true}
                     visible={this.state.show}>
                     <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                      <View style={{ flex: 1, marginLeft: 100, marginBottom: 90 }}>
-                        <Qr_Wallet />
-                        <View style={{ position: 'absolute', top: 110, left: 270 }}>
+                      <View style={{ flex: 1}}>
+                        <Qr_Wallet navigation={this.props.navigation}/>
+                        {/* <View style={{ position: 'absolute', top: 110, left: 270 }}>
                           <TouchableOpacity onPress={() => this.goArtist_Screen()}>
                             <Icon style={{ marginTop: 20 }}
                               name="chevron-forward-outline" size={30}></Icon>
                           </TouchableOpacity>
-                        </View>
+                        </View> */}
                       </View>
                     </TouchableWithoutFeedback>
                   </Modal>
@@ -130,13 +130,13 @@ export default class Korbit_logo extends React.Component {
                     visible={this.state.show}>
                     <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
                       <View style={{ flex: 1, }}>
-                        <Qr_Wallet_Not_Login />
-                        <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                        <Qr_Wallet_Not_Login navigation={this.props.navigation}/>
+                        {/* <View style={{ position: 'absolute', top: 360, left: 167 }}>
                           <CustomButton
                             title={'로그인 하기'}
                             marginLeft={20}
                             onPress={() => this.goLoginScreen()} />
-                        </View>
+                        </View> */}
                       </View>
                     </TouchableWithoutFeedback>
                   </Modal>
@@ -163,7 +163,6 @@ const styles = StyleSheet.create({
 
     searchView: {
         flexDirection: 'row',
-    
     },
     searchbar: {
         marginLeft: 12,

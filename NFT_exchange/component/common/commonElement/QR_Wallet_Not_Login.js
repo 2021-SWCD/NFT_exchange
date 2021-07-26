@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
+import CustomButton from './CustomButton';
 
 //이미지 주소 복사를 해서 링크를 붙여넣는다.
 export default class Qr_Wallet_Not_Login extends React.Component{
@@ -24,9 +25,10 @@ export default class Qr_Wallet_Not_Login extends React.Component{
                 <Profile 
                   title = {'로그인이 필요합니다.'}
                   marginLeft={15}
-                  fontSize = {15}>
+                  fontSize = {15}
+                  navigation={this.props.navigation}>
                 </Profile>
-                <TouchableOpacity onPress={() => goLoginScreen()}>
+                <TouchableOpacity onPress={() => this.goLoginScreen()}>
                  <Icon
                   name="chevron-forward-outline" size={30}></Icon>
                 </TouchableOpacity>
@@ -36,6 +38,10 @@ export default class Qr_Wallet_Not_Login extends React.Component{
               <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
               <Text style={styles.wrong_text}>로그인이 필요한</Text>
               <Text style={styles.wrong_text}>서비스 입니다.</Text>
+              <CustomButton
+                title={'로그인 하기'}
+                titlemarginLeft={20}
+                navigation={this.props.navigation} />
             </View>
           </View>
         </View>

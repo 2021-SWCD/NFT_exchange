@@ -5,7 +5,7 @@ import { Slide_profile, Slide_txt1, Slide_txt2 } from './slideElement';
 import Slide_txt1 from './slideElement/Slide_txt1';
 import Slide_txt2 from './slideElement/Slide_txt2'; */
 import Nft_name from '../../common/commonElement/Nft_name';
-import CustomButton from '../../CustomButton';
+import CustomButton from '../../common/commonElement/CustomButton';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
 
@@ -61,6 +61,7 @@ export default class slide extends React.Component {
 
 
                             <CustomButton
+                                titlemarginLeft={30}
                                 button_marginLeft={48}
                                 onPress={() => this.goNFT_detailScreen()} />
 
