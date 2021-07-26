@@ -3,8 +3,8 @@ import {View, Text,} from 'react-native'
 import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import SuggestScreen from '../../SuggestScreen';
-import Tab_infoScreen from '../../Tab_infoScreen';
+import SuggestScreen from '../../Screen/SuggestScreen';
+import Tab_infoScreen from '../../Screen/Tab_infoScreen';
 
 const TabBar = createMaterialTopTabNavigator({
     SuggestScreen: {

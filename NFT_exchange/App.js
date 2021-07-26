@@ -2,14 +2,14 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import MainScreen from './MainScreen';
-import LoginScreen from './LoginScreen';
-import WrongSearch from './WrongSearch';
-import Artist_Screen from './Artist_Screen';
-import NFT_detailScreen from './NFT_detailScreen';
-import Tab_infoScreen from './Tab_infoScreen';
-import Detail_buy from './Detail_buy';
-import Logout from './Logout';
+import MainScreen from './Screen/MainScreen';
+import LoginScreen from './Screen/LoginScreen';
+import WrongSearch from './Screen/WrongSearch';
+import Artist_Screen from './Screen/Artist_Screen';
+import NFT_detailScreen from './Screen/NFT_detailScreen';
+import Tab_infoScreen from './Screen/Tab_infoScreen';
+import Detail_buy from './Screen/Detail_buy';
+import Logout from './Screen/Logout';
 
 const Stack = createStackNavigator();
 function App() {
