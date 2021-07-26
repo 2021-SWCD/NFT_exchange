@@ -8,7 +8,7 @@ import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default class Korbit_logo extends React.Component {
+export default class go_main extends React.Component {
     /* static defaultProps = {
         arrowbakc: {
             color: 'black',
@@ -93,12 +93,12 @@ export default class Korbit_logo extends React.Component {
                 <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
                   <View style={{ flex: 1, }}>
                     <Qr_Wallet_Not_Login />
-                    <View style={{ position: 'absolute', top: 360, left: 167 }}>
+                    {/* <View style={{ position: 'absolute', top: 360, left: 167 }}>
                       <CustomButton
                         title={'로그인 하기'}
                         marginLeft={20}
                         onPress={() => this.goLoginScreen()} />
-                    </View>
+                    </View> */}
                   </View>
                 </TouchableWithoutFeedback>
               </Modal>
@@ -108,11 +108,15 @@ export default class Korbit_logo extends React.Component {
         );
     }
     goMainScreen() {
-        //MainScreen으로 이동
-        this.props.navigation.navigate('MAIN');
+      //MainScreen으로 이동
+      this.props.navigation.navigate('MAIN');
+    }
+    goLoginScreen() {
+      // LoginScreen으로 화면 이동
+      this.props.navigation.navigate('LOGIN');
     }
     close_modal = () => {
-        this.setState({ show: false })
+      this.setState({ show: false })
     }
 }
 
