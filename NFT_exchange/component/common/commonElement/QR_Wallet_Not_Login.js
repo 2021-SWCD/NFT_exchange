@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 
 //이미지 주소 복사를 해서 링크를 붙여넣는다.
-export default class App extends React.Component{
+export default class Qr_Wallet_Not_Login extends React.Component{
   static defaultProps = {
     title: 'untitled',
     color: 'black',
@@ -23,12 +23,12 @@ export default class App extends React.Component{
               <View style={styles.elem}>
                 <Profile 
                   title = {'로그인이 필요합니다.'}
+                  marginLeft={15}
                   fontSize = {15}>
                 </Profile>
                 <TouchableOpacity onPress={() => goLoginScreen()}>
-                  {/*<Icon style={{marginTop: 20}}
-                    name="chevron-forward-outline" size={30}></Icon>*/
-                  }
+                 <Icon
+                  name="chevron-forward-outline" size={30}></Icon>
                 </TouchableOpacity>
               </View>
             </View>
@@ -41,7 +41,10 @@ export default class App extends React.Component{
         </View>
       )
     }
-    
+  goLoginScreen() {
+    // LoginScreen으로 화면 이동
+    this.props.navigation.navigate('LOGIN');
+  }
 }
     
 const styles = StyleSheet.create({
@@ -52,12 +55,11 @@ const styles = StyleSheet.create({
     flex:1, //뷰가 얼만큼의 가중치를 가지는 지 결정, 높을 수록 많은 영역을 차지함
     alignItems:'center', //수평에서 중앙으로 정렬
     marginTop:110
-    
-    
   },
 
   elem: { //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
     width: '95%',
+    marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
