@@ -1,5 +1,5 @@
-import React, { TouchableOpacity, Component } from 'react';
-import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
+import React, {Component } from 'react';
+import { Text, StyleSheet, View, } from 'react-native';
 
 export default class Buy_text extends Component {
 
@@ -21,8 +21,8 @@ export default class Buy_text extends Component {
     render() {
         return (
 
-            <View style={{ marginTop: 40, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ marginLeft: 20, fontSize: 15, fontWeight: 'bold' }}>제안가격</Text>
+            <View style={styles.container}>
+                <Text style={sug_txt}>제안가격</Text>
                 <Text style={[
                     {fontSize: this.props.fontSize},
                     {marginRight: this.props.marginRight},
@@ -33,3 +33,19 @@ export default class Buy_text extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: { 
+        marginTop: 40, 
+        flexDirection: 'row', 
+        justifyContent: 'space-between' 
+    },
+    sug_txt: { 
+        marginLeft: 20, 
+        fontSize: 15, 
+        fontWeight: 'bold' 
+    },
+    
+
+}
+)
