@@ -6,7 +6,7 @@ import MainScreen from './screen/MainScreen';
 import LoginScreen from './screen/LoginScreen';
 import WrongSearch from './screen/WrongSearch';
 import Artist_Screen from './screen/ArtistScreen';
-import NFT_detailScreen from './screen/NFTDetailScreen';
+import NFT_detailScreen from './screen/NftDetailScreen';
 import Tab_infoScreen from './screen/TabInfoScreen';
 import Detail_buy from './screen/DetailBuy';
 import Logout from './screen/Logout';
