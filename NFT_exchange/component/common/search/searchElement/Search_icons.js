@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
+import React from 'react';
+import { TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -34,11 +34,3 @@ export default class Search_icons extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    search: {
-        color: 'black',
-        marginLeft: 22,
-        marginTop : 10,
-      },
-}
-)
