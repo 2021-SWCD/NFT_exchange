@@ -3,8 +3,10 @@ import { Modal, TouchableWithoutFeedback, TouchableOpacity, TextInput, StyleShee
 import Icon from 'react-native-vector-icons/Ionicons';
 import Search_icons from './searchElement/Search_icons';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonElement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
-
+//import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonElement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
+import Qrcode from '../commonElement/Qrcode';
+import Qr_Wallet from '../commonElement/QR_Wallet';
+import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
 const Input = ({ goWrongSearch }) => {
 
   const [text, setText] = useState('');
