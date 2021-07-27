@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 
     QR_Container : {
       alignItems: 'center', 
-      marginTop: 55
+      marginTop: 15
     },
     Code_Container : {
       width: 200, 
