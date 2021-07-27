@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import CustomButton from '../commonElement/CustomButton';
 import Qrcode from '../commonElement/Qrcode';
 import Qr_Wallet from '../commonElement/QR_Wallet';
 import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
@@ -9,21 +8,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default class go_main extends React.Component {
-    /* static defaultProps = {
-        arrowbakc: {
-            color: 'black',
-            marginLeft: 20,
-        },
-        go_first: {
-            marginLeft: 8,
-            marginTop: 1,
-            fontSize: 18,
-        },
-        onPress: () => null,
-    }
-    constructor(props){
-        super(props);
-    } */
+   
     constructor() //모달 팝업창
   {
     super();
@@ -60,7 +45,7 @@ export default class go_main extends React.Component {
         <View style={styles.midView}>
             <TouchableOpacity 
                 onPress={() => this.goMainScreen()}>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={styles.iconContainer}>
                     <Icon style={styles.arrowbakc} name="arrow-back-outline" size={26}/>
                     <Text style={styles.go_first}>처음으로</Text>
                 </View>
@@ -76,7 +61,7 @@ export default class go_main extends React.Component {
                   transparent={true}
                   visible={this.state.show}>
                   <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
-                    <View style={{ flex: 1, marginBottom: 90}}>
+                    <View style={styles.wallet}>
                       <Qr_Wallet navigation={this.props.navigation}/>
                     </View>
                   </TouchableWithoutFeedback>
@@ -85,14 +70,9 @@ export default class go_main extends React.Component {
                   transparent={true}
                   visible={this.state.show}>
                   <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                    <View style={{ flex: 1, }}>
+                    <View style={styles.notLogin}>
                       <Qr_Wallet_Not_Login navigation={this.props.navigation}/>
-                      {/* <View style={{ position: 'absolute', top: 360, left: 167 }}>
-                        <CustomButton
-                          title={'로그인 하기'}
-                          marginLeft={20}
-                          onPress={() => this.goLoginScreen()} />
-                      </View> */}
+                     
                     </View>
                   </TouchableWithoutFeedback>
                 </Modal>
@@ -129,5 +109,15 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: '#EEEEEE',
         alignItems: 'center',
+    },
+    iconContainer : { 
+      flexDirection: 'row' 
+    },
+    wallet : { 
+      flex: 1, 
+      marginBottom: 90
+    },
+    notLogin : { 
+      flex: 1, 
     },
 })
