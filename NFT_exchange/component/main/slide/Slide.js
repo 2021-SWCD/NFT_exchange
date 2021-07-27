@@ -1,9 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions, ScrollView,  StyleSheet, View, Image, } from 'react-native';
-import { Nft_name, CustomButton, Profile } from '../../common/commonElement';
+import { Nft_name, CustomButton, Profile,Detail_main } from '../../common/commonElement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
-import Detail_main from '../../common/commonElement/Detail_main';
 
 
 const { width } = Dimensions.get("window");
