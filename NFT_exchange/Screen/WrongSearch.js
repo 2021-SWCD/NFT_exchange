@@ -5,7 +5,7 @@ import NftSimpleInfoCard from '../component/common/nftSimpleInfoCard/NftSimpleIn
 import { Hot_text }from '../component/common/commonElement';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from '../component/common/search/Search';
-import { Wrong_text } from '../component/wrong/wrongElement';
+import { Wrong_text } from '../component/wrong/wrongelement';
 
 
 
