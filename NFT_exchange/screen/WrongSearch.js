@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, } from 'react-native';
-import LoginHeader from '../component/common/logIn/LoginHeader';
-import { LoginAfterHeader } from '../component/common/logIn';
+import { LoginAfterHeader, LoginHeader } from '../component/common/logIn';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
 import { Hot_text }from '../component/common/commonElement';
 import AsyncStorage from '@react-native-community/async-storage';
