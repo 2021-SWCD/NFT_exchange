@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, TextInput, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Qrcode from '../commonElement/Qrcode';
-import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
 import Search_icons from './searchElement/Search_icons';
-import Qr_Wallet from '../commonElement/QR_Wallet';
 import AsyncStorage from '@react-native-community/async-storage';
-//import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonElement'; 이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
+import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonElement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
 
 const Input = ({ goWrongSearch }) => {
 
