@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, } from 'react-native';
-import { LoginHeader, LoginAfterHeader } from './../component/common/logIn';
-import Go_main from './../component/common/goMain/go_main';
-import { CustomButton, Custom_cancel, Detail_main} from './../component/common/commonElement';
-import { Buy_text, Buy_screen } from './../component/buy/buyElement';
+import { LoginHeader, LoginAfterHeader } from '../component/common/logIn';
+import Go_main from '../component/common/goMain/go_main';
+import { CustomButton, Custom_cancel, Detail_main} from '../component/common/commonElement';
+import { Buy_text, Buy_screen } from '../component/buy/buyElement';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
