@@ -10,7 +10,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 export default class NFT_detailScreen extends Component {
-
+//주석
   constructor() //모달 팝업창
   {
     super();
