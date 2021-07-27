@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, } from 'react-native';
-import { LoginHeader, LoginAfterHeader } from '../component/common/logIn';
+import LoginHeader from '../component/common/logIn/LoginHeader';
+import { LoginAfterHeader } from '../component/common/logIn';
 import Go_main from '../component/common/gomain/go_main';
 import { CustomButton, Custom_cancel, Detail_main} from '../component/common/commonElement';
 import { Buy_text, Buy_screen } from '../component/buy/buyelement';

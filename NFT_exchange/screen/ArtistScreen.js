@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
-import { LoginHeader, LoginAfterHeader } from '../component/common/logIn';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
+import LoginHeader from '../component/common/logIn/LoginHeader';
+import { LoginAfterHeader } from '../component/common/logIn';
 import Go_main from '../component/common/gomain/go_main';
 import {Profile_img,Profile_name,Profile_text} from '../component/artist/artistelement'
 import Icon from 'react-native-vector-icons/Ionicons';
