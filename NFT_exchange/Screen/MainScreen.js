@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, } from 'react-native';
-import { LoginHeader, LoginAfterHeader } from './../component/common/logIn';
+import LoginHeader from '../component/common/logIn/loginHeader';
+import { LoginAfterHeader } from '../component/common/logIn';
+//import { LoginHeader, LoginAfterHeader } from '../component/common/logIn';
 import AsyncStorage from '@react-native-community/async-storage';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import { Hot_text }from './../component/common/commonElement';
-import Slide from './../component/main/slide/Slide';
-import Search from './../component/common/search/Search';
+import { Hot_text } from '../component/common/commonElement';
+import Slide from '../component/main/slide/Slide';
+import Search from '../component/common/search/Search';
 
 export default class MainScreen extends React.Component {
-
   constructor() //모달 팝업창
   {
     super();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, TextInput, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Search_icons from './searchelement/Search_icons';
+import Search_icons from './searchElement/Search_icons';
 import AsyncStorage from '@react-native-community/async-storage';
 //import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonElement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
 import Qrcode from '../commonElement/Qrcode';

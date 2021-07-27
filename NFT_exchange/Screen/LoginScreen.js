@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Korbit_logo } from './../component/common/logIn/logInElement';
+import { Korbit_logo } from '../component/common/logIn/logInElement';
 
 
 export default class LoginScreen extends React.Component {
