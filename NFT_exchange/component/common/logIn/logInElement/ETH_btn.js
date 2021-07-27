@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 
 export default class ETH_btn extends React.Component {
