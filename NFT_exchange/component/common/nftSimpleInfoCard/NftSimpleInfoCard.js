@@ -17,12 +17,12 @@ export default class NftSimpleInfoCard extends React.Component {
         
         {dataList.map((element, index) => (
           <View key={index}>
-            <View style={{marginTop: 20}}>
+            <View style={styles.container}>
               <CardImage
                 source={{ uri: element.imageUrl }}
                 navigation={this.props.navigation}/>
                 <View style={styles.cardContainer}>
-                  <View style={{marginLeft: 20}}>
+                  <View style={styles.informContainer}>
                     <NFT_name
                       title={element.content}
                       fontSize={20}
@@ -48,11 +48,17 @@ export default class NftSimpleInfoCard extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container : {
+    marginTop: 20
+  },
   cardContainer: {
     backgroundColor: '#d3d3d3',
     borderBottomLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     borderBottomRightRadius: 20,
     width: 300,
     height: 150,
+  },
+  informContainer : {
+    marginLeft: 20
   },
 })
