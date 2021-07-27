@@ -4,8 +4,8 @@ import { LoginHeader, LoginAfterHeader } from '../component/common/logIn';
 import { CardImage, Nft_name, Profile, CustomButton } from '../component/common/commonElement'
 import Go_main from '../component/common/gomain/go_main';
 import Detail_main from '../component/common/commonElement/Detail_main';
-import TabBar from '../component/nftDetail/TabBar';
-import Warn_txt from '../component/nftDetail/WarnTxt';
+import TabBar from '../component/nftdetail/TabBar';
+import Warn_txt from '../component/nftdetail/WarnTxt';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
