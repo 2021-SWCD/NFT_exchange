@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 
-//이미지 주소 복사를 해서 링크를 붙여넣는다.
+
 export default class QR_Wallet extends React.Component{
   static defaultProps = {
     title: 'untitled',
@@ -33,11 +33,11 @@ export default class QR_Wallet extends React.Component{
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{alignItems: 'center', marginTop: 10}}>
+            <View style={styles.QR_Container}>
               <Text style={styles.wrong_text}>이더리움을 입금하려면</Text>
               <Text style={styles.wrong_text}>아래 QR코드를 스캔하세요</Text>
               <Image source={{uri: 'https://blog.kakaocdn.net/dn/bqqWTy/btqDQtYuJua/X1KNO1U3u3kzWQBunWOVCK/img.jpg'}}
-                style={{width: 200, height: 200}} />
+                style={styles.Code_Container} />
             </View>
           </View>
         </View>
@@ -81,6 +81,15 @@ const styles = StyleSheet.create({
       borderRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
       width:300,
       height: 350,
+    },
+
+    QR_Container : {
+      alignItems: 'center', 
+      marginTop: 55
+    },
+    Code_Container : {
+      width: 200, 
+      height: 200
     },
 
     wrong_text: {

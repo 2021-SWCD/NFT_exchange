@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet,View } from 'react-native';
+import React  from 'react';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -18,7 +18,7 @@ export default class Qrcode extends React.Component {
         return (
             <TouchableOpacity 
                 onPress={this.props.onPress}
-                style={{position : 'absolute', top : 10, left : 320}}>
+                style={styles.btnContainer}>
                         <Icon style={[
                             {color: this.props.color},
                             {marginLeft: this.props.marginLeft},
@@ -30,3 +30,11 @@ export default class Qrcode extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    btnContainer : {
+        position : 'absolute', 
+        top : 10, 
+        left : 320
+    },
+})

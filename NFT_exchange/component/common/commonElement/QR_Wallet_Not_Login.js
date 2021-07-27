@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 import CustomButton from './CustomButton';
 
-//이미지 주소 복사를 해서 링크를 붙여넣는다.
+
 export default class Qr_Wallet_Not_Login extends React.Component{
   static defaultProps = {
     title: 'untitled',
@@ -34,7 +34,7 @@ export default class Qr_Wallet_Not_Login extends React.Component{
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{alignItems: 'center', marginTop: 55}}>
+            <View style={styles.Sad_Container}>
               <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
               <Text style={styles.wrong_text}>로그인이 필요한</Text>
               <Text style={styles.wrong_text}>서비스 입니다.</Text>
@@ -87,6 +87,11 @@ const styles = StyleSheet.create({
     height: 350,
     borderWidth:1,
     borderColor: 'grey'
+  },
+
+  Sad_Container : {
+    alignItems: 'center', 
+    marginTop: 55
   },
 
   wrong_text: {
