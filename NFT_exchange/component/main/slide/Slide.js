@@ -1,6 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions, ScrollView, Text, StyleSheet, View, Image, } from 'react-native';
-import { Slide_profile, Slide_txt1, Slide_txt2 } from './slideElement';
+import { TouchableOpacity, Dimensions, ScrollView,  StyleSheet, View, Image, } from 'react-native';
 import { Nft_name, CustomButton, Profile } from '../../common/commonElement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
@@ -51,16 +50,7 @@ export default class slide extends React.Component {
                                 marginLeft={30}
                                 cur_title={'0.01'}
                                 cost_title={'10,000'}/>
-                            {/* <View style={styles.slidetext}>
-
-                                <Slide_txt1 />
-
-                                <Slide_txt2 />
-
-
-                                <Text style={{ marginTop: 5 }}>10.000원</Text>
-
-                            </View> */}
+                           
 
 
                             <CustomButton
@@ -84,13 +74,13 @@ export default class slide extends React.Component {
                     <TouchableOpacity
                         onPress={() => this.leftPage()}
                     >
-                        <Icon style={{ margin: 5 }} name="chevron-back" size={35} />
+                        <Icon style={styles.icon} name="chevron-back" size={35} />
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={() => this.rightPage()}
                     >
-                        <Icon style={{ margin: 5 }} name="chevron-forward" size={35} />
+                        <Icon style={styles.icon} name="chevron-forward" size={35} />
                     </TouchableOpacity>
                 </View>
 
@@ -154,6 +144,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between', 
         alignSelf: 'flex-start', 
         top : 220,    
+    },
+    icon : { 
+        margin: 5 
     },
 }
 )
