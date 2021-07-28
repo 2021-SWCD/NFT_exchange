@@ -3,9 +3,12 @@ import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import GoMain from '../component/common/gomain/GoMain';
-import {Profile_img,Profile_name,Profile_text} from '../component/artist/artistelement'
+import { Profile_img, Profile_name, Profile_text } from '../component/artist/artistelement'
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
+import  I18n  from '../src/config/i18n';
+
+
 
 export default class Artist_Screen extends Component {
   constructor() //모달 팝업창
@@ -14,6 +17,7 @@ export default class Artist_Screen extends Component {
     this.state = {
       show: false,
       isLoggedIn: false,
+    
     }
   }
 
@@ -31,17 +35,23 @@ export default class Artist_Screen extends Component {
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after'); 
-      this.setState({ isLoggedIn : JSON.parse(result) })
+      console.log('Login_after');
+      this.setState({ isLoggedIn: JSON.parse(result) })
     });
+
+    
+
+
+
   };
 
 
   render() {
 
+
     return (
-    
-    <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
+
+      <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {
           this.state.isLoggedIn
             ? <LoginAfterHeader navigation={this.props.navigation} />
@@ -52,8 +62,8 @@ export default class Artist_Screen extends Component {
 
         <View style={styles.informContainer}>
 
-          <Image 
-            style={styles.mainImage} 
+          <Image
+            style={styles.mainImage}
             source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
           />
 
@@ -63,8 +73,11 @@ export default class Artist_Screen extends Component {
             title={'hyunji'}
 
           />
+          
+          <Profile_text title={I18n.t('welcome')} />
+          
 
-          <Profile_text title={'132-333123-342524(비트코인계좌)'} />
+
           <Icon style={styles.copy} name="copy-outline" size={25} />
 
           <Profile_text
@@ -78,7 +91,6 @@ export default class Artist_Screen extends Component {
           <View style={styles.producContainer}>
 
             <Text style={styles.product}>작품</Text>
-
           </View>
 
 
@@ -121,12 +133,12 @@ export default class Artist_Screen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: 'white',
   },
 
-  informContainer : { 
-    height: 570 
+  informContainer: {
+    height: 570
   },
   cardContainer: {
     justifyContent: 'space-between',
@@ -134,9 +146,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  mainImage : { 
-    width: '100%', 
-    height: 225, 
+  mainImage: {
+    width: '100%',
+    height: 225,
   },
 
   share: {
@@ -157,10 +169,10 @@ const styles = StyleSheet.create({
 
 
   },
-  iconContainer : { 
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    marginLeft: 160 
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 160
   },
   twit: {
     color: 'black',
@@ -179,8 +191,8 @@ const styles = StyleSheet.create({
 
 
   },
-  producContainer : { 
-    alignItems: 'center' 
+  producContainer: {
+    alignItems: 'center'
   },
 
   colum: {
