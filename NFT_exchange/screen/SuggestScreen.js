@@ -2,6 +2,7 @@
 import React from 'react';
 import { Text, View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import  I18n  from '../src/config/i18n'
 
 export default class SuggestScreen extends React.Component {
   
@@ -11,8 +12,8 @@ export default class SuggestScreen extends React.Component {
   
       <View style={styles.container}>
         <Icon style={styles.sad} name="sad-outline" size={45} />
-        <Text style={styles.wrong_text}>아직 제안한 사람이 없어요.</Text>
-        <Text style={styles.wrong_text}>첫번째로 가격을 제안해보세요.</Text>
+        <Text style={styles.wrong_text}>{I18n.t('noSugTxt')}</Text>
+        <Text style={styles.wrong_text}>{I18n.t('doSugTxt')}</Text>
       </View>
     );
   }

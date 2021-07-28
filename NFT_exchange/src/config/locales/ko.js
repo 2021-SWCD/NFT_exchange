@@ -9,6 +9,8 @@ const ko = {
     hotText : '핫한 작품',
     explainProductTxt : '작품 설명',
     ownerTxt : '소유자',
+    noSugTxt : '아직 제안한 사람이 없어요.',
+    doSugTxt : '첫번째로 가격을 제안해보세요!',
 };
 
 export default ko;

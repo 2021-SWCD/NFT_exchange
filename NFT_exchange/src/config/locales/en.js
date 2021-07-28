@@ -9,6 +9,8 @@ const en = {
     hotText : 'HOT PRODUCT',
     explainProductTxt : 'explain product',
     ownerTxt : 'owner',
+    noSugTxt : 'no one suggest yet.',
+    doSugTxt : 'Offer a price!'
 };
 
 export default en;
