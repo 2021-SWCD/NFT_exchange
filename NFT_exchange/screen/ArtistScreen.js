@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
+import React, {Component} from 'react';
+import {Text, StyleSheet, View, Image, ScrollView} from 'react-native';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import { LoginAfterHeader, LoginHeader } from '../component/common/login';
+import {LoginAfterHeader, LoginHeader} from '../component/common/login';
 import GoMain from '../component/common/gomain/GoMain';
-import { Profile_img, Profile_name, Profile_text } from '../component/artist/artistelement'
+import {
+  Profile_img,
+  Profile_name,
+  Profile_text,
+} from '../component/artist/artistelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-import  I18n  from '../src/config/i18n';
-
-
+import I18n from '../src/config/i18n';
 
 export default class Artist_Screen extends Component {
-  constructor() //모달 팝업창
-  {
+  constructor() { //모달 팝업창
     super();
     this.state = {
       show: false,
       isLoggedIn: false,
-    
-    }
+    };
   }
 
   componentDidMount() {
@@ -36,52 +36,38 @@ export default class Artist_Screen extends Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after');
-      this.setState({ isLoggedIn: JSON.parse(result) })
+      this.setState({isLoggedIn: JSON.parse(result)});
     });
-
-    
-
-
-
   };
 
-
   render() {
-
-
     return (
-
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
-        {
-          this.state.isLoggedIn
-            ? <LoginAfterHeader navigation={this.props.navigation} />
-            : <LoginHeader navigation={this.props.navigation} />
-        }
+        {this.state.isLoggedIn ? (
+          <LoginAfterHeader navigation={this.props.navigation} />
+        ) : (
+          <LoginHeader navigation={this.props.navigation} />
+        )}
 
         <GoMain navigation={this.props.navigation} />
 
         <View style={styles.informContainer}>
-
           <Image
             style={styles.mainImage}
-            source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
+            source={{
+              uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg',
+            }}
           />
 
           <Icon style={styles.share} name="share-social" size={31} />
 
-          <Profile_name
-            title={'hyunji'}
+          <Profile_name title={'hyunji'} />
 
-          />
-          
           <Profile_text title={I18n.t('welcome')} />
-          
-
 
           <Icon style={styles.copy} name="copy-outline" size={25} />
 
-          <Profile_text
-            title={'오늘도 멋진 작품을!'} />
+          <Profile_text title={'오늘도 멋진 작품을!'} />
 
           <View style={styles.iconContainer}>
             <Icon style={styles.twit} name="logo-twitter" size={31} />
@@ -89,16 +75,12 @@ export default class Artist_Screen extends Component {
           </View>
 
           <View style={styles.producContainer}>
-
-            <Text style={styles.product}>작품</Text>
+            <Text style={styles.product}>{I18n.t('art')}</Text>
           </View>
-
-
         </View>
 
         <View style={styles.colum}>
           <Profile_img />
-
         </View>
 
         {/*NftSimpleInfoCard*/}
@@ -106,10 +88,8 @@ export default class Artist_Screen extends Component {
         <View style={styles.cardContainer}>
           <NftSimpleInfoCard navigation={this.props.navigation} />
         </View>
-
-
       </ScrollView>
-    )
+    );
   }
 
   goMainScreen() {
@@ -130,7 +110,6 @@ export default class Artist_Screen extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -138,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
   informContainer: {
-    height: 570
+    height: 570,
   },
   cardContainer: {
     justifyContent: 'space-between',
@@ -157,42 +136,34 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 10,
     marginLeft: 10,
-
-
   },
   copy: {
     color: 'black',
     textAlign: 'right',
     marginTop: -32,
     marginRight: 55,
-
-
-
   },
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 160
+    marginLeft: 160,
   },
   twit: {
     color: 'black',
     marginTop: 10,
     marginLeft: 10,
     alignItems: 'center',
-
-
-
   },
   insta: {
     color: 'black',
     alignItems: 'center',
     marginTop: 10,
     marginLeft: 10,
-
-
   },
+
   producContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
 
   colum: {
@@ -202,12 +173,9 @@ const styles = StyleSheet.create({
     marginTop: 290,
     marginLeft: 40,
     position: 'absolute',
-
-
   },
 
   product: {
-
     height: 35,
     marginTop: 50,
     width: 60,
@@ -219,10 +187,4 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 30,
   },
-
-
-
-})
-
-
-
+});

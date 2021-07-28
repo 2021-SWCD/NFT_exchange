@@ -5,7 +5,7 @@ import Qrcode from '../commonelement/Qrcode';
 import QrWallet from '../commonelement/QrWallet';
 import QrWalletNotLogin from '../commonelement/QrWalletNotLogin';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import I18n from '../../../src/config/i18n'
 
 export default class GoMain extends React.Component {
    
@@ -47,7 +47,7 @@ export default class GoMain extends React.Component {
                 onPress={() => this.goMainScreen()}>
                 <View style={styles.iconContainer}>
                     <Icon style={styles.arrowbakc} name="arrow-back-outline" size={26}/>
-                    <Text style={styles.go_first}>처음으로</Text>
+                    <Text style={styles.go_first}>{I18n.t('goMain')}</Text>
                 </View>
             </TouchableOpacity>
             <Qrcode 
