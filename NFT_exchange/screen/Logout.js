@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import I18n from '../src/config/i18n';
 
 export default class Logout extends React.Component {
 
@@ -13,7 +14,7 @@ export default class Logout extends React.Component {
             <Text 
               onPress={() => {this.goMainScreen();this.Login()}} 
               style={styles.loginBtn}>
-                로그아웃
+                {I18n.t('logout')}
             </Text>
           </TouchableOpacity>
 

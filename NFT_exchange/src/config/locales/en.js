@@ -21,6 +21,7 @@ const en = {
     safeIconText: 'Safety',
     korbitEmailAccount: 'E-mail',
     passWord: 'Password',
+    logout: 'Logout',
 };
 
 export default en;

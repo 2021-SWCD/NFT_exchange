@@ -21,6 +21,7 @@ const ko = {
     safeIconText: '안전함',
     korbitEmailAccount: '코빗 이메일 계정',
     passWord: '비밀번호',
+    logout: '로그아웃',
 };
 
 export default ko;
