@@ -7,6 +7,8 @@ const ko = {
     noResultTxt : '검색 결과를 찾을 수 없어요.',
     findAnotherTxt : '다른 검색어로 검색해주세요',
     hotText : '핫한 작품',
+    explainProductTxt : '작품 설명',
+    ownerTxt : '소유자',
 };
 
 export default ko;
