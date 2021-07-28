@@ -3,6 +3,7 @@ import { TextInput, StyleSheet, Text, View, TouchableOpacity } from 'react-nativ
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import { KorbitLogo } from '../component/common/login/loginelement';
+import I18n from '../src/config/i18n';
 
 
 export default class LoginScreen extends React.Component {
@@ -20,28 +21,28 @@ export default class LoginScreen extends React.Component {
 
         </View>
 
-        <Text style={styles.login}>로그인</Text>
-        <Text style={styles.safe_txt}>안전한 거래소 이용을 위해 주소창을 확인해주세요.</Text>
+        <Text style={styles.login}>{I18n.t('login')}</Text>
+        <Text style={styles.safe_txt}>{I18n.t('loginSafeText')}</Text>
         <Text style={styles.link_txt}>
           <Icon style={styles.shield} name="shield-checkmark-outline" size={16} />
-          <Text style={styles.linkblue_txt}> 안전함  https</Text>
+          <Text style={styles.linkblue_txt}> {I18n.t('safeIconText')}  https</Text>
           <Text style={styles.linkgrey_txt}>://korbit.co.kr</Text>
         </Text>
 
         <TextInput
           style={styles.input}      //searchbar 설정은 안해둠
-          placeholder="코빗 이메일 계정"
+          placeholder={I18n.t('korbitEmailAccount')}
         />
         <TextInput
           style={styles.input}      //searchbar 설정은 안해둠
-          placeholder="비밀번호"
+          placeholder={I18n.t('passWord')}
         />
 
         <TouchableOpacity>
           <Text
             onPress={() => { this.goMainScreen(); this.Login() }}
             style={styles.loginBtn}>
-            로그인
+            {I18n.t('login')}
           </Text>
         </TouchableOpacity>
 

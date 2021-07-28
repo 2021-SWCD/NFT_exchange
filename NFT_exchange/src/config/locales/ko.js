@@ -17,6 +17,10 @@ const ko = {
     ownerTxt : '소유자',
     noSugTxt : '아직 제안한 사람이 없어요.',
     doSugTxt : '첫번째로 가격을 제안해보세요!',
+    loginSafeText: '안전한 거래소 이용을 위해 주소창을 확인해주세요.',
+    safeIconText: '안전함',
+    korbitEmailAccount: '코빗 이메일 계정',
+    passWord: '비밀번호',
 };
 
 export default ko;

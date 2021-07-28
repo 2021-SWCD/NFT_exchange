@@ -16,7 +16,11 @@ const en = {
     explainProductTxt : 'explain product',
     ownerTxt : 'owner',
     noSugTxt : 'no one suggest yet.',
-    doSugTxt : 'Offer a price!'
+    doSugTxt : 'Offer a price!',
+    loginSafeText: 'Please check the address window for safe \nuse of the exchange.',
+    safeIconText: 'Safety',
+    korbitEmailAccount: 'E-mail',
+    passWord: 'Password',
 };
 
 export default en;
