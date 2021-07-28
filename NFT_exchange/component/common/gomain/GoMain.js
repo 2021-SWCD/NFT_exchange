@@ -7,7 +7,7 @@ import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-export default class go_main extends React.Component {
+export default class GoMain extends React.Component {
    
     constructor() //모달 팝업창
   {

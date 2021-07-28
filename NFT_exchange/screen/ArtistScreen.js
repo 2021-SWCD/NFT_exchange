@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, Image, ScrollView, } from 'react-native';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
-import Go_main from '../component/common/gomain/go_main';
+import GoMain from '../component/common/gomain/GoMain';
 import {Profile_img,Profile_name,Profile_text} from '../component/artist/artistelement'
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -48,7 +48,7 @@ export default class Artist_Screen extends Component {
             : <LoginHeader navigation={this.props.navigation} />
         }
 
-        <Go_main navigation={this.props.navigation} />
+        <GoMain navigation={this.props.navigation} />
 
         <View style={styles.informContainer}>
 

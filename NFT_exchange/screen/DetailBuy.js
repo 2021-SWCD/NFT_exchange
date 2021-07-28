@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
-import Go_main from '../component/common/gomain/go_main';
+import { GoMain } from '../component/common/gomain';
 import { CustomButton, Custom_cancel, Detail_main} from '../component/common/commonElement';
 import { Buy_text, Buy_screen } from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -54,7 +54,7 @@ export default class Detail_buy extends Component {
                 : <LoginHeader navigation={this.props.navigation} />
                 }
 
-                <Go_main navigation={this.props.navigation} />
+                <GoMain navigation={this.props.navigation} />
 
                 <View style={styles.colum}>
 
