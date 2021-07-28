@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 import CustomButton from './CustomButton';
-
+import I18n from '../../../src/config/i18n';
 
 export default class QrWalletNotLogin extends React.Component{
   static defaultProps = {
@@ -23,7 +23,7 @@ export default class QrWalletNotLogin extends React.Component{
             <View style={styles.Top_Container}>
               <View style={styles.elem}>
                 <Profile 
-                  title = {'로그인이 필요합니다.'}
+                  title = {I18n.t('notLoginState')}
                   marginLeft={15}
                   fontSize = {15}
                   navigation={this.props.navigation}>
@@ -36,10 +36,10 @@ export default class QrWalletNotLogin extends React.Component{
             </View>
             <View style={styles.Sad_Container}>
               <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
-              <Text style={styles.wrong_text}>로그인이 필요한</Text>
-              <Text style={styles.wrong_text}>서비스 입니다.</Text>
+              <Text style={styles.wrong_text}>{I18n.t('depositEthereum1')}</Text>
+              <Text style={styles.wrong_text}>{I18n.t('depositEthereum2')}</Text>
               <CustomButton
-                title={'로그인 하기'}
+                title={I18n.t('notLoginStateGoLogin')}
                 titlemarginLeft={20}
                 onPress={() => this.goLoginScreen()} />
             </View>

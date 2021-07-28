@@ -34,8 +34,8 @@ export default class QrWallet extends React.Component{
               </View>
             </View>
             <View style={styles.QR_Container}>
-              <Text style={styles.wrong_text}>이더리움을 입금하려면</Text>
-              <Text style={styles.wrong_text}>아래 QR코드를 스캔하세요</Text>
+              <Text style={styles.wrong_text}>{I18n.t('notLoginStateContent1')}</Text>
+              <Text style={styles.wrong_text}>{I18n.t('notLoginStateContent1')}</Text>
               <Image source={{uri: 'https://blog.kakaocdn.net/dn/bqqWTy/btqDQtYuJua/X1KNO1U3u3kzWQBunWOVCK/img.jpg'}}
                 style={styles.Code_Container} />
             </View>

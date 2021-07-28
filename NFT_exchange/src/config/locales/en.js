@@ -17,11 +17,17 @@ const en = {
     ownerTxt : 'owner',
     noSugTxt : 'no one suggest yet.',
     doSugTxt : 'Offer a price!',
-    loginSafeText: 'Please check the address window for safe \nuse of the exchange.',
-    safeIconText: 'Safety',
-    korbitEmailAccount: 'E-mail',
-    passWord: 'Password',
-    logout: 'Logout',
+    loginSafeText : 'Please check the address window for safe \nuse of the exchange.',
+    safeIconText : 'Safety',
+    korbitEmailAccount : 'E-mail',
+    passWord : 'Password',
+    logout : 'Logout',
+    notLoginState: 'Login please',
+    notLoginStateContent1 : 'This service',
+    notLoginStateContent2 : 'requires login.',
+    notLoginStateGoLogin : 'Go Login',
+    depositEthereum1 : 'Scan the QR code',
+    depositEthereum2 : 'below to deposit Ethereum',
 };
 
 export default en;

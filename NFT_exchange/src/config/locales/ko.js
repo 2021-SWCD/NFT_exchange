@@ -22,6 +22,11 @@ const ko = {
     korbitEmailAccount: '코빗 이메일 계정',
     passWord: '비밀번호',
     logout: '로그아웃',
+    notLoginState: '로그인이 필요합니다.',
+    notLoginStateContent1: '로그인이 필요한',
+    notLoginStateContent2: '서비스입니다.',
+    depositEthereum1 : '이더리움을 입금하려면',
+    depositEthereum2 : '아래 QR코드를 스캔하세요',
 };
 
 export default ko;
