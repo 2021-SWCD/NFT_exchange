@@ -5,6 +5,7 @@ import { GoMain } from '../component/common/gomain';
 import { CustomButton, CustomCancelButton, NftInformation} from '../component/common/commonelement';
 import { Buy_text, Buy_screen } from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
+import I18n from '../src/config/i18n';
 
 
 export default class Detail_buy extends Component {
@@ -69,7 +70,7 @@ export default class Detail_buy extends Component {
 
 
                     <View>
-                        <Text style={styles.sug_txt}>위 내용으로 가격을 제안합니다.</Text>
+                        <Text style={styles.sug_txt}>{I18n.t('offeringContent')}</Text>
                     </View>
                     
 

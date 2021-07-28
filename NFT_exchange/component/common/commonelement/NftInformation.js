@@ -2,6 +2,7 @@ import React from 'react'
 import {StyleSheet, View, Text,} from 'react-native';
 import 'react-native-gesture-handler';
 import { Timer } from '.';
+import I18n from '../../../src/config/i18n';
 
 export default class NftInformation extends React.Component {
   static defaultProps = {
@@ -26,19 +27,19 @@ export default class NftInformation extends React.Component {
             {width: this.props.width}
           ]}>
             <View style={styles.cost_colum}>
-              <Text style={styles.cost_time_text}>현재 경매가</Text>
+              <Text style={styles.cost_time_text}>{I18n.t('curAuction')}</Text>
               <Text style={styles.cost_time_bold_text}>{this.props.cur_title} ETH</Text>
             </View>
 
             <View style={styles.cost_colum}>
-              <Text style={styles.cost_time_text}>남은 시간</Text>
+              <Text style={styles.cost_time_text}>{I18n.t('remainTime')}</Text>
               <Timer
                 size={15}
                 marginRight={10}/>
             </View>
           </View>
           <View style={styles.elem}>
-            <Text style={styles.cost_time_text}>{this.props.cost_title} 원</Text>
+            <Text style={styles.cost_time_text}>{this.props.cost_title} {I18n.t('won')}</Text>
           </View>
         </View>
     );

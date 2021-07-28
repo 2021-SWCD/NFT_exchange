@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
 import { Text, StyleSheet, View, } from 'react-native';
+import I18n from '../../src/config/i18n';
 
 export default class Buy_text extends Component {
 
@@ -22,7 +23,7 @@ export default class Buy_text extends Component {
         return (
 
             <View style={styles.container}>
-                <Text style={sug_txt}>제안가격</Text>
+                <Text style={sug_txt}>{I18n.t('offering')}</Text>
                 <Text style={[
                     {fontSize: this.props.fontSize},
                     {marginRight: this.props.marginRight},

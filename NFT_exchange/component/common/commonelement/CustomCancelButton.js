@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
+import I18n from '../../../src/config/i18n';
 
 export default class CustomCancelButton extends Component{
     static defaultProps = { //아무런 설정을 안했을 시 버튼의 기본 설정
@@ -20,7 +21,7 @@ export default class CustomCancelButton extends Component{
             onPress={this.props.onPress}>
                 <Text style={[
                     styles.button_title,
-                ]}>취소하기</Text>
+                ]}>{I18n.t('cancelButton')}</Text>
             </TouchableOpacity>
         )
     }
