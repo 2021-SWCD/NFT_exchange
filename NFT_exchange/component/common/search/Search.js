@@ -7,6 +7,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Qrcode from '../commonelement/Qrcode';
 import QrWallet from '../commonelement/QrWallet';
 import QrWalletNotLogin from '../commonelement/QrWalletNotLogin';
+import  I18n  from '../../../src/config/i18n';
+
 const Input = ({ goWrongSearch }) => {
 
   const [text, setText] = useState('');
@@ -38,7 +40,7 @@ const Input = ({ goWrongSearch }) => {
         <TextInput
 
           style={styles.searchbar}
-          placeholder="작품명 검색"
+          placeholder={I18n.t('searchProduct')}
           value={text}
           onChangeText={text => setText(text)}
 

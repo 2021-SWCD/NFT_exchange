@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
+import  I18n  from '../../../../src/config/i18n';
 
 export default class LoginBtn extends React.Component {
     render() {
         return (       
             <View >
             <TouchableOpacity onPress={this.props.onPress}>                
-                <Text style={styles.loginBtn}>로그인</Text>
+                <Text style={styles.loginBtn}>{I18n.t('login')}</Text>
             </TouchableOpacity>
             </View>
 
