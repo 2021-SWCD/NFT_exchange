@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
 
 
-export default class QR_Wallet extends React.Component{
+export default class QrWallet extends React.Component{
   static defaultProps = {
     title: 'untitled',
     color: 'black',

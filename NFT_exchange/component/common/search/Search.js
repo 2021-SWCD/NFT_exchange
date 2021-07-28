@@ -3,10 +3,10 @@ import { Modal, TouchableWithoutFeedback, TouchableOpacity, TextInput, StyleShee
 import Icon from 'react-native-vector-icons/Ionicons';
 import Search_icons from './searchelement/SearchIcons';
 import AsyncStorage from '@react-native-community/async-storage';
-//import { Qrcode, Qr_Wallet_Not_Login, Qr_Wallet } from '../commonelement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
+//import { Qrcode, QrWalletNotLogin, QrWallet } from '../commonelement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
 import Qrcode from '../commonelement/Qrcode';
-import Qr_Wallet from '../commonelement/QR_Wallet';
-import Qr_Wallet_Not_Login from '../commonelement/QR_Wallet_Not_Login';
+import QrWallet from '../commonelement/QrWallet';
+import QrWalletNotLogin from '../commonelement/QrWalletNotLogin';
 const Input = ({ goWrongSearch }) => {
 
   const [text, setText] = useState('');
@@ -113,7 +113,7 @@ export default class KorbitLogo extends React.Component {
                 visible={this.state.show}>
                 <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
                   <View style={styles.container}>
-                    <Qr_Wallet navigation={this.props.navigation} />
+                    <QrWallet navigation={this.props.navigation} />
 
                   </View>
                 </TouchableWithoutFeedback>
@@ -123,7 +123,7 @@ export default class KorbitLogo extends React.Component {
                 visible={this.state.show}>
                 <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
                   <View style={styles.container}>
-                    <Qr_Wallet_Not_Login navigation={this.props.navigation} />
+                    <QrWalletNotLogin navigation={this.props.navigation} />
 
                   </View>
                 </TouchableWithoutFeedback>

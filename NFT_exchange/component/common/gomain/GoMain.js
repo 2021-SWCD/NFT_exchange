@@ -2,8 +2,8 @@ import React from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Qrcode from '../commonelement/Qrcode';
-import Qr_Wallet from '../commonelement/QR_Wallet';
-import Qr_Wallet_Not_Login from '../commonelement/QR_Wallet_Not_Login';
+import QrWallet from '../commonelement/QrWallet';
+import QrWalletNotLogin from '../commonelement/QrWalletNotLogin';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
@@ -62,7 +62,7 @@ export default class GoMain extends React.Component {
                   visible={this.state.show}>
                   <TouchableWithoutFeedback onPress={() => {this.close_modal()}}>
                     <View style={styles.wallet}>
-                      <Qr_Wallet navigation={this.props.navigation}/>
+                      <QrWallet navigation={this.props.navigation}/>
                     </View>
                   </TouchableWithoutFeedback>
                 </Modal>
@@ -71,7 +71,7 @@ export default class GoMain extends React.Component {
                   visible={this.state.show}>
                   <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
                     <View style={styles.notLogin}>
-                      <Qr_Wallet_Not_Login navigation={this.props.navigation}/>
+                      <QrWalletNotLogin navigation={this.props.navigation}/>
                      
                     </View>
                   </TouchableWithoutFeedback>

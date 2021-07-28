@@ -5,7 +5,7 @@ import Profile from './Profile';
 import CustomButton from './CustomButton';
 
 
-export default class Qr_Wallet_Not_Login extends React.Component{
+export default class QrWalletNotLogin extends React.Component{
   static defaultProps = {
     title: 'untitled',
     color: 'black',
