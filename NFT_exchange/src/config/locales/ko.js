@@ -13,6 +13,10 @@ const ko = {
     offering : '가격 제안',
     offeringContent : '위 내용으로 가격을 제안합니다.',
     cancelButton : '취소하기',
+    loginSafeText: '안전한 거래소 이용을 위해 주소창을 확인해주세요.',
+    safeIconText: '안전함',
+    korbitEmailAccount: '코빗 이메일 계정',
+    passWord: '비밀번호',
 };
 
 export default ko;
