@@ -1,3 +1,3 @@
-export {default as ETH_btn} from './EthBtn';
-export {default as Korbit_logo} from './KorbitLogo';
-export {default as Login_btn} from './LoginBtn';
+export {default as EthBtn} from './EthBtn';
+export {default as KorbitLogo} from './KorbitLogo';
+export {default as LoginBtn} from './LoginBtn';

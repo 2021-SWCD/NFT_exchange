@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
-import { LoginAfterHeader, LoginHeader } from '../component/common/logIn';
+import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import { CardImage, Nft_name, Profile, CustomButton } from '../component/common/commonElement'
 import Go_main from '../component/common/gomain/go_main';
 import Detail_main from '../component/common/commonElement/Detail_main';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 
 
-export default class Korbit_logo extends React.Component {
+export default class KorbitLogo extends React.Component {
     render() {
         return (
             <View >

@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Login_btn, Korbit_logo } from './logInElement';
+import { LoginBtn, KorbitLogo } from './loginelement';
 
 export default class LoginHeader extends React.Component {
     
     render(){
         return(
             <View style={styles.topView}>
-                <Korbit_logo
+                <KorbitLogo
                     onPress={() => this.goMainScreen()} />
-                <Login_btn
+                <LoginBtn
                     onPress={() => this.goLoginScreen()} />
             </View>
         )

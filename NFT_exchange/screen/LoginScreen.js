@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Korbit_logo } from '../component/common/logIn/logInElement';
+import { KorbitLogo } from '../component/common/login/loginelement';
 
 
 export default class LoginScreen extends React.Component {
@@ -15,7 +15,7 @@ export default class LoginScreen extends React.Component {
 
         <View style={styles.mainLogo}>
 
-          <Korbit_logo
+          <KorbitLogo
             onPress={() => this.goMainScreen()} />
 
         </View>

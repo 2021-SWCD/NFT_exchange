@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ETH_btn, Korbit_logo } from './logInElement';
+import { EthBtn, KorbitLogo } from './loginelement';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class LoginAfterHeader extends React.Component {
@@ -44,9 +44,9 @@ export default class LoginAfterHeader extends React.Component {
     render(){
         return(
             <View style={styles.topView}>
-                <Korbit_logo
+                <KorbitLogo
                     onPress={() => this.goMainScreen()} />
-                <ETH_btn
+                <EthBtn
                     title={this.state.result + ' ETH'}
                     onPress={() => this.goLogoutScreen()}/>
             </View>

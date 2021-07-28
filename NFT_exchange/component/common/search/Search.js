@@ -59,7 +59,7 @@ const Input = ({ goWrongSearch }) => {
 }
 
 
-export default class Korbit_logo extends React.Component {
+export default class KorbitLogo extends React.Component {
 
   constructor() //모달 팝업창
   {

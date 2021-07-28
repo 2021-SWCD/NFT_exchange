@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 
-export default class Login_btn extends React.Component {
+export default class LoginBtn extends React.Component {
     render() {
         return (       
             <View >
