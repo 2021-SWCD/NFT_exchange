@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CardImage from '../commonelement/CardImage';
-import NFT_name from '../commonelement/Nft_name';
+import NftName from '../commonelement/NftName';
 import Profile from '../commonelement/Profile';
-import Nft_cost from '../commonelement/Nft_cost';
+import NftCost from '../commonelement/NftCost';
 import Timer from '../commonelement/Timer';
 import dataList from '../../../datalist.json'
 
@@ -23,7 +23,7 @@ export default class NftSimpleInfoCard extends React.Component {
                 navigation={this.props.navigation}/>
                 <View style={styles.cardContainer}>
                   <View style={styles.informContainer}>
-                    <NFT_name
+                    <NftName
                       title={element.content}
                       fontSize={20}
                       navigation={this.props.navigation}/>
@@ -31,9 +31,9 @@ export default class NftSimpleInfoCard extends React.Component {
                       title={element.title}
                       marginTop={10}
                       navigation={this.props.navigation}/>
-                    <Nft_cost
+                    <NftCost
                       marginTop={5}
-                      nft_cost={'0.01'} />
+                      NftCost={'0.01'} />
                     <Timer 
                       backgroundColor={'#d3d3d3'}
                     />

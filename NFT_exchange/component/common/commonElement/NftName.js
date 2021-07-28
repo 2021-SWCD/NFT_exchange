@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, } from 'react-native';
 
-export default class Nft_name extends Component{
+export default class NftName extends Component{
     static defaultProps = {
         title: 'untitled',
         titleColor: 'black',

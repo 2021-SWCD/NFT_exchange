@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions, ScrollView,  StyleSheet, View, Image, } from 'react-native';
-import { Nft_name, CustomButton, Profile,Detail_main } from '../../common/commonelement';
+import { NftName, CustomButton, Profile,NftInformation } from '../../common/commonelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
 
@@ -38,13 +38,13 @@ export default class slide extends React.Component {
                             />
 
 
-                            <Nft_name
+                            <NftName
                                 title={element.content}
                                 marginLeft={50}
                                 fontSize={45}
                                 navigation={this.props.navigation} />
 
-                            <Detail_main 
+                            <NftInformation 
                                 width={170}
                                 marginLeft={30}
                                 cur_title={'0.01'}

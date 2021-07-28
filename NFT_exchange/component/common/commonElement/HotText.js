@@ -6,13 +6,13 @@ import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
-export default class Hot_text extends React.Component {
+export default class HotText extends React.Component {
     render() {
         return (
 
             <View style={styles.container}>
                 <Icon style={styles.fire} name="flame" size={31} />
-                <Text style={styles.hot_text}>핫한 작품</Text>
+                <Text style={styles.HotText}>핫한 작품</Text>
             </View>
         );
     }
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({ //원하는 구성 요소들은 여기서 설
 
     },
 
-    hot_text: {
+    HotText: {
         marginLeft: 8,
         marginRight: 20,
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import { GoMain } from '../component/common/gomain';
-import { CustomButton, CustomCancelButton, Detail_main} from '../component/common/commonelement';
+import { CustomButton, CustomCancelButton, NftInformation} from '../component/common/commonelement';
 import { Buy_text, Buy_screen } from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -58,7 +58,7 @@ export default class Detail_buy extends Component {
 
                 <View style={styles.colum}>
 
-                    <Detail_main 
+                    <NftInformation 
                         cur_title={'0.01'}
                         cost_title={'10,000'}/>
 

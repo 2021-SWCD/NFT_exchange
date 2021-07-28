@@ -3,7 +3,7 @@ import {StyleSheet, View, Text,} from 'react-native';
 import 'react-native-gesture-handler';
 import { Timer } from '.';
 
-export default class Detail_main extends React.Component {
+export default class NftInformation extends React.Component {
   static defaultProps = {
     cur_title: '0',
     cost_title: '0',

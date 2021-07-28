@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
-import { CardImage, Nft_name, Profile, CustomButton } from '../component/common/commonelement'
+import { CardImage, NftName, Profile, CustomButton } from '../component/common/commonelement'
 import GoMain from '../component/common/gomain/GoMain';
-import Detail_main from '../component/common/commonelement/Detail_main';
+import NftInformation from '../component/common/commonelement/NftInformation';
 import TabBar from '../component/nftdetail/TabBar';
 import Warn_txt from '../component/nftdetail/WarnTxt';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -68,11 +68,11 @@ export default class NFT_detailScreen extends Component {
             marginTop={10}
             marginLeft={20} 
             navigation={this.props.navigation} />
-          <Nft_name
+          <NftName
             title={"NATURE"}
             marginLeft={20} 
             navigation={this.props.navigation}/>
-          <Detail_main 
+          <NftInformation 
             cur_title={'0.01'}
             cost_title={'10,000'}/>
           
