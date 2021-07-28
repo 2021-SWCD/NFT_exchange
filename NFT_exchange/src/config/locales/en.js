@@ -13,6 +13,10 @@ const en = {
     offering : 'Offering',
     offeringContent : 'I suggest the price in the above contents.',
     cancelButton : 'Cancel',
+    explainProductTxt : 'explain product',
+    ownerTxt : 'owner',
+    noSugTxt : 'no one suggest yet.',
+    doSugTxt : 'Offer a price!'
 };
 
 export default en;

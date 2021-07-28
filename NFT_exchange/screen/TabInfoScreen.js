@@ -2,14 +2,15 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Profile from '../component/common/commonelement/Profile';
+import  I18n  from '../src/config/i18n'
 
 export default class Tab_infoScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.boldText}>작품 설명</Text>
+        <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
         <Text style={styles.normalText}>The only non-fungible</Text>
-        <Text style={styles.boldText}>소유자</Text>
+        <Text style={styles.boldText}>{I18n.t('ownerTxt')}</Text>
         <View style={styles.profileUpLine} />
         <Profile
           profile_width={40}
