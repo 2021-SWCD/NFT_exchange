@@ -1,3 +1,3 @@
-export {default as Profile_img} from './Profile_img';
-export {default as Profile_name} from './Profile_name';
-export {default as Profile_text} from './Profile_text';
+export {default as Profile_img} from './ProfileImg';
+export {default as Profile_name} from './ProfileName';
+export {default as Profile_text} from './ProfileText';
