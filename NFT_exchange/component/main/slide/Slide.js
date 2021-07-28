@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions, ScrollView,  StyleSheet, View, Image, } from 'react-native';
-import { Nft_name, CustomButton, Profile,Detail_main } from '../../common/commonElement';
+import { Nft_name, CustomButton, Profile,Detail_main } from '../../common/commonelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import datalist from '../../../datalist.json'
 

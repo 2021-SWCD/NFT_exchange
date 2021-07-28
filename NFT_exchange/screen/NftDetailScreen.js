@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
-import { CardImage, Nft_name, Profile, CustomButton } from '../component/common/commonElement'
+import { CardImage, Nft_name, Profile, CustomButton } from '../component/common/commonelement'
 import GoMain from '../component/common/gomain/GoMain';
-import Detail_main from '../component/common/commonElement/Detail_main';
+import Detail_main from '../component/common/commonelement/Detail_main';
 import TabBar from '../component/nftdetail/TabBar';
 import Warn_txt from '../component/nftdetail/WarnTxt';
 import AsyncStorage from '@react-native-community/async-storage';

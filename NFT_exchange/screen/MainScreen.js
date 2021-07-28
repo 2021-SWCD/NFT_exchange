@@ -3,7 +3,7 @@ import { StyleSheet, View, ScrollView, } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import AsyncStorage from '@react-native-community/async-storage';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import { Hot_text } from '../component/common/commonElement';
+import { Hot_text } from '../component/common/commonelement';
 import Slide from '../component/main/slide/Slide';
 import Search from '../component/common/search/Search';
 

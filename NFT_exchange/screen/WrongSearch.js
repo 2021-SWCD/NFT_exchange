@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import { Hot_text }from '../component/common/commonElement';
+import { Hot_text }from '../component/common/commonelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from '../component/common/search/Search';
 import { Wrong_text } from '../component/wrong/wrongelement';

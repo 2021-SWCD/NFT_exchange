@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, ScrollView, } from 'react-native';
 import { LoginAfterHeader, LoginHeader } from '../component/common/login';
 import { GoMain } from '../component/common/gomain';
-import { CustomButton, Custom_cancel, Detail_main} from '../component/common/commonElement';
+import { CustomButton, CustomCancelButton, Detail_main} from '../component/common/commonelement';
 import { Buy_text, Buy_screen } from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -75,7 +75,7 @@ export default class Detail_buy extends Component {
 
                     <View style={styles.btnContainer}>
 
-                        <Custom_cancel onPress={() => this.goMainScreen()} />
+                        <CustomCancelButton onPress={() => this.goMainScreen()} />
                         <CustomButton 
                             titlemarginLeft={30}
                             onPress={() => {this.goMainScreen();this.Count()}}/>

@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
 
-export default class Custom_cancel extends Component{
+export default class CustomCancelButton extends Component{
     static defaultProps = { //아무런 설정을 안했을 시 버튼의 기본 설정
         title: 'untitled',
         buttonColor: '#000',

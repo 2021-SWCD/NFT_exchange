@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal, TouchableWithoutFeedback, TouchableOpacity, Text, StyleSheet,View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Qrcode from '../commonElement/Qrcode';
-import Qr_Wallet from '../commonElement/QR_Wallet';
-import Qr_Wallet_Not_Login from '../commonElement/QR_Wallet_Not_Login';
+import Qrcode from '../commonelement/Qrcode';
+import Qr_Wallet from '../commonelement/QR_Wallet';
+import Qr_Wallet_Not_Login from '../commonelement/QR_Wallet_Not_Login';
 import AsyncStorage from '@react-native-community/async-storage';
 
 

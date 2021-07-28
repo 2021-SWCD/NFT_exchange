@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import CardImage from '../commonElement/CardImage';
-import NFT_name from '../commonElement/Nft_name';
-import Profile from '../commonElement/Profile';
-import Nft_cost from '../commonElement/Nft_cost';
-import Timer from '../commonElement/Timer';
+import CardImage from '../commonelement/CardImage';
+import NFT_name from '../commonelement/Nft_name';
+import Profile from '../commonelement/Profile';
+import Nft_cost from '../commonelement/Nft_cost';
+import Timer from '../commonelement/Timer';
 import dataList from '../../../datalist.json'
 
 
