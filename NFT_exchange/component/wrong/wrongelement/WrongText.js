@@ -3,6 +3,8 @@ import React from 'react'
 import { StyleSheet, View, Text,  } from 'react-native';
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import  I18n  from '../../../src/config/i18n'
+
 
 export default class wrong_text extends React.Component {
 
@@ -11,8 +13,8 @@ export default class wrong_text extends React.Component {
             
             <View style={styles.container}>
                 <Icon style={styles.sad} name="sad-outline" size={45} />
-                <Text style={styles.wrong_text}>검색 결과를 찾을 수 없어요.</Text>
-                <Text style={styles.wrong_text}>다른 검색어로 검색해주세요.</Text>
+                <Text style={styles.wrong_text}>{I18n.t('noResultTxt')}</Text>
+                <Text style={styles.wrong_text}>{I18n.t('findAnotherTxt')}</Text>
             </View>
         )
     }

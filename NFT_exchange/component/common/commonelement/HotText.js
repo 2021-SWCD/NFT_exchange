@@ -4,6 +4,7 @@ import React from 'react'
 import { StyleSheet, View, Text, } from 'react-native';
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import  I18n  from '../../../src/config/i18n'
 
 
 export default class HotText extends React.Component {
@@ -12,7 +13,7 @@ export default class HotText extends React.Component {
 
             <View style={styles.container}>
                 <Icon style={styles.fire} name="flame" size={31} />
-                <Text style={styles.HotText}>핫한 작품</Text>
+                <Text style={styles.HotText}>{I18n.t('hotText')}</Text>
             </View>
         );
     }
