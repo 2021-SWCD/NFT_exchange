@@ -1,79 +1,72 @@
-import React, { useState } from 'react';
-import { Modal, TouchableWithoutFeedback, TouchableOpacity, TextInput, StyleSheet, View } from 'react-native';
+import React, {useState} from 'react';
+import {
+  Modal,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Search_icons from './searchelement/SearchIcons';
 import AsyncStorage from '@react-native-community/async-storage';
-//import { Qrcode, QrWalletNotLogin, QrWallet } from '../commonelement'; //이렇게 정리하고 싶었는데 warn떠서 그냥 뒀음
-import Qrcode from '../commonelement/Qrcode';
-import QrWallet from '../commonelement/QrWallet';
-import QrWalletNotLogin from '../commonelement/QrWalletNotLogin';
-import  I18n  from '../../../src/config/i18n';
+import {Qrcode, QrWalletNotLogin, QrWallet} from '../commonelement';
+import I18n from '../../../src/config/i18n';
 
-const Input = ({ goWrongSearch }) => {
-
+const Input = ({goWrongSearch}) => {
   const [text, setText] = useState('');
 
-  var opa_num; // 공백일 경우 0, 아닐경우 1로해서 바로 투명도 조절.
+  var iconOpacity; // 공백일 경우 0, 아닐경우 1로해서 바로 투명도 조절.
 
   if (text == '') {
-    opa_num = 0
+    iconOpacity = 0;
+  } else {
+    iconOpacity = 1;
   }
-  else {
-    opa_num = 1
-  }
-
 
   console.log(goWrongSearch);
 
   return (
     <>
-      <View style={styles.searchView} >
-
+      <View style={styles.searchView}>
         <Search_icons
-
           onPress={() => {
             console.log('good?');
-            goWrongSearch()
+            goWrongSearch();
           }}
         />
 
         <TextInput
-
-          style={styles.searchbar}
-          placeholder={I18n.t('searchProduct')}
+          style={styles.searchBar}
+          placeholder={I18n.t('searchBarTxt')}
           value={text}
           onChangeText={text => setText(text)}
-
         />
 
         <TouchableOpacity onPress={() => setText('')}>
-
-
-          <Icon style={{ opacity: opa_num, marginTop: 8 }} name="close-outline" size={30} />
-
-
+          <Icon
+            style={{opacity: iconOpacity, marginTop: 8}}
+            name="close-outline"
+            size={30}
+          />
         </TouchableOpacity>
-
       </View>
-
     </>
   );
-}
+};
 
-
-export default class KorbitLogo extends React.Component {
-
-  constructor() //모달 팝업창
-  {
+export default class Search extends React.Component {
+  constructor() {
+    //모달 팝업창
     super();
     this.state = {
-      show: false,
-    }
+      modalShow: false,
+    };
   }
 
   state = {
     isLoggedIn: false,
-  }
+  };
 
   componentDidMount() {
     this.onLoad();
@@ -90,75 +83,70 @@ export default class KorbitLogo extends React.Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after');
-      this.setState({ isLoggedIn: JSON.parse(result) })
+      this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
 
   render() {
     return (
       <View style={styles.midView}>
-
         <Input goWrongSearch={this.goWrongSearch} />
 
         <Qrcode
           marginTop={5}
           marginLeft={30}
-          onPress={() => { this.setState({ show: true }) }} />
-
-
+          onPress={() => {
+            this.setState({modalShow: true});
+          }}
+        />
 
         <View>
-          {
-            this.state.isLoggedIn
-              ? <Modal
-                transparent={true}
-                visible={this.state.show}>
-                <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                  <View style={styles.container}>
-                    <QrWallet navigation={this.props.navigation} />
-
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
-              : <Modal
-                transparent={true}
-                visible={this.state.show}>
-                <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
-                  <View style={styles.container}>
-                    <QrWalletNotLogin navigation={this.props.navigation} />
-
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
-          }
+          {this.state.isLoggedIn ? (
+            <Modal transparent={true} visible={this.state.modalShow}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  this.closeModal();
+                }}>
+                <View style={styles.container}>
+                  <QrWallet navigation={this.props.navigation} />
+                </View>
+              </TouchableWithoutFeedback>
+            </Modal>
+          ) : (
+            <Modal transparent={true} visible={this.state.modalShow}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  this.closeModal();
+                }}>
+                <View style={styles.container}>
+                  <QrWalletNotLogin navigation={this.props.navigation} />
+                </View>
+              </TouchableWithoutFeedback>
+            </Modal>
+          )}
         </View>
       </View>
     );
   }
-  goMainScreen() {
-    //MainScreen으로 이동
-    this.props.navigation.navigate('MAIN');
-  }
-  close_modal = () => {
-    this.setState({ show: false })
-  }
+  
+  closeModal = () => {
+    this.setState({modalShow: false});
+  };
   goWrongSearch = () => {
     // console.log(this.props);
     //WrongSearch으로 이동
     this.props.navigation.navigate('WRONG');
-  }
+  };
 }
 
 const styles = StyleSheet.create({
-
   searchView: {
     flexDirection: 'row',
   },
-  searchbar: {
+  searchBar: {
     marginLeft: 12,
     width: 240,
-    fontSize: 16
-
+    fontSize: 16,
   },
 
   midView: {
@@ -168,6 +156,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    flex: 1
+    flex: 1,
   },
-})
+});
