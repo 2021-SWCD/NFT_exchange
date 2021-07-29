@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Text, StyleSheet, View, } from 'react-native';
+import React, {Component} from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 import I18n from '../../../src/config/i18n';
 
 export default class BuyScreen extends Component {
@@ -9,24 +9,20 @@ export default class BuyScreen extends Component {
     onPress: () => null,
   };
 
-    static defaultProps = {
-        title: '0.2',
-        sug_txt: '0',
-        onPress: () => null,
-    }
-
-    render() {
-        return (
-
-            <View style={styles.container}>
-
-                <Text style={styles.sug_txt}>{this.props.sug_txt + I18n.t('won')}</Text>
-                <Text style={styles.eth_txt}>{this.props.title + 'ETH'}</Text>
-
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.sugContainerAndTxt}>
+          {this.props.sugCost + I18n.t('won')}
+        </Text>
+        <Text style={styles.ethContainerAndTxt}>
+          {this.props.ethCost + 'ETH'}
+        </Text>
+      </View>
+    );
+  }
 }
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
