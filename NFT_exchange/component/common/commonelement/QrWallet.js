@@ -26,7 +26,7 @@ export default class QrWallet extends React.Component {
                 marginLeft={15}
                 fontSize={20}
                 navigation={this.props.navigation}></Profile>
-              <TouchableOpacity onPress={() => this.goArtist_Screen()}>
+              <TouchableOpacity onPress={() => this.goArtistScreen()}>
                 <Icon name="chevron-forward-outline" size={30}></Icon>
               </TouchableOpacity>
             </View>
@@ -49,7 +49,7 @@ export default class QrWallet extends React.Component {
       </View>
     );
   }
-  goArtist_Screen() {
+  goArtistScreen() {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
   }

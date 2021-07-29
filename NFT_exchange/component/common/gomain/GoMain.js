@@ -8,12 +8,13 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Qrcode, QrWallet, QrWalletNotLogin } from '../commonelement';
+import {Qrcode, QrWallet, QrWalletNotLogin} from '../commonelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../../../src/config/i18n';
 
 export default class GoMain extends React.Component {
-  constructor() { //모달 팝업창
+  constructor() {
+    //모달 팝업창
     super();
     this.state = {
       modalShow: false,
@@ -35,7 +36,7 @@ export default class GoMain extends React.Component {
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('GoMain_LoginAfter'); // User1 출력
+      console.log('GoMain_LoginAfter');
       this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
@@ -65,7 +66,7 @@ export default class GoMain extends React.Component {
             <Modal transparent={true} visible={this.state.modalShow}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  this.close_modal();
+                  this.closeModal();
                 }}>
                 <View style={styles.wallet}>
                   <QrWallet navigation={this.props.navigation} />
@@ -76,7 +77,7 @@ export default class GoMain extends React.Component {
             <Modal transparent={true} visible={this.state.modalShow}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  this.close_modal();
+                  this.closeModal();
                 }}>
                 <View style={styles.notLogin}>
                   <QrWalletNotLogin navigation={this.props.navigation} />
@@ -92,11 +93,8 @@ export default class GoMain extends React.Component {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
   }
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
-  }
-  close_modal = () => {
+
+  closeModal = () => {
     this.setState({modalShow: false});
   };
 }
