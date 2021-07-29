@@ -20,7 +20,7 @@ const {width} = Dimensions.get('window');
 const height = width * 0.5;
 var start = 0;
 
-export default class slide extends React.Component {
+export default class Slide extends React.Component {
   render() {
     return (
       <View style={styles.slideView}>
@@ -59,8 +59,8 @@ export default class slide extends React.Component {
               />
 
               <CustomButton
-                titlemarginLeft={20}
-                button_marginLeft={48}
+                titleMarginLeft={20}
+                buttonMarginLeft={48}
                 onPress={() => this.goNftDetailScreen()}
               />
             </View>

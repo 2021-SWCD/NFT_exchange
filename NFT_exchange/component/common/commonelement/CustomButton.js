@@ -8,10 +8,10 @@ export default class CustomButton extends Component {
     //아무런 설정을 안했을 시 버튼의 기본 설정
     title: I18n.t('suggestBtn'),
     titleColor: '#fff',
-    titlefontSize: 20,
-    titlefontWeight: 'bold',
-    titlemarginTop: 10,
-    titlemarginLeft: null,
+    titleFontSize: 20,
+    titleFontWeight: 'bold',
+    titleMarginTop: 10,
+    titleMarginLeft: null,
     buttonColor: '#000',
     buttonMarginLeft: null,
     marginBottom: null,
@@ -29,10 +29,10 @@ export default class CustomButton extends Component {
         <Text
           style={[
             {color: this.props.titleColor},
-            {fontSize: this.props.titlefontSize},
-            {fontWeight: this.props.titlefontWeight},
-            {marginTop: this.props.titlemarginTop},
-            {marginLeft: this.props.titlemarginLeft},
+            {fontSize: this.props.titleFontSize},
+            {fontWeight: this.props.titleFontWeight},
+            {marginTop: this.props.titleMarginTop},
+            {marginLeft: this.props.titleMarginLeft},
           ]}>
           {this.props.title}
         </Text>

@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import I18n from '../../../src/config/i18n';
 
-export default class wrong_text extends React.Component {
+export default class WrongText extends React.Component {
   render() {
     return (
       <View style={styles.container}>

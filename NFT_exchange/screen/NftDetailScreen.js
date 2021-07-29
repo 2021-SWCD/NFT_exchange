@@ -21,7 +21,7 @@ import {TabBar, WarnTxt} from '../component/nftdetail';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 
-export default class NFT_detailScreen extends Component {
+export default class NftDetailScreen extends Component {
   //주석
   constructor() {
     //모달 팝업창
@@ -90,7 +90,7 @@ export default class NFT_detailScreen extends Component {
 
           {this.state.isLoggedIn ? (
             <CustomButton
-              titlemarginLeft={25}
+              titleMarginLeft={20}
               buttonMarginLeft={10}
               onPress={() => this.setState({warnModalshow: true})}
             />

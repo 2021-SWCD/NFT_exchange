@@ -128,7 +128,7 @@ export default class Search extends React.Component {
       </View>
     );
   }
-  
+
   closeModal = () => {
     this.setState({modalShow: false});
   };
