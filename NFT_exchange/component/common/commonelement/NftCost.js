@@ -3,8 +3,8 @@ import {Text, View} from 'react-native';
 
 export default class NftCost extends Component {
   static defaultProps = {
-    NftCost: '0',
-    NftCost_color: 'black',
+    nftCost: '0',
+    nftCostColor: 'black',
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: null,
@@ -17,11 +17,11 @@ export default class NftCost extends Component {
       <View style={[{marginTop: this.props.marginTop}]}>
         <Text
           style={[
-            {color: this.props.NftCost_color},
+            {color: this.props.nftCostColor},
             {fontSize: this.props.fontSize},
             {fontWeight: this.props.fontWeight},
           ]}>
-          {this.props.NftCost} ETH
+          {this.props.nftCost} ETH
         </Text>
       </View>
     );

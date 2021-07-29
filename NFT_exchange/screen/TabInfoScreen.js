@@ -11,7 +11,7 @@ export default class Tab_infoScreen extends React.Component {
         <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
         <Text style={styles.normalText}>The only non-fungible</Text>
         <Text style={styles.boldText}>{I18n.t('ownerTxt')}</Text>
-        <View style={styles.profileUpLine} />
+        <View style={styles.Line} />
         <Profile
           profile_width={40}
           profile_height={40}
@@ -19,7 +19,7 @@ export default class Tab_infoScreen extends React.Component {
           name_marginLeft={20}
           name_marginTop={8}
         />
-        <View style={styles.profileUpLine} />
+        <View style={styles.Line} />
       </View>
     );
   }
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
   },
-  profileUpLine: {
+  Line: {
     marginTop: 20,
     marginBottom: 20,
     borderTopWidth: 0.5,

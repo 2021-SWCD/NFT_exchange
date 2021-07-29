@@ -12,37 +12,33 @@ export default class WrongSearch extends React.Component {
     //모달 팝업창
     super();
     this.state = {
-      modalShow: false,
       isLoggedIn: false,
     };
   }
 
   componentDidMount() {
     this.onLoad();
-    console.log('componentDidMount');
+    console.log('WrongSearch_componentDidMount');
   }
 
   onLoad = () => {
     this.props.navigation.addListener('focus', () => {
       this.checkLoginStatus();
-      console.log('onLoad');
+      console.log('WrongSearch_onLoad');
     });
   };
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after');
+      console.log('WrongSearch_LoginAfter');
       this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
 
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    console.log(isLoggedIn);
-
     return (
       <ScrollView style={styles.container}>
-        {isLoggedIn ? (
+        {this.state.isLoggedIn ? (
           <LoginAfterHeader navigation={this.props.navigation} />
         ) : (
           <LoginHeader navigation={this.props.navigation} />
@@ -61,34 +57,6 @@ export default class WrongSearch extends React.Component {
       </ScrollView>
     );
   }
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
-  }
-  goSam_pleScreen() {
-    //SampleScreen으로 이동
-    this.props.navigation.navigate('SAMPLE');
-  }
-  goMainScreen() {
-    //MainScreen으로 이동
-    this.props.navigation.navigate('MAIN');
-  }
-  close_modal = () => {
-    this.setState({modalShow: false});
-  };
-  goNFT_detailScreen() {
-    //SampleScreen으로 이동
-    this.props.navigation.navigate('SUGESST');
-  }
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
-  }
-  goWrongSearch = () => {
-    // console.log(this.props);
-    //WrongSearch으로 이동
-    this.props.navigation.navigate('WRONG');
-  };
 }
 
 const styles = StyleSheet.create({

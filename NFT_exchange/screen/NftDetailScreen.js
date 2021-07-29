@@ -27,26 +27,26 @@ export default class NFT_detailScreen extends Component {
     //모달 팝업창
     super();
     this.state = {
-      show: false,
+      warnModalshow: false,
       isLoggedIn: false,
     };
   }
 
   componentDidMount() {
     this.onLoad();
-    console.log('componentDidMount');
+    console.log('NftDetailScreen_componentDidMount');
   }
 
   onLoad = () => {
     this.props.navigation.addListener('focus', () => {
       this.checkLoginStatus();
-      console.log('onLoad');
+      console.log('NftDetailScreen_onLoad');
     });
   };
 
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after'); // User1 출력
+      console.log('NftDetailScreen_LoginAfter'); // User1 출력
       this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
@@ -92,7 +92,7 @@ export default class NFT_detailScreen extends Component {
             <CustomButton
               titlemarginLeft={25}
               button_marginLeft={10}
-              onPress={() => this.setState({show: true})}
+              onPress={() => this.setState({warnModalshow: true})}
             />
           ) : (
             <CustomButton
@@ -103,7 +103,7 @@ export default class NFT_detailScreen extends Component {
           )}
 
           <View style={{flex: 1, marginTop: 30}}>
-            <Modal transparent={true} visible={this.state.show}>
+            <Modal transparent={true} visible={this.state.warnModalshow}>
               <TouchableWithoutFeedback
                 onPress={() => {
                   this.close_modal();
@@ -115,7 +115,7 @@ export default class NFT_detailScreen extends Component {
                     <TouchableOpacity>
                       <Text
                         onPress={() => this.goDetail_buy()}
-                        style={styles.pop_btn}>
+                        style={styles.modalOkBtn}>
                         {I18n.t('modalOkBtn')}
                       </Text>
                     </TouchableOpacity>
@@ -130,10 +130,6 @@ export default class NFT_detailScreen extends Component {
     );
   }
 
-  goMainScreen() {
-    //MainScreen으로 이동
-    this.props.navigation.navigate('MAIN');
-  }
   goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
@@ -147,7 +143,7 @@ export default class NFT_detailScreen extends Component {
     this.props.navigation.navigate('BUY');
   }
   close_modal = () => {
-    this.setState({show: false});
+    this.setState({warnModalshow: false});
   };
 }
 
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
     left: 80,
   },
 
-  pop_btn: {
+  modalOkBtn: {
     height: 41,
     marginTop: 10,
     width: 260,

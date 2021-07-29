@@ -1,64 +1,70 @@
 import React from 'react';
-import { TextInput, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {
+  TextInput,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-import { KorbitLogo } from '../component/common/login/loginelement';
+import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 
-
 export default class LoginScreen extends React.Component {
-
   render() {
-    
     return (
-
       <View style={styles.container}>
-
         <View style={styles.mainLogo}>
-
-          <KorbitLogo
-            onPress={() => this.goMainScreen()} />
-
+          <KorbitLogo onPress={() => this.goMainScreen()} />
         </View>
 
-        <Text style={styles.login}>{I18n.t('login')}</Text>
-        <Text style={styles.safe_txt}>{I18n.t('loginSafeText')}</Text>
-        <Text style={styles.link_txt}>
-          <Icon style={styles.shield} name="shield-checkmark-outline" size={16} />
-          <Text style={styles.linkblue_txt}> {I18n.t('safeIconText')}  https</Text>
-          <Text style={styles.linkgrey_txt}>://korbit.co.kr</Text>
+        <Text style={styles.loginLogo}>{I18n.t('login')}</Text>
+        <Text style={styles.safeTxt}>{I18n.t('loginSafeText')}</Text>
+        <Text style={styles.linkTxt}>
+          <Icon
+            style={styles.shield}
+            name="shield-checkmark-outline"
+            size={16}
+          />
+          <Text style={styles.blueLinkTxt}>
+            {' '}
+            {I18n.t('safeIconText')} https
+          </Text>
+          <Text style={styles.greyLinkTxt}>://korbit.co.kr</Text>
         </Text>
 
         <TextInput
-          style={styles.input}      //searchbar 설정은 안해둠
+          style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
         />
         <TextInput
-          style={styles.input}      //searchbar 설정은 안해둠
+          style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
         />
 
         <TouchableOpacity>
           <Text
-            onPress={() => { this.goMainScreen(); this.Login() }}
+            onPress={() => {
+              this.goMainScreen();
+              this.Login();
+            }}
             style={styles.loginBtn}>
             {I18n.t('login')}
           </Text>
         </TouchableOpacity>
-
       </View>
-
     );
   }
 
   Login() {
     AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
-      console.log('로그인 완료')
+      console.log('로그인 완료');
     });
 
     AsyncStorage.getItem('logIncom', (err, logComplete) => {
-      console.log(logComplete) //true값이 잘 나오는지 확인
-    })
+      console.log(logComplete); //true값이 잘 나오는지 확인
+    });
   }
 
   goMainScreen() {
@@ -68,17 +74,16 @@ export default class LoginScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  mainLogo : {
-    marginTop : 50, 
-    marginLeft : 30,
+  mainLogo: {
+    marginTop: 50,
+    marginLeft: 30,
   },
-  
-  login: {
+
+  loginLogo: {
     marginLeft: 50,
     marginRight: 20,
     marginTop: 25,
@@ -86,22 +91,20 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
   },
-  safe_txt: {
+  safeTxt: {
     marginTop: 10,
     marginLeft: 50,
     marginRight: 20,
     fontSize: 14,
-
   },
-  link_txt: {
+  linkTxt: {
     marginTop: 8,
     marginLeft: 50,
     marginRight: 20,
     marginBottom: 20,
     fontSize: 14,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
-
   input: {
     height: 51,
     marginTop: 16,
@@ -112,22 +115,17 @@ const styles = StyleSheet.create({
     borderColor: '#AAAAAA',
     paddingLeft: 15,
     borderRadius: 3,
-
   },
   shield: {
     color: '#0064ff',
     marginRight: 10,
-
   },
-  linkblue_txt: {
+  blueLinkTxt: {
     color: '#0064ff',
-
   },
-  linkgrey_txt: {
+  greyLinkTxt: {
     color: 'grey',
-
   },
-
   loginBtn: {
     height: 51,
     marginTop: 40,
@@ -142,6 +140,4 @@ const styles = StyleSheet.create({
     paddingLeft: 132,
     borderRadius: 3,
   },
-
-
 });
