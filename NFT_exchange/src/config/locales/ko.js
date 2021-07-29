@@ -1,5 +1,4 @@
 const ko = {
-  welcome: '환영합니다',
   goMain: '처음으로',
   art: '작품',
   login: '로그인',
@@ -65,6 +64,8 @@ const ko = {
   sugModal3: '•구매한 작품은 프로필의 구매에서 확인할 수 있습니다.',
   sugModal4: '•기타 궁금하신 사항은 코빗 고객센터로 문의바랍니다.',
   modalOkBtn: '확인',
+  coinAccount : '132-213546-65543(비트코인 계좌)',
+  artistComment : '오늘도 멋진 작품을!',
 };
 
 export default ko;

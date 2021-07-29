@@ -1,5 +1,4 @@
 const en = {
-  welcome: 'welcome',
   goMain: 'GoMain',
   art: 'Art',
   login: 'LOGIN',
@@ -70,6 +69,8 @@ const en = {
   sugModal4:
     '•If you have any other questions, please contact Covit Customer Service.',
   modalOkBtn: 'OK',
+  coinAccount : '132-213546-65543(bitcoin account)',
+  artistComment : 'Make a great piece of work!',
 };
 
 export default en;

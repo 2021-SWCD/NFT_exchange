@@ -63,11 +63,11 @@ export default class Artist_Screen extends Component {
 
           <Profile_name title={'hyunji'} />
 
-          <Profile_text title={I18n.t('welcome')} />
+          <Profile_text title={I18n.t('coinAccount')} />
 
           <Icon style={styles.copy} name="copy-outline" size={25} />
 
-          <Profile_text title={'오늘도 멋진 작품을!'} />
+          <Profile_text title={I18n.t('artistComment')} />
 
           <View style={styles.iconContainer}>
             <Icon style={styles.twit} name="logo-twitter" size={31} />
