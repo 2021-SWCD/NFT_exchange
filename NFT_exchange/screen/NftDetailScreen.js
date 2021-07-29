@@ -1,24 +1,34 @@
-import React, { Component } from 'react';
-import { TouchableWithoutFeedback, TouchableOpacity, Text, Modal, StyleSheet, View, ScrollView } from 'react-native';
-import { LoginAfterHeader, LoginHeader } from '../component/common/login';
-import { CardImage, NftName, Profile, CustomButton } from '../component/common/commonelement'
+import React, {Component} from 'react';
+import {
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  Text,
+  Modal,
+  StyleSheet,
+  View,
+  ScrollView,
+} from 'react-native';
+import {LoginAfterHeader, LoginHeader} from '../component/common/login';
+import {
+  CardImage,
+  NftName,
+  Profile,
+  CustomButton,
+} from '../component/common/commonelement';
 import GoMain from '../component/common/gomain/GoMain';
 import NftInformation from '../component/common/commonelement/NftInformation';
-import TabBar from '../component/nftdetail/TabBar';
-import Warn_txt from '../component/nftdetail/WarnTxt';
+import {TabBar, WarnTxt} from '../component/nftdetail';
 import AsyncStorage from '@react-native-community/async-storage';
-import  I18n  from '../src/config/i18n'
-
+import I18n from '../src/config/i18n';
 
 export default class NFT_detailScreen extends Component {
-//주석
-  constructor() //모달 팝업창
-  {
+  //주석
+  constructor() { //모달 팝업창
     super();
     this.state = {
       show: false,
       isLoggedIn: false,
-    }
+    };
   }
 
   componentDidMount() {
@@ -36,26 +46,26 @@ export default class NFT_detailScreen extends Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after'); // User1 출력
-      this.setState({ isLoggedIn: JSON.parse(result) })
+      this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
 
   render() {
-
     return (
-
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
-        {
-          this.state.isLoggedIn
-            ? <LoginAfterHeader navigation={this.props.navigation} />
-            : <LoginHeader navigation={this.props.navigation} />
-        }
+        {this.state.isLoggedIn ? (
+          <LoginAfterHeader navigation={this.props.navigation} />
+        ) : (
+          <LoginHeader navigation={this.props.navigation} />
+        )}
 
         <GoMain navigation={this.props.navigation} />
 
         <CardImage
           navigation={this.props.navigation}
-          source={{ uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg' }}
+          source={{
+            uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg',
+          }}
           borderBottomLeftRadius={20}
           borderBottomRightRadius={20}
           marginLeft={55}
@@ -65,56 +75,47 @@ export default class NFT_detailScreen extends Component {
 
         <View style={styles.colum}>
           <Profile
-            title={"hyunji"}
+            title={'hyunji'}
             marginTop={10}
-            marginLeft={20} 
-            navigation={this.props.navigation} />
+            marginLeft={20}
+            navigation={this.props.navigation}
+          />
           <NftName
-            title={"NATURE"}
-            marginLeft={20} 
-            navigation={this.props.navigation}/>
-          <NftInformation 
-            cur_title={'0.01'}
-            cost_title={'10,000'}/>
-          
+            title={'NATURE'}
+            marginLeft={20}
+            navigation={this.props.navigation}
+          />
+          <NftInformation cur_title={'0.01'} cost_title={'10,000'} />
 
-          {
-            this.state.isLoggedIn
+          {this.state.isLoggedIn ? (
+            <CustomButton
+              titlemarginLeft={30}
+              button_marginLeft={10}
+              onPress={() => this.setState({show: true})}
+            />
+          ) : (
+            <CustomButton
+              titlemarginLeft={30}
+              button_marginLeft={10}
+              onPress={() => this.goLoginScreen()}
+            />
+          )}
 
-              ? <CustomButton
-                titlemarginLeft={30}
-                button_marginLeft={10}
-
-                onPress={() => this.setState({ show: true })} />
-
-              : <CustomButton
-                titlemarginLeft={30}
-                button_marginLeft={10}
-
-                onPress={()=>this.goLoginScreen()}/>
-
-
-
-          }
-
-          <View style={{ flex: 1, marginTop: 30 }}>
-            <Modal
-              transparent={true}
-              visible={this.state.show}
-            >
-              <TouchableWithoutFeedback onPress={() => { this.close_modal() }}>
+          <View style={{flex: 1, marginTop: 30}}>
+            <Modal transparent={true} visible={this.state.show}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  this.close_modal();
+                }}>
                 <View style={styles.warnContainer}>
-
-
-                  <Warn_txt />
-
+                  <WarnTxt />
 
                   <View style={styles.btnContainer}>
-
                     <TouchableOpacity>
-
                       <Text
-                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>{I18n.t('modalOkBtn')}
+                        onPress={() => this.goDetail_buy()}
+                        style={styles.pop_btn}>
+                        {I18n.t('modalOkBtn')}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -125,7 +126,7 @@ export default class NFT_detailScreen extends Component {
           <TabBar />
         </View>
       </ScrollView>
-    )
+    );
   }
 
   goMainScreen() {
@@ -145,17 +146,15 @@ export default class NFT_detailScreen extends Component {
     this.props.navigation.navigate('BUY');
   }
   close_modal = () => {
-    this.setState({ show: false })
-  }
+    this.setState({show: false});
+  };
 }
-
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: 'white',
   },
-
 
   colum: {
     width: '80%',
@@ -171,8 +170,8 @@ const styles = StyleSheet.create({
   },
 
   warnContainer: {
-    backgroundColor: "grey",
-    flex: 1
+    backgroundColor: 'grey',
+    flex: 1,
   },
 
   btnContainer: {
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     top: 455,
-    left: 80
+    left: 80,
   },
 
   pop_btn: {
@@ -196,5 +195,4 @@ const styles = StyleSheet.create({
     paddingLeft: 120,
     borderRadius: 3,
   },
-
-})
+});
