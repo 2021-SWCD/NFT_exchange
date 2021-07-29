@@ -26,7 +26,7 @@ export default class Profile extends React.Component {
   }
   render() {
     return (
-      <TouchableOpacity onPress={() => this.goArtist_Screen()}>
+      <TouchableOpacity onPress={() => this.goArtistScreen()}>
         <View
           style={[
             styles.rowArray,
@@ -57,7 +57,7 @@ export default class Profile extends React.Component {
       </TouchableOpacity>
     );
   }
-  goArtist_Screen() {
+  goArtistScreen() {
     // ARTIST_screen으로 화면 이동
     this.props.navigation.navigate('ARTIST');
   }
