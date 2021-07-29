@@ -96,7 +96,7 @@ export default class NFT_detailScreen extends Component {
             />
           ) : (
             <CustomButton
-              titlemarginLeft={25}
+              titlemarginLeft={20}
               button_marginLeft={10}
               onPress={() => this.goLoginScreen()}
             />
@@ -133,10 +133,6 @@ export default class NFT_detailScreen extends Component {
   goLoginScreen() {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
-  }
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
   }
   goDetail_buy() {
     // Detail_buy로 화면 이동

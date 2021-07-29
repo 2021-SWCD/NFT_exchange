@@ -72,7 +72,7 @@ export default class DetailBuy extends Component {
           <View style={styles.btnContainer}>
             <CustomCancelButton onPress={() => this.goMainScreen()} />
             <CustomButton
-              titlemarginLeft={30}
+              titlemarginLeft={20}
               onPress={() => {
                 this.goMainScreen();
                 this.Count();
