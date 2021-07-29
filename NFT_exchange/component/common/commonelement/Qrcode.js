@@ -17,7 +17,7 @@ export default class Qrcode extends React.Component {
     return (
       <TouchableOpacity
         onPress={this.props.onPress}
-        style={styles.btnContainer}>
+        style={styles.qrbtnContainer}>
         <Icon
           style={[
             {color: this.props.color},
@@ -34,7 +34,7 @@ export default class Qrcode extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  btnContainer: {
+  qrbtnContainer: {
     position: 'absolute',
     top: 10,
     left: 320,
