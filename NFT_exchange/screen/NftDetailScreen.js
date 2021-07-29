@@ -7,6 +7,7 @@ import NftInformation from '../component/common/commonelement/NftInformation';
 import TabBar from '../component/nftdetail/TabBar';
 import Warn_txt from '../component/nftdetail/WarnTxt';
 import AsyncStorage from '@react-native-community/async-storage';
+import  I18n  from '../src/config/i18n'
 
 
 export default class NFT_detailScreen extends Component {
@@ -113,7 +114,7 @@ export default class NFT_detailScreen extends Component {
                     <TouchableOpacity>
 
                       <Text
-                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>확인
+                        onPress={() => this.goDetail_buy()} style={styles.pop_btn}>{I18n.t('modalOkBtn')}
                       </Text>
                     </TouchableOpacity>
                   </View>
