@@ -11,7 +11,7 @@ export default class HotText extends React.Component {
     return (
       <View style={styles.container}>
         <Icon style={styles.fire} name="flame" size={31} />
-        <Text style={styles.HotText}>{I18n.t('hotText')}</Text>
+        <Text style={styles.hotText}>{I18n.t('hotText')}</Text>
       </View>
     );
   }
@@ -29,10 +29,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
-  HotText: {
+  hotText: {
     marginLeft: 8,
     marginRight: 20,
-
     fontSize: 25,
     fontWeight: 'bold',
   },

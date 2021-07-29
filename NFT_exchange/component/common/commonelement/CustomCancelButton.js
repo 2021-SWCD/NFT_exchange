@@ -17,7 +17,7 @@ export default class CustomCancelButton extends Component {
   render() {
     return (
       <TouchableOpacity style={[styles.button]} onPress={this.props.onPress}>
-        <Text style={[styles.buttonTitle]}>{I18n.t('cancel')}</Text>
+        <Text style={[styles.buttonTitle]}>{I18n.t('cancelButton')}</Text>
       </TouchableOpacity>
     );
   }
