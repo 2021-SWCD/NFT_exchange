@@ -11,7 +11,7 @@ import {BuyText, BuyScreen} from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 
-export default class Detail_buy extends Component {
+export default class DetailBuy extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,6 @@ export default class Detail_buy extends Component {
     AsyncStorage.getItem('ETH', (err, result) => {
       console.log(result);
       this.setState({suggestPrcie: result});
-      console.log('80할당 완료');
     });
 
     AsyncStorage.getItem('logIncom', (err, result) => {
@@ -65,7 +64,9 @@ export default class Detail_buy extends Component {
           <BuyScreen />
 
           <View>
-            <Text style={styles.sug_txt}>{I18n.t('offeringContent')}</Text>
+            <Text style={styles.suggestGuideTxt}>
+              {I18n.t('suggestGuideTxt')}
+            </Text>
           </View>
 
           <View style={styles.btnContainer}>
@@ -87,7 +88,7 @@ export default class Detail_buy extends Component {
     let a = this.state.suggestPrcie - 10;
 
     AsyncStorage.setItem('ETH', JSON.stringify(a), () => {
-      console.log('값 변경 완료 ');
+      console.log('값 변경 완료 -10 차감');
     });
 
     AsyncStorage.getItem('ETH', (err, reset) => {
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 40,
   },
-  sug_txt: {
+  suggestGuideTxt: {
     marginTop: 70,
     marginLeft: 20,
   },

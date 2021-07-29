@@ -36,7 +36,7 @@ export default class QrWallet extends React.Component {
               {I18n.t('notLoginStateContent1')}
             </Text>
             <Text style={styles.wrong_text}>
-              {I18n.t('notLoginStateContent1')}
+              {I18n.t('notLoginStateContent2')}
             </Text>
             <Image
               source={{

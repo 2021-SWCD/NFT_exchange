@@ -16,7 +16,6 @@ export default class Artist_Screen extends Component {
   constructor() { //모달 팝업창
     super();
     this.state = {
-      show: false,
       isLoggedIn: false,
     };
   }
@@ -51,9 +50,9 @@ export default class Artist_Screen extends Component {
 
         <GoMain navigation={this.props.navigation} />
 
-        <View style={styles.informContainer}>
+        <View style={styles.backGroundImageContainer}>
           <Image
-            style={styles.mainImage}
+            style={styles.backGroundImage}
             source={{
               uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg',
             }}
@@ -74,8 +73,8 @@ export default class Artist_Screen extends Component {
             <Icon style={styles.insta} name="logo-instagram" size={31} />
           </View>
 
-          <View style={styles.producContainer}>
-            <Text style={styles.product}>{I18n.t('art')}</Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>{I18n.t('art')}</Text>
           </View>
         </View>
 
@@ -116,16 +115,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 
-  informContainer: {
+  backGroundImageContainer: {
     height: 570,
   },
+
   cardContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
   },
 
-  mainImage: {
+  backGroundImage: {
     width: '100%',
     height: 225,
   },
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
-  producContainer: {
+  titleContainer: {
     alignItems: 'center',
     backgroundColor: '#fff',
   },
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 
-  product: {
+  title: {
     height: 35,
     marginTop: 50,
     width: 60,
