@@ -19,18 +19,18 @@ export default class NftInformation extends React.Component {
   render() {
     return (
       <View style={[styles.container, {marginLeft: this.props.marginLeft}]}>
-        <View style={[styles.RowArray, {width: this.props.width}]}>
-          <View style={styles.ColumArray}>
+        <View style={[styles.rowArray, {width: this.props.width}]}>
+          <View style={styles.columArray}>
             <Text style={styles.text}>{I18n.t('curAuction')}</Text>
             <Text style={styles.boldText}>{this.props.curTitle} ETH</Text>
           </View>
 
-          <View style={styles.ColumArray}>
+          <View style={styles.columArray}>
             <Text style={styles.text}>{I18n.t('remainTime')}</Text>
             <Timer size={15} marginRight={10} />
           </View>
         </View>
-        <View style={styles.RowArray}>
+        <View style={styles.rowArray}>
           <Text style={styles.text}>
             {this.props.costTitle} {I18n.t('won')}
           </Text>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  RowArray: {
+  rowArray: {
     //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
     //width: '50%',
     flexDirection: 'row',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  ColumArray: {
+  columArray: {
     width: '95%',
     flexDirection: 'column',
     marginTop: 10,
