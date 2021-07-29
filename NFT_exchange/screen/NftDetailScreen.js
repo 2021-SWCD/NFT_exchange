@@ -23,7 +23,8 @@ import I18n from '../src/config/i18n';
 
 export default class NFT_detailScreen extends Component {
   //주석
-  constructor() { //모달 팝업창
+  constructor() {
+    //모달 팝업창
     super();
     this.state = {
       show: false,
@@ -85,17 +86,17 @@ export default class NFT_detailScreen extends Component {
             marginLeft={20}
             navigation={this.props.navigation}
           />
-          <NftInformation cur_title={'0.01'} cost_title={'10,000'} />
+          <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
 
           {this.state.isLoggedIn ? (
             <CustomButton
-              titlemarginLeft={30}
+              titlemarginLeft={25}
               button_marginLeft={10}
               onPress={() => this.setState({show: true})}
             />
           ) : (
             <CustomButton
-              titlemarginLeft={30}
+              titlemarginLeft={25}
               button_marginLeft={10}
               onPress={() => this.goLoginScreen()}
             />
