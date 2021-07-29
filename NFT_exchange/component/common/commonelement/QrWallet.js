@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
-import  I18n  from '../src/config/i18n'
+import  I18n  from '../../../src/config/i18n'
 
 export default class QrWallet extends React.Component {
   static defaultProps = {
