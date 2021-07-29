@@ -36,7 +36,7 @@ export default class EthBtn extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
     loginBtn: {
         marginLeft: 20,
         marginRight: 20,
@@ -46,3 +46,4 @@ const styles = StyleSheet.create({
         fontWeight: 'normal',
     },
 });
+ */

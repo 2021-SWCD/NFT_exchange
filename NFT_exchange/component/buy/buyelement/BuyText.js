@@ -1,31 +1,38 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import I18n from '../../../src/config/i18n';
 
 export default class Buy_text extends Component {
-  static defaultProps = {
-    title: 'untitled',
-    marginRight: 20,
-    fontSize: 15,
-    onPress: () => null,
-  };
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.sug_txt}>제안가격</Text>
-        <Text
-          style={[
-            {fontSize: this.props.fontSize},
-            {marginRight: this.props.marginRight},
-          ]}>
-          {this.props.title}
-        </Text>
-      </View>
-    );
-  }
+
+    static defaultProps = {
+        title: 'untitled',
+
+
+        marginRight: 20,
+        fontSize: 15,
+
+        onPress: () => null,
+    }
+    constructor(props) {
+        super(props);
+    }
+
+
+    render() {
+        return (
+
+            <View style={styles.container}>
+                <Text style={styles.sug_txt }>{I18n.t('sugPrice')}</Text>
+                <Text style={[
+                    { fontSize: this.props.fontSize },
+                    { marginRight: this.props.marginRight },
+
+                ]}>
+                    {this.props.title}</Text>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

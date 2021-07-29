@@ -27,7 +27,6 @@ export default class LoginHeader extends React.Component {
 const styles = StyleSheet.create({
     topView: {
         flexDirection: 'row',
-        //height: 55,
         backgroundColor: 'white',
         justifyContent: 'space-between',
         alignItems: 'stretch'

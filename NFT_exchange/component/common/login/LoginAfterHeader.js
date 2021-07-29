@@ -8,7 +8,7 @@ export default class LoginAfterHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            result: 80,
+            ethCost: 80,
         }   
     }
 
@@ -17,7 +17,7 @@ export default class LoginAfterHeader extends React.Component {
         AsyncStorage.getItem('ETH', (err, result) => {
 
             console.log(result); 
-            this.setState({ result })
+            this.setState({ ethCost :result })
 
         });
         console.log('loginAfterHeader eth설정_componentdidmount');
@@ -35,7 +35,7 @@ export default class LoginAfterHeader extends React.Component {
         AsyncStorage.getItem('ETH', (err, result) => {
 
             console.log(result); 
-            this.setState({ result : result })
+            this.setState({ ethCost : result })
 
         });
     }
@@ -47,7 +47,7 @@ export default class LoginAfterHeader extends React.Component {
                 <KorbitLogo
                     onPress={() => this.goMainScreen()} />
                 <EthBtn
-                    title={this.state.result + ' ETH'}
+                    title={this.state.ethCost + ' ETH'}
                     onPress={() => this.goLogoutScreen()}/>
             </View>
         )
@@ -65,7 +65,6 @@ export default class LoginAfterHeader extends React.Component {
 const styles = StyleSheet.create({
     topView: {
         flexDirection: 'row',
-        //height: 55,
         backgroundColor: 'white',
         justifyContent: 'space-between',
         alignItems: 'stretch'

@@ -1,23 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, } from 'react-native';
-import { LoginAfterHeader, LoginHeader } from '../component/common/login';
+import {StyleSheet, View, ScrollView} from 'react-native';
+import {LoginAfterHeader, LoginHeader} from '../component/common/login';
 import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import { HotText }from '../component/common/commonelement';
+import {HotText} from '../component/common/commonelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from '../component/common/search/Search';
-import { Wrong_text } from '../component/wrong/wrongelement';
-
-
+import {Wrong_text} from '../component/wrong/wrongelement';
 
 export default class WrongSearch extends React.Component {
-
-  constructor() //모달 팝업창
-  {
+  constructor() {
+    //모달 팝업창
     super();
     this.state = {
-      show: false,
+      modalShow: false,
       isLoggedIn: false,
-    }
+    };
   }
 
   componentDidMount() {
@@ -35,7 +32,7 @@ export default class WrongSearch extends React.Component {
   checkLoginStatus = () => {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('Login_after');
-      this.setState({ isLoggedIn: JSON.parse(result) })
+      this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
 
@@ -43,15 +40,13 @@ export default class WrongSearch extends React.Component {
     const isLoggedIn = this.state.isLoggedIn;
     console.log(isLoggedIn);
 
-
     return (
-
       <ScrollView style={styles.container}>
-        {
-          isLoggedIn
-            ? <LoginAfterHeader navigation={this.props.navigation} />
-            : <LoginHeader navigation={this.props.navigation} />
-        }
+        {isLoggedIn ? (
+          <LoginAfterHeader navigation={this.props.navigation} />
+        ) : (
+          <LoginHeader navigation={this.props.navigation} />
+        )}
 
         <Search navigation={this.props.navigation} />
 
@@ -63,7 +58,6 @@ export default class WrongSearch extends React.Component {
         <View style={styles.cardContainer}>
           <NftSimpleInfoCard navigation={this.props.navigation} />
         </View>
-
       </ScrollView>
     );
   }
@@ -80,8 +74,8 @@ export default class WrongSearch extends React.Component {
     this.props.navigation.navigate('MAIN');
   }
   close_modal = () => {
-    this.setState({ show: false })
-  }
+    this.setState({modalShow: false});
+  };
   goNFT_detailScreen() {
     //SampleScreen으로 이동
     this.props.navigation.navigate('SUGESST');
@@ -94,16 +88,15 @@ export default class WrongSearch extends React.Component {
     // console.log(this.props);
     //WrongSearch으로 이동
     this.props.navigation.navigate('WRONG');
-  }
+  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 
-  
   cardContainer: {
     justifyContent: 'space-between',
     alignItems: 'center',

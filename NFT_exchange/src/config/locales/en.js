@@ -71,6 +71,7 @@ const en = {
   modalOkBtn: 'OK',
   coinAccount : '132-213546-65543(bitcoin account)',
   artistComment : 'Make a great piece of work!',
+  sugPrice : 'SUGGEST PRICE',
 };
 
 export default en;
