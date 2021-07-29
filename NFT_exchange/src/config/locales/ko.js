@@ -4,10 +4,10 @@ const ko = {
   won: '원',
 
   //component/buy/buyelement/BuyText.js
-  sugPrice : '제안가격',
+  sugPrice: '제안가격',
 
   //component/common/commonelement/CustomButton.js
-  suggestBtn: '제안하기',
+  suggestBtn: '  제안하기',
 
   //component/common/commonelement/CustomCancelButton.js
   cancelButton: '취소하기',
@@ -64,15 +64,15 @@ const ko = {
   doSugTxt: '첫번째로 가격을 제안해보세요!',
 
   //screen/LoginScreen.js
-  login : '로그인',
+  login: '로그인',
   loginSafeText: '안전한 거래소 이용을 위해 주소창을 확인해주세요.',
   safeIconText: '안전함',
   korbitEmailAccount: '코빗 이메일 계정',
   passWord: '비밀번호',
 
   //screen/ArtistScreen.js
-  coinAccount : '132-213546-65543(비트코인 계좌)',
-  artistComment : '오늘도 멋진 작품을!',
+  coinAccount: '132-213546-65543(비트코인 계좌)',
+  artistComment: '오늘도 멋진 작품을!',
   art: '작품',
 
   //screen/LogoutScreen.js
@@ -83,37 +83,6 @@ const ko = {
 
   //screen/NftDetailScreen.js
   modalOkBtn: '확인',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
 };
 
 export default ko;

@@ -59,8 +59,8 @@ export default class slide extends React.Component {
               />
 
               <CustomButton
-                titlemarginLeft={30}
-                buttonMarginLeft={48}
+                titlemarginLeft={20}
+                button_marginLeft={48}
                 onPress={() => this.goNftDetailScreen()}
               />
             </View>
