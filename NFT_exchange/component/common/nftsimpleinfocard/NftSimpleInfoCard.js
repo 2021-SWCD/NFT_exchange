@@ -27,7 +27,7 @@ export default class NftSimpleInfoCard extends React.Component {
                     marginTop={10}
                     navigation={this.props.navigation}
                   />
-                  <NftCost marginTop={5} NftCost={'0.01'} />
+                  <NftCost marginTop={5} nftCost={'0.01'} />
                   <Timer backgroundColor={'#d3d3d3'} />
                 </View>
               </View>
