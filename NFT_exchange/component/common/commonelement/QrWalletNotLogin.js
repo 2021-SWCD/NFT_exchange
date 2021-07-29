@@ -19,9 +19,9 @@ export default class QrWalletNotLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.Bottom_Container}>
-          <View style={styles.Top_Container}>
-            <View style={styles.elem}>
+        <View style={styles.bottomViewContainer}>
+          <View style={styles.topViewContainer}>
+            <View style={styles.rowArray}>
               <Profile
                 title={I18n.t('notLoginState')}
                 marginLeft={15}
@@ -32,10 +32,10 @@ export default class QrWalletNotLogin extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.Sad_Container}>
+          <View style={styles.warnContainer}>
             <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
-            <Text style={styles.wrong_text}>{I18n.t('depositEthereum1')}</Text>
-            <Text style={styles.wrong_text}>{I18n.t('depositEthereum2')}</Text>
+            <Text style={styles.wrantext}>{I18n.t('depositEthereum1')}</Text>
+            <Text style={styles.wrantext}>{I18n.t('depositEthereum2')}</Text>
             <CustomButton
               title={I18n.t('notLoginStateGoLogin')}
               titlemarginLeft={20}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 110,
   },
 
-  elem: {
+  rowArray: {
     //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
     width: '95%',
     marginTop: 20,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  Top_Container: {
+  topViewContainer: {
     backgroundColor: '#d3d3d3',
     borderTopLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     borderTopRightRadius: 20,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
 
-  Bottom_Container: {
+  bottomViewContainer: {
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
   },
 
-  Sad_Container: {
+  warnContainer: {
     alignItems: 'center',
     marginTop: 55,
   },
 
-  wrong_text: {
+  wrantext: {
     marginBottom: 5,
     fontSize: 18,
     fontWeight: 'bold',
