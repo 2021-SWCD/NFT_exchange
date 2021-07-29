@@ -100,14 +100,6 @@ export default class DetailBuy extends Component {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
   }
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
-  }
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
-  }
 }
 
 const styles = StyleSheet.create({

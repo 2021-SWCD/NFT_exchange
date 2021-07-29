@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 
-export default class Artist_Screen extends Component {
+export default class ArtistScreen extends Component {
   constructor() { //모달 팝업창
     super();
     this.state = {
@@ -89,23 +89,6 @@ export default class Artist_Screen extends Component {
         </View>
       </ScrollView>
     );
-  }
-
-  goMainScreen() {
-    //MainScreen으로 이동
-    this.props.navigation.navigate('MAIN');
-  }
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
-  }
-  goArtist_Screen() {
-    // ARTIST_screen으로 화면 이동
-    this.props.navigation.navigate('ARTIST');
-  }
-  goNFT_detailScreen() {
-    //SampleScreen으로 이동
-    this.props.navigation.navigate('SUGESST');
   }
 }
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import I18n from '../../../src/config/i18n';
 
-export default class Buy_text extends Component {
+export default class BuyText extends Component {
   static defaultProps = {
     title: 'untitled',
     marginRight: 20,
