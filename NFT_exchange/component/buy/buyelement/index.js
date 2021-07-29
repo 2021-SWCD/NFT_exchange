@@ -1,2 +1,2 @@
-export {default as Buy_screen} from './BuyScreen';
-export {default as Buy_text} from './BuyText';
+export {default as BuyScreen} from './BuyScreen';
+export {default as BuyText} from './BuyText';

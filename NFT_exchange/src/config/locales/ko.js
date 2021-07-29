@@ -38,7 +38,7 @@ const ko = {
   hotText: '핫한 작품',
   curAuction: '현재 경매가',
   remainTime: '남은 시간',
-  won: '원',
+  won: ' 원',
   offering: '가격 제안',
   offeringContent: '위 내용으로 가격을 제안합니다.',
   cancelButton: '취소하기',

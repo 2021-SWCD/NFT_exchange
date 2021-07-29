@@ -4,9 +4,9 @@ import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleIn
 import {LoginAfterHeader, LoginHeader} from '../component/common/login';
 import GoMain from '../component/common/gomain/GoMain';
 import {
-  Profile_img,
-  Profile_name,
-  Profile_text,
+  ProfileImg,
+  ProfileName,
+  ProfileText,
 } from '../component/artist/artistelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -61,13 +61,13 @@ export default class Artist_Screen extends Component {
 
           <Icon style={styles.share} name="share-social" size={31} />
 
-          <Profile_name title={'hyunji'} />
+          <ProfileName title={'hyunji'} />
 
-          <Profile_text title={I18n.t('coinAccount')} />
+          <ProfileText title={I18n.t('coinAccount')} />
 
           <Icon style={styles.copy} name="copy-outline" size={25} />
 
-          <Profile_text title={I18n.t('artistComment')} />
+          <ProfileText title={I18n.t('artistComment')} />
 
           <View style={styles.iconContainer}>
             <Icon style={styles.twit} name="logo-twitter" size={31} />
@@ -80,7 +80,7 @@ export default class Artist_Screen extends Component {
         </View>
 
         <View style={styles.colum}>
-          <Profile_img />
+          <ProfileImg />
         </View>
 
         {/*NftSimpleInfoCard*/}

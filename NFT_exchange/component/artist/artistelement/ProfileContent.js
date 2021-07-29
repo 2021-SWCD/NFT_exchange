@@ -1,17 +1,15 @@
-//Artist_Screen과 이어짐
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import 'react-native-gesture-handler';
 
-export default class ProfileName extends React.Component {
+export default class ProfileContent extends React.Component {
   static defaultProps = {
     title: 'untitled',
     titleColor: 'black',
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginLeft: 165,
-    marginTop: 30,
-    marginBottom: 30,
+    fontSize: 15,
+    alignItems: 'center',
+    marginBottom: 10,
+
     onPress: () => null,
   };
   constructor(props) {
@@ -20,15 +18,15 @@ export default class ProfileName extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={this.props.onPress}>
-        <View>
+        <View style={styles.container}>
           <Text
             style={[
               {color: this.props.titleColor},
               {fontSize: this.props.fontSize},
               {marginTop: this.props.marginTop},
+              {alignItems: this.props.alignItems},
               {marginBottom: this.props.marginBottom},
               {marginLeft: this.props.marginLeft},
-              {fontWeight: this.props.fontWeight},
             ]}>
             {this.props.title}
           </Text>
@@ -37,3 +35,10 @@ export default class ProfileName extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  //원하는 구성 요소들은 여기서 설정해줘야 한다.
+  container: {
+    alignItems: 'center',
+  },
+});
