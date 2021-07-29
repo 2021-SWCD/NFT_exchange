@@ -5,10 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './screen/MainScreen';
 import LoginScreen from './screen/LoginScreen';
 import WrongSearch from './screen/WrongSearch';
-import Artist_Screen from './screen/ArtistScreen';
-import NFT_detailScreen from './screen/NftDetailScreen';
-import Tab_infoScreen from './screen/TabInfoScreen';
-import Detail_buy from './screen/DetailBuy';
+import ArtistScreen from './screen/ArtistScreen';
+import NftDetailScreen from './screen/NftDetailScreen';
+import TabInfoScreen from './screen/TabInfoScreen';
+import DetailBuy from './screen/DetailBuy';
 import Logout from './screen/Logout';
 
 const Stack = createStackNavigator();
@@ -21,15 +21,15 @@ function App() {
         />
         <Stack.Screen name="LOGIN" component={LoginScreen}
         />
-        <Stack.Screen name="ARTIST" component={Artist_Screen}
+        <Stack.Screen name="ARTIST" component={ArtistScreen}
         />
-        <Stack.Screen name="SUGESST" component={NFT_detailScreen}
+        <Stack.Screen name="SUGESST" component={NftDetailScreen}
         />
         <Stack.Screen name="WRONG" component={WrongSearch}
         />
-        <Stack.Screen name="INFO" component={Tab_infoScreen}
+        <Stack.Screen name="INFO" component={TabInfoScreen}
         />
-        <Stack.Screen name="BUY" component={Detail_buy}
+        <Stack.Screen name="BUY" component={DetailBuy}
         />
         <Stack.Screen name="LOGOUT" component={Logout}
         />
