@@ -84,7 +84,7 @@ export default class Detail_buy extends Component {
   }
 
   Count() {
-    let a = this.state.show_result - 10;
+    let a = this.state.suggestPrcie - 10;
 
     AsyncStorage.setItem('ETH', JSON.stringify(a), () => {
       console.log('값 변경 완료 ');

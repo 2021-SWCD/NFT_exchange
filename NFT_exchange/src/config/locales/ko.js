@@ -43,8 +43,6 @@ const ko = {
   cancelButton: '취소하기',
   explainProductTxt: '작품 설명',
   ownerTxt: '소유자',
-  noSugTxt: '아직 제안한 사람이 없어요.',
-  doSugTxt: '첫번째로 가격을 제안해보세요!',
   loginSafeText: '안전한 거래소 이용을 위해 주소창을 확인해주세요.',
   safeIconText: '안전함',
   korbitEmailAccount: '코빗 이메일 계정',
@@ -55,7 +53,7 @@ const ko = {
   notLoginStateContent2: '서비스입니다.',
   depositEthereum1: '이더리움을 입금하려면',
   depositEthereum2: '아래 QR코드를 스캔하세요',
-  sugBtn: '제안하기',
+  suggestBtn: '제안하기',
   sugModalMain: '제안/구매 유의사항',
   sugModal1: '•구매를 하기 위한 가격 제안 시, 네트워크 수수료가 발생합니다.',
   sugModal2:

@@ -59,7 +59,7 @@ const en = {
   notLoginStateGoLogin: 'Go Login',
   depositEthereum1: 'Scan the QR code',
   depositEthereum2: 'below to deposit Ethereum',
-  sugBtn: 'SUGGEST',
+  suggestBtn: 'SUGGEST',
   sugModalMain: 'SUG/BUY CAUTIONS',
   sugModal1: '•If you propose a price to buy, there will be a network fee.',
   sugModal2:
