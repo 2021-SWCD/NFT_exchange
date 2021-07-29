@@ -5,7 +5,7 @@ import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleIn
 import {HotText} from '../component/common/commonelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import Search from '../component/common/search/Search';
-import {Wrong_text} from '../component/wrong/wrongelement';
+import {WrongText} from '../component/wrong/wrongelement';
 
 export default class WrongSearch extends React.Component {
   constructor() {
@@ -46,7 +46,7 @@ export default class WrongSearch extends React.Component {
 
         <Search navigation={this.props.navigation} />
 
-        <Wrong_text />
+        <WrongText />
 
         <HotText />
 

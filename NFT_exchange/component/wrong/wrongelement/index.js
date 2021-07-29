@@ -1,1 +1,1 @@
-export {default as Wrong_text} from './WrongText';
+export {default as WrongText} from './WrongText';

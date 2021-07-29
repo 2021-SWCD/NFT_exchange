@@ -14,9 +14,9 @@ import {
   NftName,
   Profile,
   CustomButton,
+  NftInformation,
 } from '../component/common/commonelement';
 import GoMain from '../component/common/gomain/GoMain';
-import NftInformation from '../component/common/commonelement/NftInformation';
 import {TabBar, WarnTxt} from '../component/nftdetail';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
@@ -97,16 +97,16 @@ export default class NftDetailScreen extends Component {
           ) : (
             <CustomButton
               titlemarginLeft={20}
-              button_marginLeft={10}
+              buttonMarginLeft={10}
               onPress={() => this.goLoginScreen()}
             />
           )}
 
-          <View style={{flex: 1, marginTop: 30}}>
+          <View style={styles.modalContainer}>
             <Modal transparent={true} visible={this.state.warnModalshow}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  this.close_modal();
+                  this.closeModal();
                 }}>
                 <View style={styles.warnContainer}>
                   <WarnTxt />
@@ -114,7 +114,7 @@ export default class NftDetailScreen extends Component {
                   <View style={styles.btnContainer}>
                     <TouchableOpacity>
                       <Text
-                        onPress={() => this.goDetail_buy()}
+                        onPress={() => this.goDetailBuy()}
                         style={styles.modalOkBtn}>
                         {I18n.t('modalOkBtn')}
                       </Text>
@@ -134,11 +134,11 @@ export default class NftDetailScreen extends Component {
     // LoginScreen으로 화면 이동
     this.props.navigation.navigate('LOGIN');
   }
-  goDetail_buy() {
+  goDetailBuy() {
     // Detail_buy로 화면 이동
     this.props.navigation.navigate('BUY');
   }
-  close_modal = () => {
+  closeModal = () => {
     this.setState({warnModalshow: false});
   };
 }
@@ -158,9 +158,11 @@ const styles = StyleSheet.create({
   },
 
   modalContainer: {
-    flex: 1,
-    marginTop: 100,
+    flex: 1, 
+    marginTop: 30
   },
+
+  
 
   warnContainer: {
     backgroundColor: 'grey',
