@@ -16,7 +16,7 @@ export default class GoMain extends React.Component {
   constructor() { //모달 팝업창
     super();
     this.state = {
-      show: false,
+      modalShow: false,
       isLoggedIn: false,
     };
   }
@@ -57,12 +57,12 @@ export default class GoMain extends React.Component {
           marginLeft={30}
           marginTop={5}
           onPress={() => {
-            this.setState({show: true});
+            this.setState({modalShow: true});
           }}
         />
         <View>
           {this.state.isLoggedIn ? (
-            <Modal transparent={true} visible={this.state.show}>
+            <Modal transparent={true} visible={this.state.modalShow}>
               <TouchableWithoutFeedback
                 onPress={() => {
                   this.close_modal();
@@ -73,7 +73,7 @@ export default class GoMain extends React.Component {
               </TouchableWithoutFeedback>
             </Modal>
           ) : (
-            <Modal transparent={true} visible={this.state.show}>
+            <Modal transparent={true} visible={this.state.modalShow}>
               <TouchableWithoutFeedback
                 onPress={() => {
                   this.close_modal();
@@ -97,7 +97,7 @@ export default class GoMain extends React.Component {
     this.props.navigation.navigate('LOGIN');
   }
   close_modal = () => {
-    this.setState({show: false});
+    this.setState({modalShow: false});
   };
 }
 
