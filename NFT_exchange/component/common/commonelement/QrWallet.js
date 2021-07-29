@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
-import  I18n  from '../../../src/config/i18n'
+import I18n from '../../../src/config/i18n';
 
 export default class QrWallet extends React.Component {
   static defaultProps = {
@@ -18,9 +18,9 @@ export default class QrWallet extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.Bottom_Container}>
-          <View style={styles.Top_Container}>
-            <View style={styles.elem}>
+        <View style={styles.bottomViewContainer}>
+          <View style={styles.topViewContainer}>
+            <View style={styles.rowArray}>
               <Profile
                 title={'minj-j'}
                 marginLeft={15}
@@ -31,18 +31,18 @@ export default class QrWallet extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.QR_Container}>
-            <Text style={styles.wrong_text}>
+          <View style={styles.warnContainer}>
+            <Text style={styles.guidetext}>
               {I18n.t('notLoginStateContent1')}
             </Text>
-            <Text style={styles.wrong_text}>
+            <Text style={styles.guidetext}>
               {I18n.t('notLoginStateContent2')}
             </Text>
             <Image
               source={{
                 uri: 'https://blog.kakaocdn.net/dn/bqqWTy/btqDQtYuJua/X1KNO1U3u3kzWQBunWOVCK/img.jpg',
               }}
-              style={styles.Code_Container}
+              style={styles.qrContainer}
             />
           </View>
         </View>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     marginTop: 110,
   },
 
-  elem: {
+  rowArray: {
     //프로필, 이름등을 가지고 있는 가로 정렬을 위한 요소
     width: '95%',
     marginTop: 20,
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  Top_Container: {
+  topViewContainer: {
     backgroundColor: '#d3d3d3',
     borderTopLeftRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     borderTopRightRadius: 20,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
 
-  Bottom_Container: {
+  bottomViewContainer: {
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
@@ -90,16 +90,17 @@ const styles = StyleSheet.create({
     height: 350,
   },
 
-  QR_Container: {
+  warnContainer: {
     alignItems: 'center',
     marginTop: 15,
   },
-  Code_Container: {
+
+  qrContainer: {
     width: 200,
     height: 200,
   },
 
-  wrong_text: {
+  guidetext: {
     marginBottom: 5,
     fontSize: 18,
     fontWeight: 'bold',
