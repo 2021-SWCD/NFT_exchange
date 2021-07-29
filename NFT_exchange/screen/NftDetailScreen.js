@@ -91,13 +91,13 @@ export default class NFT_detailScreen extends Component {
           {this.state.isLoggedIn ? (
             <CustomButton
               titlemarginLeft={25}
-              button_marginLeft={10}
+              buttonMarginLeft={10}
               onPress={() => this.setState({warnModalshow: true})}
             />
           ) : (
             <CustomButton
               titlemarginLeft={25}
-              button_marginLeft={10}
+              buttonMarginLeft={10}
               onPress={() => this.goLoginScreen()}
             />
           )}

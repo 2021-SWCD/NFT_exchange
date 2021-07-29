@@ -13,7 +13,7 @@ export default class CustomButton extends Component {
     titlemarginTop: 10,
     titlemarginLeft: null,
     buttonColor: '#000',
-    button_marginLeft: null,
+    buttonMarginLeft: null,
     marginBottom: null,
     onPress: () => null,
   };
@@ -24,10 +24,7 @@ export default class CustomButton extends Component {
   render() {
     return (
       <TouchableOpacity
-        style={[
-          styles.button,
-          {marginLeft: this.props.button_marginLeft},
-        ]}
+        style={[styles.button, {marginLeft: this.props.buttonMarginLeft}]}
         onPress={this.props.onPress}>
         <Text
           style={[
