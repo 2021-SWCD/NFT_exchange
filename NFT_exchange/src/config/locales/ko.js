@@ -1,4 +1,5 @@
-const ko = {//component/buy/buyelement/BuyScreen.js
+const ko = {
+  //component/buy/buyelement/BuyScreen.js
   //component/common/commonelement/NftInformation.js
   won: '원',
 
