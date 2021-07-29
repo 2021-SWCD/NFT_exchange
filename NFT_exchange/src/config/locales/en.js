@@ -16,7 +16,7 @@ const en = {
   hotText: 'HOT PRODUCT',
 
   //component/common/commonelement/NftInformation.js
-  curAuction: 'Current Auction Price',
+  curAuction: 'Auction Price',
   remainTime: 'Time remaining',
 
   //component/common/commonelement/QrWallet.js
