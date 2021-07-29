@@ -6,9 +6,8 @@ import ko from './locales/ko';
 I18n.fallbacks = true;
 
 I18n.translations = {
-    ko : ko,
-    en : en,
-    
+  ko: ko,
+  en: en,
 };
 
 export default I18n;
