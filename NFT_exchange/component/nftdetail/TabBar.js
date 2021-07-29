@@ -4,7 +4,7 @@ import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SuggestScreen from '../../screen/SuggestScreen';
-import Tab_infoScreen from '../../screen/TabInfoScreen';
+import TabInfoScreen from '../../screen/TabInfoScreen';
 import I18n from '../../src/config/i18n';
 
 const TabBar = createMaterialTopTabNavigator(
@@ -13,30 +13,16 @@ const TabBar = createMaterialTopTabNavigator(
       screen: SuggestScreen,
       navigationOptions: {
         tabBarLabel: I18n.t('suggest'),
-        tabBarIcon: ({tintColor}) => (
-          <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
-          </View>
-        ),
         initialRouteName: 'SuggestScreen',
         activeColor: '#C71585',
         inactiveColor: '#226557',
         barStyle: {backgroundColor: '#FFC0CB'},
       },
     },
-    Tab_infoScreen: {
-      screen: Tab_infoScreen,
+    TabInfoScreen: {
+      screen: TabInfoScreen,
       navigationOptions: {
         tabBarLabel: I18n.t('inforamation'),
-        tabBarIcon: ({tintColor}) => (
-          <View>
-            <Icon
-              style={[{color: tintColor}]}
-              size={25}
-              name={'ios-settings'}
-            />
-          </View>
-        ),
         activeColor: '#4B0082',
         inactiveColor: '#226557',
         barStyle: {backgroundColor: '#B0C4DE'},
@@ -53,7 +39,7 @@ const TabBar = createMaterialTopTabNavigator(
         marginTop: 30,
         width: 180,
         borderRadius: 50,
-        marginLeft: 15,
+        marginLeft: 10,
         shadowColor: 'transparent',
       },
       indicatorStyle: {

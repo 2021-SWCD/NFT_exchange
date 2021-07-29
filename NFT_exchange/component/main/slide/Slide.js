@@ -54,8 +54,8 @@ export default class slide extends React.Component {
               <NftInformation
                 width={170}
                 marginLeft={30}
-                cur_title={'0.01'}
-                cost_title={'10,000'}
+                curTitle={'0.01'}
+                costTitle={'10,000'}
               />
 
               <CustomButton
