@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Search_icons from './searchelement/SearchIcons';
+import SearchIcons from './searchelement/SearchIcons';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Qrcode, QrWalletNotLogin, QrWallet} from '../commonelement';
 import I18n from '../../../src/config/i18n';
@@ -29,7 +29,7 @@ const Input = ({goWrongSearch}) => {
   return (
     <>
       <View style={styles.searchView}>
-        <Search_icons
+        <SearchIcons
           onPress={() => {
             console.log('good?');
             goWrongSearch();
