@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, } from 'react-native';
+import I18n from '../../../src/config/i18n';
 
 export default class Buy_screen extends Component {
 
@@ -14,7 +15,7 @@ export default class Buy_screen extends Component {
 
             <View style={styles.container}>
 
-                <Text style={styles.sug_txt}>{this.props.sug_txt + '원'}</Text>
+                <Text style={styles.sug_txt}>{this.props.sug_txt + I18n.t('won')}</Text>
                 <Text style={styles.eth_txt}>{this.props.title + 'ETH'}</Text>
 
             </View>

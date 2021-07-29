@@ -66,6 +66,7 @@ const ko = {
   modalOkBtn: '확인',
   coinAccount : '132-213546-65543(비트코인 계좌)',
   artistComment : '오늘도 멋진 작품을!',
+  sugPrice : '제안가격',
 };
 
 export default ko;
