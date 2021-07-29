@@ -22,11 +22,4 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
   },
-  topView: {
-    flexDirection: 'row',
-    height: 55,
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
 });

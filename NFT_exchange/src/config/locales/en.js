@@ -1,7 +1,7 @@
 const en = {
   goMain: 'GoMain',
   art: 'Art',
-  login: 'LOGIN',
+  loginBtn: 'LOGIN',
   noResultTxt: 'There is no result.',
   findAnotherTxt: 'Please search with another term',
   hotText: 'HOT PRODUCT',
