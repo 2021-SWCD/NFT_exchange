@@ -1,10 +1,11 @@
 //버튼 커스텀을 위한 컴포넌트
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet, } from 'react-native';
+import  I18n  from '../../../src/config/i18n'
 
 export default class CustomButton extends Component{
     static defaultProps = { //아무런 설정을 안했을 시 버튼의 기본 설정
-        title: '제안하기',
+        title: I18n.t('sugBtn'),
         titleColor: '#fff',
         titlefontSize: 20,
         titlefontWeight: 'bold',

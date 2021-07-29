@@ -27,6 +27,13 @@ const ko = {
     notLoginStateContent2: '서비스입니다.',
     depositEthereum1 : '이더리움을 입금하려면',
     depositEthereum2 : '아래 QR코드를 스캔하세요',
+    sugBtn : '제안하기',
+    sugModalMain : '제안/구매 유의사항',
+    sugModal1 : '•구매를 하기 위한 가격 제안 시, 네트워크 수수료가 발생합니다.',
+    sugModal2 : '•회원은 구매를 완료한 작품은 환불할 수 없으며 그에 따른 비용 또는 손해에 대하여 코빗은 책임지지 않습니다.',
+    sugModal3 : '•구매한 작품은 프로필의 구매에서 확인할 수 있습니다.',
+    sugModal4 : '•기타 궁금하신 사항은 코빗 고객센터로 문의바랍니다.',
+    modalOkBtn : '확인',
 };
 
 export default ko;
