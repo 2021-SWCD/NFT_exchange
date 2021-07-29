@@ -1,4 +1,3 @@
-//Artist_Screen과 이어짐
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import 'react-native-gesture-handler';
