@@ -1,60 +1,58 @@
-import React, { Component } from 'react';
-import { Text, StyleSheet, View, } from 'react-native';
+import React, {Component} from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 
-export default class Buy_screen extends Component {
+export default class BuyScreen extends Component {
+  static defaultProps = {
+    ethCost: '0.2',
+    sugCost: '0',
+    onPress: () => null,
+  };
 
-    static defaultProps = {
-        title: '0.2',
-        sug_txt: '0',
-        onPress: () => null,
-    }
-
-    render() {
-        return (
-
-            <View style={styles.container}>
-
-                <Text style={styles.sug_txt}>{this.props.sug_txt + '원'}</Text>
-                <Text style={styles.eth_txt}>{this.props.title + 'ETH'}</Text>
-
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.sugContainerAndTxt}>
+          {this.props.sugCost + '원'}
+        </Text>
+        <Text style={styles.ethContainerAndTxt}>
+          {this.props.ethCost + 'ETH'}
+        </Text>
+      </View>
+    );
+  }
 }
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginLeft: 10,
-    },
-    sug_txt: {
-        height: 51,
-        marginTop: 20,
-        width: 310,
-        backgroundColor: '#CCC',
-        fontSize: 15,
-        fontWeight: 'normal',
-        color: 'black',
-        paddingTop: 16,
-        paddingLeft: 20,
-        borderRadius: 10,
-    },
-    eth_txt: {
-        marginLeft: 157,
-        borderColor: '#CCC',
-        borderWidth: 2,
-        height: 52,
-        width: 155,
-        backgroundColor: 'white',
-        fontSize: 15,
-        fontWeight: 'normal',
-        color: 'black',
-        paddingTop: 16,
-        paddingLeft: 95,
-        borderRadius: 10,
-        position: 'absolute',
-        top: 19,
-    },
-
-}
-)
+  container: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginLeft: 10,
+  },
+  sugContainerAndTxt: {
+    height: 51,
+    marginTop: 20,
+    width: 310,
+    backgroundColor: '#CCC',
+    fontSize: 15,
+    fontWeight: 'normal',
+    color: 'black',
+    paddingTop: 16,
+    paddingLeft: 20,
+    borderRadius: 10,
+  },
+  ethContainerAndTxt: {
+    marginLeft: 157,
+    borderColor: '#CCC',
+    borderWidth: 2,
+    height: 52,
+    width: 155,
+    backgroundColor: 'white',
+    fontSize: 15,
+    fontWeight: 'normal',
+    color: 'black',
+    paddingTop: 16,
+    paddingLeft: 95,
+    borderRadius: 10,
+    position: 'absolute',
+    top: 19,
+  },
+});
