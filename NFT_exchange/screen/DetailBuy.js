@@ -15,20 +15,20 @@ export default class Detail_buy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show_result: null,
+      suggestPrcie: null,
       isLoggedIn: false,
     };
   }
 
   componentDidMount() {
     this.onLoad();
-    console.log('componentDidMount');
+    console.log('DetailBuyScreen_componentDidMount');
   }
 
   onLoad = () => {
     this.props.navigation.addListener('focus', () => {
       this.checkLoginStatus();
-      console.log('onLoad');
+      console.log('DetailBuyScreen_onLoad');
     });
   };
 
@@ -36,11 +36,12 @@ export default class Detail_buy extends Component {
     // ETH 초기값 할당
     AsyncStorage.getItem('ETH', (err, result) => {
       console.log(result);
-      this.setState({show_result: result});
+      this.setState({suggestPrcie: result});
+      console.log('80할당 완료');
     });
 
     AsyncStorage.getItem('logIncom', (err, result) => {
-      console.log('Login_after');
+      console.log('DetailBuyScreen_LoginAfter');
       this.setState({isLoggedIn: JSON.parse(result)});
     });
   };
@@ -57,9 +58,9 @@ export default class Detail_buy extends Component {
         <GoMain navigation={this.props.navigation} />
 
         <View style={styles.colum}>
-          <NftInformation cur_title={'0.01'} cost_title={'10,000'} />
+          <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
 
-          <BuyText title={this.state.show_result + 'ETH'} />
+          <BuyText title={this.state.suggestPrcie + 'ETH'} />
 
           <BuyScreen />
 
@@ -93,7 +94,7 @@ export default class Detail_buy extends Component {
       console.log(reset);
     });
   }
-  
+
   goMainScreen() {
     //MainScreen으로 이동
     this.props.navigation.navigate('MAIN');
