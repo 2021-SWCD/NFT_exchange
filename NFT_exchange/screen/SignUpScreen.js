@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {KorbitLogo} from '../component/common/login/loginelement';
@@ -17,7 +18,8 @@ export default class SignUpScreen extends React.Component {
     super();
     this.state = {
       email: '',
-      pwd: ''
+      pwd: '',
+      pwdCheck: '',
     };
   }
 
@@ -58,12 +60,13 @@ export default class SignUpScreen extends React.Component {
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
+          onChangeText = {(text) => {this.setState({pwdCheck : text})}}
         />
 
         <TouchableOpacity>
           <Text
             onPress={() => {
-              this.goLoginScreen();
+              
               this.signUp();
             }}
             style={styles.loginBtn}>
@@ -77,7 +80,25 @@ export default class SignUpScreen extends React.Component {
   signUp = () => {
     console.log("email",this.state.email)
     console.log("pwd",this.state.pwd)
-    auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
+    console.log("pwd",this.state.pwdCheck)
+
+    if(this.state.pwd == this.state.pwdCheck){
+      auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
+      this.goLoginScreen();
+    }
+    else{
+      Alert.alert(
+        'warn',
+        ' 비밀번호가 일치하지 않습니다.',
+        [         
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+
+      )
+
+    }
+    
 
   }
 
