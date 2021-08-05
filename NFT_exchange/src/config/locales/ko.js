@@ -69,7 +69,7 @@ const ko = {
   safeIconText: '안전함',
   korbitEmailAccount: '코빗 이메일 계정',
   passWord: '비밀번호',
-
+  signUp: '회원가입',
   //screen/ArtistScreen.js
   coinAccount: '132-213546-65543(비트코인 계좌)',
   artistComment: '오늘도 멋진 작품을!',

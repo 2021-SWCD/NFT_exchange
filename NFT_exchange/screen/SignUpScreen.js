@@ -7,11 +7,20 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import AsyncStorage from '@react-native-community/async-storage';
 import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
+import auth from '@react-native-firebase/auth';
 
 export default class SignUpScreen extends React.Component {
+
+  constructor() { 
+    super();
+    this.state = {
+      email: '',
+      pwd: ''
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,11 +46,13 @@ export default class SignUpScreen extends React.Component {
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
+          onChangeText = {(text) => {this.setState({email : text})}}
         />
 
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
+          onChangeText = {(text) => {this.setState({pwd : text})}}
         />
 
         <TextInput
@@ -53,6 +64,7 @@ export default class SignUpScreen extends React.Component {
           <Text
             onPress={() => {
               this.goLoginScreen();
+              this.signUp();
             }}
             style={styles.loginBtn}>
             SIGNUP
@@ -60,6 +72,13 @@ export default class SignUpScreen extends React.Component {
         </TouchableOpacity>
       </View>
     );
+  }
+
+  signUp = () => {
+    console.log("email",this.state.email)
+    console.log("pwd",this.state.pwd)
+    auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
+
   }
 
   goLoginScreen() {
