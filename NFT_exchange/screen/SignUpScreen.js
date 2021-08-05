@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 
-export default class LoginScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -19,7 +19,7 @@ export default class LoginScreen extends React.Component {
           <KorbitLogo onPress={() => this.goMainScreen()} />
         </View>
 
-        <Text style={styles.loginLogo}>{I18n.t('login')}</Text>
+        <Text style={styles.loginLogo}>SIGN UP</Text>
         <Text style={styles.safeTxt}>{I18n.t('loginSafeText')}</Text>
         <Text style={styles.linkTxt}>
           <Icon
@@ -38,50 +38,33 @@ export default class LoginScreen extends React.Component {
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
         />
+
+        <TextInput
+          style={styles.input} //searchbar 설정은 안해둠
+          placeholder={I18n.t('passWord')}
+        />
+
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
         />
 
         <TouchableOpacity>
-          <Text 
-            onPress={() => {
-              this.goSingUpScreen();
-            }}
-            style={styles.signUp}>{I18n.t('signUp')}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
           <Text
             onPress={() => {
-              this.goMainScreen();
-              this.Login();
+              this.goLoginScreen();
             }}
             style={styles.loginBtn}>
-            {I18n.t('login')}
+            SIGNUP
           </Text>
         </TouchableOpacity>
       </View>
     );
   }
 
-  Login() {
-    AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
-      console.log('로그인 완료');
-    });
-
-    AsyncStorage.getItem('logIncom', (err, logComplete) => {
-      console.log(logComplete); //true값이 잘 나오는지 확인
-    });
-  }
-
-  goMainScreen() {
-    // MainScreen으로 화면 이동
-    this.props.navigation.navigate('MAIN');
-  }
-  goSingUpScreen() {
-    // MainScreen으로 화면 이동
-    this.props.navigation.navigate('SIGNUP');
+  goLoginScreen() {
+    // LoginScreen으로 화면 이동
+    this.props.navigation.navigate('LOGIN');
   }
 }
 

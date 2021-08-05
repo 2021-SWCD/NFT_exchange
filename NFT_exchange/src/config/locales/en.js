@@ -70,6 +70,9 @@ const en = {
   safeIconText: 'Safety',
   korbitEmailAccount: 'E-mail',
   passWord: 'Password',
+  signUp: 'Sign Up',
+
+  //screen/SignUpScreen.js
 
   //screen/ArtistScreen.js
   coinAccount: '132-213546-65543(bitcoin account)',

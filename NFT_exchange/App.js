@@ -10,6 +10,7 @@ import NftDetailScreen from './screen/NftDetailScreen';
 import TabInfoScreen from './screen/TabInfoScreen';
 import DetailBuy from './screen/DetailBuy';
 import Logout from './screen/Logout';
+import SignUpScreen from './screen/SignUpScreen';
 
 const Stack = createStackNavigator();
 function App() {
@@ -32,6 +33,8 @@ function App() {
         <Stack.Screen name="BUY" component={DetailBuy}
         />
         <Stack.Screen name="LOGOUT" component={Logout}
+        />
+        <Stack.Screen name="SIGNUP" component={SignUpScreen}
         />
       </Stack.Navigator>
 
