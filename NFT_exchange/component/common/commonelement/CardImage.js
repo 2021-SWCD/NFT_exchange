@@ -14,9 +14,9 @@ export default class CardImage extends Component {
     source: {uri: 'https://ichi.pro/assets/images/max/724/0*Tsd6bDqynxJN1daI'},
     onPress: () => null,
   };
-  constructor(props) {
+  /* constructor(props) {
     super(props);
-  }
+  } */
   render() {
     return (
       <TouchableOpacity onPress={() => this.goNftDetailScreen()}>

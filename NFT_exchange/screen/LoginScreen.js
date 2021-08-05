@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TextInput,
   StyleSheet,
@@ -11,8 +11,17 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 
+
+const [email, setEmail] = useState('');
+const [pwd, setPwd] = useState('');
+
+
 export default class LoginScreen extends React.Component {
+
+  
+
   render() {
+
     return (
       <View style={styles.container}>
         <View style={styles.mainLogo}>
@@ -37,10 +46,17 @@ export default class LoginScreen extends React.Component {
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
+          onChangeText={(value) => {
+            setEmail(value)
+          }}
         />
+
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
+          onChangeText={(value) => {
+            setPwd(value)
+          }}
         />
 
         <TouchableOpacity>
@@ -53,9 +69,25 @@ export default class LoginScreen extends React.Component {
             {I18n.t('login')}
           </Text>
         </TouchableOpacity>
+
+
+        <TouchableOpacity>
+          <Text
+            onPress={() => {
+              
+              this.Sign();
+            }}
+            style={styles.loginBtn}>
+            회원가입
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
+
+  /* Sign = () => {
+    auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
+  } */
 
   Login() {
     AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
