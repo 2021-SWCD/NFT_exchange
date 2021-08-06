@@ -13,12 +13,15 @@ import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 import auth from '@react-native-firebase/auth';
 
+var iconOpacity = 0;
+
 export default class LoginScreen extends React.Component {
   constructor() {
     super();
     this.state = {
       email: '',
       pwd: '',
+      secure : true,
     };
   }
 
@@ -51,13 +54,33 @@ export default class LoginScreen extends React.Component {
             this.setState({email: text});
           }}
         />
+
+        <View>
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
           onChangeText={text => {
-            this.setState({pwd: text});
+            this.setState({pwd: text}, () => {
+
+            });
+            if (text == '') {
+              iconOpacity = 0;
+            } else {
+              iconOpacity = 1;
+            }
           }}
+          secureTextEntry={this.state.secure}
+          
         />
+        <Icon
+            style={[styles.show,{opacity : iconOpacity,}]}
+            name={this.state.secure?"ios-eye-outline":"ios-eye-off-outline"}
+            size={25}
+            onPress={() => {
+              this.setState({secure: !this.state.secure});
+            }}
+          />
+          </View>
 
         <TouchableOpacity>
           <Text
@@ -201,5 +224,14 @@ const styles = StyleSheet.create({
     marginLeft: 300,
     color: 'grey',
     //alignItems: 'flex-end',
+  },
+  show: {
+    color: 'black',
+    marginRight: 10,
+    position: 'absolute',
+    top: 28,
+    right: 55,
+    
+    
   },
 });
