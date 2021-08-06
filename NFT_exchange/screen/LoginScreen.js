@@ -5,13 +5,23 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
+import auth from '@react-native-firebase/auth';
 
 export default class LoginScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      pwd: '',
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,24 +47,32 @@ export default class LoginScreen extends React.Component {
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
+          onChangeText={text => {
+            this.setState({email: text});
+          }}
         />
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
+          onChangeText={text => {
+            this.setState({pwd: text});
+          }}
         />
 
         <TouchableOpacity>
-          <Text 
+          <Text
             onPress={() => {
               this.goSingUpScreen();
             }}
-            style={styles.signUp}>{I18n.t('signUp')}</Text>
+            style={styles.signUp}>
+            {I18n.t('signUp')}
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Text
             onPress={() => {
-              this.goMainScreen();
+              this.checkAccount();
               this.Login();
             }}
             style={styles.loginBtn}>
@@ -65,9 +83,30 @@ export default class LoginScreen extends React.Component {
     );
   }
 
+  checkAccount() {
+    console.log('email', this.state.email);
+    console.log('pwd', this.state.pwd);
+
+    auth().signInWithEmailAndPassword(this.state.email, this.state.pwd)
+    .then((result) => {
+      this.goMainScreen()
+      console.log(result.user)
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log('errorCode',errorCode);
+      console.log('errorMessage',errorMessage);
+  
+    })
+    
+  }
+
   Login() {
     AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
       console.log('로그인 완료');
+      
     });
 
     AsyncStorage.getItem('logIncom', (err, logComplete) => {
