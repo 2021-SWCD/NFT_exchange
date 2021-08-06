@@ -53,6 +53,7 @@ export default class SignUpScreen extends React.Component {
           placeholder={I18n.t('korbitEmailAccount')}
           onChangeText={text => {
             this.setState({email: text});
+            console.log('email',this.state.email)
           }}
         />
 

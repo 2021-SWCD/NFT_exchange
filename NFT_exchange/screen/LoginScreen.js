@@ -73,7 +73,6 @@ export default class LoginScreen extends React.Component {
           <Text
             onPress={() => {
               this.checkAccount();
-              this.Login();
             }}
             style={styles.loginBtn}>
             {I18n.t('login')}
@@ -91,6 +90,7 @@ export default class LoginScreen extends React.Component {
     .then((result) => {
       this.goMainScreen()
       console.log(result.user)
+      this.Login();
       // ...
     })
     .catch((error) => {
@@ -98,7 +98,12 @@ export default class LoginScreen extends React.Component {
       var errorMessage = error.message;
       console.log('errorCode',errorCode);
       console.log('errorMessage',errorMessage);
-  
+      Alert.alert(
+        'warn',
+        ' 존재하지 않는 아이디 입니다.',
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );
     })
     
   }
