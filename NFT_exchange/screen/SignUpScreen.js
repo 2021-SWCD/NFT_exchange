@@ -75,7 +75,7 @@ export default class SignUpScreen extends React.Component {
           {this.state.secure ? (
             <Icon
               style={[styles.show, {opacity: iconOpacity}]}
-              name="ios-eye-off-outline"
+              name="ios-eye-outline"
               size={25}
               onPress={() => {
                 this.setState({secure: !this.state.secure});
@@ -84,7 +84,7 @@ export default class SignUpScreen extends React.Component {
           ) : (
             <Icon
               style={[styles.show, {opacity: iconOpacity}]}
-              name="ios-eye-outline"
+              name="ios-eye-off-outline"
               size={25}
               onPress={() => {
                 this.setState({secure: !this.state.secure});
