@@ -12,6 +12,8 @@ import {KorbitLogo} from '../component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 import auth from '@react-native-firebase/auth';
 
+var iconOpacity = 0;
+
 export default class SignUpScreen extends React.Component {
   constructor() {
     super();
@@ -19,6 +21,7 @@ export default class SignUpScreen extends React.Component {
       email: '',
       pwd: '',
       pwdCheck: '',
+      pwdShow: '',
       secure: true,
     };
   }
@@ -45,8 +48,6 @@ export default class SignUpScreen extends React.Component {
           <Text style={styles.greyLinkTxt}>://korbit.co.kr</Text>
         </Text>
 
-
-        <View>
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
@@ -55,21 +56,31 @@ export default class SignUpScreen extends React.Component {
           }}
         />
 
-        <Icon style={styles.show} name="ios-eye-outline" size={25} />
+        <View>
+          <TextInput
+            style={styles.inputPwd} //searchbar 설정은 안해둠
+            placeholder={I18n.t('passWord')}
+            onChangeText={text => {
+              this.setState({pwd: text});
+              if (this.state.pwd.length == 0) {
+                iconOpacity = 0;
+              } else {
+                iconOpacity = 1;
+              }
+              console.log('state_pwd', this.state.pwd);
+            }}
+            secureTextEntry={this.state.secure}
+          />
+
+          <Icon
+            style={styles.show}
+            name="ios-eye-outline"
+            size={25}
+            onPress={() => {
+              this.setState({secure: !this.state.secure});
+            }}
+          />
         </View>
-
-
-
-        
-        <TextInput
-          style={styles.input} //searchbar 설정은 안해둠
-          placeholder={I18n.t('passWord')}
-          onChangeText={text => {
-            this.setState({pwd: text});
-          }}
-          secureTextEntry={this.state.secure}
-        />
-
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
@@ -98,25 +109,25 @@ export default class SignUpScreen extends React.Component {
     console.log('pwdCheck', this.state.pwdCheck);
 
     //if(this.state.email == null) ?
-    if(this.state.email.length == 0 ){
-      console.log('email',this.state.email)
+    if (this.state.email.length == 0) {
+      console.log('email', this.state.email);
       Alert.alert(
         'warn',
         '이메일을 입력해주세요',
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );
-    }else if(this.state.pwd.length <6 ){
+    } else if (this.state.pwd.length < 6) {
       Alert.alert(
         'warn',
         '비밀번호를 6자리 이상으로 입력해주세요',
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );
-    }else if (this.state.pwd == this.state.pwdCheck) {
+    } else if (this.state.pwd == this.state.pwdCheck) {
       auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
       this.goLoginScreen();
-    }else if(this.state.pwd != this.state.pwdCheck){
+    } else if (this.state.pwd != this.state.pwdCheck) {
       Alert.alert(
         'warn',
         ' 비밀번호가 일치하지 않습니다.',
@@ -175,6 +186,18 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderRadius: 3,
   },
+  inputPwd: {
+    height: 51,
+    marginTop: 16,
+    marginLeft: 50,
+    marginRight: 30,
+    width: 310,
+    borderWidth: 0.8,
+    borderColor: '#AAAAAA',
+    paddingLeft: 15,
+    borderRadius: 3,
+    paddingRight: 50,
+  },
   shield: {
     color: '#0064ff',
     marginRight: 10,
@@ -183,9 +206,9 @@ const styles = StyleSheet.create({
   show: {
     color: 'black',
     marginRight: 10,
-    position : 'absolute',
-  
-
+    position: 'absolute',
+    top: 28,
+    right: 55,
   },
   blueLinkTxt: {
     color: '#0064ff',
