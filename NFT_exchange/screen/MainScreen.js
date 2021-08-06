@@ -9,7 +9,7 @@ import Search from '../component/common/search/Search';
 
 import firestore from '@react-native-firebase/firestore';
 
-const user = await firestore().collection('Users').doc('ABC').get();
+
 
 export default class MainScreen extends React.Component {
   constructor() { //모달 팝업창
