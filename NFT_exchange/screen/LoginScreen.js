@@ -86,32 +86,41 @@ export default class LoginScreen extends React.Component {
     console.log('email', this.state.email);
     console.log('pwd', this.state.pwd);
 
-    auth().signInWithEmailAndPassword(this.state.email, this.state.pwd)
-    .then((result) => {
-      this.goMainScreen()
-      console.log(result.user)
-      this.Login();
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log('errorCode',errorCode);
-      console.log('errorMessage',errorMessage);
-      Alert.alert(
-        'warn',
-        ' 존재하지 않는 아이디 입니다.',
-        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
-        {cancelable: false},
-      );
-    })
-    
+    auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.pwd)
+      .then(result => {
+        this.goMainScreen();
+        console.log(result.user);
+        this.Login();
+        // ...
+      })
+      .catch(error => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log('errorCode', errorCode);
+        console.log('errorMessage', errorMessage);
+
+        if (errorCode === 'auth/invalid-email') {
+          Alert.alert(
+            'warn',
+            ' 존재하지 않는 아이디 입니다.',
+            [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+            {cancelable: false},
+          );
+        } else {
+          Alert.alert(
+            'warn',
+            ' 비밀번호가 일치하지 않습니다.',
+            [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+            {cancelable: false},
+          );
+        }
+      });
   }
 
   Login() {
     AsyncStorage.setItem('logIncom', JSON.stringify(true), () => {
       console.log('로그인 완료');
-      
     });
 
     AsyncStorage.getItem('logIncom', (err, logComplete) => {
