@@ -109,6 +109,14 @@ export default class LoginScreen extends React.Component {
     console.log('email', this.state.email);
     console.log('pwd', this.state.pwd);
 
+    if(this.state.email == '' || this.state.pwd == '') {
+      Alert.alert(
+        'warn',
+        '공백입니다',
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );}else{
+
     auth()
       .signInWithEmailAndPassword(this.state.email, this.state.pwd)
       .then(result => {
@@ -130,7 +138,7 @@ export default class LoginScreen extends React.Component {
             [{text: 'OK', onPress: () => console.log('OK Pressed')}],
             {cancelable: false},
           );
-        } else {
+        }else {
           Alert.alert(
             'warn',
             ' 비밀번호가 일치하지 않습니다.',
@@ -139,6 +147,7 @@ export default class LoginScreen extends React.Component {
           );
         }
       });
+    }
   }
 
   Login() {
