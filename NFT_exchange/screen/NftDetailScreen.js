@@ -96,7 +96,7 @@ export default class NftDetailScreen extends Component {
             />
           ) : (
             <CustomButton
-              titlemarginLeft={20}
+              titleMarginLeft={19}
               buttonMarginLeft={10}
               onPress={() => this.goLoginScreen()}
             />

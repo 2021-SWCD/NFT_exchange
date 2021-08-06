@@ -112,7 +112,7 @@ export default class LoginScreen extends React.Component {
     if(this.state.email == '' || this.state.pwd == '') {
       Alert.alert(
         'warn',
-        '공백입니다',
+        I18n.t('nullAlert'),
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );}else{
@@ -134,14 +134,14 @@ export default class LoginScreen extends React.Component {
         if (errorCode === 'auth/invalid-email') {
           Alert.alert(
             'warn',
-            ' 존재하지 않는 아이디 입니다.',
+            I18n.t('nullID'),
             [{text: 'OK', onPress: () => console.log('OK Pressed')}],
             {cancelable: false},
           );
         }else {
           Alert.alert(
             'warn',
-            ' 비밀번호가 일치하지 않습니다.',
+            I18n.t('nullPwd'),
             [{text: 'OK', onPress: () => console.log('OK Pressed')}],
             {cancelable: false},
           );

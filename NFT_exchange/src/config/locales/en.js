@@ -71,8 +71,16 @@ const en = {
   korbitEmailAccount: 'E-mail',
   passWord: 'Password',
   signUp: 'Sign Up',
+  nullAlert: 'Please enter your ID \nand password.',
+  nullID: 'This ID does not exist.',
+  nullPwd: 'Passwords do not match.',
 
   //screen/SignUpScreen.js
+  signUpLogo: 'SIGN UP',
+  signUpButton: 'SIGN UP',
+  nullEmail: 'Please enter your E-mail.',
+  enterPwd: 'Please enter a password of at least 6 digits.',
+  wrongPwd: 'Passwords do not match.',
 
   //screen/ArtistScreen.js
   coinAccount: '132-213546-65543(bitcoin account)',

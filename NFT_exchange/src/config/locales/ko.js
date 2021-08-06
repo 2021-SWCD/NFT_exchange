@@ -70,6 +70,18 @@ const ko = {
   korbitEmailAccount: '코빗 이메일 계정',
   passWord: '비밀번호',
   signUp: '회원가입',
+  nullAlert: '아이디와 비밀번호를 입력해주세요.',
+  nullID: ' 존재하지 않는 아이디 입니다.',
+  nullPwd: ' 비밀번호가 일치하지 않습니다.',
+
+  //screen/SignUpScreen.js
+  signUpLogo: '회원가입',
+  signUpButton: '회원가입',
+  nullEmail: '가입시 사용 할 이메일을 입력해주세요',
+  enterPwd: '비밀번호를 6자리 이상으로 입력해주세요',
+  wrongPwd: '비밀번호가 일치하지 않습니다.',
+
+
   //screen/ArtistScreen.js
   coinAccount: '132-213546-65543(비트코인 계좌)',
   artistComment: '오늘도 멋진 작품을!',

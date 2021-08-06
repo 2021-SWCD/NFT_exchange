@@ -26,8 +26,6 @@ export default class SignUpScreen extends React.Component {
     };
   }
 
-  
-
   render() {
 
     
@@ -38,7 +36,7 @@ export default class SignUpScreen extends React.Component {
           <KorbitLogo onPress={() => this.goMainScreen()} />
         </View>
 
-        <Text style={styles.loginLogo}>SIGN UP</Text>
+        <Text style={styles.loginLogo}>{I18n.t('signUpLogo')}</Text>
         <Text style={styles.safeTxt}>{I18n.t('loginSafeText')}</Text>
         <Text style={styles.linkTxt}>
           <Icon
@@ -103,7 +101,7 @@ export default class SignUpScreen extends React.Component {
               this.signUp();
             }}
             style={styles.loginBtn}>
-            SIGNUP
+            {I18n.t('signUpButton')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -120,14 +118,14 @@ export default class SignUpScreen extends React.Component {
       console.log('email', this.state.email);
       Alert.alert(
         'warn',
-        '이메일을 입력해주세요',
+        I18n.t('nullEmail'),
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );
     } else if (this.state.pwd.length < 6) {
       Alert.alert(
         'warn',
-        '비밀번호를 6자리 이상으로 입력해주세요',
+        I18n.t('enterPwd'),
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );
@@ -137,7 +135,7 @@ export default class SignUpScreen extends React.Component {
     } else if (this.state.pwd != this.state.pwdCheck) {
       Alert.alert(
         'warn',
-        ' 비밀번호가 일치하지 않습니다.',
+        I18n.t('wrongPwd'),
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: false},
       );
