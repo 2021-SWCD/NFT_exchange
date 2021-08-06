@@ -13,13 +13,13 @@ import I18n from '../src/config/i18n';
 import auth from '@react-native-firebase/auth';
 
 export default class SignUpScreen extends React.Component {
-
-  constructor() { 
+  constructor() {
     super();
     this.state = {
       email: '',
       pwd: '',
       pwdCheck: '',
+      secure: true,
     };
   }
 
@@ -45,28 +45,43 @@ export default class SignUpScreen extends React.Component {
           <Text style={styles.greyLinkTxt}>://korbit.co.kr</Text>
         </Text>
 
+
+        <View>
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
-          onChangeText = {(text) => {this.setState({email : text})}}
+          onChangeText={text => {
+            this.setState({email: text});
+          }}
+        />
+
+        <Icon style={styles.show} name="ios-eye-outline" size={25} />
+        </View>
+
+
+
+        
+        <TextInput
+          style={styles.input} //searchbar 설정은 안해둠
+          placeholder={I18n.t('passWord')}
+          onChangeText={text => {
+            this.setState({pwd: text});
+          }}
+          secureTextEntry={this.state.secure}
         />
 
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
-          onChangeText = {(text) => {this.setState({pwd : text})}}
-        />
-
-        <TextInput
-          style={styles.input} //searchbar 설정은 안해둠
-          placeholder={I18n.t('passWord')}
-          onChangeText = {(text) => {this.setState({pwdCheck : text})}}
+          onChangeText={text => {
+            this.setState({pwdCheck: text});
+          }}
+          secureTextEntry={this.state.secure}
         />
 
         <TouchableOpacity>
           <Text
             onPress={() => {
-              
               this.signUp();
             }}
             style={styles.loginBtn}>
@@ -78,29 +93,38 @@ export default class SignUpScreen extends React.Component {
   }
 
   signUp = () => {
-    console.log("email",this.state.email)
-    console.log("pwd",this.state.pwd)
-    console.log("pwd",this.state.pwdCheck)
+    console.log('email', this.state.email);
+    console.log('pwd', this.state.pwd);
+    console.log('pwdCheck', this.state.pwdCheck);
 
-    if(this.state.pwd == this.state.pwdCheck){
+    //if(this.state.email == null) ?
+    if(this.state.email.length == 0 ){
+      console.log('email',this.state.email)
+      Alert.alert(
+        'warn',
+        '이메일을 입력해주세요',
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );
+    }else if(this.state.pwd.length <6 ){
+      Alert.alert(
+        'warn',
+        '비밀번호를 6자리 이상으로 입력해주세요',
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );
+    }else if (this.state.pwd == this.state.pwdCheck) {
       auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
       this.goLoginScreen();
-    }
-    else{
+    }else if(this.state.pwd != this.state.pwdCheck){
       Alert.alert(
         'warn',
         ' 비밀번호가 일치하지 않습니다.',
-        [         
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-        ],
-        { cancelable: false }
-
-      )
-
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );
     }
-    
-
-  }
+  };
 
   goLoginScreen() {
     // LoginScreen으로 화면 이동
@@ -154,6 +178,14 @@ const styles = StyleSheet.create({
   shield: {
     color: '#0064ff',
     marginRight: 10,
+  },
+
+  show: {
+    color: 'black',
+    marginRight: 10,
+    position : 'absolute',
+  
+
   },
   blueLinkTxt: {
     color: '#0064ff',
