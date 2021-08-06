@@ -26,7 +26,12 @@ export default class SignUpScreen extends React.Component {
     };
   }
 
+  
+
   render() {
+
+    
+
     return (
       <View style={styles.container}>
         <View style={styles.mainLogo}>
@@ -53,7 +58,7 @@ export default class SignUpScreen extends React.Component {
           placeholder={I18n.t('korbitEmailAccount')}
           onChangeText={text => {
             this.setState({email: text});
-            console.log('email', this.state.email);
+            console.log('email',this.state.email)
           }}
         />
 
@@ -62,7 +67,9 @@ export default class SignUpScreen extends React.Component {
             style={styles.inputPwd} //searchbar 설정은 안해둠
             placeholder={I18n.t('passWord')}
             onChangeText={text => {
-              this.setState({pwd: text}, () => {});
+              this.setState({pwd: text},()=>{
+                
+              });
               if (text == '') {
                 iconOpacity = 0;
               } else {
@@ -72,25 +79,14 @@ export default class SignUpScreen extends React.Component {
             secureTextEntry={this.state.secure}
           />
 
-          {this.state.secure ? (
-            <Icon
-              style={[styles.show, {opacity: iconOpacity}]}
-              name="ios-eye-outline"
-              size={25}
-              onPress={() => {
-                this.setState({secure: !this.state.secure});
-              }}
-            />
-          ) : (
-            <Icon
-              style={[styles.show, {opacity: iconOpacity}]}
-              name="ios-eye-off-outline"
-              size={25}
-              onPress={() => {
-                this.setState({secure: !this.state.secure});
-              }}
-            />
-          )}
+          <Icon
+            style={[styles.show,{opacity : iconOpacity,}]}
+            name={this.state.secure?"ios-eye-outline":"ios-eye-off-outline"}
+            size={25}
+            onPress={() => {
+              this.setState({secure: !this.state.secure});
+            }}
+          />
         </View>
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
@@ -221,6 +217,7 @@ const styles = StyleSheet.create({
     top: 28,
     right: 55,
     //opacity : iconOpacity,
+    
   },
   blueLinkTxt: {
     color: '#0064ff',
