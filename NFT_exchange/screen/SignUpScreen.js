@@ -13,8 +13,7 @@ import I18n from '../src/config/i18n';
 import auth from '@react-native-firebase/auth';
 
 export default class SignUpScreen extends React.Component {
-
-  constructor() { 
+  constructor() {
     super();
     this.state = {
       email: '',
@@ -48,25 +47,30 @@ export default class SignUpScreen extends React.Component {
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('korbitEmailAccount')}
-          onChangeText = {(text) => {this.setState({email : text})}}
+          onChangeText={text => {
+            this.setState({email: text});
+          }}
         />
 
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
-          onChangeText = {(text) => {this.setState({pwd : text})}}
+          onChangeText={text => {
+            this.setState({pwd: text});
+          }}
         />
 
         <TextInput
           style={styles.input} //searchbar 설정은 안해둠
           placeholder={I18n.t('passWord')}
-          onChangeText = {(text) => {this.setState({pwdCheck : text})}}
+          onChangeText={text => {
+            this.setState({pwdCheck: text});
+          }}
         />
 
         <TouchableOpacity>
           <Text
             onPress={() => {
-              
               this.signUp();
             }}
             style={styles.loginBtn}>
@@ -78,29 +82,22 @@ export default class SignUpScreen extends React.Component {
   }
 
   signUp = () => {
-    console.log("email",this.state.email)
-    console.log("pwd",this.state.pwd)
-    console.log("pwd",this.state.pwdCheck)
+    console.log('email', this.state.email);
+    console.log('pwd', this.state.pwd);
+    console.log('pwd', this.state.pwdCheck);
 
-    if(this.state.pwd == this.state.pwdCheck){
+    if (this.state.pwd == this.state.pwdCheck) {
       auth().createUserWithEmailAndPassword(this.state.email, this.state.pwd);
       this.goLoginScreen();
-    }
-    else{
+    } else {
       Alert.alert(
         'warn',
         ' 비밀번호가 일치하지 않습니다.',
-        [         
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-        ],
-        { cancelable: false }
-
-      )
-
+        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+        {cancelable: false},
+      );
     }
-    
-
-  }
+  };
 
   goLoginScreen() {
     // LoginScreen으로 화면 이동
