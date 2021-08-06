@@ -216,7 +216,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 28,
     right: 55,
-    //opacity : iconOpacity,
     
   },
   blueLinkTxt: {
