@@ -40,7 +40,8 @@ const Input = ({goWrongSearch}) => {
           style={styles.searchBar}
           placeholder={I18n.t('searchBarTxt')}
           value={text}
-          onChangeText={text => setText(text)}
+          onChangeText={text => {setText(text); console.log('state_text', text);}}
+          
         />
 
         <TouchableOpacity onPress={() => setText('')}>

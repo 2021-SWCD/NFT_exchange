@@ -26,7 +26,12 @@ export default class SignUpScreen extends React.Component {
     };
   }
 
+  
+
   render() {
+
+    
+
     return (
       <View style={styles.container}>
         <View style={styles.mainLogo}>
@@ -62,19 +67,20 @@ export default class SignUpScreen extends React.Component {
             style={styles.inputPwd} //searchbar 설정은 안해둠
             placeholder={I18n.t('passWord')}
             onChangeText={text => {
-              this.setState({pwd: text});
-              if (this.state.pwd.length == 0) {
+              this.setState({pwd: text},()=>{
+                
+              });
+              if (text == '') {
                 iconOpacity = 0;
               } else {
                 iconOpacity = 1;
               }
-              console.log('state_pwd', this.state.pwd);
             }}
             secureTextEntry={this.state.secure}
           />
 
           <Icon
-            style={styles.show}
+            style={[styles.show,{opacity : iconOpacity,}]}
             name="ios-eye-outline"
             size={25}
             onPress={() => {
@@ -109,7 +115,7 @@ export default class SignUpScreen extends React.Component {
     console.log('pwd', this.state.pwd);
     console.log('pwdCheck', this.state.pwdCheck);
 
-    //if(this.state.email == null) ?
+    //this.state.email == null
     if (this.state.email.length == 0) {
       console.log('email', this.state.email);
       Alert.alert(
@@ -210,6 +216,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 28,
     right: 55,
+    //opacity : iconOpacity,
+    
   },
   blueLinkTxt: {
     color: '#0064ff',
