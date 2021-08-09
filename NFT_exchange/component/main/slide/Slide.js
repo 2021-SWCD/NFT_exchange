@@ -14,13 +14,29 @@ import {
   NftInformation,
 } from '../../common/commonelement';
 import Icon from 'react-native-vector-icons/Ionicons';
-import datalist from '../../../datalist.json';
+
+
+import database from '@react-native-firebase/database';
 
 const {width} = Dimensions.get('window');
 const height = width * 0.5;
 var start = 0;
 
 export default class Slide extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      datalist: [],
+    };
+
+    database()
+      .ref()
+      .on('value', snapshot => {
+        console.log('datalist: ', snapshot.val());
+        this.setState({datalist: snapshot.val()});
+      });
+  }
+
   render() {
     return (
       <View style={styles.slideView}>
@@ -29,7 +45,7 @@ export default class Slide extends React.Component {
           horizontal
           style={{width, height}}
           ref={ref => (this.scrollView = ref)}>
-          {datalist.map((element, index) => (
+          {this.state.datalist.map((element, index) => (
             <View key={index}>
               <Image
                 key={index}
@@ -54,8 +70,8 @@ export default class Slide extends React.Component {
               <NftInformation
                 width={170}
                 marginLeft={30}
-                curTitle={'0.01'}
-                costTitle={'10,000'}
+                curTitle={element.cost }
+                costTitle={element.cost * 100}
               />
 
               <CustomButton
