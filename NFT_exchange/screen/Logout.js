@@ -25,11 +25,11 @@ export default class Logout extends React.Component {
       console.log('로그아웃');
     });
 
-    let a = 80;
+/*     let a = 80;
 
     AsyncStorage.setItem('ETH', a.toString(), () => {
       console.log('재 로그인시 80 할당');
-    });
+    }); */
 
     AsyncStorage.getItem('logIncom', (err, logComplete) => {
       console.log(logComplete);
