@@ -11,18 +11,40 @@ import {BuyText, BuyScreen} from '../component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 
+import firestore from '@react-native-firebase/firestore';
+
 export default class DetailBuy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suggestPrcie: null,
+      
       isLoggedIn: false,
+      userEmail: '',
+      ethFire:'',
     };
   }
 
   componentDidMount() {
     this.onLoad();
     console.log('DetailBuyScreen_componentDidMount');
+    AsyncStorage.getItem('userEmail', (err, result) => {
+      console.log('detailBuy_useremail불러오기');
+      this.setState({userEmail: JSON.parse(result)});
+ 
+      firestore()
+        .collection('user')
+        .doc(this.state.userEmail)
+        .get()
+        .then(documentSnapshot => {
+          if (documentSnapshot.exists) {
+        
+            const document = documentSnapshot.data();
+            this.setState({ethFire: document.eth});
+            console.log('eth_fire :', this.state.ethFire);
+          }
+        });
+      console.log('loginAfterHeader eth설정_componentdidmount');
+    });
   }
 
   onLoad = () => {
@@ -33,11 +55,8 @@ export default class DetailBuy extends Component {
   };
 
   checkLoginStatus = () => {
-    // ETH 초기값 할당
-    AsyncStorage.getItem('ETH', (err, result) => {
-      console.log(result);
-      this.setState({suggestPrcie: result});
-    });
+    
+    
 
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('DetailBuyScreen_LoginAfter');
@@ -59,7 +78,7 @@ export default class DetailBuy extends Component {
         <View style={styles.colum}>
           <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
 
-          <BuyText title={this.state.suggestPrcie + 'ETH'} />
+          <BuyText title={this.state.ethFire + 'ETH'} />
 
           <BuyScreen />
 
@@ -85,15 +104,20 @@ export default class DetailBuy extends Component {
   }
 
   Count() {
-    let a = this.state.suggestPrcie - 10;
 
-    AsyncStorage.setItem('ETH', JSON.stringify(a), () => {
-      console.log('값 변경 완료 -10 차감');
-    });
 
-    AsyncStorage.getItem('ETH', (err, reset) => {
-      console.log(reset);
-    });
+
+    firestore()
+      .collection('user')
+      .doc(this.state.userEmail)
+      .update({
+        eth : this.state.ethFire-10
+      })
+      .then(() => {
+        console.log('User updated!');
+      });
+
+
   }
 
   goMainScreen() {
