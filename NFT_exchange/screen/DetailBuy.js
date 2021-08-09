@@ -20,7 +20,7 @@ export default class DetailBuy extends Component {
       
       isLoggedIn: false,
       userEmail: '',
-      ethFire:'',
+      eth:'',
     };
   }
 
@@ -39,8 +39,8 @@ export default class DetailBuy extends Component {
           if (documentSnapshot.exists) {
         
             const document = documentSnapshot.data();
-            this.setState({ethFire: document.eth});
-            console.log('eth_fire :', this.state.ethFire);
+            this.setState({eth: document.eth});
+            console.log('eth_fire :', this.state.eth);
           }
         });
       console.log('loginAfterHeader eth설정_componentdidmount');
@@ -78,7 +78,7 @@ export default class DetailBuy extends Component {
         <View style={styles.colum}>
           <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
 
-          <BuyText title={this.state.ethFire + 'ETH'} />
+          <BuyText title={this.state.eth + 'ETH'} />
 
           <BuyScreen />
 
@@ -111,10 +111,10 @@ export default class DetailBuy extends Component {
       .collection('user')
       .doc(this.state.userEmail)
       .update({
-        eth : this.state.ethFire-10
+        eth : this.state.eth-10
       })
       .then(() => {
-        console.log('User updated!');
+        console.log('eth updated!');
       });
 
 
