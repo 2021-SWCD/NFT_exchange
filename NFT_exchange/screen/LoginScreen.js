@@ -123,7 +123,10 @@ export default class LoginScreen extends React.Component {
         this.goMainScreen();
         console.log(result.user);
         this.Login();
-        // ...
+        AsyncStorage.setItem('userEmail', JSON.stringify(this.state.email), () => {
+          console.log('userEmail 불러오기');
+        });
+    
       })
       .catch(error => {
         var errorCode = error.code;

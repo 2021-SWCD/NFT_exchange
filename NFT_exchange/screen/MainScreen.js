@@ -16,6 +16,7 @@ export default class MainScreen extends React.Component {
     super();
     this.state = {
       isLoggedIn: false,
+      userEmail : '',
     };
   }
 
@@ -35,6 +36,11 @@ export default class MainScreen extends React.Component {
     AsyncStorage.getItem('logIncom', (err, result) => {
       console.log('MainScreen_LoginAfter');
       this.setState({isLoggedIn: JSON.parse(result)});
+    });
+
+    AsyncStorage.getItem('userEmail', (err, result) => {
+      console.log('mainscreen_useremail불러오기');
+      this.setState({userEmail: JSON.parse(result)});
     });
   };
 
