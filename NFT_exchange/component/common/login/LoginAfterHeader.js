@@ -13,7 +13,6 @@ export default class LoginAfterHeader extends React.Component {
     this.state = {
       ethCost: 80,
       userEmail: '',
-      eth: '',
       ethFire: '',
     };
   }
@@ -30,7 +29,7 @@ export default class LoginAfterHeader extends React.Component {
         .get()
         .then(documentSnapshot => {
           if (documentSnapshot.exists) {
-            console.log('User data: ', documentSnapshot.data());
+            
             const document = documentSnapshot.data();
             this.setState({ethFire: document.eth});
             console.log('eth_fire :', this.state.ethFire);
