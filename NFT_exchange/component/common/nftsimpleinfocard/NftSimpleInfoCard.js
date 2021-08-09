@@ -2,13 +2,28 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {CardImage, NftName, Profile, NftCost} from '../commonelement';
 import Timer from '../commonelement/Timer';
-import dataList from '../../../datalist.json';
+import database from '@react-native-firebase/database';
 
 export default class NftSimpleInfoCard extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      datalist: [],
+    };
+
+    database()
+      .ref()
+      .on('value', snapshot => {
+        console.log('datalist: ', snapshot.val());
+        this.setState({datalist: snapshot.val()});
+      });
+  }
+
   render() {
     return (
       <View>
-        {dataList.map((element, index) => (
+        {this.state.datalist.map((element, index) => (
           <View key={index}>
             <View style={styles.container}>
               <CardImage
@@ -27,7 +42,7 @@ export default class NftSimpleInfoCard extends React.Component {
                     marginTop={10}
                     navigation={this.props.navigation}
                   />
-                  <NftCost marginTop={5} nftCost={'0.01'} />
+                  <NftCost marginTop={5} nftCost={element.cost} />
                   <Timer backgroundColor={'#d3d3d3'} />
                 </View>
               </View>
