@@ -5,7 +5,6 @@ import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
 
 export default class NftSimpleInfoCard extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -28,18 +27,28 @@ export default class NftSimpleInfoCard extends React.Component {
             <View style={styles.container}>
               <CardImage
                 source={{uri: element.imageUrl}}
-                onPress={() => this.props.navigation.navigate('SUGESST',
-                {title : element.title, 
-                content: element.content,
-                cost: element.cost,
-                imageUrl: element.imageUrl,})}
+                onPress={() =>
+                  this.props.navigation.navigate('SUGESST', {
+                    title: element.title,
+                    content: element.content,
+                    cost: element.cost,
+                    imageUrl: element.imageUrl,
+                  })
+                }
               />
               <View style={styles.cardContainer}>
                 <View style={styles.informContainer}>
                   <NftName
                     title={element.content}
                     fontSize={20}
-                    navigation={this.props.navigation}
+                    onPress={() =>
+                      this.props.navigation.navigate('SUGESST', {
+                        title: element.title,
+                        content: element.content,
+                        cost: element.cost,
+                        imageUrl: element.imageUrl,
+                      })
+                    }
                   />
                   <Profile
                     title={element.title}

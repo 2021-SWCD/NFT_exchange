@@ -15,7 +15,6 @@ import {
 } from '../../common/commonelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 import database from '@react-native-firebase/database';
 
 const {width} = Dimensions.get('window');
@@ -64,28 +63,34 @@ export default class Slide extends React.Component {
                 title={element.content}
                 marginLeft={50}
                 fontSize={45}
-                onPress={() => this.props.navigation.navigate('SUGESST',
-                {title : element.title, 
-                content: element.content,
-                cost: element.cost,
-                imageUrl: element.imageUrl,})}
+                onPress={() =>
+                  this.props.navigation.navigate('SUGESST', {
+                    title: element.title,
+                    content: element.content,
+                    cost: element.cost,
+                    imageUrl: element.imageUrl,
+                  })
+                }
               />
 
               <NftInformation
                 width={170}
                 marginLeft={30}
-                curTitle={element.cost }
+                curTitle={element.cost}
                 costTitle={element.cost * 100}
               />
 
               <CustomButton
                 titleMarginLeft={20}
                 buttonMarginLeft={48}
-                onPress={() => this.props.navigation.navigate('SUGESST',
-                {title : element.title, 
-                content: element.content,
-                cost: element.cost,
-                imageUrl: element.imageUrl,})}
+                onPress={() =>
+                  this.props.navigation.navigate('SUGESST', {
+                    title: element.title,
+                    content: element.content,
+                    cost: element.cost,
+                    imageUrl: element.imageUrl,
+                  })
+                }
               />
             </View>
           ))}

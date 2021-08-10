@@ -31,7 +31,7 @@ export default class NftDetailScreen extends Component {
     this.state = {
       warnModalshow: false,
       isLoggedIn: false,
-      database : [],
+      database: [],
     };
 
     database()
@@ -40,7 +40,6 @@ export default class NftDetailScreen extends Component {
         console.log('datalist: ', snapshot.val());
         this.setState({datalist: snapshot.val()});
       });
-
   }
 
   componentDidMount() {
@@ -63,12 +62,12 @@ export default class NftDetailScreen extends Component {
   };
 
   render() {
-    const {title} = this.props.route.params
-    const {content} = this.props.route.params
-    const {cost} = this.props.route.params
-    const {imageUrl} = this.props.route.params
+    const {title} = this.props.route.params;
+    const {content} = this.props.route.params;
+    const {cost} = this.props.route.params;
+    const {imageUrl} = this.props.route.params;
 
-     return (
+    return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {this.state.isLoggedIn ? (
           <LoginAfterHeader navigation={this.props.navigation} />
@@ -97,13 +96,13 @@ export default class NftDetailScreen extends Component {
             marginLeft={20}
             navigation={this.props.navigation}
           />
-          {console.log("title:", title)}
+          {console.log('title:', title)}
           <NftName
             title={content}
             marginLeft={20}
             navigation={this.props.navigation}
           />
-          <NftInformation curTitle={cost} costTitle={cost*100} />
+          <NftInformation curTitle={cost} costTitle={cost * 100} />
 
           {this.state.isLoggedIn ? (
             <CustomButton
@@ -175,11 +174,9 @@ const styles = StyleSheet.create({
   },
 
   modalContainer: {
-    flex: 1, 
-    marginTop: 30
+    flex: 1,
+    marginTop: 30,
   },
-
-  
 
   warnContainer: {
     backgroundColor: 'grey',
