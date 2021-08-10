@@ -28,7 +28,11 @@ export default class NftSimpleInfoCard extends React.Component {
             <View style={styles.container}>
               <CardImage
                 source={{uri: element.imageUrl}}
-                navigation={this.props.navigation}
+                onPress={() => this.props.navigation.navigate('SUGESST',
+                {title : element.title, 
+                content: element.content,
+                cost: element.cost,
+                imageUrl: element.imageUrl,})}
               />
               <View style={styles.cardContainer}>
                 <View style={styles.informContainer}>

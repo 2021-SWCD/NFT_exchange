@@ -19,7 +19,7 @@ export default class CardImage extends Component {
   } */
   render() {
     return (
-      <TouchableOpacity onPress={() => this.goNftDetailScreen()}>
+      <TouchableOpacity onPress={this.props.onPress}>
         <Image
           style={styles.defaultProps}
           borderBottomLeftRadius={this.props.borderBottomLeftRadius}

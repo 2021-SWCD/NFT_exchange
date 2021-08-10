@@ -16,7 +16,7 @@ export default class NftName extends Component {
   }
   render() {
     return (
-      <TouchableOpacity onPress={() => this.goNftDetailScreen()}>
+      <TouchableOpacity onPress={this.props.onPress}>
         <Text
           style={[
             {color: this.props.titleColor},

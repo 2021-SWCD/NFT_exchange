@@ -64,7 +64,11 @@ export default class Slide extends React.Component {
                 title={element.content}
                 marginLeft={50}
                 fontSize={45}
-                navigation={this.props.navigation}
+                onPress={() => this.props.navigation.navigate('SUGESST',
+                {title : element.title, 
+                content: element.content,
+                cost: element.cost,
+                imageUrl: element.imageUrl,})}
               />
 
               <NftInformation
@@ -77,7 +81,11 @@ export default class Slide extends React.Component {
               <CustomButton
                 titleMarginLeft={20}
                 buttonMarginLeft={48}
-                onPress={() => this.props.navigation.navigate('SUGESST',{dataId : element.dataId})}
+                onPress={() => this.props.navigation.navigate('SUGESST',
+                {title : element.title, 
+                content: element.content,
+                cost: element.cost,
+                imageUrl: element.imageUrl,})}
               />
             </View>
           ))}

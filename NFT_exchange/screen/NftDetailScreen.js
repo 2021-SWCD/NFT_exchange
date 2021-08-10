@@ -63,8 +63,10 @@ export default class NftDetailScreen extends Component {
   };
 
   render() {
-
-    const {dataId} = this.props.route.params
+    const {title} = this.props.route.params
+    const {content} = this.props.route.params
+    const {cost} = this.props.route.params
+    const {imageUrl} = this.props.route.params
 
      return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
@@ -79,7 +81,7 @@ export default class NftDetailScreen extends Component {
         <CardImage
           navigation={this.props.navigation}
           source={{
-            uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg',
+            uri: imageUrl,
           }}
           borderBottomLeftRadius={20}
           borderBottomRightRadius={20}
@@ -90,17 +92,18 @@ export default class NftDetailScreen extends Component {
 
         <View style={styles.colum}>
           <Profile
-            title={this.state.database.title}
+            title={title}
             marginTop={10}
             marginLeft={20}
             navigation={this.props.navigation}
           />
+          {console.log("title:", title)}
           <NftName
-            title={'NATURE'}
+            title={content}
             marginLeft={20}
             navigation={this.props.navigation}
           />
-          <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
+          <NftInformation curTitle={cost} costTitle={cost*100} />
 
           {this.state.isLoggedIn ? (
             <CustomButton
