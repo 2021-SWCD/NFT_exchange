@@ -21,6 +21,8 @@ import {TabBar, WarnTxt} from '../component/nftdetail';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 
+import database from '@react-native-firebase/database';
+
 export default class NftDetailScreen extends Component {
   //주석
   constructor() {
@@ -29,7 +31,16 @@ export default class NftDetailScreen extends Component {
     this.state = {
       warnModalshow: false,
       isLoggedIn: false,
+      database : [],
     };
+
+    database()
+      .ref()
+      .on('value', snapshot => {
+        console.log('datalist: ', snapshot.val());
+        this.setState({datalist: snapshot.val()});
+      });
+
   }
 
   componentDidMount() {
@@ -52,7 +63,10 @@ export default class NftDetailScreen extends Component {
   };
 
   render() {
-    return (
+
+    const {dataId} = this.props.route.params
+
+     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {this.state.isLoggedIn ? (
           <LoginAfterHeader navigation={this.props.navigation} />
@@ -76,7 +90,7 @@ export default class NftDetailScreen extends Component {
 
         <View style={styles.colum}>
           <Profile
-            title={'hyunji'}
+            title={this.state.database.title}
             marginTop={10}
             marginLeft={20}
             navigation={this.props.navigation}

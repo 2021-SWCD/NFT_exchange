@@ -77,7 +77,7 @@ export default class Slide extends React.Component {
               <CustomButton
                 titleMarginLeft={20}
                 buttonMarginLeft={48}
-                onPress={() => this.goNftDetailScreen()}
+                onPress={() => this.props.navigation.navigate('SUGESST',{dataId : element.dataId})}
               />
             </View>
           ))}
@@ -120,7 +120,7 @@ export default class Slide extends React.Component {
   }
 
   goNftDetailScreen() {
-    this.props.navigation.navigate('SUGESST');
+    /* this.props.navigation.navigate('SUGESST',{dataId : element.dataId}); */
   }
 }
 
