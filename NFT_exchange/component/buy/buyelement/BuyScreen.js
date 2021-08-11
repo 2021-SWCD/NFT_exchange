@@ -11,7 +11,7 @@ export default class BuyScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.buyScreenContainer}>
         <Text style={styles.sugContainerAndTxt}>
           {this.props.sugCost + I18n.t('won')}
         </Text>
@@ -24,7 +24,7 @@ export default class BuyScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  buyScreenContainer: {
     alignItems: 'center',
     flexDirection: 'row',
     marginLeft: 10,

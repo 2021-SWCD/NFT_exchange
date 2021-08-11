@@ -82,7 +82,9 @@ export default class DetailBuy extends Component {
 
           <BuyText title={this.state.eth + 'ETH'} />
 
-          <BuyScreen />
+          <BuyScreen 
+            sugCost={cost * 100}
+            ethCost={cost}/>
 
           <View>
             <Text style={styles.suggestGuideTxt}>

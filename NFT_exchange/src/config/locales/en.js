@@ -1,7 +1,7 @@
 const en = {
   //component/buy/buyelement/BuyScreen.js
   //component/common/commonelement/NftInformation.js
-  won: 'won',
+  won: ' won',
 
   //component/buy/buyelement/BuyText.js
   sugPrice: 'SUGGEST PRICE',
