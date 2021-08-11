@@ -102,7 +102,7 @@ export default class NftDetailScreen extends Component {
             marginLeft={20}
             navigation={this.props.navigation}
           />
-          <NftInformation curTitle={cost} costTitle={cost * 100} />
+          <NftInformation curTitle={cost} costTitle={cost * 10000} />
 
           {this.state.isLoggedIn ? (
             <CustomButton

@@ -78,13 +78,13 @@ export default class DetailBuy extends Component {
         <GoMain navigation={this.props.navigation} />
 
         <View style={styles.colum}>
-          <NftInformation curTitle={cost} costTitle={cost*100} />
+          <NftInformation curTitle={cost} costTitle={cost*10000} />
 
           <BuyText title={this.state.eth + 'ETH'} />
 
           <BuyScreen 
-            sugCost={cost * 100}
-            ethCost={cost}/>
+            ethCost={cost} 
+            sugCost={cost*10000} />
 
           <View>
             <Text style={styles.suggestGuideTxt}>
@@ -98,7 +98,7 @@ export default class DetailBuy extends Component {
               titleMarginLeft={20}
               onPress={() => {
                 this.goMainScreen();
-                this.Count();
+                this.Count(cost);
               }}
             />
           </View>
@@ -107,7 +107,7 @@ export default class DetailBuy extends Component {
     );
   }
 
-  Count() {
+  Count(cost) {
 
 
 
@@ -115,7 +115,7 @@ export default class DetailBuy extends Component {
       .collection('user')
       .doc(this.state.userEmail)
       .update({
-        eth : this.state.eth-10
+        eth : this.state.eth-cost
       })
       .then(() => {
         console.log('eth updated!');

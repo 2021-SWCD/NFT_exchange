@@ -77,7 +77,7 @@ export default class Slide extends React.Component {
                 width={170}
                 marginLeft={30}
                 curTitle={element.cost}
-                costTitle={element.cost * 100}
+                costTitle={element.cost * 10000}
               />
 
               <CustomButton
