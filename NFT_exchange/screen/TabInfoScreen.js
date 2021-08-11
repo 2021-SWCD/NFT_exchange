@@ -19,7 +19,7 @@ export default class TabInfoScreen extends React.Component {
           nameMarginLeft={20}
           nameMarginTop={8}
         />
-        <View style={styles.Line} />
+        <View style={styles.line} />
       </View>
     );
   }
