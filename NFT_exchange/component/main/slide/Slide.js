@@ -44,56 +44,59 @@ export default class Slide extends React.Component {
           horizontal
           style={{width, height}}
           ref={ref => (this.scrollView = ref)}>
-          {this.state.datalist.map((element, index) => (
-            <View key={index}>
-              <Image
-                key={index}
-                source={{uri: element.imageUrl}}
-                style={{width, height, resizeMode: 'contain'}}
-              />
+          {this.state.datalist.map((element, index) => {
+            if (index < 5)
+              return (
+                <View key={index}>
+                  <Image
+                    key={index}
+                    source={{uri: element.imageUrl}}
+                    style={{width, height, resizeMode: 'contain'}}
+                  />
 
-              <Profile
-                title={element.title}
-                marginLeft={50}
-                marginTop={20}
-                navigation={this.props.navigation}
-              />
+                  <Profile
+                    title={element.title}
+                    marginLeft={50}
+                    marginTop={20}
+                    navigation={this.props.navigation}
+                  />
 
-              <NftName
-                title={element.content}
-                marginLeft={50}
-                fontSize={45}
-                onPress={() =>
-                  this.props.navigation.navigate('SUGESST', {
-                    title: element.title,
-                    content: element.content,
-                    cost: element.cost,
-                    imageUrl: element.imageUrl,
-                  })
-                }
-              />
+                  <NftName
+                    title={element.content}
+                    marginLeft={50}
+                    fontSize={45}
+                    onPress={() =>
+                      this.props.navigation.navigate('SUGESST', {
+                        title: element.title,
+                        content: element.content,
+                        cost: element.cost,
+                        imageUrl: element.imageUrl,
+                      })
+                    }
+                  />
 
-              <NftInformation
-                width={170}
-                marginLeft={30}
-                curTitle={element.cost}
-                costTitle={element.cost * 10000}
-              />
+                  <NftInformation
+                    width={170}
+                    marginLeft={30}
+                    curTitle={element.cost}
+                    costTitle={element.cost * 10000}
+                  />
 
-              <CustomButton
-                titleMarginLeft={20}
-                buttonMarginLeft={48}
-                onPress={() =>
-                  this.props.navigation.navigate('SUGESST', {
-                    title: element.title,
-                    content: element.content,
-                    cost: element.cost,
-                    imageUrl: element.imageUrl,
-                  })
-                }
-              />
-            </View>
-          ))}
+                  <CustomButton
+                    titleMarginLeft={20}
+                    buttonMarginLeft={48}
+                    onPress={() =>
+                      this.props.navigation.navigate('SUGESST', {
+                        title: element.title,
+                        content: element.content,
+                        cost: element.cost,
+                        imageUrl: element.imageUrl,
+                      })
+                    }
+                  />
+                </View>
+              );
+          })}
         </ScrollView>
 
         <View style={styles.narrowBtn}>
