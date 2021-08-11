@@ -65,6 +65,8 @@ export default class DetailBuy extends Component {
   };
 
   render() {
+    const {cost} = this.props.route.params;
+
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {this.state.isLoggedIn ? (
@@ -76,7 +78,7 @@ export default class DetailBuy extends Component {
         <GoMain navigation={this.props.navigation} />
 
         <View style={styles.colum}>
-          <NftInformation curTitle={'0.01'} costTitle={'10,000'} />
+          <NftInformation curTitle={cost} costTitle={cost*100} />
 
           <BuyText title={this.state.eth + 'ETH'} />
 
