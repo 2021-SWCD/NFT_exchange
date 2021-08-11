@@ -6,9 +6,6 @@ import I18n from '../src/config/i18n';
 
 export default class TabInfoScreen extends React.Component {
   render() {
-    
-    const {title} = this.props.route.params;
-
     return (
       <View style={styles.container}>
         <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
@@ -18,11 +15,11 @@ export default class TabInfoScreen extends React.Component {
         <Profile
           profileWidth={40}
           profileHeight={40}
-          title={title}
+          title={'hyunji'}
           nameMarginLeft={20}
           nameMarginTop={8}
         />
-        <View style={styles.line} />
+        <View style={styles.Line} />
       </View>
     );
   }
