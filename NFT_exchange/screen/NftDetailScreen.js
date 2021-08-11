@@ -130,7 +130,9 @@ export default class NftDetailScreen extends Component {
                   <View style={styles.btnContainer}>
                     <TouchableOpacity>
                       <Text
-                        onPress={() => this.goDetailBuy()}
+                        onPress={() => this.props.navigation.navigate('BUY', {
+                          cost: cost,
+                        })}
                         style={styles.modalOkBtn}>
                         {I18n.t('modalOkBtn')}
                       </Text>
