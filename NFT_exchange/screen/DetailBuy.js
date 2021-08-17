@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, ScrollView} from 'react-native';
-import {LoginAfterHeader, LoginHeader} from '../component/common/login';
-import {GoMain} from '../component/common/gomain';
+import {LoginAfterHeader, LoginHeader} from '../src/component/common/login';
+import {GoMain} from '../src/component/common/gomain';
 import {
   CustomButton,
   CustomCancelButton,
   NftInformation,
-} from '../component/common/commonelement';
-import {BuyText, BuyScreen} from '../component/buy/buyelement';
+} from '../src/component/common/commonelement';
+import {BuyText, BuyScreen} from '../src/component/buy/buyelement';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 

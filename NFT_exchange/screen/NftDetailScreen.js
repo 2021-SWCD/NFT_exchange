@@ -8,16 +8,16 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import {LoginAfterHeader, LoginHeader} from '../component/common/login';
+import {LoginAfterHeader, LoginHeader} from '../src/component/common/login';
 import {
   CardImage,
   NftName,
   Profile,
   CustomButton,
   NftInformation,
-} from '../component/common/commonelement';
-import GoMain from '../component/common/gomain/GoMain';
-import {TabBar, WarnTxt} from '../component/nftdetail';
+} from '../src/component/common/commonelement';
+import GoMain from '../src/component/common/gomain/GoMain';
+import {TabBar, WarnTxt} from '../src/component/nftdetail';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
 

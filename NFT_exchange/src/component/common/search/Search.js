@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SearchIcons from './searchelement/SearchIcons';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Qrcode, QrWalletNotLogin, QrWallet} from '../commonelement';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
 const Input = ({goWrongSearch}) => {
   const [text, setText] = useState('');

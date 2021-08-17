@@ -1,8 +1,8 @@
 import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-import SuggestScreen from '../../screen/SuggestScreen';
-import TabInfoScreen from '../../screen/TabInfoScreen';
-import I18n from '../../src/config/i18n';
+import SuggestScreen from '../../../screen/SuggestScreen';
+import TabInfoScreen from '../../../screen/TabInfoScreen';
+import I18n from '../../../src/config/i18n';
 
 const TabBar = createMaterialTopTabNavigator(
   {

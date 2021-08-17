@@ -1,15 +1,14 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Profile from './Profile';
-import CustomButton from './CustomButton';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
-export default class QrWalletNotLogin extends React.Component {
+export default class QrWallet extends React.Component {
   static defaultProps = {
     title: 'untitled',
     color: 'black',
-    marginLeft: 100,
+    marginLeft: 40,
     marginTop: 10,
     onPress: () => null,
   };
@@ -23,32 +22,36 @@ export default class QrWalletNotLogin extends React.Component {
           <View style={styles.topViewContainer}>
             <View style={styles.rowArray}>
               <Profile
-                title={I18n.t('notLoginState')}
+                title={'minj-j'}
                 marginLeft={15}
-                fontSize={15}
+                fontSize={20}
                 navigation={this.props.navigation}></Profile>
-              <TouchableOpacity onPress={() => this.goLoginScreen()}>
+              <TouchableOpacity onPress={() => this.goArtistScreen()}>
                 <Icon name="chevron-forward-outline" size={30}></Icon>
               </TouchableOpacity>
             </View>
           </View>
           <View style={styles.warnContainer}>
-            <Icon style={{marginRight: 5}} name="sad-outline" size={45} />
-            <Text style={styles.wrantext}>{I18n.t('depositEthereum1')}</Text>
-            <Text style={styles.wrantext}>{I18n.t('depositEthereum2')}</Text>
-            <CustomButton
-              title={I18n.t('notLoginStateGoLogin')}
-              titlemarginLeft={20}
-              onPress={() => this.goLoginScreen()}
+            <Text style={styles.guidetext}>
+              {I18n.t('notLoginStateContent1')}
+            </Text>
+            <Text style={styles.guidetext}>
+              {I18n.t('notLoginStateContent2')}
+            </Text>
+            <Image
+              source={{
+                uri: 'https://blog.kakaocdn.net/dn/bqqWTy/btqDQtYuJua/X1KNO1U3u3kzWQBunWOVCK/img.jpg',
+              }}
+              style={styles.qrContainer}
             />
           </View>
         </View>
       </View>
     );
   }
-  goLoginScreen() {
-    // LoginScreen으로 화면 이동
-    this.props.navigation.navigate('LOGIN');
+  goArtistScreen() {
+    // ARTIST_screen으로 화면 이동
+    this.props.navigation.navigate('ARTIST');
   }
 }
 
@@ -85,16 +88,19 @@ const styles = StyleSheet.create({
     borderRadius: 20, // 모서리 둥글게 테두리를 통틀어서 border라고 하나보다
     width: 300,
     height: 350,
-    borderWidth: 1,
-    borderColor: 'grey',
   },
 
   warnContainer: {
     alignItems: 'center',
-    marginTop: 55,
+    marginTop: 15,
   },
 
-  wrantext: {
+  qrContainer: {
+    width: 200,
+    height: 200,
+  },
+
+  guidetext: {
     marginBottom: 5,
     fontSize: 18,
     fontWeight: 'bold',

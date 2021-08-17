@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, Image, ScrollView} from 'react-native';
-import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import {LoginAfterHeader, LoginHeader} from '../component/common/login';
-import GoMain from '../component/common/gomain/GoMain';
+import NftSimpleInfoCard from '../src/component/common/nftsimpleinfocard/NftSimpleInfoCard';
+import {LoginAfterHeader, LoginHeader} from '../src/component/common/login';
+import GoMain from '../src/component/common/gomain/GoMain';
 import {
   ProfileImg,
   ProfileName,
   ProfileText,
-} from '../component/artist/artistelement';
+} from '../src/component/artist/artistelement';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';

@@ -1,7 +1,7 @@
 //버튼 커스텀을 위한 컴포넌트
 import React, {Component} from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
 export default class CustomButton extends Component {
   static defaultProps = {

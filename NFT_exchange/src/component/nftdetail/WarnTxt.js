@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import I18n from '../../src/config/i18n';
+import I18n from '../../../src/config/i18n';
 
 export default class WarnTxt extends Component {
   render() {

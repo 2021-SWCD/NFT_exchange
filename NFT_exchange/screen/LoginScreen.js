@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-import {KorbitLogo} from '../component/common/login/loginelement';
+import {KorbitLogo} from '../src/component/common/login/loginelement';
 import I18n from '../src/config/i18n';
 import auth from '@react-native-firebase/auth';
 

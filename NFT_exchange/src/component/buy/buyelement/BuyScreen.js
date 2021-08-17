@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
 export default class BuyScreen extends Component {
   static defaultProps = {

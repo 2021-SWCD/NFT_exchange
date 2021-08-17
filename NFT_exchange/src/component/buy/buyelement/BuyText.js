@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
 export default class BuyText extends Component {
   static defaultProps = {

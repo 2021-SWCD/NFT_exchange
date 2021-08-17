@@ -1,7 +1,7 @@
 //탭바 정보 탭의 정보 스크린
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {Profile} from '../component/common/commonelement';
+import {Profile} from '../src/component/common/commonelement';
 import I18n from '../src/config/i18n';
 
 export default class TabInfoScreen extends React.Component {

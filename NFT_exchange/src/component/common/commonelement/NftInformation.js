@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import 'react-native-gesture-handler';
 import {Timer} from '.';
-import I18n from '../../../src/config/i18n';
+import I18n from '../../../../src/config/i18n';
 
 export default class NftInformation extends React.Component {
   static defaultProps = {

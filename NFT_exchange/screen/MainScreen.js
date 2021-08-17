@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
-import {LoginAfterHeader, LoginHeader} from '../component/common/login';
+import {LoginAfterHeader, LoginHeader} from '../src/component/common/login';
 import AsyncStorage from '@react-native-community/async-storage';
-import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import {HotText} from '../component/common/commonelement';
-import Slide from '../component/main/slide/Slide';
-import Search from '../component/common/search/Search';
+import NftSimpleInfoCard from '../src/component/common/nftsimpleinfocard/NftSimpleInfoCard';
+import {HotText} from '../src/component/common/commonelement';
+import Slide from '../src/component/main/slide/Slide';
+import Search from '../src/component/common/search/Search';
 
 import firestore from '@react-native-firebase/firestore';
 

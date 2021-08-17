@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
-import {LoginAfterHeader, LoginHeader} from '../component/common/login';
-import NftSimpleInfoCard from '../component/common/nftsimpleinfocard/NftSimpleInfoCard';
-import {HotText} from '../component/common/commonelement';
+import {LoginAfterHeader, LoginHeader} from '../src/component/common/login';
+import NftSimpleInfoCard from '../src/component/common/nftsimpleinfocard/NftSimpleInfoCard';
+import {HotText} from '../src/component/common/commonelement';
 import AsyncStorage from '@react-native-community/async-storage';
-import Search from '../component/common/search/Search';
-import {WrongText} from '../component/wrong/wrongelement';
+import Search from '../src/component/common/search/Search';
+import {WrongText} from '../src/component/wrong/wrongelement';
 
 export default class WrongSearch extends React.Component {
   constructor() {
