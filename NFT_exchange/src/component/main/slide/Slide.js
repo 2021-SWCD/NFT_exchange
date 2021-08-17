@@ -17,16 +17,22 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import database from '@react-native-firebase/database';
 
+import { connect } from 'react-redux';
+import ActionCreator from '../../../actions';
+
+
 const {width} = Dimensions.get('window');
 const height = width * 0.5;
 var start = 0;
 
-export default class Slide extends React.Component {
+class Slide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       datalist: [],
     };
+
+    console.log(1);
 
     database()
       .ref()
@@ -85,14 +91,15 @@ export default class Slide extends React.Component {
                   <CustomButton
                     titleMarginLeft={20}
                     buttonMarginLeft={48}
-                    onPress={() =>
+                    onPress={() =>{
                       this.props.navigation.navigate('SUGESST', {
                         title: element.title,
                         content: element.content,
                         cost: element.cost,
                         imageUrl: element.imageUrl,
-                      })
-                    }
+                      }),
+                      this.props.changeNum(element.dataId)
+                    }}
                   />
                 </View>
               );
@@ -111,6 +118,10 @@ export default class Slide extends React.Component {
       </View>
     );
   }
+
+  
+
+  
 
   leftPage = () => {
     start -= width;
@@ -159,3 +170,22 @@ const styles = StyleSheet.create({
     margin: 5,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeNum: (num) => {
+      dispatch(ActionCreator.changeNum(num));
+    }
+    
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slide);
+
+

@@ -4,7 +4,11 @@ import {Text, View, StyleSheet} from 'react-native';
 import {Profile} from '../src/component/common/commonelement';
 import I18n from '../src/config/i18n';
 
-export default class TabInfoScreen extends React.Component {
+import { connect } from 'react-redux';
+import ActionCreators from '../src/reducers';
+
+class TabInfoScreen extends React.Component {
+  
   render() {
     return (
       <View style={styles.container}>
@@ -15,7 +19,7 @@ export default class TabInfoScreen extends React.Component {
         <Profile
           profileWidth={40}
           profileHeight={40}
-          title={'hyunji'}
+          title={this.props.count}
           nameMarginLeft={20}
           nameMarginTop={8}
         />
@@ -47,3 +51,11 @@ const styles = StyleSheet.create({
     borderColor: '#DCDCDC',
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+export default connect(mapStateToProps)(TabInfoScreen);
