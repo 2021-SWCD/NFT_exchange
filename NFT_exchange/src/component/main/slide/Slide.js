@@ -98,7 +98,7 @@ class Slide extends React.Component {
                         cost: element.cost,
                         imageUrl: element.imageUrl,
                       }),
-                      this.props.changeNum(element.dataId)
+                      this.props.changeTitle(element.title)
                     }}
                   />
                 </View>
@@ -173,14 +173,14 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    count: state.count
+    titleNum: state.titleNum
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeNum: (num) => {
-      dispatch(ActionCreator.changeNum(num));
+    changeTitle: (title) => {
+      dispatch(ActionCreator.changeTitle(title));
     }
     
   };

@@ -1,8 +1,8 @@
 import types from './types';
 
-export function changeNum(num) {
+export function changeTitle(title) {
   return {
-    type: types.NUM_CHANGE,
-    payload: num
+    type: types.TITLE_CHANGE,
+    payload: title
   };
 }

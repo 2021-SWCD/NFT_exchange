@@ -5,11 +5,12 @@ import {Profile} from '../src/component/common/commonelement';
 import I18n from '../src/config/i18n';
 
 import { connect } from 'react-redux';
-import ActionCreators from '../src/reducers';
+
 
 class TabInfoScreen extends React.Component {
-  
   render() {
+
+    
     return (
       <View style={styles.container}>
         <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
@@ -19,7 +20,8 @@ class TabInfoScreen extends React.Component {
         <Profile
           profileWidth={40}
           profileHeight={40}
-          title={this.props.count}
+          
+          title={this.props.titleNum}
           nameMarginLeft={20}
           nameMarginTop={8}
         />
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    count: state.count
+    titleNum: state.titleNum
   };
 }
 

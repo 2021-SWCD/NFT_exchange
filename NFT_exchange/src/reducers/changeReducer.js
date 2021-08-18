@@ -1,9 +1,9 @@
 import types from '../actions/types';
 
-const count = 0;
-export default (state = count, action) => {
+const titleNum = '';
+export default (state = titleNum, action) => {
   switch (action.type) {
-    case types.NUM_CHANGE:
+    case types.TITLE_CHANGE:
         return state = action.payload;
     default:
       return state;

@@ -1,5 +1,5 @@
 const types = {
-    NUM_CHANGE: 'NUM_CHANGE',
+    TITLE_CHANGE: 'TITLE_CHANGE',
   };
   
   export default types;
