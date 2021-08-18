@@ -6,3 +6,10 @@ export function changeTitle(title) {
     payload: title
   };
 }
+
+export function changeContent(content) {
+  return {
+    type: types.CONTENT_CHANGE,
+    payload: content
+  };
+}

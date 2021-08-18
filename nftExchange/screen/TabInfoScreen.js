@@ -5,12 +5,11 @@ import {Profile} from '../src/component/common/commonelement';
 import I18n from '../src/config/i18n';
 
 import { connect } from 'react-redux';
-
+import { setPage } from '../src/redux/modules/page';
 
 class TabInfoScreen extends React.Component {
   render() {
-
-    
+    const {title} = this.props.page;
     return (
       <View style={styles.container}>
         <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
@@ -20,10 +19,14 @@ class TabInfoScreen extends React.Component {
         <Profile
           profileWidth={40}
           profileHeight={40}
-          
-          title={this.props.titleNum}
+          title={title}
           nameMarginLeft={20}
           nameMarginTop={8}
+          onPress={() =>
+            this.props.navigation.navigate('ARTIST', {
+              title: title,
+            })
+          }
         />
         <View style={styles.line} />
       </View>
@@ -56,8 +59,14 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum
+    page : state.page,
   };
 }
 
-export default connect(mapStateToProps)(TabInfoScreen);
+function mapDispatchToProps(dispatch) {
+  return {
+    setPage : page => dispatch(setPage(page)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabInfoScreen);

@@ -16,6 +16,8 @@ target 'NFT_exchange' do
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'NFT_exchangeTests' do
     inherit! :complete
     # Pods for testing

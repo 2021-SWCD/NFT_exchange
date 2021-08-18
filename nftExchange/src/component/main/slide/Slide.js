@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import database from '@react-native-firebase/database';
 
 import { connect } from 'react-redux';
-import ActionCreator from '../../../actions';
+import { setPage} from '../../../redux/modules/page';
 
 
 const {width} = Dimensions.get('window');
@@ -43,6 +43,7 @@ class Slide extends React.Component {
   }
 
   render() {
+    console.log("page",this.props);
     return (
       <View style={styles.slideView}>
         <ScrollView
@@ -64,21 +65,28 @@ class Slide extends React.Component {
                     title={element.title}
                     marginLeft={50}
                     marginTop={20}
-                    navigation={this.props.navigation}
+                    onPress={() =>{
+                      this.props.navigation.navigate('ARTIST'),
+                      this.props.setPage({
+                        title :element.title,
+                        imageUrl: element.imageUrl,
+                      });
+                    }}
                   />
 
                   <NftName
                     title={element.content}
                     marginLeft={50}
                     fontSize={45}
-                    onPress={() =>
-                      this.props.navigation.navigate('SUGESST', {
-                        title: element.title,
-                        content: element.content,
-                        cost: element.cost,
+                    onPress={() =>{
+                      this.props.navigation.navigate('SUGESST'),
+                      this.props.setPage({
+                        title :element.title,
+                        content : element.content,
+                        cost : element.cost,
                         imageUrl: element.imageUrl,
-                      })
-                    }
+                      });
+                    }}
                   />
 
                   <NftInformation
@@ -92,13 +100,15 @@ class Slide extends React.Component {
                     titleMarginLeft={20}
                     buttonMarginLeft={48}
                     onPress={() =>{
-                      this.props.navigation.navigate('SUGESST', {
-                        title: element.title,
-                        content: element.content,
-                        cost: element.cost,
+                      this.props.navigation.navigate('SUGESST'),
+                      // this.props.changeTitle(element.title)
+                      // this.props.setTitle('리덕스 테스트');
+                      this.props.setPage({
+                        title :element.title,
+                        content : element.content,
+                        cost : element.cost,
                         imageUrl: element.imageUrl,
-                      }),
-                      this.props.changeTitle(element.title)
+                      });
                     }}
                   />
                 </View>
@@ -173,16 +183,13 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum
+    page : state.page,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeTitle: (title) => {
-      dispatch(ActionCreator.changeTitle(title));
-    }
-    
+    setPage : page => dispatch(setPage(page)),
   };
 }
 
