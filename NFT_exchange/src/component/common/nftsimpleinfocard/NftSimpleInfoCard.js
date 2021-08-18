@@ -1,20 +1,25 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {CardImage, NftName, Profile, NftCost,CustomButton} from '../commonelement';
+import {
+  CardImage,
+  NftName,
+  Profile,
+  NftCost,
+  CustomButton,
+} from '../commonelement';
 import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
 
 import {connect} from 'react-redux';
 import ActionCreator from '../../../actions';
 
-var indexNum = 5;
 
 class NftSimpleInfoCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       datalist: [],
-      index : 5,
+      index: 5,
     };
 
     database()
@@ -23,14 +28,10 @@ class NftSimpleInfoCard extends React.Component {
         console.log('datalist: ', snapshot.val());
         this.setState({datalist: snapshot.val()});
       });
-
-      
   }
 
-  
-
   render() {
-    console.log("--render?")
+    console.log('--render?');
     return (
       <View>
         {this.state.datalist.map((element, index) => {
@@ -83,7 +84,7 @@ class NftSimpleInfoCard extends React.Component {
           titleMarginLeft={35}
           buttonMarginLeft={80}
           title={'MORE'}
-          onPress={() => this.setState({index : this.state.index + 5})}
+          onPress={() => this.setState({index: this.state.index + 5})}
         />
       </View>
     );
