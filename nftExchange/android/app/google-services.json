@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "385501637711",
+    "project_id": "nft-exchange-e25e0",
+    "storage_bucket": "nft-exchange-e25e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385501637711:android:fa207150b2fe0d7f038e3a",
+        "android_client_info": {
+          "package_name": "com.nft_exchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385501637711-rcid7uadc3lmfi52k76gertbib1jv4vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAl0MwE0oEr8LKEx8wP_tCLJS2ApoRV3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385501637711-rcid7uadc3lmfi52k76gertbib1jv4vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
