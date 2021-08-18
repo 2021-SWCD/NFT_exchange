@@ -11,8 +11,9 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
+import { connect } from 'react-redux';
 
-export default class ArtistScreen extends Component {
+class ArtistScreen extends Component {
   constructor() { //모달 팝업창
     super();
     this.state = {
@@ -40,6 +41,7 @@ export default class ArtistScreen extends Component {
   };
 
   render() {
+    const {title,imageUrl} = this.props.page;
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {this.state.isLoggedIn ? (
@@ -54,13 +56,13 @@ export default class ArtistScreen extends Component {
           <Image
             style={styles.backGroundImage}
             source={{
-              uri: 'https://cdn.eyesmag.com/content/uploads/posts/2020/09/29/studio-ghibli-releases-400-free-to-use-images-01-0be601c8-2b4d-41f7-ba3c-f3a1a19697a6.jpg',
+              uri: imageUrl,
             }}
           />
 
           <Icon style={styles.share} name="share-social" size={31} />
 
-          <ProfileName title={'hyunji'} />
+          <ProfileName title={title} />
 
           <ProfileText title={I18n.t('coinAccount')} />
 
@@ -171,3 +173,11 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    page : state.page,
+  };
+}
+
+export default connect(mapStateToProps)(ArtistScreen);

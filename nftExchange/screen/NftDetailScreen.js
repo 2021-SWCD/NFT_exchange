@@ -23,7 +23,10 @@ import I18n from '../src/config/i18n';
 
 import database from '@react-native-firebase/database';
 
-export default class NftDetailScreen extends Component {
+import {connect} from 'react-redux';
+import setPage from '../src/redux/modules/page';
+
+class NftDetailScreen extends Component {
   //주석
   constructor() {
     //모달 팝업창
@@ -62,10 +65,10 @@ export default class NftDetailScreen extends Component {
   };
 
   render() {
-    const {title} = this.props.route.params;
-    const {content} = this.props.route.params;
-    const {cost} = this.props.route.params;
-    const {imageUrl} = this.props.route.params;
+    console.log('=============');
+    console.log('this.props', this.props.page);
+    console.log('=============');
+    const {title, content, cost, imageUrl} = this.props.page;
 
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
@@ -94,7 +97,12 @@ export default class NftDetailScreen extends Component {
             title={title}
             marginTop={10}
             marginLeft={20}
-            navigation={this.props.navigation}
+            onPress={() =>
+              this.props.navigation.navigate('ARTIST', {
+                title: title,
+                imageUrl: imageUrl,
+              })
+            }
           />
           {console.log('title:', title)}
           <NftName
@@ -130,9 +138,11 @@ export default class NftDetailScreen extends Component {
                   <View style={styles.btnContainer}>
                     <TouchableOpacity>
                       <Text
-                        onPress={() => this.props.navigation.navigate('BUY', {
-                          cost: cost,
-                        })}
+                        onPress={() =>
+                          this.props.navigation.navigate('BUY', {
+                            cost: cost,
+                          })
+                        }
                         style={styles.modalOkBtn}>
                         {I18n.t('modalOkBtn')}
                       </Text>
@@ -207,3 +217,17 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    page: state.page,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setPage: page => dispatch(setPage(page)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NftDetailScreen);

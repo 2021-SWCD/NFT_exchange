@@ -26,7 +26,7 @@ export default class Profile extends React.Component {
   }
   render() {
     return (
-      <TouchableOpacity onPress={() => this.goArtistScreen()}>
+      <TouchableOpacity onPress={this.props.onPress}>
         <View
           style={[
             styles.rowArray,
