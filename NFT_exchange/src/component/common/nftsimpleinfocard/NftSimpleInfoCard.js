@@ -4,7 +4,10 @@ import {CardImage, NftName, Profile, NftCost} from '../commonelement';
 import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
 
-export default class NftSimpleInfoCard extends React.Component {
+import { connect } from 'react-redux';
+import ActionCreator from '../../../actions';
+
+class NftSimpleInfoCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,13 +30,15 @@ export default class NftSimpleInfoCard extends React.Component {
             <View style={styles.container}>
               <CardImage
                 source={{uri: element.imageUrl}}
-                onPress={() =>
+                onPress={() =>{
                   this.props.navigation.navigate('SUGESST', {
                     title: element.title,
                     content: element.content,
                     cost: element.cost,
                     imageUrl: element.imageUrl,
-                  })
+                  }),
+                  this.props.changeTitle(element.title)
+                }
                 }
               />
               <View style={styles.cardContainer}>
@@ -41,13 +46,15 @@ export default class NftSimpleInfoCard extends React.Component {
                   <NftName
                     title={element.content}
                     fontSize={20}
-                    onPress={() =>
+                    onPress={() =>{
                       this.props.navigation.navigate('SUGESST', {
                         title: element.title,
                         content: element.content,
                         cost: element.cost,
                         imageUrl: element.imageUrl,
-                      })
+                      }),
+                      this.props.changeTitle(element.title)
+                    }
                     }
                   />
                   <Profile
@@ -82,3 +89,20 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    titleNum: state.titleNum
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeTitle: (title) => {
+      dispatch(ActionCreator.changeTitle(title));
+    }
+    
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NftSimpleInfoCard);
