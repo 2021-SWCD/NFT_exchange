@@ -10,7 +10,7 @@ import {
 import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
 import { connect } from 'react-redux';
-import ActionCreator from '../../../actions';
+import { setPage } from '../../../redux/modules/page';
 
 class NftSimpleInfoCard extends React.Component {
   constructor(props) {
@@ -39,14 +39,14 @@ class NftSimpleInfoCard extends React.Component {
                 <View style={styles.container}>
                   <CardImage
                     source={{uri: element.imageUrl}}
-                    onPress={() => {
-                      this.props.navigation.navigate('SUGESST', {
-                        title: element.title,
-                        content: element.content,
-                        cost: element.cost,
+                    onPress={() =>{
+                      this.props.navigation.navigate('SUGESST'),
+                      this.props.setPage({
+                        title :element.title,
+                        content : element.content,
+                        cost : element.cost,
                         imageUrl: element.imageUrl,
-                      }),
-                        this.props.changeTitle(element.title);
+                      });
                     }}
                   />
                   <View style={styles.cardContainer}>
@@ -54,14 +54,14 @@ class NftSimpleInfoCard extends React.Component {
                       <NftName
                         title={element.content}
                         fontSize={20}
-                        onPress={() => {
-                          this.props.navigation.navigate('SUGESST', {
-                            title: element.title,
-                            content: element.content,
-                            cost: element.cost,
+                        onPress={() =>{
+                          this.props.navigation.navigate('SUGESST'),
+                          this.props.setPage({
+                            title :element.title,
+                            content : element.content,
+                            cost : element.cost,
                             imageUrl: element.imageUrl,
-                          }),
-                            this.props.changeTitle(element.title);
+                          });
                         }}
                       />
                       <Profile
@@ -107,15 +107,13 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum,
+    page : state.page,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeTitle: title => {
-      dispatch(ActionCreator.changeTitle(title));
-    },
+    setPage : page => dispatch(setPage(page)),
   };
 }
 

@@ -14,13 +14,13 @@ import SignUpScreen from './screen/SignUpScreen';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from './src/reducers';
+import store from './src/redux/configure';
 
 const Stack = createStackNavigator();
 function App() {
   return (
 
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="MAIN" screenOptions={{ headerShown: false }}>

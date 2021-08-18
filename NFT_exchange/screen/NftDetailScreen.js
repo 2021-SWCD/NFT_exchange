@@ -24,7 +24,6 @@ import I18n from '../src/config/i18n';
 import database from '@react-native-firebase/database';
 
 import {connect} from 'react-redux';
-import ActionCreator from '../src/actions/index.js';
 
 class NftDetailScreen extends Component {
   //주석
@@ -65,11 +64,11 @@ class NftDetailScreen extends Component {
   };
 
   render() {
-    const {title} = this.props.route.params;
-    const {content} = this.props.route.params;
-    const {cost} = this.props.route.params;
-    const {imageUrl} = this.props.route.params;
-
+    
+    console.log('=============');
+    console.log("this.props",this.props.page);
+    console.log('=============');
+    const {title,content,cost,imageUrl} = this.props.page;
     return (
       <ScrollView style={styles.container} stickyHeaderIndices={[1]}>
         {this.state.isLoggedIn ? (
@@ -100,8 +99,8 @@ class NftDetailScreen extends Component {
             onPress={() => {
               this.props.navigation.navigate('ARTIST', {
                 title: this.props.titleNum,
-              }),
-                this.props.changeTitle(this.props.titleNum);
+              })
+                // this.props.setTitle(this.props.titleNum);
             }}
           />
           {console.log('title:', title)}
@@ -218,15 +217,13 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum,
+    page : state.page,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeTitle: title => {
-      dispatch(ActionCreator.changeTitle(title));
-    },
+
   };
 }
 

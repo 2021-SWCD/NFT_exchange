@@ -35,7 +35,10 @@
     "react-navigation": "^4.4.4",
     "react-navigation-tabs": "2.11.1",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.1"
+    "redux": "^4.1.1",
+    "redux-logger": "3.0.6",
+    "redux-pender": "2.0.12",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
