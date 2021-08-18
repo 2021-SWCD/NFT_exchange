@@ -1,6 +1,12 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {CardImage, NftName, Profile, NftCost} from '../commonelement';
+import {
+  CardImage,
+  NftName,
+  Profile,
+  NftCost,
+  CustomButton,
+} from '../commonelement';
 import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
 import { connect } from 'react-redux';
@@ -11,6 +17,7 @@ class NftSimpleInfoCard extends React.Component {
     super(props);
     this.state = {
       datalist: [],
+      index: 5,
     };
 
     database()
@@ -22,54 +29,61 @@ class NftSimpleInfoCard extends React.Component {
   }
 
   render() {
+    console.log('--render?');
     return (
       <View>
-        {this.state.datalist.map((element, index) => (
-          <View key={index}>
-            <View style={styles.container}>
-              <CardImage
-                source={{uri: element.imageUrl}}
-                onPress={() =>
-                  this.props.navigation.navigate('SUGESST', {
-                    title: element.title,
-                    content: element.content,
-                    cost: element.cost,
-                    imageUrl: element.imageUrl,
-                  })
-                }
-              />
-              <View style={styles.cardContainer}>
-                <View style={styles.informContainer}>
-                  <NftName
-                    title={element.content}
-                    fontSize={20}
-                    onPress={() =>
+        {this.state.datalist.map((element, index) => {
+          if (index < this.state.index)
+            return (
+              <View key={index}>
+                <View style={styles.container}>
+                  <CardImage
+                    source={{uri: element.imageUrl}}
+                    onPress={() => {
                       this.props.navigation.navigate('SUGESST', {
                         title: element.title,
                         content: element.content,
                         cost: element.cost,
                         imageUrl: element.imageUrl,
-                      })
-                    }
-                  />
-                  <Profile
-                    title={element.title}
-                    marginTop={10}
-                    onPress={() =>{
-                      this.props.navigation.navigate('ARTIST', {
-                        title: element.title,
-                        imageUrl: element.imageUrl,
                       }),
-                      this.props.changeTitle(element.title)
+                        this.props.changeTitle(element.title);
                     }}
                   />
-                  <NftCost marginTop={5} nftCost={element.cost} />
-                  <Timer backgroundColor={'#d3d3d3'} />
+                  <View style={styles.cardContainer}>
+                    <View style={styles.informContainer}>
+                      <NftName
+                        title={element.content}
+                        fontSize={20}
+                        onPress={() => {
+                          this.props.navigation.navigate('SUGESST', {
+                            title: element.title,
+                            content: element.content,
+                            cost: element.cost,
+                            imageUrl: element.imageUrl,
+                          }),
+                            this.props.changeTitle(element.title);
+                        }}
+                      />
+                      <Profile
+                        title={element.title}
+                        marginTop={10}
+                        navigation={this.props.navigation}
+                      />
+                      <NftCost marginTop={5} nftCost={element.cost} />
+                      <Timer backgroundColor={'#d3d3d3'} />
+                    </View>
+                  </View>
                 </View>
               </View>
-            </View>
-          </View>
-        ))}
+            );
+        })}
+
+        <CustomButton
+          titleMarginLeft={35}
+          buttonMarginLeft={80}
+          title={'MORE'}
+          onPress={() => this.setState({index: this.state.index + 5})}
+        />
       </View>
     );
   }
@@ -93,16 +107,15 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum
+    titleNum: state.titleNum,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeTitle: (title) => {
+    changeTitle: title => {
       dispatch(ActionCreator.changeTitle(title));
-    }
-    
+    },
   };
 }
 
