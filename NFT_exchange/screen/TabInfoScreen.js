@@ -4,13 +4,11 @@ import {Text, View, StyleSheet} from 'react-native';
 import {Profile} from '../src/component/common/commonelement';
 import I18n from '../src/config/i18n';
 
-import { connect } from 'react-redux';
-
+import {connect} from 'react-redux';
+import ActionCreator from '../src/actions/index.js';
 
 class TabInfoScreen extends React.Component {
   render() {
-
-    
     return (
       <View style={styles.container}>
         <Text style={styles.boldText}>{I18n.t('explainProductTxt')}</Text>
@@ -20,10 +18,15 @@ class TabInfoScreen extends React.Component {
         <Profile
           profileWidth={40}
           profileHeight={40}
-          
           title={this.props.titleNum}
           nameMarginLeft={20}
           nameMarginTop={8}
+          onPress={() => {
+            this.props.navigation.navigate('ARTIST', {
+              title: this.props.titleNum,
+            }),
+              this.props.changeTitle(this.props.titleNum);
+          }}
         />
         <View style={styles.line} />
       </View>
@@ -56,8 +59,16 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    titleNum: state.titleNum
+    titleNum: state.titleNum,
   };
 }
 
-export default connect(mapStateToProps)(TabInfoScreen);
+function mapDispatchToProps(dispatch) {
+  return {
+    changeTitle: title => {
+      dispatch(ActionCreator.changeTitle(title));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabInfoScreen);

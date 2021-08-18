@@ -3,8 +3,10 @@ import {View, StyleSheet} from 'react-native';
 import {CardImage, NftName, Profile, NftCost} from '../commonelement';
 import Timer from '../commonelement/Timer';
 import database from '@react-native-firebase/database';
+import { connect } from 'react-redux';
+import ActionCreator from '../../../actions';
 
-export default class NftSimpleInfoCard extends React.Component {
+class NftSimpleInfoCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +55,13 @@ export default class NftSimpleInfoCard extends React.Component {
                   <Profile
                     title={element.title}
                     marginTop={10}
-                    navigation={this.props.navigation}
+                    onPress={() =>{
+                      this.props.navigation.navigate('ARTIST', {
+                        title: element.title,
+                        imageUrl: element.imageUrl,
+                      }),
+                      this.props.changeTitle(element.title)
+                    }}
                   />
                   <NftCost marginTop={5} nftCost={element.cost} />
                   <Timer backgroundColor={'#d3d3d3'} />
@@ -82,3 +90,20 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    titleNum: state.titleNum
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeTitle: (title) => {
+      dispatch(ActionCreator.changeTitle(title));
+    }
+    
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NftSimpleInfoCard);

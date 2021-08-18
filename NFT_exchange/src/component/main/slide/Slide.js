@@ -64,7 +64,13 @@ class Slide extends React.Component {
                     title={element.title}
                     marginLeft={50}
                     marginTop={20}
-                    navigation={this.props.navigation}
+                    onPress={() =>{
+                      this.props.navigation.navigate('ARTIST', {
+                        title: element.title,
+                        imageUrl: element.imageUrl,
+                      }),
+                      this.props.changeTitle(element.title)
+                    }}
                   />
 
                   <NftName

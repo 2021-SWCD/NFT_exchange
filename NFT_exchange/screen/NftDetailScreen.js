@@ -23,7 +23,10 @@ import I18n from '../src/config/i18n';
 
 import database from '@react-native-firebase/database';
 
-export default class NftDetailScreen extends Component {
+import {connect} from 'react-redux';
+import ActionCreator from '../src/actions/index.js';
+
+class NftDetailScreen extends Component {
   //주석
   constructor() {
     //모달 팝업창
@@ -94,7 +97,12 @@ export default class NftDetailScreen extends Component {
             title={title}
             marginTop={10}
             marginLeft={20}
-            navigation={this.props.navigation}
+            onPress={() => {
+              this.props.navigation.navigate('ARTIST', {
+                title: this.props.titleNum,
+              }),
+                this.props.changeTitle(this.props.titleNum);
+            }}
           />
           {console.log('title:', title)}
           <NftName
@@ -207,3 +215,19 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    titleNum: state.titleNum,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeTitle: title => {
+      dispatch(ActionCreator.changeTitle(title));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NftDetailScreen);

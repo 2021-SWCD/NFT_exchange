@@ -11,8 +11,9 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import I18n from '../src/config/i18n';
+import { connect } from 'react-redux';
 
-export default class ArtistScreen extends Component {
+class ArtistScreen extends Component {
   constructor() { //모달 팝업창
     super();
     this.state = {
@@ -60,7 +61,7 @@ export default class ArtistScreen extends Component {
 
           <Icon style={styles.share} name="share-social" size={31} />
 
-          <ProfileName title={'hyunji'} />
+          <ProfileName title={this.props.titleNum} />
 
           <ProfileText title={I18n.t('coinAccount')} />
 
@@ -171,3 +172,11 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
 });
+
+function mapStateToProps(state) {
+  return {
+    titleNum: state.titleNum
+  };
+}
+
+export default connect(mapStateToProps)(ArtistScreen);
