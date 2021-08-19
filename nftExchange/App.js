@@ -20,7 +20,7 @@ function App() {
   return (
 
     <Provider store={store}>
-      {/* <Provider store={createStore(reducers)}></Provider> */}
+      
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="MAIN" screenOptions={{ headerShown: false }}>
