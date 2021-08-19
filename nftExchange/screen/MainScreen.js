@@ -7,7 +7,6 @@ import {HotText} from '../src/component/common/commonelement';
 import Slide from '../src/component/main/slide/Slide';
 import Search from '../src/component/common/search/Search';
 
-import firestore from '@react-native-firebase/firestore';
 
 
 
