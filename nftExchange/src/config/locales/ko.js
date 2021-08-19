@@ -30,6 +30,9 @@ const ko = {
   depositEthereum1: '이더리움을 입금하려면',
   depositEthereum2: '아래 QR코드를 스캔하세요',
 
+  //component/common/nftsimpleinfocard/NftSimpleInfoCard.js
+  showMore : '더보기',
+
   //component/common/gomain/GoMain.js
   goMain: '처음으로',
 

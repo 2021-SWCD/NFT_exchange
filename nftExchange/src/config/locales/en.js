@@ -29,6 +29,9 @@ const en = {
   depositEthereum1: 'Scan the QR code',
   depositEthereum2: 'below to deposit Ethereum',
 
+  //component/common/nftsimpleinfocard/NftSimpleInfoCard.js
+  showMore : 'MORE',
+
   //component/common/gomain/GoMain.js
   goMain: 'GoMain',
 
