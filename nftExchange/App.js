@@ -12,9 +12,7 @@ import DetailBuy from './screen/DetailBuy';
 import Logout from './screen/Logout';
 import SignUpScreen from './screen/SignUpScreen';
 
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from './src/reducers';
 import store from './src/redux/configure';
 
 const Stack = createStackNavigator();
